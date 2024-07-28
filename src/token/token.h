@@ -122,6 +122,15 @@ typedef struct _token {
  */
 Token* makeToken(TokenType type);
 
+/*
+ * @function: getLastToken
+ * @description: get last created token in loop. This is a recursive func.
+ * @arguments: Token* token
+ * @return: Token*
+ */
 Token* getLastToken(Token* token);
+
+
+
 
 #endif //TOKEN_H
