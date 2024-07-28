@@ -33,4 +33,5 @@ bool isDigit();
 
 bool isAlpha();
 
+void freeLexer();
 #endif //LEXER_H
