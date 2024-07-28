@@ -1,19 +1,21 @@
 /**
-The Kipl Programming Language
+ The Kipl Programming Language
 
-File: token/token.h
+ File: token/token.h
 
-||  //  ||  ||===\\  ||
-||//    ||  ||   ||  ||
-||||    ||  ||===//  ||
-|| \\   ||  ||       ||
-||  \\  ||  ||       ||=====
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
 
 
 **/
 
 #ifndef TOKEN_H
 #define TOKEN_H
+
+
 
 typedef enum _token_type {
     TOKEN_EOF,
@@ -97,7 +99,7 @@ typedef enum _token_type {
     TOKEN_SWITCH,
     TOKEN_CASE,
     TOKEN_BREAK,
-    TOKEN_CONTINEU
+    TOKEN_CONTINUE
 
 
 } TokenType;
@@ -108,6 +110,18 @@ typedef struct _token {
     unsigned int position;
     unsigned int line;
     unsigned int column;
+    struct _token* next;
 } Token;
+
+
+/*
+ * @function: makeToken
+ * @description: check a char is a-z or A-Z or _
+ * @arguments: char c is a character input
+ * @return: bool, true or false
+ */
+Token* makeToken(TokenType type);
+
+Token* getLastToken(Token* token);
 
 #endif //TOKEN_H

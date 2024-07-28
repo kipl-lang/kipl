@@ -61,6 +61,12 @@ build CMakeFiles/interpreter.dir/src/token/token.c.obj: C_COMPILER__interpreter_
   OBJECT_DIR = CMakeFiles\interpreter.dir
   OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\token
 
+build CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/OneDrive/Masaüstü/kipl/interpreter/src/lexer/lexer.c || cmake_object_order_depends_target_interpreter
+  DEP_FILE = CMakeFiles\interpreter.dir\src\lexer\lexer.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\interpreter.dir
+  OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\lexer
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target interpreter
@@ -69,7 +75,7 @@ build CMakeFiles/interpreter.dir/src/token/token.c.obj: C_COMPILER__interpreter_
 #############################################
 # Link the executable interpreter.exe
 
-build interpreter.exe: C_EXECUTABLE_LINKER__interpreter_Debug CMakeFiles/interpreter.dir/src/main.c.obj CMakeFiles/interpreter.dir/src/token/token.c.obj
+build interpreter.exe: C_EXECUTABLE_LINKER__interpreter_Debug CMakeFiles/interpreter.dir/src/main.c.obj CMakeFiles/interpreter.dir/src/token/token.c.obj CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\interpreter.dir

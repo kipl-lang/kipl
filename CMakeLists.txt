@@ -5,4 +5,7 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(interpreter src/main.c
         src/token/token.c
-        src/token/token.h)
+        src/token/token.h
+        src/lexer/lexer.c
+        src/lexer/lexer.h
+)
