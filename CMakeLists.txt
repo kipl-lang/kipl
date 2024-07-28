@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.28)
+project(interpreter C)
+
+set(CMAKE_C_STANDARD 11)
+
+add_executable(interpreter src/main.c
+        src/token/token.c
+        src/token/token.h)

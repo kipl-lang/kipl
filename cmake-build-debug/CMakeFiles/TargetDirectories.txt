@@ -1,0 +1,3 @@
+C:/Users/Kerem/OneDrive/Masaüstü/kipl/interpreter/cmake-build-debug/CMakeFiles/interpreter.dir
+C:/Users/Kerem/OneDrive/Masaüstü/kipl/interpreter/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Kerem/OneDrive/Masaüstü/kipl/interpreter/cmake-build-debug/CMakeFiles/rebuild_cache.dir
