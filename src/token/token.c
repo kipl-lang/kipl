@@ -2,7 +2,7 @@
 // Created by Kerem on 28/07/2024.
 //
 
-#include "token.h"i
+#include "token.h"
 #include "stdlib.h"
 
 Token* makeToken(TokenType type, char* value, unsigned int line, unsigned int column) {

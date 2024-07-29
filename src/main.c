@@ -2,7 +2,7 @@
 #include "lexer/lexer.h"
 
 int main(void) {
-    char* string = "var number: \n i32 = 5";
+    char* string = "**=";
     Token* token =  scanner(string);
 
     while(token->type != TOKEN_EOF) {

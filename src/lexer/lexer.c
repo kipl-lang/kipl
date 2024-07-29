@@ -1,4 +1,16 @@
+/**
+The Kipl Programming Language
 
+ File: lexer/lexer.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 
 #include "lexer.h"
 #include <stdlib.h>
@@ -12,7 +24,7 @@ Lexer* createLexer(char* source) {
     lexer->source = source;
     lexer->currentPosition = 0;
     lexer->currentLine = 1;
-    lexer->currentColumn = 1;
+    lexer->currentColumn = 0;
 
     return lexer;
 }
@@ -62,8 +74,11 @@ Token* scanToken() {
         case '*':
             if(isMatch('='))
                 return makeToken(TOKEN_MULTIPLY_EQUAL, "*=", lexer->currentLine, lexer->currentColumn);
-            if(isMatch('*'))
+            if(isMatch('*')) {
+                if(isMatch('='))
+                    return makeToken(TOKEN_EQUAL_POWER, "**=", lexer->currentLine, lexer->currentColumn);
                 return makeToken(TOKEN_POWER, "**", lexer->currentLine, lexer->currentColumn);
+            }
             return makeToken(TOKEN_MULTPLY, "*", lexer->currentLine, lexer->currentColumn);
         case '/':
             if(isMatch('='))
@@ -100,8 +115,11 @@ Token* scanToken() {
                 return makeToken(TOKEN_BANG_EQUAL, "!=", lexer->currentLine, lexer->currentColumn);
             return makeToken(TOKEN_BANG, "!", lexer->currentLine, lexer->currentColumn);
         case '=':
-            if(isMatch('='))
+            if(isMatch('=')) {
+                if(isMatch('='))
+                    return makeToken(TOKEN_EQUAL_EQUAL, "===", lexer->currentLine, lexer->currentColumn);
                 return makeToken(TOKEN_EQUAL_EQUAL, "==", lexer->currentLine, lexer->currentColumn);
+            }
             return makeToken(TOKEN_EQUAL, "=", lexer->currentLine, lexer->currentColumn);
         case '"':
             return stringLiteral();
