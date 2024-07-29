@@ -1,0 +1,20 @@
+# ninja log v6
+148	1344	7439389198693232	CMakeFiles/interpreter.dir/src/token/token.c.obj	f2e7d98670b5c97b
+167	1370	7439389198883257	CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj	1c42bf6eb724dc4c
+128	1384	7439389198513221	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+12	202	7439389567671322	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+26	394	7439389779560655	CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj	1c42bf6eb724dc4c
+17	1309	7439390236828100	CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj	1c42bf6eb724dc4c
+1311	1626	7439390249769082	interpreter.exe	95cc445091207ae4
+12	191	7439390996675892	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+193	486	7439390998486087	interpreter.exe	95cc445091207ae4
+13	263	7439391239209228	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+266	571	7439391241739482	interpreter.exe	95cc445091207ae4
+12	185	7439391464009598	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+187	399	7439391465759789	interpreter.exe	95cc445091207ae4
+11	171	7439391990765419	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+173	419	7439391992395576	interpreter.exe	95cc445091207ae4
+11	209	7439393494649382	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+210	484	7439393496649573	interpreter.exe	95cc445091207ae4
+14	322	7439395412806828	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+325	721	7439395415914854	interpreter.exe	95cc445091207ae4

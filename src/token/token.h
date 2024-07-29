@@ -60,10 +60,11 @@ typedef enum _token_type {
     TOKEN_BRACKET_SQUARE_RITGHT,        // ]
     TOKEN_BRACKET_CURLY_LEFT,           // {
     TOKEN_BRACKET_CURLY_RIGHT,          // }
-    TOKEN_LES,                          // <
+    TOKEN_LESS,                         // <
     TOKEN_GREAT,                        // >
     TOKEN_DOT,                          // .
     TOKEN_COMMA,                        // ,
+    TOKEN_COLON,                        // :
     TOKEN_BANG,                         // !
 
     // two char
@@ -106,8 +107,7 @@ typedef enum _token_type {
 
 typedef struct _token {
     TokenType type;
-    const char* value;
-    unsigned int position;
+    char* value;
     unsigned int line;
     unsigned int column;
     struct _token* next;
@@ -116,11 +116,11 @@ typedef struct _token {
 
 /*
  * @function: makeToken
- * @description: check a char is a-z or A-Z or _
- * @arguments: char c is a character input
- * @return: bool, true or false
+ * @description: create a token and return the token
+ * @arguments: TokenType type, char* value, unsigned int line, unsigned int column
+ * @return: Token*
  */
-Token* makeToken(TokenType type);
+Token* makeToken(TokenType type, char* value, unsigned int line, unsigned int column);
 
 /*
  * @function: getLastToken

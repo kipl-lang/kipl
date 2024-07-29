@@ -20,16 +20,18 @@
 
 typedef struct _lexer {
     char* source;
-    unsigned int position;
+    unsigned int currentPosition;
+    unsigned int currentLine;
+    unsigned int currentColumn;
 } Lexer;
 
 /*
  * @function: createLexer
  * @description: create a lexer
- * @arguments: nothing
+ * @arguments: char* source
  * @return: Lexer*
  */
-Lexer* createLexer();
+Lexer* createLexer(char* source);
 
 /*
  * @function: scanner
@@ -38,6 +40,14 @@ Lexer* createLexer();
  * @return: Token*
  */
 Token* scanner(char* source);
+
+/*
+ * @function: scanToken
+ * @description: Scan token
+ * @arguments: nothing
+ * @return: Token*
+ */
+Token* scanToken();
 
 /*
  * @function: stringLiteral
@@ -80,14 +90,6 @@ void skipWhiteSpace();
 bool isMatch(char c);
 
 /*
- * @function: isAtEnd
- * @description: check is at End
- * @arguments: nothing
- * @return: bool
- */
-bool isAtEnd();
-
-/*
  * @function: peek
  * @description: get last char
  * @arguments: nothing
@@ -126,6 +128,14 @@ bool isAlpha(char c);
  * @return: bool
  */
 bool isDigit(char c);
+
+/*
+ * @function: isAtEnd
+ * @description: position is at end? true or false
+ * @arguments: nothing
+ * @return: bool
+ */
+bool isAtEnd();
 
 /*
  * @function: freeLexer
