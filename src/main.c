@@ -1,3 +1,17 @@
+/**
+ The Kipl Programming Language
+
+ File: main.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
+
 #include <stdio.h>
 #include "lexer/lexer.h"
 
@@ -11,4 +25,6 @@ int main(void) {
         printf("%d\n", token->column);
         token = token->next;
     }
+
+    freeTokens(token);
 }

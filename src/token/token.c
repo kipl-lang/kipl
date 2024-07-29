@@ -1,6 +1,16 @@
-//
-// Created by Kerem on 28/07/2024.
-//
+/**
+ The Kipl Programming Language
+
+ File: token/token.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 
 #include "token.h"
 #include "stdlib.h"
