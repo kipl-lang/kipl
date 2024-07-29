@@ -73,11 +73,17 @@ build CMakeFiles/interpreter.dir/src/parser/parser.c.obj: C_COMPILER__interprete
   OBJECT_DIR = CMakeFiles\interpreter.dir
   OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser
 
-build CMakeFiles/interpreter.dir/src/parser/Scope/scope.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/OneDrive/Masaüstü/kipl/interpreter/src/parser/Scope/scope.c || cmake_object_order_depends_target_interpreter
-  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\Scope\scope.c.obj.d
+build CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/OneDrive/Masaüstü/kipl/interpreter/src/parser/scope/scope.c || cmake_object_order_depends_target_interpreter
+  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\scope\scope.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\interpreter.dir
-  OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser\Scope
+  OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser\scope
+
+build CMakeFiles/interpreter.dir/src/parser/variables/variable.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/OneDrive/Masaüstü/kipl/interpreter/src/parser/variables/variable.c || cmake_object_order_depends_target_interpreter
+  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\variables\variable.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\interpreter.dir
+  OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser\variables
 
 
 # =============================================================================
@@ -87,7 +93,7 @@ build CMakeFiles/interpreter.dir/src/parser/Scope/scope.c.obj: C_COMPILER__inter
 #############################################
 # Link the executable interpreter.exe
 
-build interpreter.exe: C_EXECUTABLE_LINKER__interpreter_Debug CMakeFiles/interpreter.dir/src/main.c.obj CMakeFiles/interpreter.dir/src/token/token.c.obj CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj CMakeFiles/interpreter.dir/src/parser/parser.c.obj CMakeFiles/interpreter.dir/src/parser/Scope/scope.c.obj
+build interpreter.exe: C_EXECUTABLE_LINKER__interpreter_Debug CMakeFiles/interpreter.dir/src/main.c.obj CMakeFiles/interpreter.dir/src/token/token.c.obj CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj CMakeFiles/interpreter.dir/src/parser/parser.c.obj CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj CMakeFiles/interpreter.dir/src/parser/variables/variable.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\interpreter.dir
