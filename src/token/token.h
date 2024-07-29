@@ -130,7 +130,12 @@ Token* makeToken(TokenType type, char* value, unsigned int line, unsigned int co
  */
 Token* getLastToken(Token* token);
 
-
-
+/*
+ * @function: freeTokens
+ * @description: free allocated memories
+ * @arguments: Token* token
+ * @return: void
+ */
+void freeTokens(Token* token);
 
 #endif //TOKEN_H

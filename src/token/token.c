@@ -23,3 +23,13 @@ Token* getLastToken(Token* token) {
 
     return getLastToken(token->next);
 }
+
+void freeTokens(Token* token) {
+    Token* tempToken = token;
+
+    while(tempToken != NULL) {
+        Token* tempToken2 = tempToken;
+        tempToken = tempToken->next;
+        free(tempToken2);
+    }
+}

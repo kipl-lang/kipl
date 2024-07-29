@@ -1,5 +1,5 @@
 /**
-The Kipl Programming Language
+ The Kipl Programming Language
 
  File: lexer/lexer.c
 
