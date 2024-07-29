@@ -10,4 +10,7 @@ add_executable(interpreter src/main.c
         src/lexer/lexer.h
         src/parser/parser.c
         src/parser/parser.h
+        src/parser/global.h
+        src/parser/Scope/scope.c
+        src/parser/Scope/scope.h
 )
