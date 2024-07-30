@@ -13,9 +13,12 @@
 **/
 
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "lexer/lexer.h"
 
 int main(void) {
+
     char* string = "**=";
     Token* token =  scanner(string);
 

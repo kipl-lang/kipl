@@ -15,4 +15,5 @@ add_executable(interpreter src/main.c
         src/parser/Scope/scope.h
         src/parser/variables/variable.c
         src/parser/variables/variable.h
+        src/parser/dataTypes/i32.h
 )
