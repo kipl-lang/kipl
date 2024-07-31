@@ -21,4 +21,6 @@ add_executable(interpreter src/main.c
         src/parser/error/error.c
         src/parser/error/error.h
         include/colors.h
+        src/parser/helpers/dataTypes/isDataType.c
+        src/parser/helpers/dataTypes/isDataType.h
 )

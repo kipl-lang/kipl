@@ -20,7 +20,7 @@
 
 int main(void) {
 
-    char* string = "; ; ; ; ";
+    char* string = "var name: ";
     Token* token =  scanner(string);
     parser(token);
 

@@ -1,7 +1,16 @@
-//
-// Created by Kerem on 31/07/2024.
-//
+/**
+ The Kipl Programming Language
 
+ File: File: parser/error/error.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 #include "error.h"
 
 #include <stdio.h>

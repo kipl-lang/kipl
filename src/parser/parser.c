@@ -10,19 +10,18 @@
 #include "global.h"
 #include "stdbool.h"
 #include "error/error.h"
+#include "variable/parseVariable.h"
 
 void parser(Token* token) {
     currentToken = token;
 
     while(currentToken->type != TOKEN_EOF) {
 
-        if(token->type == TOKEN_ERROR) {
+        if(token->type == TOKEN_ERROR)
             showError(ERROR_SYNTAX,"Unexpactede token", token->line,token->column);
-        }
-
 
         if(currentToken->type == TOKEN_VAR)
-            printf("kerem");
+            parseVariable();
         currentToken = currentToken->next;
     }
 }
