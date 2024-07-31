@@ -5,6 +5,8 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
+#include "../token/token.h"
+
 extern Token* currentToken;
 
 #endif //GLOBAL_H

@@ -1,8 +1,10 @@
 # ninja log v6
 22	372	7439461935917539	CMakeFiles/interpreter.dir/src/token/token.c.obj	f2e7d98670b5c97b
-36	445	7439461936057549	CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj	1c42bf6eb724dc4c
-49	518	7439748131725987	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
-521	997	7439748136446603	interpreter.exe	1ae053a505100573
-48	579	7439668785100989	CMakeFiles/interpreter.dir/src/parser/parser.c.obj	c34dc5d3876664f6
+27	653	7440622679061059	CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj	1c42bf6eb724dc4c
+54	571	7440617385014943	CMakeFiles/interpreter.dir/src/main.c.obj	c32247c527aac06b
+654	1000	7440622685321547	interpreter.exe	2b9185e37b28a30b
+79	554	7440622679581094	CMakeFiles/interpreter.dir/src/parser/parser.c.obj	c34dc5d3876664f6
 66	593	7439668785271046	CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj	4450a61a839744f8
-41	290	7439746185465223	CMakeFiles/interpreter.dir/src/parser/variables/variable.c.obj	1b63b1248d1d41a0
+15	256	7440600264199043	CMakeFiles/interpreter.dir/src/parser/variables/variable.c.obj	1b63b1248d1d41a0
+8	828	7441148374029757	build.ninja	84dc1bf211bbb720
+78	478	7440617385264949	CMakeFiles/interpreter.dir/src/parser/global.c.obj	fe5b75b9118a2485

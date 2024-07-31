@@ -16,18 +16,14 @@
 #include <stdlib.h>
 
 #include "lexer/lexer.h"
+#include "parser/parser.h"
 
 int main(void) {
 
-    char* string = "**=";
+    char* string = "var x";
     Token* token =  scanner(string);
+    parser(token);
 
-    while(token->type != TOKEN_EOF) {
-        printf(token->value);
-        printf("%d ", token->line);
-        printf("%d\n", token->column);
-        token = token->next;
-    }
 
     freeTokens(token);
 }

@@ -177,7 +177,7 @@ Token* identifierLiteral(char c)
     if(strcmp(lexeme, "for") == 0)
         return makeToken(TOKEN_FOR, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "var") == 0)
-        return makeToken(TOKEN_FOR, lexeme, lexer->currentLine, lexer->currentColumn);
+        return makeToken(TOKEN_VAR, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "func") == 0)
         return makeToken(TOKEN_FUNC, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "true") == 0)
