@@ -9,27 +9,25 @@
 #include "../helpers/dataTypes/isDataType.h"
 
 void parseVariable() {
-    if(currentToken->type ==  TOKEN_VAR) { // var
+    currentToken = currentToken->next;
+    if(currentToken->type == TOKEN_IDENTIFIER) { // var name
+        // o isismle tanımlanmış değişken var mı kontrol et
+        char* varName = currentToken->value;
         currentToken = currentToken->next;
-        if(currentToken->type == TOKEN_IDENTIFIER) { // var name
-            // o isismle tanımlanmış değişken var mı kontrol et
-            char* varName = currentToken->value;
+        if(currentToken->type == TOKEN_COLON) { // var name:
             currentToken = currentToken->next;
-            if(currentToken->type == TOKEN_COLON) { // var name:
-                currentToken = currentToken->next;
-                if(isDataType(currentToken->type)) { //var name: type
-                    // create variable
-                } else {
-                    showError(ERROR_SYNTAX, "Expected : after var name",
-                    currentToken->line, currentToken->column);
-                }
+            if(isDataType(currentToken->type)) { //var name: type
+                // create variable
             } else {
                 showError(ERROR_SYNTAX, "Expected : after var name",
-                    currentToken->line, currentToken->column);
+                currentToken->line, currentToken->column);
             }
         } else {
-            showError(ERROR_SYNTAX, "Expected identifier after var",
+            showError(ERROR_SYNTAX, "Expected : after var name",
                 currentToken->line, currentToken->column);
         }
+    } else {
+        showError(ERROR_SYNTAX, "Expected identifier after var",
+            currentToken->line, currentToken->column);
     }
 }
