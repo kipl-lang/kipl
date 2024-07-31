@@ -20,4 +20,5 @@ add_executable(interpreter src/main.c
         src/parser/variable/parseVariable.h
         src/parser/error/error.c
         src/parser/error/error.h
+        include/colors.h
 )

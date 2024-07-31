@@ -20,10 +20,12 @@
 
 int main(void) {
 
-    char* string = "var x";
+    char* string = "; ; ; ; ";
     Token* token =  scanner(string);
     parser(token);
 
 
     freeTokens(token);
+
+    return 0;
 }

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Kerem/OneDrive/Masa\u00fcst\u00fc/kipl/interpreter/cmake-build-debug"
+			"value" : "c:/Users/Kerem/Projects/KIPL/interpreter/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Kerem/OneDrive/Masa\u00fcst\u00fc/kipl/interpreter/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/Kerem/Projects/KIPL/interpreter/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Kerem/OneDrive/Masa\u00fcst\u00fc/kipl/interpreter"
+			"value" : "C:/Users/Kerem/Projects/KIPL/interpreter"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1147,7 +1147,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Kerem/OneDrive/Masa\u00fcst\u00fc/kipl/interpreter/cmake-build-debug"
+			"value" : "C:/Users/Kerem/Projects/KIPL/interpreter/cmake-build-debug"
 		},
 		{
 			"name" : "interpreter_IS_TOP_LEVEL",
@@ -1171,7 +1171,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Kerem/OneDrive/Masa\u00fcst\u00fc/kipl/interpreter"
+			"value" : "C:/Users/Kerem/Projects/KIPL/interpreter"
 		}
 	],
 	"kind" : "cache",

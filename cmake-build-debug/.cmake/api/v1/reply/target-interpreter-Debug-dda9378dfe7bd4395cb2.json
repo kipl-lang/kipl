@@ -119,7 +119,8 @@
 				9,
 				12,
 				14,
-				16
+				16,
+				17
 			]
 		}
 	],
@@ -217,6 +218,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "src/parser/error/error.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/colors.h",
 			"sourceGroupIndex" : 1
 		}
 	],

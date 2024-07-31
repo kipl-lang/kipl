@@ -9,6 +9,7 @@
 
 #include "global.h"
 #include "stdbool.h"
+#include "error/error.h"
 
 void parser(Token* token) {
     currentToken = token;
@@ -16,8 +17,7 @@ void parser(Token* token) {
     while(currentToken->type != TOKEN_EOF) {
 
         if(token->type == TOKEN_ERROR) {
-            printf("Error");
-            exit(EXIT_FAILURE);
+            showError(ERROR_SYNTAX,"Unexpactede token", token->line,token->column);
         }
 
 
