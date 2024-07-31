@@ -18,7 +18,11 @@ void parseVariable() {
             currentToken = currentToken->next;
             if(isDataType(currentToken->type)) { //var name: type
                 // create variable
-            } else {
+                currentToken = currentToken->next;
+                if(currentToken->type == TOKEN_EQUAL) { // var name: type =
+                   currentToken = currentToken->next;
+                }
+>            } else {
                 showError(ERROR_SYNTAX, "Expected : after var name",
                 currentToken->line, currentToken->column);
             }
