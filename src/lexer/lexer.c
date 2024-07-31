@@ -203,8 +203,6 @@ Token* identifierLiteral(char c)
     if(strcmp(lexeme, "string") == 0)
         return makeToken(TOKEN_STRING_LITERAL, lexeme, lexer->currentLine, lexer->currentColumn);
 
-
-
     return makeToken(TOKEN_IDENTIFIER, lexeme, lexer->currentLine, lexer->currentColumn);
 }
 

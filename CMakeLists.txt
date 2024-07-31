@@ -16,4 +16,8 @@ add_executable(interpreter src/main.c
         src/parser/global.c
         src/parser/variable/variable.c
         src/parser/variable/variable.h
+        src/parser/variable/parseVariable.c
+        src/parser/variable/parseVariable.h
+        src/parser/error/error.c
+        src/parser/error/error.h
 )
