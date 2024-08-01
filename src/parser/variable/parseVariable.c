@@ -22,7 +22,7 @@ void parseVariable() {
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                    currentToken = currentToken->next;
                 }
->            } else {
+            } else {
                 showError(ERROR_SYNTAX, "Expected : after var name",
                 currentToken->line, currentToken->column);
             }

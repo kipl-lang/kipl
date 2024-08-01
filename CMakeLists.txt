@@ -20,7 +20,7 @@ add_executable(interpreter src/main.c
         src/parser/variable/parseVariable.h
         src/parser/error/error.c
         src/parser/error/error.h
-        src/include/colors.h
+        include/colors.h
         src/parser/helpers/dataTypes/isDataType.c
         src/parser/helpers/dataTypes/isDataType.h
 )
