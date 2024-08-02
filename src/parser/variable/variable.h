@@ -8,27 +8,22 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef enum _data_type {
-    TYPE_I8,
-    TYPE_I16,
-    TYPE_I32,
-    TYPE_I64,
-    TYPE_I128,
-    TYPE_U8,
-    TYPE_U16,
-    TYPE_U32,
-    TYPE_U64,
-    TYPE_U128,
-    TYPE_F32,
-    TYPE_F64,
-    TYPE_BOOL,
-    TYPE_STRING
-} DataType;
-
-typedef struct _variable {
-
-} Variable;
-
+// typedef enum _data_type {
+//     TYPE_I8,
+//     TYPE_I16,
+//     TYPE_I32,
+//     TYPE_I64,
+//     TYPE_I128,
+//     TYPE_U8,
+//     TYPE_U16,
+//     TYPE_U32,
+//     TYPE_U64,
+//     TYPE_U128,
+//     TYPE_F32,
+//     TYPE_F64,
+//     TYPE_BOOL,
+//     TYPE_STRING
+// } DataType;
 
 typedef struct _i8_variable {
     int8_t value;
@@ -85,6 +80,11 @@ typedef struct _f32_variable {
     float* address;
 } F32Variable;
 
+typedef struct _f64_variable {
+    double value;
+    double* address;
+} F64Variable;
+
 typedef struct _bool_variable {
     bool value;
     bool* address;
@@ -94,6 +94,34 @@ typedef struct _string_variable {
     char* value;
     char** address;
 } StringVariable;
+
+void createI8Variable(int8_t value);
+
+void createI16Variable(int16_t value);
+
+void createI32Variable(int32_t value);
+
+void createI64Variable(int64_t value);
+
+void createI128Variable(__int128_t value);
+
+void createU8Variable(uint8_t value);
+
+void createU16Variable(uint16_t value);
+
+void createU32Variable(uint32_t value);
+
+void creatU64Variable(uint64_t value);
+
+void createU128Variable(__uint128_t value);
+
+void createF32Variable(float value);
+
+void createF64Variable(double value);
+
+void createBoolVariable(bool value);
+
+void createStringVariable(char* value);
 
 
 #endif //VARIABLE_H
