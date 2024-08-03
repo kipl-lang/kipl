@@ -4,11 +4,8 @@
 
 #include "parser.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "global.h"
-#include "stdbool.h"
+
 #include "error/error.h"
 #include "variable/parseVariable.h"
 #include "scope/scope.h"

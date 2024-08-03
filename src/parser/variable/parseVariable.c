@@ -24,7 +24,7 @@ void parseVariable() {
                 DataType dataType = getDataType(currentToken->type);
                 // create variable
                 createVariable(dataType, varName);
-                printf("%d", currentScope->i8Variable->value);
+                printf("%d", currentScope->i8Variable->value); // silineceks
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                    currentToken = currentToken->next;
