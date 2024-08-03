@@ -152,6 +152,16 @@ void createU16Variable(char* name) {
     variable->name = name;
     variable->value = (uint16_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->u16Variable == NULL)
+        currentScope->u16Variable = variable;
+    else {
+        U16Variable* tempVar = currentScope->u16Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createU32Variable(char* name) {
