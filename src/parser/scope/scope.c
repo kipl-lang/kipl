@@ -9,6 +9,20 @@
 
 void createScope() {
     Scope* scope = (Scope*) malloc(sizeof(Scope));
+    scope->i8Variable = NULL;
+    scope->i16Variable = NULL;
+    scope->i32Variable = NULL;
+    scope->i64Variable = NULL;
+    scope->i128Variable = NULL;
+    scope->u8Variable = NULL;
+    scope->u16Variable = NULL;
+    scope->u32Variable = NULL;
+    scope->u64Variable = NULL;
+    scope->u128Variable = NULL;
+    scope->f32Variable = NULL;
+    scope->f64Variable = NULL;
+    scope->boolVariable = NULL;
+    scope->stringVariable = NULL;
     scope->parentScope = currentScope;
     currentScope = scope;
 }
@@ -76,7 +90,7 @@ void freeI128Variables() {
     }
 }
 
-void freeu8Variables() {
+void freeU8Variables() {
     while(currentScope->u8Variable != NULL) {
         U8Variable* tempVar = currentScope->u8Variable;
         currentScope->u8Variable = tempVar->next;

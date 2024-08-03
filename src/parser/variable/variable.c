@@ -64,6 +64,7 @@ void createI8Variable(char* name) {
     variable->name = name;
     variable->value = (int8_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->i8Variable == NULL)
         currentScope->i8Variable = variable;
@@ -81,6 +82,7 @@ void createI16Variable(char* name) {
     variable->name = name;
     variable->value = (int16_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->i16Variable == NULL)
         currentScope->i16Variable = variable;
@@ -98,6 +100,7 @@ void createI32Variable(char* name) {
     variable->name = name;
     variable->value = (int32_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->i32Variable == NULL)
         currentScope->i32Variable = variable;
@@ -115,6 +118,7 @@ void createI64Variable(char* name) {
     variable->name = name;
     variable->value = (int64_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->i64Variable == NULL)
         currentScope->i64Variable = variable;
@@ -132,6 +136,7 @@ void createI128Variable(char* name) {
     variable->name = name;
     variable->value = (__int128_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->i128Variable == NULL)
         currentScope->i128Variable = variable;
@@ -149,6 +154,7 @@ void createU8Variable(char* name) {
     variable->name = name;
     variable->value = (uint8_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->u8Variable == NULL)
         currentScope->u8Variable = variable;
@@ -166,6 +172,7 @@ void createU16Variable(char* name) {
     variable->name = name;
     variable->value = (uint16_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->u16Variable == NULL)
         currentScope->u16Variable = variable;
@@ -183,6 +190,7 @@ void createU32Variable(char* name) {
     variable->name = name;
     variable->value = (uint32_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->u32Variable == NULL)
         currentScope->u32Variable = variable;
@@ -200,6 +208,7 @@ void createU64Variable(char* name) {
     variable->name = name;
     variable->value = (uint64_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->u64Variable == NULL)
         currentScope->u64Variable = variable;
@@ -217,6 +226,7 @@ void createU128Variable(char* name) {
     variable->name = name;
     variable->value = (__uint128_t) 0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->u128Variable == NULL)
         currentScope->u128Variable = variable;
@@ -234,6 +244,7 @@ void createF32Variable(char* name) {
     variable->name = name;
     variable->value = (float) 0.0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->f32Variable == NULL)
         currentScope->f32Variable = variable;
@@ -251,6 +262,7 @@ void createF64Variable(char* name) {
     variable->name = name;
     variable->value = (double) 0.0;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->f64Variable == NULL)
         currentScope->f64Variable = variable;
@@ -268,6 +280,7 @@ void createBoolVariable(char* name) {
     variable->name = name;
     variable->value = (bool) false;
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->boolVariable == NULL)
         currentScope->boolVariable = variable;
@@ -285,6 +298,7 @@ void createStringVariable(char* name) {
     variable->name = name;
     variable->value = "";
     variable->address = &variable->value;
+    variable->next = NULL;
 
     if(currentScope->stringVariable == NULL)
         currentScope->stringVariable = variable;

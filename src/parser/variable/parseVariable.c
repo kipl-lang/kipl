@@ -3,6 +3,9 @@
 //
 
 #include "parseVariable.h"
+
+#include <stdio.h>
+
 #include "../global.h"
 #include "../../token/token.h"
 #include "../error/error.h"
@@ -19,7 +22,9 @@ void parseVariable() {
             currentToken = currentToken->next;
             if(isDataType(currentToken->type)) { //var name: type
                 DataType dataType = getDataType(currentToken->type);
-                createVariable(dataType, varName); // create variable
+                // create variable
+                createVariable(dataType, varName);
+                printf("%d", currentScope->i8Variable->value);
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                    currentToken = currentToken->next;
