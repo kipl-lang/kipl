@@ -237,6 +237,16 @@ void createF64Variable(char* name) {
     variable->name = name;
     variable->value = (double) 0.0;
     variable->address = &variable->value;
+
+    if(currentScope->f64Variable == NULL)
+        currentScope->f64Variable = variable;
+    else {
+        F64Variable* tempVar = currentScope->f64Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createBoolVariable(char* name) {
