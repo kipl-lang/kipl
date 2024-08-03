@@ -18,7 +18,7 @@ void parser(Token* token) {
     while(currentToken->type != TOKEN_EOF) {
 
         if(token->type == TOKEN_ERROR)
-            showError(ERROR_SYNTAX,"Unexpactede token");
+            showError(ERROR_SYNTAX,"Unexpected token");
 
         if(currentToken->type == TOKEN_VAR)
             parseVariable();

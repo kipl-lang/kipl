@@ -46,10 +46,20 @@ void createVariable(DataType type, char* name) {
 }
 
 void createI8Variable(char* name) {
-    I8Variable* variable = (I8Variable*) malloc(sizeof(I8Variable));
+    I8Variable* variable = (I8Variable*) malloc(sizeof(I8Variable)); // new variable
     variable->name = name;
     variable->value = (int8_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->i8Variable == NULL)
+        currentScope->i8Variable = variable;
+    else {
+        I8Variable* tempVar = currentScope->i8Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createI16Variable(char* name) {
@@ -101,7 +111,7 @@ void createU32Variable(char* name) {
     variable->address = &variable->value;
 }
 
-void createU64Variable(char* name ) {
+void createU64Variable(char* name) {
     U64Variable* variable = (U64Variable*) malloc(sizeof(U64Variable));
     variable->name = name;
     variable->value = (uint64_t) 0;
@@ -136,9 +146,9 @@ void createBoolVariable(char* name) {
     variable->address = &variable->value;
 }
 
-// void createString(char* name) {
-//     StringVariable* variable = (StringVariable*) malloc(sizeof(StringVariable));
-//     variable->name = name;
-//     variable->value = NULL;
-//     variable->address = &variable->value;
-// }
+void createString(char* name) {
+    StringVariable* variable = (StringVariable*) malloc(sizeof(StringVariable));
+    variable->name = name;
+    variable->value = "";
+    variable->address = &variable->value;
+}

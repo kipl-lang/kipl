@@ -29,6 +29,8 @@ typedef struct _scope {
 
 void createScope();
 
+I8Variable* getLastVariable(DataType type);
+
 void freeScope();
 
 #endif //SCOPE_H

@@ -7,7 +7,6 @@
 #include <stdlib.h>
 
 
-
 void createScope() {
     Scope* scope = (Scope*) malloc(sizeof(Scope));
     scope->parentScope = currentScope;
