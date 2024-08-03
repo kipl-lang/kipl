@@ -67,6 +67,16 @@ void createI16Variable(char* name) {
     variable->name = name;
     variable->value = (int16_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->i16Variable == NULL)
+        currentScope->i16Variable = variable;
+    else {
+        I16Variable* tempVar = currentScope->i16Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createI32Variable(char* name) {
