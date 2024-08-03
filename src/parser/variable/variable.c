@@ -118,6 +118,16 @@ void createI128Variable(char* name) {
     variable->name = name;
     variable->value = (__int128_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->i128Variable == NULL)
+        currentScope->i128Variable = variable;
+    else {
+        I128Variable* tempVar = currentScope->i128Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createU8Variable(char* name, char* value) {
