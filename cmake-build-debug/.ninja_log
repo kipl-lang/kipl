@@ -11,3 +11,12 @@
 395	547	7441409882888624	CMakeFiles/interpreter.dir/src/parser/global.c.obj	c526b975ceec67dc
 619	955	7441409885138806	CMakeFiles/interpreter.dir/src/parser/error/error.c.obj	33eed7281ae054fc
 684	941	7441409885778839	CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/isDataType.c.obj	65811f8762ad7f76
+233	1250	7443223740584171	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
+120	1255	7443223739454101	CMakeFiles/interpreter.dir/src/parser/parser.c.obj	cb66ec80a5a0835a
+27	753	7443223948768037	CMakeFiles/interpreter.dir/src/parser/variable/variable.c.obj	7054c624d5d65630
+44	900	7443223948948046	CMakeFiles/interpreter.dir/src/parser/error/error.c.obj	33eed7281ae054fc
+77	953	7443223949268077	CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/isDataType.c.obj	65811f8762ad7f76
+755	1121	7443223956074692	CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/getDataType.c.obj	cf3ad4c8f503c32b
+1121	2185	7443223959714950	interpreter.exe	799605bf1d6c9cea
+16	251	7443224693413825	CMakeFiles/interpreter.dir/src/parser/error/error.c.obj	33eed7281ae054fc
+253	616	7443224695785048	interpreter.exe	799605bf1d6c9cea

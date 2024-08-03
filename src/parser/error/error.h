@@ -21,6 +21,6 @@ typedef enum _error_type {
     ERROR_RUNTIME,
 } ErrorType;
 
-void showError(ErrorType type, char* desc, unsigned int line, unsigned int column);
+void showError(ErrorType type, char* desc);
 
 #endif //ERROR_H

@@ -7,6 +7,6 @@
 
 #include "../../variable/variable.h"
 
-Data
+
 
 #endif //GETDATATYPE_H

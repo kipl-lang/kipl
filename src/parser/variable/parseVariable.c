@@ -23,15 +23,12 @@ void parseVariable() {
                    currentToken = currentToken->next;
                 }
             } else {
-                showError(ERROR_SYNTAX, "Expected : after var name",
-                currentToken->line, currentToken->column);
+                showError(ERROR_SYNTAX, "Expected : after var name");
             }
         } else {
-            showError(ERROR_SYNTAX, "Expected : after var name",
-                currentToken->line, currentToken->column);
+            showError(ERROR_SYNTAX, "Expected : after var name");
         }
     } else {
-        showError(ERROR_SYNTAX, "Expected identifier after var",
-            currentToken->line, currentToken->column);
+        showError(ERROR_SYNTAX, "Expected identifier after var");
     }
 }

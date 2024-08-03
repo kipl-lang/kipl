@@ -16,10 +16,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../global.h"
 #include "../../../include/colors.h"
 
 
-void showError(ErrorType type, char* desc, unsigned int line, unsigned int column) {
+void showError(ErrorType type, char* desc) {
 
     char* errorTitle;
 
@@ -37,6 +38,6 @@ void showError(ErrorType type, char* desc, unsigned int line, unsigned int colum
             errorTitle = "Unkown Error";
     }
 
-    printf(RED "%s: %s\nLine: %d - Column: %d" RESET, errorTitle, desc, line, column);
+    printf(RED "%s: %s\nLine: %d - Column: %d" RESET, errorTitle, desc, currentToken->line, currentToken->column);
     exit(EXIT_FAILURE);
 }
