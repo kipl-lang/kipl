@@ -6,7 +6,9 @@
 #define GLOBAL_H
 
 #include "../token/token.h"
+#include "../parser/scope/scope.h"
 
 extern Token* currentToken;
+extern Scope* currentScope;
 
 #endif //GLOBAL_H

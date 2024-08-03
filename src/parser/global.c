@@ -4,4 +4,5 @@
 
 #include "global.h"
 
-Token* currentToken;
+Token* currentToken = NULL;
+Scope* currentScope = NULL;

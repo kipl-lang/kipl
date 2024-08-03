@@ -9,7 +9,7 @@
 #include "../global.h"
 #include "../error/error.h"
 
-void createVariable(DataType type, char* value) {
+void createVariable(DataType type, char* name, char* value) {
     switch(type) {
         case TYPE_I8:
             break;
@@ -44,7 +44,10 @@ void createVariable(DataType type, char* value) {
     }
 }
 
-void createI8Variable(char* value) {
+void createI8Variable(char* name, char* value) {
     I8Variable* variable = (I8Variable*) malloc(sizeof(I8Variable));
-    variable->value = atoi();
+    variable->name = name;
+    variable->value = atoi(value);
+    variable->address = &variable->value;
+
 }
