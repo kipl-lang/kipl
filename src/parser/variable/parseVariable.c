@@ -7,6 +7,7 @@
 #include "../../token/token.h"
 #include "../error/error.h"
 #include "../helpers/dataTypes/isDataType.h"
+#include "../helpers/dataTypes/getDataType.h"
 
 void parseVariable() {
     currentToken = currentToken->next;
@@ -17,7 +18,8 @@ void parseVariable() {
         if(currentToken->type == TOKEN_COLON) { // var name:
             currentToken = currentToken->next;
             if(isDataType(currentToken->type)) { //var name: type
-                // create variable
+                DataType dataType = getDataType(currentToken->type);
+                createVariable(dataType, varName); // create variable
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                    currentToken = currentToken->next;
