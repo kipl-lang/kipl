@@ -216,10 +216,20 @@ void createU128Variable(char* name) {
 }
 
 void createF32Variable(char* name) {
-   F32Variable* variable = (F32Variable*) malloc(sizeof(F32Variable));
+    F32Variable* variable = (F32Variable*) malloc(sizeof(F32Variable));
     variable->name = name;
     variable->value = (float) 0.0;
     variable->address = &variable->value;
+
+    if(currentScope->f32Variable == NULL)
+        currentScope->f32Variable = variable;
+    else {
+        F32Variable* tempVar = currentScope->f32Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createF64Variable(char* name) {
