@@ -144,7 +144,7 @@ void createI128Variable(char* name) {
     }
 }
 
-void createU8Variable(char* name, char* value) {
+void createU8Variable(char* name) {
     U8Variable* variable = (U8Variable*) malloc(sizeof(U8Variable));
     variable->name = name;
     variable->value = (uint8_t) 0;
@@ -280,7 +280,7 @@ void createBoolVariable(char* name) {
     }
 }
 
-void createString(char* name) {
+void createStringVariable(char* name) {
     StringVariable* variable = (StringVariable*) malloc(sizeof(StringVariable));
     variable->name = name;
     variable->value = "";

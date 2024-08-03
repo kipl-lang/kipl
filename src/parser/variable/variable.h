@@ -25,8 +25,6 @@ typedef enum _data_type {
     TYPE_STRING
 } DataType;
 
-void createVariable(DataType type, char* name, char* value);
-
 typedef struct _i8_variable {
     char* name;
     int8_t value;
