@@ -34,5 +34,7 @@ DataType getDataType(TokenType type) {
             return TYPE_BOOL;
         case TOKEN_TYPE_BOOL:
             return TYPE_STRING;
+        default:
+            break;
     }
 }
