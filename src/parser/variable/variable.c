@@ -101,6 +101,16 @@ void createI64Variable(char* name) {
     variable->name = name;
     variable->value = (int64_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->i64Variable == NULL)
+        currentScope->i64Variable = variable;
+    else {
+        I64Variable* tempVar = currentScope->i64Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createI128Variable(char* name) {
