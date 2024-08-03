@@ -84,6 +84,16 @@ void createI32Variable(char* name) {
     variable->name = name;
     variable->value = (int32_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->i32Variable == NULL)
+        currentScope->i32Variable = variable;
+    else {
+        I32Variable* tempVar = currentScope->i32Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createI64Variable(char* name) {
