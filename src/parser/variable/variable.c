@@ -186,6 +186,16 @@ void createU64Variable(char* name) {
     variable->name = name;
     variable->value = (uint64_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->u64Variable == NULL)
+        currentScope->u64Variable = variable;
+    else {
+        U64Variable* tempVar = currentScope->u64Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createU128Variable(char* name) {
