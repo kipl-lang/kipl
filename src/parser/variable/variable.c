@@ -135,6 +135,16 @@ void createU8Variable(char* name, char* value) {
     variable->name = name;
     variable->value = (uint8_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->u8Variable == NULL)
+        currentScope->u8Variable = variable;
+    else {
+        U8Variable* tempVar = currentScope->u8Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createU16Variable(char* name) {
