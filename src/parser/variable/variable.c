@@ -271,4 +271,14 @@ void createString(char* name) {
     variable->name = name;
     variable->value = "";
     variable->address = &variable->value;
+
+    if(currentScope->stringVariable == NULL)
+        currentScope->stringVariable = variable;
+    else {
+        StringVariable* tempVar = currentScope->stringVariable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
