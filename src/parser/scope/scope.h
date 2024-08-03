@@ -33,4 +33,32 @@ I8Variable* getLastVariable(DataType type);
 
 void freeScope();
 
+void freeI8Variables();
+
+void freeI16Variables();
+
+void freeI32Variables();
+
+void freeI64Variables();
+
+void freeI128Variables();
+
+void freeU8Variables();
+
+void freeU16Variables();
+
+void freeU32Variables();
+
+void freeU64Variables();
+
+void freeU128Variables();
+
+void freeF32Variables();
+
+void freeF64Variables();
+
+void freeBoolVariables();
+
+void freeStringVariables();
+
 #endif //SCOPE_H
