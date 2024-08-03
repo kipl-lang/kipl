@@ -254,6 +254,16 @@ void createBoolVariable(char* name) {
     variable->name = name;
     variable->value = (bool) false;
     variable->address = &variable->value;
+
+    if(currentScope->boolVariable == NULL)
+        currentScope->boolVariable = variable;
+    else {
+        BoolVariable* tempVar = currentScope->boolVariable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createString(char* name) {
