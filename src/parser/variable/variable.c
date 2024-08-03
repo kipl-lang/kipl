@@ -203,6 +203,16 @@ void createU128Variable(char* name) {
     variable->name = name;
     variable->value = (__uint128_t) 0;
     variable->address = &variable->value;
+
+    if(currentScope->u128Variable == NULL)
+        currentScope->u128Variable = variable;
+    else {
+        U128Variable* tempVar = currentScope->u128Variable;
+        while(tempVar->next != NULL) {
+            tempVar = tempVar->next;
+        }
+        tempVar->next = variable;
+    }
 }
 
 void createF32Variable(char* name) {
