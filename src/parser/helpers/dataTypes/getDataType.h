@@ -6,7 +6,8 @@
 #define GETDATATYPE_H
 
 #include "../../variable/variable.h"
+#include "../../../token/token.h"
 
-
+DataType getDataType(TokenType);
 
 #endif //GETDATATYPE_H
