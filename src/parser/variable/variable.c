@@ -5,11 +5,12 @@
 #include "variable.h"
 
 #include <stdlib.h>
+#include <string.h>
 
 #include "../global.h"
 #include "../error/error.h"
 
-void createVariable(DataType type, char* name, char* value) {
+void createVariable(DataType type, char* name) {
     switch(type) {
         case TYPE_I8:
             break;
@@ -44,10 +45,100 @@ void createVariable(DataType type, char* name, char* value) {
     }
 }
 
-void createI8Variable(char* name, char* value) {
+void createI8Variable(char* name) {
     I8Variable* variable = (I8Variable*) malloc(sizeof(I8Variable));
     variable->name = name;
-    variable->value = atoi(value);
+    variable->value = (int8_t) 0;
     variable->address = &variable->value;
-
 }
+
+void createI16Variable(char* name) {
+    I16Variable* variable = (I16Variable*) malloc(sizeof(I16Variable));
+    variable->name = name;
+    variable->value = (int16_t) 0;
+    variable->address = &variable->value;
+}
+
+void createI32Variable(char* name) {
+    I32Variable* variable = (I32Variable*) malloc(sizeof(I32Variable));
+    variable->name = name;
+    variable->value = (int32_t) 0;
+    variable->address = &variable->value;
+}
+
+void createI64Variable(char* name) {
+    I64Variable* variable = (I64Variable*) malloc(sizeof(I64Variable));
+    variable->name = name;
+    variable->value = (int64_t) 0;
+    variable->address = &variable->value;
+}
+
+void createI128Variable(char* name) {
+    I128Variable* variable = (I128Variable*) malloc(sizeof(I128Variable));
+    variable->name = name;
+    variable->value = (__int128_t) 0;
+    variable->address = &variable->value;
+}
+
+void createU8Variable(char* name, char* value) {
+    U8Variable* variable = (U8Variable*) malloc(sizeof(U8Variable));
+    variable->name = name;
+    variable->value = (uint8_t) 0;
+    variable->address = &variable->value;
+}
+
+void createU16Variable(char* name) {
+    U16Variable* variable = (U16Variable*) malloc(sizeof(U16Variable));
+    variable->name = name;
+    variable->value = (uint16_t) 0;
+    variable->address = &variable->value;
+}
+
+void createU32Variable(char* name) {
+    U32Variable* variable = (U32Variable*) malloc(sizeof(U32Variable));
+    variable->name = name;
+    variable->value = (uint32_t) 0;
+    variable->address = &variable->value;
+}
+
+void createU64Variable(char* name ) {
+    U64Variable* variable = (U64Variable*) malloc(sizeof(U64Variable));
+    variable->name = name;
+    variable->value = (uint64_t) 0;
+    variable->address = &variable->value;
+}
+
+void createU128Variable(char* name) {
+    U128Variable* variable = (U128Variable*) malloc(sizeof(U128Variable));
+    variable->name = name;
+    variable->value = (__uint128_t) 0;
+    variable->address = &variable->value;
+}
+
+void createF32Variable(char* name) {
+   F32Variable* variable = (F32Variable*) malloc(sizeof(F32Variable));
+    variable->name = name;
+    variable->value = (float) 0.0;
+    variable->address = &variable->value;
+}
+
+void createF64Variable(char* name) {
+    F64Variable* variable = (F64Variable*) malloc(sizeof(F64Variable));
+    variable->name = name;
+    variable->value = (double) 0.0;
+    variable->address = &variable->value;
+}
+
+void createBoolVariable(char* name) {
+    BoolVariable* variable = (BoolVariable*) malloc(sizeof(BoolVariable));
+    variable->name = name;
+    variable->value = (bool) false;
+    variable->address = &variable->value;
+}
+
+// void createString(char* name) {
+//     StringVariable* variable = (StringVariable*) malloc(sizeof(StringVariable));
+//     variable->name = name;
+//     variable->value = NULL;
+//     variable->address = &variable->value;
+// }

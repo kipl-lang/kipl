@@ -125,33 +125,35 @@ typedef struct _string_variable {
     struct _string_variable* next;
 } StringVariable;
 
-void createI8Variable(char* name, int8_t value);
+void createVariable(DataType type, char* name);
 
-void createI16Variable(int16_t value);
+void createI8Variable(char* name);
 
-void createI32Variable(int32_t value);
+void createI16Variable(char* name);
 
-void createI64Variable(int64_t value);
+void createI32Variable(char* name);
 
-void createI128Variable(__int128_t value);
+void createI64Variable(char* name);
 
-void createU8Variable(uint8_t value);
+void createI128Variable(char* name);
 
-void createU16Variable(uint16_t value);
+void createU8Variable(char* name);
 
-void createU32Variable(uint32_t value);
+void createU16Variable(char* name);
 
-void creatU64Variable(uint64_t value);
+void createU32Variable(char* name);
 
-void createU128Variable(__uint128_t value);
+void creatU64Variable(char* name);
 
-void createF32Variable(float value);
+void createU128Variable(char* name);
 
-void createF64Variable(double value);
+void createF32Variable(char* name);
 
-void createBoolVariable(bool value);
+void createF64Variable(char* name);
 
-void createStringVariable(char* value);
+void createBoolVariable(char* name);
+
+void createStringVariable(char* name);
 
 
 #endif //VARIABLE_H
