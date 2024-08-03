@@ -1,6 +1,17 @@
-//
-// Created by Kerem on 29/07/2024.
-//
+/**
+ The Kipl Programming Language
+
+ File: parser/scope/scope.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
+
 
 #include "scope.h"
 #include "../global.h"

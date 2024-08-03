@@ -1,6 +1,16 @@
-//
-// Created by Kerem on 02/08/2024.
-//
+/**
+ The Kipl Programming Language
+
+ File: parser/helpers/dataTypes/getDataType.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 
 #include "getDataType.h"
 

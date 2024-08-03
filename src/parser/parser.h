@@ -1,6 +1,16 @@
-//
-// Created by Kerem on 29/07/2024.
-//
+/**
+ The Kipl Programming Language
+
+ File: parser/parser.h
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 
 #ifndef PARSER_H
 #define PARSER_H

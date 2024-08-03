@@ -1,6 +1,16 @@
-//
-// Created by Kerem on 30/07/2024.
-//
+/**
+ The Kipl Programming Language
+
+ File: parser/global.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 
 #include "global.h"
 
