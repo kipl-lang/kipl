@@ -13,32 +13,46 @@
 void createVariable(DataType type, char* name) {
     switch(type) {
         case TYPE_I8:
+            createI8Variable(name);
             break;
         case TYPE_I16:
+            createI16Variable(name);
             break;
         case TYPE_I32:
+            createI32Variable(name);
             break;
         case TYPE_I64:
+            createI64Variable(name);
             break;
         case TYPE_I128:
+            createI128Variable(name);
             break;
         case TYPE_U8:
+            createU8Variable(name);
             break;
         case TYPE_U16:
+            createU16Variable(name);
             break;
         case TYPE_U32:
+            createU32Variable(name);
             break;
         case TYPE_U64:
+            createU64Variable(name);
             break;
         case TYPE_U128:
+            createU128Variable(name);
             break;
         case TYPE_F32:
+            createF32Variable(name);
             break;
         case TYPE_F64:
+            createF64Variable(name);
             break;
         case TYPE_BOOL:
+            createBoolVariable(name);
             break;
         case TYPE_STRING:
+            createStringVariable(name);
             break;
         default:
             showError(ERROR_RUNTIME, "unkown error");
@@ -278,7 +292,7 @@ void createString(char* name) {
         StringVariable* tempVar = currentScope->stringVariable;
         while(tempVar->next != NULL) {
             tempVar = tempVar->next;
-        }
+        } 
         tempVar->next = variable;
     }
 }

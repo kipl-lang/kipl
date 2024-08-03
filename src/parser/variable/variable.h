@@ -143,7 +143,7 @@ void createU16Variable(char* name);
 
 void createU32Variable(char* name);
 
-void creatU64Variable(char* name);
+void createU64Variable(char* name);
 
 void createU128Variable(char* name);
 
