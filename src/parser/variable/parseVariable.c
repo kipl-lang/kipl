@@ -13,10 +13,8 @@
 **/
 
 #include "parseVariable.h"
-
 #include <stdio.h>
 #include <string.h>
-
 #include "../global.h"
 #include "../../token/token.h"
 #include "../error/error.h"
@@ -40,11 +38,11 @@ void parseVariable() {
         currentToken = currentToken->next;
         if(currentToken->type == TOKEN_COLON) { // var name:
             currentToken = currentToken->next;
+
             if(isDataType(currentToken->type)) { //var name: type
                 DataType dataType = getDataType(currentToken->type);
                 // create variable
                 createVariable(dataType, varName);
-                printf("%d", currentScope->i8Variable->value); // silineceks
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                    currentToken = currentToken->next;
