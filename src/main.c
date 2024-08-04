@@ -25,7 +25,7 @@ int main(void) {
     parser(token);
 
 
-    freeTokens(token);
+    freeTokens(token); // free memory
 
     return 0;
 }

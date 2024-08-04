@@ -5,6 +5,6 @@
 #ifndef PARSEEXPRESSIONS_H
 #define PARSEEXPRESSIONS_H
 
-
+void parseExpressions();
 
 #endif //PARSEEXPRESSIONS_H
