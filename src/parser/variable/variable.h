@@ -15,7 +15,7 @@
 #ifndef VARIABLE_H
 #define VARIABLE_H
 
-#include "../dataTypes.h"
+#include "../dataType.h"
 #include <stdint.h>
 #include <stdbool.h>
 
