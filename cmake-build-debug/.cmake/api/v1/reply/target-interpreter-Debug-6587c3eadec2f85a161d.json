@@ -130,7 +130,8 @@
 				19,
 				21,
 				23,
-				24
+				24,
+				25
 			]
 		}
 	],
@@ -270,7 +271,12 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/parser/dataTypes.h",
+			"path" : "src/parser/dataType.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/parser/expressions/Data.h",
 			"sourceGroupIndex" : 1
 		}
 	],

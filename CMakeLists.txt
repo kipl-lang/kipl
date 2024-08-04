@@ -28,4 +28,5 @@ add_executable(interpreter src/main.c
         src/parser/expressions/parseExpressions.c
         src/parser/expressions/parseExpressions.h
         src/parser/dataType.h
+        src/parser/expressions/Data.h
 )
