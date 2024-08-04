@@ -18,8 +18,8 @@ void parseVariable() {
     if(currentToken->type == TOKEN_IDENTIFIER) { // var name
         char* varName = currentToken->value;
 
-        if(strlen(varName) > 64)
-            showError(ERROR_SYNTAX, "the variable name is very long");
+        if(strlen(varName) > 64) // The maximum length of the variable name must be 64 characters
+            showError(ERROR_SYNTAX, "The variable name is too long");
 
         if(isVariableInCurrentScope(varName)) {
             char errMsg[256];

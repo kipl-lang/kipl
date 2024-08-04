@@ -33,3 +33,6 @@
 173	439	7444637768140954	interpreter.exe	799605bf1d6c9cea
 10	127	7444637971627679	CMakeFiles/interpreter.dir/src/parser/error/error.c.obj	33eed7281ae054fc
 128	298	7444637972807744	interpreter.exe	799605bf1d6c9cea
+20	470	7444697229886309	CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj	e6dc75896d164dd5
+30	473	7444697229976323	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
+473	846	7444697234419557	interpreter.exe	799605bf1d6c9cea
