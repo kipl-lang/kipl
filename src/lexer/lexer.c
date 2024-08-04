@@ -201,7 +201,7 @@ Token* identifierLiteral(char c)
     if(strcmp(lexeme, "bool") == 0)
         return makeToken(TOKEN_TYPE_BOOL, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "string") == 0)
-        return makeToken(TOKEN_STRING_LITERAL, lexeme, lexer->currentLine, lexer->currentColumn);
+        return makeToken(TOKEN_TYPE_STRING, lexeme, lexer->currentLine, lexer->currentColumn);
 
     return makeToken(TOKEN_IDENTIFIER, lexeme, lexer->currentLine, lexer->currentColumn);
 }
