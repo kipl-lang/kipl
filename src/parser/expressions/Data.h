@@ -13,7 +13,7 @@ typedef struct _data {
 } Data;
 
 
-Data* getVariableData(char* name);
+Data* getDataFromVariable(char* name);
 
 
 #endif //DATA_H

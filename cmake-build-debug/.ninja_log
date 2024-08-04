@@ -13,3 +13,8 @@
 1204	1455	7444078161717364	CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/isDataType.c.obj	65811f8762ad7f76
 639	804	7444824329301327	CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/getDataType.c.obj	cf3ad4c8f503c32b
 659	780	7444816585211702	CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj	abd586deaf0a9d67
+41	706	7444925924190440	CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj	abd586deaf0a9d67
+31	715	7444925924098157	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
+18	720	7444925923968083	CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj	e6dc75896d164dd5
+707	840	7444925930851512	CMakeFiles/interpreter.dir/src/parser/expressions/Data.c.obj	1f92f0d8c43dbec7
+840	1114	7444925932181598	interpreter.exe	c19124d2b26ea678

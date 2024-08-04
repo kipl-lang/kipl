@@ -7,6 +7,17 @@
 #include "../global.h"
 #include "../variable/variable.h"
 
-Data* getVariableData(char* name) {
 
+
+Data* getDataFromVariable(char* name) {
+    Scope* tempScope = currentToken;
+
+    while(tempScope != NULL) {
+
+
+
+        tempScope = tempScope->parentScope;
+    }
+
+    return NULL; // variable undefined
 }
