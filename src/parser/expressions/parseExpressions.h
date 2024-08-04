@@ -5,6 +5,8 @@
 #ifndef PARSEEXPRESSIONS_H
 #define PARSEEXPRESSIONS_H
 
-void parseExpressions();
+#include "Data.h"
+
+Data* parseExpressions();
 
 #endif //PARSEEXPRESSIONS_H

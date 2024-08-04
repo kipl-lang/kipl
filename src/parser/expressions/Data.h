@@ -12,4 +12,8 @@ typedef struct _data {
     char* value;
 } Data;
 
+
+Data* getVariableData(char* name);
+
+
 #endif //DATA_H

@@ -6,7 +6,7 @@
 15	319	7444824323060856	CMakeFiles/interpreter.dir/src/parser/parser.c.obj	cb66ec80a5a0835a
 291	639	7444824325821089	CMakeFiles/interpreter.dir/src/parser/variable/variable.c.obj	7054c624d5d65630
 24	352	7444824323160880	CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj	e6dc75896d164dd5
-10	378	7444829083557179	build.ninja	da3ad00fbed764ed
+10	378	7444916269637459	build.ninja	da3ad00fbed764ed
 319	656	7444824326111094	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
 37	289	7444824323290893	CMakeFiles/interpreter.dir/src/parser/global.c.obj	c526b975ceec67dc
 353	648	7444824326441135	CMakeFiles/interpreter.dir/src/parser/error/error.c.obj	33eed7281ae054fc

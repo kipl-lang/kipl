@@ -141,6 +141,8 @@ bool isVariableInCurrentScope(const char* name) {
     return false;
 }
 
+//
+
 void freeScope() {
     // free variable
     freeI8Variables();
