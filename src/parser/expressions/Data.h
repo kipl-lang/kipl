@@ -5,4 +5,11 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include "../dataType.h"
+
+typedef struct _data {
+    DataType dataType;
+    char* value;
+} Data;
+
 #endif //DATA_H
