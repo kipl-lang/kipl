@@ -39,6 +39,8 @@ typedef struct _scope {
 
 void createScope();
 
+bool isVariableCurrentScope(const char* name);
+
 I8Variable* getLastVariable(DataType type);
 
 void freeScope();

@@ -16,10 +16,11 @@
 #include "scope.h"
 #include "../global.h"
 #include <stdlib.h>
+#include <string.h>
 
 
 void createScope() {
-    Scope* scope = (Scope*) malloc(sizeof(Scope));
+    Scope* scope = (Scope*) malloc(sizeof(Scope)); // New Scope
     scope->i8Variable = NULL;
     scope->i16Variable = NULL;
     scope->i32Variable = NULL;
@@ -36,6 +37,108 @@ void createScope() {
     scope->stringVariable = NULL;
     scope->parentScope = currentScope;
     currentScope = scope;
+}
+
+bool isVariableCurrentScope(const char* name) {
+    I8Variable* tempI8Var = currentScope->i8Variable;
+    while(tempI8Var != NULL) {
+        if(!strcmp(name, tempI8Var->name))
+            return true;
+        tempI8Var = tempI8Var->next;
+    }
+
+    I16Variable* tempI16Var = currentScope->i16Variable;
+    while(tempI16Var != NULL) {
+        if(!strcmp(name, tempI16Var->name))
+            return true;
+        tempI16Var = tempI16Var->next;
+    }
+
+    I32Variable* tempI32Var = currentScope->i32Variable;
+    while(tempI32Var != NULL) {
+        if(!strcmp(name, tempI32Var->name))
+            return true;
+        tempI32Var = tempI32Var->next;
+    }
+
+    I64Variable* tempI64Var = currentScope->i64Variable;
+    while(tempI64Var != NULL) {
+        if(!strcmp(name, tempI64Var->name))
+            return true;
+        tempI64Var = tempI64Var->next;
+    }
+
+    I128Variable* tempI128Var = currentScope->i128Variable;
+    while(tempI128Var != NULL) {
+        if(!strcmp(name, tempI128Var->name))
+            return true;
+        tempI128Var = tempI128Var->next;
+    }
+
+    U8Variable* tempU8Var = currentScope->u8Variable;
+    while(tempU8Var != NULL) {
+        if(!strcmp(name, tempU8Var->name))
+            return true;
+        tempU8Var = tempU8Var->next;
+    }
+
+    U16Variable* tempU16Var = currentScope->u16Variable;
+    while(tempU16Var != NULL) {
+        if(!strcmp(name, tempU16Var->name))
+            return true;
+        tempU16Var = tempU16Var->next;
+    }
+
+    U32Variable* tempU32Var = currentScope->u32Variable;
+    while(tempU32Var != NULL) {
+        if(!strcmp(name, tempU32Var->name))
+            return true;
+        tempU32Var = tempU32Var->next;
+    }
+
+    U64Variable* tempU64Var = currentScope->u64Variable;
+    while(tempU64Var != NULL) {
+        if(!strcmp(name, tempU64Var->name))
+            return true;
+        tempU64Var = tempU64Var->next;
+    }
+
+    U128Variable* tempU128Var = currentScope->u128Variable;
+    while(tempU128Var != NULL) {
+        if(!strcmp(name, tempU128Var->name))
+            return true;
+        tempU128Var = tempU128Var->next;
+    }
+
+    F32Variable* tempF32Var = currentScope->f32Variable;
+    while(tempF32Var != NULL) {
+        if(!strcmp(name, tempF32Var->name))
+            return true;
+        tempF32Var = tempF32Var->next;
+    }
+
+    F64Variable* tempF64Var = currentScope->f64Variable;
+    while(tempF64Var != NULL) {
+        if(!strcmp(name, tempF64Var->name))
+            return true;
+        tempF64Var = tempF64Var->next;
+    }
+
+    BoolVariable* tempBoolVar = currentScope->boolVariable;
+    while(tempBoolVar != NULL) {
+        if(!strcmp(name, tempBoolVar->name))
+            return true;
+        tempBoolVar = tempBoolVar->next;
+    }
+
+    StringVariable* tempStringVar = currentScope->stringVariable;
+    while(tempStringVar != NULL) {
+        if(!strcmp(name, tempStringVar->name))
+            return true;
+        tempStringVar = tempStringVar->next;
+    }
+
+    return false;
 }
 
 void freeScope() {
