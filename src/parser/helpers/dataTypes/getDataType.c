@@ -45,6 +45,6 @@ DataType getDataType(TokenType type) {
         case TOKEN_TYPE_STRING:
             return TYPE_STRING;
         default:
-            break;
+            return TYPE_VOID;
     }
 }

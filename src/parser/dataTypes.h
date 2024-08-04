@@ -1,6 +1,16 @@
-//
-// Created by Kerem on 04/08/2024.
-//
+/**
+ The Kipl Programming Language
+
+ File: parser/dataTypes.h
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 
 #ifndef DATATYPES_H
 #define DATATYPES_H
@@ -19,7 +29,8 @@ typedef enum _data_type {
     TYPE_F32,
     TYPE_F64,
     TYPE_BOOL,
-    TYPE_STRING
+    TYPE_STRING,
+    TYPE_VOID
 } DataType;
 
 #endif //DATATYPES_H

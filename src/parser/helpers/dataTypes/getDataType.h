@@ -15,7 +15,7 @@
 #ifndef GETDATATYPE_H
 #define GETDATATYPE_H
 
-#include "../../variable/variable.h"
+#include "../../dataTypes.h"
 #include "../../../token/token.h"
 
 DataType getDataType(TokenType);
