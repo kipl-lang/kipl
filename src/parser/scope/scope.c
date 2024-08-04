@@ -39,7 +39,7 @@ void createScope() {
     currentScope = scope;
 }
 
-bool isVariableCurrentScope(const char* name) {
+bool isVariableInCurrentScope(const char* name) {
     I8Variable* tempI8Var = currentScope->i8Variable;
     while(tempI8Var != NULL) {
         if(!strcmp(name, tempI8Var->name))
