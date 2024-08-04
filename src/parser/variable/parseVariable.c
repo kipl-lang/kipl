@@ -1,6 +1,16 @@
-//
-// Created by Kerem on 31/07/2024.
-//
+/**
+ The Kipl Programming Language
+
+ File: parser/variable/parseVariable.c
+
+ ||  //  ||  ||===\\  ||
+ ||//    ||  ||   ||  ||
+ ||||    ||  ||===//  ||
+ || \\   ||  ||       ||
+ ||  \\  ||  ||       ||=====
+
+
+**/
 
 #include "parseVariable.h"
 
