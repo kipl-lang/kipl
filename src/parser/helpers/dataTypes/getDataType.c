@@ -40,9 +40,9 @@ DataType getDataType(TokenType type) {
             return TYPE_F32;
         case TOKEN_TYPE_F64:
             return TYPE_F64;
-        case TOKEN_TYPE_STRING:
-            return TYPE_BOOL;
         case TOKEN_TYPE_BOOL:
+            return TYPE_BOOL;
+        case TOKEN_TYPE_STRING:
             return TYPE_STRING;
         default:
             break;

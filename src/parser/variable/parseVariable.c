@@ -24,18 +24,18 @@ void parseVariable() {
                 DataType dataType = getDataType(currentToken->type);
                 // create variable
                 createVariable(dataType, varName);
-                printf("%d", currentScope->i8Variable->value); // silineceks
+                printf("%s", currentScope->boolVariable->name); // silineceks
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                    currentToken = currentToken->next;
                 }
             } else {
-                showError(ERROR_SYNTAX, "Expected : after var name");
+                showError(ERROR_SYNTAX, "Expected <type> after var <name> : ");
             }
         } else {
-            showError(ERROR_SYNTAX, "Expected : after var name");
+            showError(ERROR_SYNTAX, "Expected : after var <name>");
         }
     } else {
-        showError(ERROR_SYNTAX, "Expected identifier after var");
+        showError(ERROR_SYNTAX, "Expected <name> after var");
     }
 }

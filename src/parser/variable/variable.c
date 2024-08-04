@@ -296,7 +296,7 @@ void createBoolVariable(char* name) {
 void createStringVariable(char* name) {
     StringVariable* variable = (StringVariable*) malloc(sizeof(StringVariable));
     variable->name = name;
-    variable->value = "";
+    variable->value = strdup("");
     variable->address = &variable->value;
     variable->next = NULL;
 
