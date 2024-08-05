@@ -26,7 +26,7 @@ void parser(Token* token) {
 
     while(currentToken->type != TOKEN_EOF) {
         if(token->type == TOKEN_ERROR)
-            showError(ERROR_SYNTAX,token->value);
+            showError(ERROR_SYNTAX, token->value);
 
         if(currentToken->type == TOKEN_VAR)
             parseVariable();

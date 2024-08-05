@@ -20,7 +20,7 @@
 
 int main(void) {
 
-    char* string = "var _num: i8 var number2: i8 var number3: i8";
+    char* string = "var x:i8 = number";
     Token* token =  scanner(string);
     parser(token);
 

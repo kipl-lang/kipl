@@ -18,8 +18,10 @@
 #include "../global.h"
 #include "../../token/token.h"
 #include "../error/error.h"
+#include "../expressions/parseExpressions.h"
 #include "../helpers/dataTypes/isDataType.h"
 #include "../helpers/dataTypes/getDataType.h"
+#include "../expressions/data.h"
 
 void parseVariable() {
     currentToken = currentToken->next;
@@ -46,7 +48,12 @@ void parseVariable() {
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                     currentToken = currentToken->next;
-                    //
+                    Data* data = parseExpressions();
+                    if(data != NULL) { // // var name: type = value
+
+                    } else {
+                        showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
+                    }
                 }
             } else {
                 showError(ERROR_SYNTAX, "Expected <type> after var <name> : ");

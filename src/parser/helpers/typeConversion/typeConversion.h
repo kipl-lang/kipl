@@ -19,13 +19,13 @@ char* int64_tToString(int64_t value);
 
 char* __int128_tToString(__int128_t value);
 
-char *uint8_tToString(uint8_t value);
+char* uint8_tToString(uint8_t value);
 
 char* uint16_tToString(uint16_t value);
 
-char* uint32_tToString(int32_t value);
+char* uint32_tToString(uint32_t value);
 
-char* uint64_tToString(int64_t value);
+char* uint64_tToString(uint64_t value);
 
 char* __uint128_tToString(__uint128_t value);
 
