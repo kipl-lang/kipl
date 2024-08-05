@@ -31,7 +31,7 @@ char* int64_tToString(int64_t value) {
     return strdup(str);
 }
 
-char* int128_tToString(__int128_t value) {
+char* __int128_tToString(__int128_t value) {
     char str[41];
     sprintf(str, "%lld", (long long) value);
     return strdup(str);
@@ -61,7 +61,7 @@ char* uint64_tToString(uint64_t value) {
     return strdup(str);
 }
 
-char* uint128_tToString(__uint128_t value) {
+char* __uint128_tToString(__uint128_t value) {
     char str[40];
     sprintf(str, "%llu", (long long) value);
     return strdup(str);
