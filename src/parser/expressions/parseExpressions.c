@@ -11,20 +11,20 @@
 #include "../error/error.h"
 
 Data* parseExpressions() {
-    if(currentToken->type == TOKEN_EOF)
-        return NULL;
+    // if(currentToken->type == TOKEN_EOF)
+    //     return NULL;
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
-                printf(data->value);
-            } else {
+                return data;
+            } else { // variable is not defined
                 char errMsg[256];
                 sprintf(errMsg, "%s undefined", currentToken->value);
                 showError(ERROR_RUNTIME, errMsg);
             }
         }
     }
-
+    return NULL;
 }
