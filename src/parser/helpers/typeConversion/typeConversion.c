@@ -32,7 +32,13 @@ char* int32_tToString(int32_t value) {
     return strdup(str);
 }
 
-char* int64_tToString(int8_t value) {
+char* int64_tToString(int64_t value) {
+    char str[21];
+    sprintf(str, "%lld", value);
+    return strdup(str);
+}
+
+char* int128_tToString(int8_t value) {
     char str[21];
     sprintf(str, "%d", value);
     return strdup(str);
