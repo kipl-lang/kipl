@@ -15,7 +15,13 @@ char* boolToString(bool value) {
 }
 
 char* int8_tToString(int8_t value) {
-    char str[4];
+    char str[5];            // worst case -128 and NULL
+    sprintf(str, "%d", value);
+    return strdup(str);
+}
+
+char* int16_tToString(int8_t value) {
+    char str[7];
     sprintf(str, "%d", value);
     return strdup(str);
 }

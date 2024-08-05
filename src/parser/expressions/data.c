@@ -31,7 +31,6 @@ Data* getDataFromVariable(char* name) {
                 char* str = int8_tToString(tempI8Variable->value);
                 return createData(TYPE_I8, str);
             }
-
             tempI8Variable = tempI8Variable->next;
         }
 
