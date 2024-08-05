@@ -20,14 +20,20 @@ char* int8_tToString(int8_t value) {
     return strdup(str);
 }
 
-char* int16_tToString(int8_t value) {
+char* int16_tToString(int16_t value) {
     char str[7];
     sprintf(str, "%d", value);
     return strdup(str);
 }
 
-char* int32_tToString(int8_t value) {
+char* int32_tToString(int32_t value) {
     char str[12];
+    sprintf(str, "%d", value);
+    return strdup(str);
+}
+
+char* int64_tToString(int8_t value) {
+    char str[21];
     sprintf(str, "%d", value);
     return strdup(str);
 }
