@@ -25,3 +25,9 @@ char* int16_tToString(int8_t value) {
     sprintf(str, "%d", value);
     return strdup(str);
 }
+
+char* int32_tToString(int8_t value) {
+    char str[12];
+    sprintf(str, "%d", value);
+    return strdup(str);
+}
