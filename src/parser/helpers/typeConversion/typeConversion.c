@@ -5,6 +5,7 @@
 #include "typeConversion.h"
 
 #include <stdio.h>
+#include <string.h>
 
 char* boolToString(bool value) {
     if(value)
@@ -16,5 +17,5 @@ char* boolToString(bool value) {
 char* int8_tToString(int8_t value) {
     char str[4];
     sprintf(str, "%d", value);
-    return str;
+    return strdup(str);
 }

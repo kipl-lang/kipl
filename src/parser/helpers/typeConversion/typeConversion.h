@@ -9,8 +9,6 @@
 #include "stdbool.h"
 
 
-char* boolToString(bool value);
-
 char* int8_tToString(int8_t value);
 
 char* int16_tToString(int16_t value);
@@ -34,6 +32,8 @@ char* __uint128_tToString(__uint128_t value);
 char* floatToString(float value);
 
 char* doubleToString(double value);
+
+char* boolToString(bool value);
 
 
 #endif //TYPECONVERSION_H

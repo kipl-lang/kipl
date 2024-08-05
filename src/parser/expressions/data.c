@@ -9,6 +9,7 @@
 #include <string.h>
 
 #include "../global.h"
+#include "../helpers/typeConversion/typeConversion.h"
 #include "../variable/variable.h"
 
 
@@ -27,8 +28,7 @@ Data* getDataFromVariable(char* name) {
         I8Variable* tempI8Variable = tempScope->i8Variable;
         while(tempI8Variable != NULL) {
             if(!strcmp(name, tempI8Variable->name)) {
-                char str[4];
-                sprintf(str, "%d", tempI8Variable->value);
+                char* str = int8_tToString(tempI8Variable->value);
                 return createData(TYPE_I8, str);
             }
 
