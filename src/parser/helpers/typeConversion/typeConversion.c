@@ -38,8 +38,8 @@ char* int64_tToString(int64_t value) {
     return strdup(str);
 }
 
-char* int128_tToString(int8_t value) {
-    char str[21];
-    sprintf(str, "%d", value);
+char* int128_tToString(__int128_t value) {
+    char str[41];
+    sprintf(str, "%lld", (long long) value);
     return strdup(str);
 }
