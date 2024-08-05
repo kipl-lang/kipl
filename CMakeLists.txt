@@ -30,4 +30,6 @@ add_executable(interpreter src/main.c
         src/parser/dataType.h
         src/parser/expressions/Data.h
         src/parser/expressions/Data.c
+        src/parser/helpers/typeConversion/typeConversion.c
+        src/parser/helpers/typeConversion/typeConversion.h
 )

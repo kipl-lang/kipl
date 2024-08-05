@@ -64,7 +64,8 @@
 				18,
 				20,
 				22,
-				26
+				26,
+				27
 			]
 		}
 	],
@@ -113,7 +114,8 @@
 				18,
 				20,
 				22,
-				26
+				26,
+				27
 			]
 		},
 		{
@@ -133,7 +135,8 @@
 				21,
 				23,
 				24,
-				25
+				25,
+				28
 			]
 		}
 	],
@@ -286,6 +289,17 @@
 			"compileGroupIndex" : 0,
 			"path" : "src/parser/expressions/Data.c",
 			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/parser/helpers/typeConversion/typeConversion.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/parser/helpers/typeConversion/typeConversion.h",
+			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
