@@ -67,6 +67,18 @@ char* uint128_tToString(__uint128_t value) {
     return strdup(str);
 }
 
+char* floatToString(float value) {
+    char str[50];
+    sprintf(str, "%f", value);
+    return strdup(str);
+}
+
+char* doubleToString(double value) {
+    char str[50];
+    sprintf(str, "%lf", value);
+    return strdup(str);
+}
+
 char* boolToString(bool value) {
     if(value)
         return "true";
