@@ -19,7 +19,7 @@
 #include "../global.h"
 #include "../../../include/colors.h"
 
-
+// ToDo : Hata durumunda program sonlanıyor bellekte tahsis edilen alan serbest bırakılmıyor. Bu durumu düzelt
 void showError(ErrorType type, char* desc) {
 
     char* errorTitle;
