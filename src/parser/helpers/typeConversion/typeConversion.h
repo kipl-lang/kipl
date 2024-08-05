@@ -33,5 +33,7 @@ char* __uint128_tToString(__uint128_t value);
 
 char* floatToString(float value);
 
+char* doubleToString(double value);
+
 
 #endif //TYPECONVERSION_H

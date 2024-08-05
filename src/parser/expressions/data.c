@@ -3,6 +3,8 @@
 //
 
 #include "data.h"
+
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -24,8 +26,12 @@ Data* getDataFromVariable(char* name) {
 
         I8Variable* tempI8Variable = tempScope->i8Variable;
         while(tempI8Variable != NULL) {
-            if(!strcmp(name, tempI8Variable->name))
-                return createData(TYPE_I8, tempI8Variable->value);
+            if(!strcmp(name, tempI8Variable->name)) {
+                char str[4];
+                sprintf(str, "%d", tempI8Variable->value);
+                return createData(TYPE_I8, str);
+            }
+
             tempI8Variable = tempI8Variable->next;
         }
 
@@ -33,4 +39,9 @@ Data* getDataFromVariable(char* name) {
     }
 
     return NULL; // variable undefined
+}
+
+void freeData(Data* data) {
+    free(data->value);
+    free(data);
 }

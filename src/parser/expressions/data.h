@@ -17,5 +17,7 @@ Data* createData(DataType dataType, char* value);
 
 Data* getDataFromVariable(char* name);
 
+void freeData(Data* data);
+
 
 #endif //DATA_H
