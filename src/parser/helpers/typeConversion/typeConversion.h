@@ -11,25 +11,27 @@
 
 char* boolToString(bool value);
 
-char* i8ToString(int8_t value);
+char* int8_tToString(int8_t value);
 
-char* i16ToString(int16_t value);
+char* int16_tToString(int16_t value);
 
-char* i32ToString(int32_t value);
+char* int32_tToString(int32_t value);
 
-char* i64ToString(int64_t value);
+char* int64_tToString(int64_t value);
 
-char* i128ToString(__int128_t value);
+char* __int128_tToString(__int128_t value);
 
-char* u8ToString(uint8_t value);
+char *uint8_tToString(uint8_t value);
 
-char* u16ToString(uint16_t value);
+char* uint16_tToString(uint16_t value);
 
-char* u32ToString(int32_t value);
+char* int32_tToString(int32_t value);
 
-char* u64ToString(int64_t value);
+char* int64_tToString(int64_t value);
 
-char* u128ToString(__uint128_t value);
+char* __uint128_tToString(__uint128_t value);
+
+char* floatToString(float value);
 
 
 #endif //TYPECONVERSION_H
