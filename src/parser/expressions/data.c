@@ -2,7 +2,7 @@
 // Created by Kerem on 04/08/2024.
 //
 
-#include "Data.h"
+#include "data.h"
 #include <stdlib.h>
 #include <string.h>
 

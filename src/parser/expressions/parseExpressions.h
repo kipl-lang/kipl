@@ -5,7 +5,7 @@
 #ifndef PARSEEXPRESSIONS_H
 #define PARSEEXPRESSIONS_H
 
-#include "Data.h"
+#include "data.h"
 
 Data* parseExpressions();
 
