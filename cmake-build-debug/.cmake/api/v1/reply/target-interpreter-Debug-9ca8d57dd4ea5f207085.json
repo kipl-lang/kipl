@@ -67,7 +67,8 @@
 				26,
 				27,
 				29,
-				31
+				31,
+				33
 			]
 		}
 	],
@@ -119,7 +120,8 @@
 				26,
 				27,
 				29,
-				31
+				31,
+				33
 			]
 		},
 		{
@@ -142,7 +144,8 @@
 				25,
 				28,
 				30,
-				32
+				32,
+				34
 			]
 		}
 	],
@@ -310,23 +313,34 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/parser/expressions/stackData.c",
+			"path" : "src/parser/expressions/expressionElement.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/parser/expressions/stackData.h",
+			"path" : "src/parser/expressions/expressionElement.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/parser/expressions/queueData.c",
+			"path" : "src/parser/expressions/expressionStack.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "src/parser/expressions/queueData.h",
+			"path" : "src/parser/expressions/expressionStack.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/parser/expressions/expressionQueue.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "src/parser/expressions/expressionQueue.h",
 			"sourceGroupIndex" : 1
 		}
 	],

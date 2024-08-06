@@ -133,14 +133,20 @@ build CMakeFiles/interpreter.dir/src/parser/helpers/typeConversion/typeConversio
   OBJECT_DIR = CMakeFiles\interpreter.dir
   OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser\helpers\typeConversion
 
-build CMakeFiles/interpreter.dir/src/parser/expressions/stackData.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/Projects/KIPL/interpreter/src/parser/expressions/stackData.c || cmake_object_order_depends_target_interpreter
-  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\expressions\stackData.c.obj.d
+build CMakeFiles/interpreter.dir/src/parser/expressions/expressionElement.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/Projects/KIPL/interpreter/src/parser/expressions/expressionElement.c || cmake_object_order_depends_target_interpreter
+  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\expressions\expressionElement.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\interpreter.dir
   OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser\expressions
 
-build CMakeFiles/interpreter.dir/src/parser/expressions/queueData.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/Projects/KIPL/interpreter/src/parser/expressions/queueData.c || cmake_object_order_depends_target_interpreter
-  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\expressions\queueData.c.obj.d
+build CMakeFiles/interpreter.dir/src/parser/expressions/expressionStack.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/Projects/KIPL/interpreter/src/parser/expressions/expressionStack.c || cmake_object_order_depends_target_interpreter
+  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\expressions\expressionStack.c.obj.d
+  FLAGS = -g -std=gnu11 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\interpreter.dir
+  OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser\expressions
+
+build CMakeFiles/interpreter.dir/src/parser/expressions/expressionQueue.c.obj: C_COMPILER__interpreter_unscanned_Debug C$:/Users/Kerem/Projects/KIPL/interpreter/src/parser/expressions/expressionQueue.c || cmake_object_order_depends_target_interpreter
+  DEP_FILE = CMakeFiles\interpreter.dir\src\parser\expressions\expressionQueue.c.obj.d
   FLAGS = -g -std=gnu11 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\interpreter.dir
   OBJECT_FILE_DIR = CMakeFiles\interpreter.dir\src\parser\expressions
@@ -153,7 +159,7 @@ build CMakeFiles/interpreter.dir/src/parser/expressions/queueData.c.obj: C_COMPI
 #############################################
 # Link the executable interpreter.exe
 
-build interpreter.exe: C_EXECUTABLE_LINKER__interpreter_Debug CMakeFiles/interpreter.dir/src/main.c.obj CMakeFiles/interpreter.dir/src/token/token.c.obj CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj CMakeFiles/interpreter.dir/src/parser/parser.c.obj CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj CMakeFiles/interpreter.dir/src/parser/global.c.obj CMakeFiles/interpreter.dir/src/parser/variable/variable.c.obj CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj CMakeFiles/interpreter.dir/src/parser/error/error.c.obj CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/isDataType.c.obj CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/getDataType.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/data.c.obj CMakeFiles/interpreter.dir/src/parser/helpers/typeConversion/typeConversion.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/stackData.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/queueData.c.obj
+build interpreter.exe: C_EXECUTABLE_LINKER__interpreter_Debug CMakeFiles/interpreter.dir/src/main.c.obj CMakeFiles/interpreter.dir/src/token/token.c.obj CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj CMakeFiles/interpreter.dir/src/parser/parser.c.obj CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj CMakeFiles/interpreter.dir/src/parser/global.c.obj CMakeFiles/interpreter.dir/src/parser/variable/variable.c.obj CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj CMakeFiles/interpreter.dir/src/parser/error/error.c.obj CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/isDataType.c.obj CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/getDataType.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/data.c.obj CMakeFiles/interpreter.dir/src/parser/helpers/typeConversion/typeConversion.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/expressionElement.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/expressionStack.c.obj CMakeFiles/interpreter.dir/src/parser/expressions/expressionQueue.c.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\interpreter.dir
