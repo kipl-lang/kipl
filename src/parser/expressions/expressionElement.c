@@ -14,3 +14,7 @@ ExpressionElement* createEXpressionElement(ExpressionElementType type, char* val
     return exprElement;
 }
 
+void freeExpressionElement(ExpressionElement* element) {
+    free(element);
+}
+
