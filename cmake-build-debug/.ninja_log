@@ -7,7 +7,7 @@
 291	639	7444824325821089	CMakeFiles/interpreter.dir/src/parser/variable/variable.c.obj	7054c624d5d65630
 18	720	7444925923968083	CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj	e6dc75896d164dd5
 14	430	7446630516298030	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
-13	704	7446646740884274	build.ninja	da3ad00fbed764ed
+13	704	7446689436520801	build.ninja	da3ad00fbed764ed
 37	289	7444824323290893	CMakeFiles/interpreter.dir/src/parser/global.c.obj	c526b975ceec67dc
 49	784	7446263887652622	CMakeFiles/interpreter.dir/src/parser/error/error.c.obj	33eed7281ae054fc
 1204	1455	7444078161717364	CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/isDataType.c.obj	65811f8762ad7f76
@@ -18,3 +18,10 @@
 35	440	7446630516508056	CMakeFiles/interpreter.dir/src/parser/expressions/data.c.obj	fdee3675cd1379e8
 430	630	7446630520458348	CMakeFiles/interpreter.dir/src/parser/expressions/queueData.c.obj	76b203e5d1930111
 421	644	7446630520368350	CMakeFiles/interpreter.dir/src/parser/expressions/stackData.c.obj	6c8730fe8f664e79
+146	2203	7446689477663789	CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj	abd586deaf0a9d67
+169	2272	7446689477893811	CMakeFiles/interpreter.dir/src/parser/expressions/data.c.obj	fdee3675cd1379e8
+44	2343	7446689476643712	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
+2272	2751	7446689498925333	CMakeFiles/interpreter.dir/src/parser/expressions/expressionStack.c.obj	1107ae376b65c21c
+2344	2763	7446689499635406	CMakeFiles/interpreter.dir/src/parser/expressions/expressionQueue.c.obj	2a541b17d218e6d
+2204	2773	7446689498245333	CMakeFiles/interpreter.dir/src/parser/expressions/expressionElement.c.obj	27ec96ee7eb8af30
+2773	3482	7446689503935701	interpreter.exe	f170a8f1cd06132
