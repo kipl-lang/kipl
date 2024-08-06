@@ -2,12 +2,12 @@
 31	326	7441409879258355	CMakeFiles/interpreter.dir/src/token/token.c.obj	cbb5a766cf151726
 17	247	7444520897571547	CMakeFiles/interpreter.dir/src/lexer/lexer.c.obj	9f91fdd6fc2dd35
 35	790	7446263887516631	CMakeFiles/interpreter.dir/src/main.c.obj	f148f904bd87e39f
-790	1364	7446263895062289	interpreter.exe	12693f0df6c4c2c7
+485	947	7446361055295016	interpreter.exe	1e32d57d75ae852e
 72	756	7445698935019384	CMakeFiles/interpreter.dir/src/parser/parser.c.obj	cb66ec80a5a0835a
 291	639	7444824325821089	CMakeFiles/interpreter.dir/src/parser/variable/variable.c.obj	7054c624d5d65630
 18	720	7444925923968083	CMakeFiles/interpreter.dir/src/parser/scope/scope.c.obj	e6dc75896d164dd5
-10	378	7446269317312661	build.ninja	da3ad00fbed764ed
 16	306	7445768913218628	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
+13	704	7446376260048345	build.ninja	da3ad00fbed764ed
 37	289	7444824323290893	CMakeFiles/interpreter.dir/src/parser/global.c.obj	c526b975ceec67dc
 49	784	7446263887652622	CMakeFiles/interpreter.dir/src/parser/error/error.c.obj	33eed7281ae054fc
 1204	1455	7444078161717364	CMakeFiles/interpreter.dir/src/parser/helpers/dataTypes/isDataType.c.obj	65811f8762ad7f76
@@ -15,3 +15,4 @@
 26	391	7445801217517630	CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj	abd586deaf0a9d67
 15	377	7445700140962696	CMakeFiles/interpreter.dir/src/parser/expressions/Data.c.obj	1f92f0d8c43dbec7
 25	385	7445700141062702	CMakeFiles/interpreter.dir/src/parser/helpers/typeConversion/typeConversion.c.obj	e9b1557f7446a9f
+42	483	7446361050872775	CMakeFiles/interpreter.dir/src/parser/expressions/data.c.obj	fdee3675cd1379e8
