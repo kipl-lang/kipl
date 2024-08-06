@@ -32,4 +32,6 @@ add_executable(interpreter src/main.c
         src/parser/expressions/Data.c
         src/parser/helpers/typeConversion/typeConversion.c
         src/parser/helpers/typeConversion/typeConversion.h
+        src/parser/error/garbage.c
+        src/parser/error/garbage.h
 )
