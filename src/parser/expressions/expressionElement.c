@@ -3,3 +3,14 @@
 //
 
 #include "expressionElement.h"
+
+#include <stdlib.h>
+
+ExpressionElement* createEXpressionElement(ExpressionElementType type, char* value) {
+    ExpressionElement* exprElement = (ExpressionElement*) malloc(sizeof(ExpressionElement)); // new element
+    exprElement->type = type;
+    exprElement->value = value;
+
+    return exprElement;
+}
+
