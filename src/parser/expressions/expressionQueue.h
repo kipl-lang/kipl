@@ -18,7 +18,7 @@ ExpressionQueue* createExpressionQueue();
 
 void enqueueExpression(ExpressionQueue* queue, ExpressionElement* element);
 
-void dequeueExpression(ExpressionElement* element);
+void dequeueExpression(ExpressionQueue* queue);
 
 void freeExpressionQueue(ExpressionQueue* queue);
 

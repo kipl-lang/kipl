@@ -27,3 +27,11 @@
 2773	3482	7446689503935701	interpreter.exe	f170a8f1cd06132
 26	919	7446692476922668	CMakeFiles/interpreter.dir/src/parser/expressions/expressionElement.c.obj	27ec96ee7eb8af30
 921	1336	7446692485870361	interpreter.exe	f170a8f1cd06132
+192	3391	7447515059664710	CMakeFiles/interpreter.dir/src/parser/expressions/expressionElement.c.obj	27ec96ee7eb8af30
+123	3610	7447515058984671	CMakeFiles/interpreter.dir/src/parser/variable/parseVariable.c.obj	c93f6136c877d549
+21	617	7447520489877439	CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj	abd586deaf0a9d67
+37	462	7447521020709943	CMakeFiles/interpreter.dir/src/parser/expressions/expressionStack.c.obj	1107ae376b65c21c
+20	507	7447521020549910	CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj	abd586deaf0a9d67
+31	275	7447521360056659	CMakeFiles/interpreter.dir/src/parser/expressions/expressionQueue.c.obj	2a541b17d218e6d
+18	303	7447521359936649	CMakeFiles/interpreter.dir/src/parser/expressions/parseExpressions.c.obj	abd586deaf0a9d67
+304	1141	7447521362776859	interpreter.exe	f170a8f1cd06132

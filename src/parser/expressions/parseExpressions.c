@@ -5,6 +5,9 @@
 #include "parseExpressions.h"
 
 #include <stdio.h>
+
+#include "expressionQueue.h"
+#include "expressionStack.h"
 #include "../global.h"
 #include "../../token/token.h"
 #include "../error/error.h"
@@ -14,6 +17,10 @@ Data* parseExpressions() {
     //     return NULL;
 
     while(currentToken->type != TOKEN_EOF) {
+        // Todo: Shunting yard algoritmasıyla expressionları postfize çevir ve strinbg duurmlarını ds düşün
+        ExpressionStack* stack = createExpressionStack();
+        ExpressionQueue* queue = createExpressionQueue();
+
         if(currentToken->type == TOKEN_IDENTIFIER) {
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
@@ -28,8 +35,8 @@ Data* parseExpressions() {
     return NULL;
 }
 
-int precedence(ExpressionElement* element) {
-    switch(element->type) {
-        case
-    }
-}
+// int precedence(ExpressionElement* element) {
+//     switch(element->type) {
+//         case
+//     }
+// }

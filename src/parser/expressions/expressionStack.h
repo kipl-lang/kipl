@@ -15,7 +15,7 @@ typedef struct _expression_stack {
 
 ExpressionStack* createExpressionStack();
 
-void pushExpressionStack(ExpressionElement* element);
+void pushExpressionStack(ExpressionStack* stack, ExpressionElement* element) ;
 
 ExpressionElement* popExpressionStack(ExpressionStack* stack);
 
