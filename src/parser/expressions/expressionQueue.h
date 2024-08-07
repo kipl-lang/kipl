@@ -14,10 +14,12 @@ typedef struct _expression_queue {
     ExpressionElement** elements;
 } ExpressionQueue;
 
-void enqueue(ExpressionQueue* queue, ExpressionElement* element);
+ExpressionQueue* createExpressionQueue();
 
-void dequeue(ExpressionElement* element);
+void enqueueExpression(ExpressionQueue* queue, ExpressionElement* element);
 
-void freeQueue();
+void dequeueExpression(ExpressionElement* element);
+
+void freeExpressionQueue();
 
 #endif //EXPRESSIONQUEUE_H
