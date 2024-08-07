@@ -3,7 +3,6 @@
 //
 
 #include "expressionStack.h"
-
 #include <stdlib.h>
 
 ExpressionStack* createExpressionStack() {
