@@ -31,3 +31,8 @@ ExpressionElement* peekExpressionStack(ExpressionStack* stack) {
         return NULL;
     return stack->elements[stack->top];
 }
+
+void freeExpressionStack(ExpressionStack* stack) {
+    free(stack->elements);
+    free(stack);
+}
