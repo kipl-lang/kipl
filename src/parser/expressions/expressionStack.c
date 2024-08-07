@@ -8,12 +8,15 @@
 
 ExpressionStack* createExpressionStack() {
     ExpressionStack* expressionStack = (ExpressionStack*) malloc(sizeof(ExpressionStack));
+    expressionStack->capacity = 0;
     expressionStack->top = -1;
-    expressionStack->elements = malloc(sizeof());
+    expressionStack->elements = (ExpressionElement**) malloc(expressionStack->capacity*sizeof(ExpressionElement*));
 
     return expressionStack;
 }
 
-void pushExpressionStack(ExpressionElement* element) {
-
+void pushExpressionStack(ExpressionStack* stack, ExpressionElement* element) {
+    stack->elements = realloc(stack->elements, ++stack->capacity*sizeof(ExpressionStack*));
+    stack->elements[++stack->top] = element;
 }
+

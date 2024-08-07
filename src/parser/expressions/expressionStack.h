@@ -9,12 +9,13 @@
 
 typedef struct _expression_stack {
     unsigned int top;
+    unsigned int capacity;
     ExpressionElement** elements;
 } ExpressionStack;
 
 ExpressionStack* createExpressionStack();
 
-void pushExpStack(ExpressionElement* element);
+void pushExpressionStack(ExpressionElement* element);
 
 void popExpressionStack();
 
