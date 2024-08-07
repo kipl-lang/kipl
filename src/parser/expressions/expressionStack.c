@@ -3,3 +3,13 @@
 //
 
 #include "expressionStack.h"
+
+#include <stdlib.h>
+
+ExpressionStack* createExpressionStack() {
+    ExpressionStack* expressionStack = (ExpressionStack*) malloc(sizeof(ExpressionStack));
+    expressionStack->top = -1;
+    expressionStack->elements = NULL;
+
+    return expressionStack;
+}

@@ -9,8 +9,9 @@
 
 typedef struct _expression_stack {
     unsigned int top;
-    unsigned int capacity;
     ExpressionElement** elements;
 } ExpressionStack;
+
+ExpressionStack* createExpressionStack();
 
 #endif //EXPRESSIONSTACK_H
