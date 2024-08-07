@@ -24,7 +24,7 @@ typedef struct _expression_element {
     char* value;
 } ExpressionElement;
 
-ExpressionElement* createEXpressionElement(ExpressionElementType type, char* value);
+ExpressionElement* createExpressionElement(ExpressionElementType type, char* value);
 
 void freeExpressionElement(ExpressionElement* element);
 

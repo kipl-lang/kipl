@@ -25,3 +25,5 @@
 2344	2763	7446689499635406	CMakeFiles/interpreter.dir/src/parser/expressions/expressionQueue.c.obj	2a541b17d218e6d
 2204	2773	7446689498245333	CMakeFiles/interpreter.dir/src/parser/expressions/expressionElement.c.obj	27ec96ee7eb8af30
 2773	3482	7446689503935701	interpreter.exe	f170a8f1cd06132
+26	919	7446692476922668	CMakeFiles/interpreter.dir/src/parser/expressions/expressionElement.c.obj	27ec96ee7eb8af30
+921	1336	7446692485870361	interpreter.exe	f170a8f1cd06132

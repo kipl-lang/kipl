@@ -5,4 +5,12 @@
 #ifndef EXPRESSIONSTACK_H
 #define EXPRESSIONSTACK_H
 
+#include "expressionElement.h"
+
+typedef struct _expression_stack {
+    unsigned int top;
+    unsigned int capacity;
+    ExpressionElement** elements;
+} ExpressionStack;
+
 #endif //EXPRESSIONSTACK_H
