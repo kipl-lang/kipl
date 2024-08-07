@@ -21,3 +21,16 @@ void enqueueExpression(ExpressionQueue* queue, ExpressionElement* element) {
         queue->rear++;
     queue->elements[++queue->rear] = element;
 }
+
+void dequeueExpression(ExpressionQueue* queue) {
+    if(queue->front == -1 && queue->front != queue->rear+1) {
+        free(queue->elements[queue->front]);
+        queue->elements[queue->front] = NULL;
+        queue->front++;
+    }
+}
+
+void freeQueueExpression(ExpressionQueue* queue) {
+    free(queue->elements);
+    free(queue);
+}
