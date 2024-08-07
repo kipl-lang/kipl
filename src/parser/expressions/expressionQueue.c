@@ -12,6 +12,8 @@ ExpressionQueue* createExpressionQueue() {
     queue->rear = -1;
     queue->capacity = 0;
     queue->elements = (ExpressionElement**) malloc(queue->capacity * sizeof(ExpressionElement*));
+
+    return queue;
 }
 
 void enqueueExpression(ExpressionQueue* queue, ExpressionElement* element) {
