@@ -6,7 +6,10 @@
 #define PARSEEXPRESSIONS_H
 
 #include "data.h"
+#include "expressionElement.h"
 
 Data* parseExpressions();
+
+int precedence(ExpressionElement* element);
 
 #endif //PARSEEXPRESSIONS_H

@@ -20,6 +20,6 @@ void enqueueExpression(ExpressionQueue* queue, ExpressionElement* element);
 
 void dequeueExpression(ExpressionElement* element);
 
-void freeExpressionQueue();
+void freeExpressionQueue(ExpressionQueue* queue);
 
 #endif //EXPRESSIONQUEUE_H

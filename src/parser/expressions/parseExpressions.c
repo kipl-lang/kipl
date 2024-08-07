@@ -5,8 +5,7 @@
 #include "parseExpressions.h"
 
 #include <stdio.h>
-
-#include "../global.h",
+#include "../global.h"
 #include "../../token/token.h"
 #include "../error/error.h"
 
@@ -27,4 +26,10 @@ Data* parseExpressions() {
         }
     }
     return NULL;
+}
+
+int precedence(ExpressionElement* element) {
+    switch(element->type) {
+        case
+    }
 }
