@@ -17,7 +17,9 @@ ExpressionStack* createExpressionStack();
 
 void pushExpressionStack(ExpressionElement* element);
 
-ExpressionElement*  popExpressionStack(ExpressionStack* stack);
+ExpressionElement* popExpressionStack(ExpressionStack* stack);
+
+ExpressionElement* peekExpressionStack(ExpressionStack* stack);
 
 void freeExpressionStack();
 

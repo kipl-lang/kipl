@@ -23,6 +23,11 @@ void pushExpressionStack(ExpressionStack* stack, ExpressionElement* element) {
 ExpressionElement* popExpressionStack(ExpressionStack* stack) {
     if(stack->top == -1)
         return NULL;
-
     return stack->elements[stack->top--];
+}
+
+ExpressionElement* peekExpressionStack(ExpressionStack* stack) {
+    if(stack->top == -1)
+        return NULL;
+    return stack->elements[stack->top];
 }
