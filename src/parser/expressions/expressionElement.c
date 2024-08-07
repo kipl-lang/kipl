@@ -10,7 +10,7 @@ ExpressionElement* createExpressionElement(ExpressionElementType type, char* val
     ExpressionElement* exprElement = (ExpressionElement*) malloc(sizeof(ExpressionElement)); // New Element
     exprElement->type = type;
     exprElement->value = value;
-
+    exprElement->next = NULL;
     return exprElement;
 }
 

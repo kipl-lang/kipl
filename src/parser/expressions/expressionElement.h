@@ -22,6 +22,7 @@ typedef enum _expression_element_type {
 typedef struct _expression_element {
     ExpressionElementType type;
     char* value;
+    struct _expression_element* next;
 } ExpressionElement;
 
 ExpressionElement* createExpressionElement(ExpressionElementType type, char* value);

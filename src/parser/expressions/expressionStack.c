@@ -9,7 +9,11 @@
 ExpressionStack* createExpressionStack() {
     ExpressionStack* expressionStack = (ExpressionStack*) malloc(sizeof(ExpressionStack));
     expressionStack->top = -1;
-    expressionStack->elements = NULL;
+    expressionStack->elements = malloc(sizeof());
 
     return expressionStack;
+}
+
+void pushExpressionStack(ExpressionElement* element) {
+
 }
