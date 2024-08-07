@@ -20,3 +20,9 @@ void pushExpressionStack(ExpressionStack* stack, ExpressionElement* element) {
     stack->elements[++stack->top] = element;
 }
 
+ExpressionElement* popExpressionStack(ExpressionStack* stack) {
+    if(stack->top == -1)
+        return NULL;
+
+    return stack->elements[stack->top--];
+}
