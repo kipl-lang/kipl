@@ -23,7 +23,7 @@ typedef enum _expression_element_type {
     ELEMENT_TYPE_OPERATOR_BANG_EQUAL,   // !=
     ELEMENT_TYPE_OPERATOR_AND,          // &&,
     ELEMENT_TYPE_OPERATOR_OR,           // ||
-    ELEMENT_TYPE_OPERATOR_BANG          // !
+    ELEMENT_TYPE_OPERATOR_BANG,         // !
     ELEMENT_TYPE_BRACKET_R_L,           // bracket round left
     ELEMENT_TYPE_BRACKET_R_R,           // beacket round right
 } ExpressionElementType;
@@ -31,7 +31,6 @@ typedef enum _expression_element_type {
 typedef struct _expression_element {
     ExpressionElementType type;
     char* value;
-    struct _expression_element* next;
 } ExpressionElement;
 
 ExpressionElement* createExpressionElement(ExpressionElementType type, char* value);

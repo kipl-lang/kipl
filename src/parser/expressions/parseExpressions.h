@@ -10,6 +10,8 @@
 
 Data* parseExpressions();
 
+ExpressionElement* dataToExpressionElement(Data* data);
+
 int precedence(ExpressionElement* element);
 
 #endif //PARSEEXPRESSIONS_H

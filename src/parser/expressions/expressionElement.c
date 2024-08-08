@@ -14,6 +14,7 @@ ExpressionElement* createExpressionElement(ExpressionElementType type, char* val
 }
 
 void freeExpressionElement(ExpressionElement* element) {
+    free(element->value);
     free(element);
 }
 
