@@ -18,8 +18,8 @@ Data* parseExpressions() {
 
     while(currentToken->type != TOKEN_EOF) {
         // Todo: Shunting yard algoritmasıyla expressionları postfize çevir ve strinbg duurmlarını ds düşün
-        ExpressionStack* stack = createExpressionStack();
-        ExpressionQueue* queue = createExpressionQueue();
+        ExpressionStack* stackOperator = createExpressionStack();
+        ExpressionQueue* queueOutput = createExpressionQueue();
 
         if(currentToken->type == TOKEN_IDENTIFIER) {
             Data* data = getDataFromVariable(currentToken->value);
