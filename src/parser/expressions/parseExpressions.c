@@ -24,7 +24,7 @@ Data* parseExpressions() {
         if(currentToken->type == TOKEN_IDENTIFIER) {
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
-
+                createExpressionElement()
             } else { // variable is not defined
                 char errMsg[256];
                 sprintf(errMsg, "%s undefined", currentToken->value);
