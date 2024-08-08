@@ -1,3 +1,2 @@
-# CMake generated files
-cmake-build-debug
-.idea
+cmake-build-debug/
+.idea/
