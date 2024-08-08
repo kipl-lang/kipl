@@ -19,7 +19,7 @@
 #include "parser/parser.h"
 
 int main(void) {
-    char* string = "var x:i8 var y:i8 = z";
+    char* string = "var x:i8 var y:i8 = x";
     Token* token =  scanner(string);
     parser(token);
 

@@ -18,14 +18,15 @@ Data* parseExpressions() {
     //     return NULL;
 
     while(currentToken->type != TOKEN_EOF) {
-        // Todo: Shunting yard algoritmasıyla expressionları postfize çevir ve strinbg duurmlarını ds düşün
+        // Todo: Shunting yard algoritmasıyla expressionları postfixe çevir ve strinbg duurmlarını ds düşün
         ExpressionStack* stackOperator = createExpressionStack();
         ExpressionQueue* queueOutput = createExpressionQueue();
 
         if(currentToken->type == TOKEN_IDENTIFIER) {
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
-
+                return data;
+                // dataToExpressionElement(data)->value);
             } else { // variable is not defined
                 char errMsg[256];
                 sprintf(errMsg, "%s undefined", currentToken->value);
@@ -60,6 +61,8 @@ ExpressionElement* dataToExpressionElement(Data* data) {
             break;
         case TYPE_STRING:
             type = ELEMENT_TYPE_STRING;
+            break;
+        default:
             break;
     }
 
