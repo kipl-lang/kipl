@@ -14,8 +14,8 @@
 #include "../error/error.h"
 
 Data* parseExpressions() {
-    // if(currentToken->type == TOKEN_EOF)
-    //     return NULL;
+    if(currentToken->type == TOKEN_EOF)
+        return NULL;
 
     while(currentToken->type != TOKEN_EOF) {
         // Todo: Shunting yard algoritmasıyla expressionları postfixe çevir ve strinbg duurmlarını ds düşün
@@ -32,9 +32,24 @@ Data* parseExpressions() {
                 sprintf(errMsg, "%s undefined", currentToken->value);
                 showError(ERROR_RUNTIME, errMsg);
             }
+        } else {
+            ExpressionElement* element = tokenToExpressionElement();
+            if(element == NULL) // element is not a expression element
+                break;
+
+            switch(element->type) {
+                case ELEMENT_TYPE_NUMBER:
+                case ELEMENT_TYPE_BOOL:
+                case ELEMENT_TYPE_STRING:
+                    enqueueExpression(queueOutput, element);
+                break;
+                default:
+                    return NULL;
+            }
+
         }
+        currentToken = currentToken->next;
     }
-    return NULL;
 }
 
 ExpressionElement* dataToExpressionElement(Data* data) {
