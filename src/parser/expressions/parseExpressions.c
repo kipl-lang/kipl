@@ -72,7 +72,6 @@ ExpressionElement* dataToExpressionElement(Data* data) {
 
 ExpressionElement* tokenToExpressionElement() {
     ExpressionElementType type;
-    char* valeu = currentToken->value;
 
     switch(currentToken->type) {
         case TOKEN_TYPE_I8:
@@ -95,9 +94,62 @@ ExpressionElement* tokenToExpressionElement() {
         case TOKEN_TYPE_STRING:
             type = ELEMENT_TYPE_STRING;
             break;
+        case TOKEN_PLUS:
+            type = ELEMENT_TYPE_OPERATOR_PLUS;
+            break;
+        case TOKEN_MINUS:
+            type = ELEMENT_TYPE_OPERATOR_MINUS;
+            break;
+        case TOKEN_MULTPLY:
+            type = ELEMENT_TYPE_OPERATOR_MULTIPLY;
+            break;
+        case TOKEN_DIVIDE:
+            type = ELEMENT_TYPE_OPERATOR_DIVIDE;
+            break;
+        case TOKEN_MODULUS:
+            type = ELEMENT_TYPE_OPERATOR_DIVIDE;
+            break;
+        case TOKEN_POWER:
+            type = ELEMENT_TYPE_OPERATOR_POWER;
+            break;
+        case TOKEN_LESS:
+            type = ELEMENT_TYPE_OPERATOR_LESS;
+            break;
+        case TOKEN_GREAT:
+            type = ELEMENT_TYPE_OPERATOR_GREAT;
+            break;
+        case TOKEN_LESS_EQUAL:
+            type = ELEMENT_TYPE_OPERATOR_LESS_EQUAL;
+            break;
+        case TOKEN_GREAT_EQUAL:
+            type = ELEMENT_TYPE_OPERATOR_GREAT_EQUAL;
+            break;
+        case TOKEN_EQUAL_EQUAL:
+            type = ELEMENT_TYPE_OPERATOR_EQUAL_EQUAL;
+            break;
+        case TOKEN_BANG_EQUAL:
+            type = ELEMENT_TYPE_OPERATOR_BANG_EQUAL;
+            break;
+        case TOKEN_AND:
+            type = ELEMENT_TYPE_OPERATOR_AND;
+            break;
+        case TOKEN_OR:
+            type = ELEMENT_TYPE_OPERATOR_OR;
+            break;
+        case TOKEN_BANG:
+            type = ELEMENT_TYPE_OPERATOR_BANG;
+            break;
+        case TOKEN_BRACKET_ROUND_LEFT:
+            type = ELEMENT_TYPE_BRACKET_R_L;
+            break;
+        case TOKEN_BRACKET_ROUND_RIGHT:
+            type = ELEMENT_TYPE_BRACKET_R_R;
+            break;
         default:
-            return NULL;
+            return NULL; // if token is not a expression element
     }
+
+    char* value = strdup(currentToken->value);
 }
 
 // int precedence(ExpressionElement* element) {
