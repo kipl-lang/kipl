@@ -150,6 +150,8 @@ ExpressionElement* tokenToExpressionElement() {
     }
 
     char* value = strdup(currentToken->value);
+
+    return createExpressionElement(type, value);
 }
 
 // int precedence(ExpressionElement* element) {
