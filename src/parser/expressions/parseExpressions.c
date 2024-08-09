@@ -17,11 +17,11 @@ Data* parseExpressions() {
     if(currentToken->type == TOKEN_EOF)
         return NULL;
 
-    while(currentToken->type != TOKEN_EOF) {
-        // Todo: Shunting yard algoritmasıyla expressionları postfixe çevir ve strinbg duurmlarını ds düşün
-        ExpressionStack* stackOperator = createExpressionStack();
-        ExpressionQueue* queueOutput = createExpressionQueue();
+    ExpressionStack* stackOperator = createExpressionStack();
+    ExpressionQueue* queueOutput = createExpressionQueue();
+    unsigned int openBracket = 0; // Open bracket number
 
+    while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
@@ -37,19 +37,29 @@ Data* parseExpressions() {
             if(element == NULL) // element is not a expression element
                 break;
 
-            switch(element->type) {
-                case ELEMENT_TYPE_NUMBER:
-                case ELEMENT_TYPE_BOOL:
-                case ELEMENT_TYPE_STRING:
-                    enqueueExpression(queueOutput, element);
-                break;
-                default:
-                    return NULL;
-            }
+            if(element->type == ELEMENT_TYPE_NUMBER || element->type == ELEMENT_TYPE_BOOL ||
+                element->type == ELEMENT_TYPE_STRING) {
+                enqueueExpression(queueOutput, element);
+            } else if(element->type == ELEMENT_TYPE_BRACKET_R_L) {
+                enqueueExpression(queueOutput, element);
+                openBracket++;
+            } else if(element->type == ELEMENT_TYPE_BRACKET_R_R) {
+                while(peekExpressionStack(stackOperator) != NULL &&
+                    peekExpressionStack(stackOperator)->type != ELEMENT_TYPE_BRACKET_R_L
+                    )
+                    enqueueExpression(queueOutput, popExpressionStack(stackOperator));
 
+                if(peekExpressionStack(stackOperator)->type == ELEMENT_TYPE_BRACKET_R_L)
+                    popExpressionStack(stackOperator);
+
+                openBracket--;
+            }
         }
         currentToken = currentToken->next;
     }
+
+    if(openBracket != 0)
+        showError(ERROR_SYNTAX, "Brackets are not balanced");
 }
 
 ExpressionElement* dataToExpressionElement(Data* data) {
