@@ -10,7 +10,22 @@
 
 Data* parseExpressions();
 
+
+/*
+ * @function: dataToExpressionElement
+ * @description: Convert data to parse expression
+ * @arguments: Data* data
+ * @return: ExpressionElement*
+ */
 ExpressionElement* dataToExpressionElement(Data* data);
+
+/*
+ * @function: tokenToExpressionElement
+ * @description: Convert token to parse expression
+ * @arguments: nothing
+ * @return: ExpressionElement*
+ */
+ExpressionElement* tokenToExpressionElement();
 
 int precedence(ExpressionElement* element);
 

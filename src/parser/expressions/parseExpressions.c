@@ -25,8 +25,8 @@ Data* parseExpressions() {
         if(currentToken->type == TOKEN_IDENTIFIER) {
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
-                return data;
-                // dataToExpressionElement(data)->value);
+                ExpressionElement* element = dataToExpressionElement(data);
+                enqueueExpression(queueOutput, element);
             } else { // variable is not defined
                 char errMsg[256];
                 sprintf(errMsg, "%s undefined", currentToken->value);
@@ -68,6 +68,36 @@ ExpressionElement* dataToExpressionElement(Data* data) {
 
     freeData(data);
     return createExpressionElement(type, value);
+}
+
+ExpressionElement* tokenToExpressionElement() {
+    ExpressionElementType type;
+    char* valeu = currentToken->value;
+
+    switch(currentToken->type) {
+        case TOKEN_TYPE_I8:
+        case TOKEN_TYPE_I16:
+        case TOKEN_TYPE_I32:
+        case TOKEN_TYPE_I64:
+        case TOKEN_TYPE_I128:
+        case TOKEN_TYPE_U8:
+        case TOKEN_TYPE_U16:
+        case TOKEN_TYPE_U32:
+        case TOKEN_TYPE_U64:
+        case TOKEN_TYPE_U128:
+        case TOKEN_TYPE_F32:
+        case TOKEN_TYPE_F64:
+            type = ELEMENT_TYPE_NUMBER;
+            break;
+        case TOKEN_TYPE_BOOL:
+            type = ELEMENT_TYPE_BOOL;
+            break;
+        case TOKEN_TYPE_STRING:
+            type = ELEMENT_TYPE_STRING;
+            break;
+        default:
+            return NULL;
+    }
 }
 
 // int precedence(ExpressionElement* element) {
