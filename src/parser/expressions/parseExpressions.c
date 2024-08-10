@@ -187,6 +187,28 @@ ExpressionElement* tokenToExpressionElement() {
 
 int precedence(ExpressionElement* element) {
     switch(element->type) {
-        case
+        case ELEMENT_TYPE_OPERATOR_BANG:
+            return 6;
+        case ELEMENT_TYPE_OPERATOR_POWER:
+            return 5;
+        case ELEMENT_TYPE_OPERATOR_MULTIPLY:
+        case ELEMENT_TYPE_OPERATOR_DIVIDE:
+        case ELEMENT_TYPE_OPERATOR_MODULE:
+            return 4;
+        case ELEMENT_TYPE_OPERATOR_PLUS:
+        case ELEMENT_TYPE_OPERATOR_MINUS:
+            return 3;
+        case ELEMENT_TYPE_OPERATOR_LESS:
+        case ELEMENT_TYPE_OPERATOR_GREAT:
+        case ELEMENT_TYPE_OPERATOR_LESS_EQUAL:
+        case ELEMENT_TYPE_OPERATOR_GREAT_EQUAL:
+        case ELEMENT_TYPE_OPERATOR_EQUAL_EQUAL:
+        case ELEMENT_TYPE_OPERATOR_BANG_EQUAL:
+            return 2;
+        case ELEMENT_TYPE_OPERATOR_AND:
+        case ELEMENT_TYPE_OPERATOR_OR:
+            return 1;
+        default:
+            return 0;
     }
 }
