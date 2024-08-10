@@ -53,8 +53,22 @@ Data* parseExpressions() {
                     popExpressionStack(stackOperator);
 
                 openBracket--;
-            } else {
-
+            } else { // operator
+                if(peekExpressionStack(stackOperator) == NULL)
+                    pushExpressionStack(stackOperator, element);
+                else {
+                    if(getAssociativity(element) == ASSOCIATIVITY_LEFT) {
+                        while(precedence(peekExpressionStack(stackOperator)) >= precedence(element)) {
+                            enqueueExpression(queueOutput, popExpressionStack(stackOperator));
+                        }
+                        pushExpressionStack(stackOperator, element);
+                    } else if(getAssociativity(element) == ASSOCIATIVITY_RIGHT) {
+                        while(precedence(peekExpressionStack(stackOperator)) > precedence(element)) {
+                            enqueueExpression(queueOutput, popExpressionStack(stackOperator));
+                        }
+                        pushExpressionStack(stackOperator, element);
+                    }
+                }
             }
         }
         currentToken = currentToken->next;
@@ -62,6 +76,10 @@ Data* parseExpressions() {
 
     if(openBracket != 0)
         showError(ERROR_SYNTAX, "Brackets are not balanced");
+
+    // After processing all tokens, pop any remaining operators from the stack and enqueue them
+    while (peekExpressionStack(stackOperator) != NULL)
+        enqueueExpression(queueOutput, popExpressionStack(stackOperator));
 
 
     freeExpressionStack(stackOperator); // free the stack
