@@ -49,10 +49,12 @@ Data* parseExpressions() {
                     )
                     enqueueExpression(queueOutput, popExpressionStack(stackOperator));
 
-                if(peekExpressionStack(stackOperator)->type == ELEMENT_TYPE_BRACKET_R_L)
+                if(peekExpressionStack(stackOperator)->type == ELEMENT_TYPE_BRACKET_R_L) // pop '('
                     popExpressionStack(stackOperator);
 
                 openBracket--;
+            } else {
+
             }
         }
         currentToken = currentToken->next;
@@ -60,6 +62,10 @@ Data* parseExpressions() {
 
     if(openBracket != 0)
         showError(ERROR_SYNTAX, "Brackets are not balanced");
+
+
+    freeExpressionStack(stackOperator); // free the stack
+    freeExpressionQueue(queueOutput);   // free the queue
 }
 
 ExpressionElement* dataToExpressionElement(Data* data) {
@@ -179,8 +185,8 @@ ExpressionElement* tokenToExpressionElement() {
     return createExpressionElement(type, value);
 }
 
-// int precedence(ExpressionElement* element) {
-//     switch(element->type) {
-//         case
-//     }
-// }
+int precedence(ExpressionElement* element) {
+    switch(element->type) {
+        case
+    }
+}
