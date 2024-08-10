@@ -8,8 +8,12 @@
 #include "data.h"
 #include "expressionElement.h"
 
-Data* parseExpressions();
+typedef enum _associativity{
+    ASSOCIATIVITY_LEFT,
+    ASSOCIATIVITY_RIGHT
+} Associativity;
 
+Data* parseExpressions();
 
 /*
  * @function: dataToExpressionElement
