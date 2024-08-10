@@ -33,4 +33,6 @@ ExpressionElement* tokenToExpressionElement();
 
 int precedence(ExpressionElement* element);
 
+Associativity getAssociativity(ExpressionElement* element);
+
 #endif //PARSEEXPRESSIONS_H

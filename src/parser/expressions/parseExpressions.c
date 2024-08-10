@@ -213,3 +213,12 @@ int precedence(ExpressionElement* element) {
     }
 }
 
+Associativity getAssociativity(ExpressionElement* element) {
+    switch(element->type) {
+        case ELEMENT_TYPE_OPERATOR_BANG:
+        case ELEMENT_TYPE_OPERATOR_POWER:
+            return ASSOCIATIVITY_RIGHT;
+        default:
+            return ASSOCIATIVITY_LEFT;
+    }
+}
