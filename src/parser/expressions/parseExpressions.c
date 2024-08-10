@@ -88,6 +88,8 @@ Data* parseExpressions() {
     // }
 
 
+    //evaluatePostfix(queueOutput);
+
     freeExpressionStack(stackOperator); // free the stack
     freeExpressionQueue(queueOutput);   // free the queue
 
@@ -237,4 +239,8 @@ Associativity getAssociativity(ExpressionElement* element) {
         default:
             return ASSOCIATIVITY_LEFT;
     }
+}
+
+Data* evaluatePostfix(ExpressionQueue* queue) {
+
 }

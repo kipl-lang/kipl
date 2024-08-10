@@ -7,6 +7,7 @@
 
 #include "data.h"
 #include "expressionElement.h"
+#include "expressionQueue.h"
 
 typedef enum _associativity{
     ASSOCIATIVITY_LEFT,
@@ -34,5 +35,7 @@ ExpressionElement* tokenToExpressionElement();
 int precedence(ExpressionElement* element);
 
 Associativity getAssociativity(ExpressionElement* element);
+
+Data* evaluatePostfix(ExpressionQueue* queue);
 
 #endif //PARSEEXPRESSIONS_H
