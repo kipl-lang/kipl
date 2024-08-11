@@ -81,7 +81,7 @@ char* doubleToString(double value) {
 
 char* boolToString(bool value) {
     if(value)
-        return "true";
+        return strdup("true");
 
-    return "false";
+    return strdup("false");
 }

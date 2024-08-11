@@ -253,12 +253,12 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             ) {
             pushExpressionStack(evaluateStack, element);
         } else if(element->type == ELEMENT_TYPE_OPERATOR_BANG) {
-            ExpressionElement* lastElement = peekExpressionStack(evaluateStack);
-            if(lastElement->type == ELEMENT_TYPE_BOOL) {
+            ExpressionElement* lastElement = popExpressionStack(evaluateStack);
+            if(lastElement != NULL && lastElement->type == ELEMENT_TYPE_BOOL) {
                 char* value = boolToString(!stringToBool(lastElement->value));
-                pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
+                freeExpressionElement(lastElement);
                 freeExpressionElement(element);
-                printf(value);
+                pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
             } else {
                 showError(ERROR_SYNTAX, "'!' operator can only be applied to boolean expressions");
             }
