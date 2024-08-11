@@ -254,6 +254,7 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             pushExpressionStack(evaluateStack, element);
         } else if(element->type == ELEMENT_TYPE_OPERATOR_BANG) {
             ExpressionElement* lastElement = popExpressionStack(evaluateStack);
+
             if(lastElement != NULL && lastElement->type == ELEMENT_TYPE_BOOL) {
                 char* value = boolToString(!stringToBool(lastElement->value));
                 freeExpressionElement(lastElement);
@@ -261,6 +262,17 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
             } else {
                 showError(ERROR_SYNTAX, "'!' operator can only be applied to boolean expressions");
+            }
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_AND) {
+            ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
+            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
+
+            if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_BOOL && lastElement2->type == ELEMENT_TYPE_BOOL
+                ) {
+
+            } else {
+                showError(ERROR_SYNTAX, "'&&' operator can only be applied to boolean expressions");
             }
         }
     }
