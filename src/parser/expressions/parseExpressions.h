@@ -32,6 +32,12 @@ ExpressionElement* dataToExpressionElement(Data* data);
  */
 ExpressionElement* tokenToExpressionElement();
 
+/*
+ * @function: precedence
+ * @description:
+ * @arguments: get predence of operator
+ * @return: int
+ */
 int precedence(ExpressionElement* element);
 
 Associativity getAssociativity(ExpressionElement* element);
