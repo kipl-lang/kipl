@@ -30,12 +30,14 @@ add_executable(interpreter src/main.c
         src/parser/dataType.h
         src/parser/expressions/Data.h
         src/parser/expressions/Data.c
-        src/parser/helpers/typeConversion/typeConversion.c
-        src/parser/helpers/typeConversion/typeConversion.h
+        src/parser/helpers/typeConversion/toString.c
+        src/parser/helpers/typeConversion/toString.h
         src/parser/expressions/expressionElement.c
         src/parser/expressions/expressionElement.h
         src/parser/expressions/expressionStack.c
         src/parser/expressions/expressionStack.h
         src/parser/expressions/expressionQueue.c
         src/parser/expressions/expressionQueue.h
+        src/parser/helpers/typeConversion/toBool.c
+        src/parser/helpers/typeConversion/toBool.h
 )

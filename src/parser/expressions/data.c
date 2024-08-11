@@ -9,7 +9,7 @@
 #include <string.h>
 
 #include "../global.h"
-#include "../helpers/typeConversion/typeConversion.h"
+#include "../helpers/typeConversion/toString.h"
 #include "../variable/variable.h"
 
 
@@ -24,7 +24,6 @@ Data* getDataFromVariable(char* name) {
     Scope* tempScope = currentScope;
 
     while(tempScope != NULL) {
-
         I8Variable* tempI8Variable = tempScope->i8Variable;
         while(tempI8Variable != NULL) {
             if(!strcmp(name, tempI8Variable->name)) {

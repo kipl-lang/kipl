@@ -12,6 +12,8 @@
 #include "../global.h"
 #include "../../token/token.h"
 #include "../error/error.h"
+#include "../helpers/typeConversion/toBool.h"
+#include "../helpers/typeConversion/toString.h"
 
 Data* parseExpressions() {
     if(currentToken->type == TOKEN_EOF)
@@ -49,7 +51,9 @@ Data* parseExpressions() {
                     )
                     enqueueExpression(queueOutput, popExpressionStack(stackOperator));
 
-                if(peekExpressionStack(stackOperator)->type == ELEMENT_TYPE_BRACKET_R_L) // pop '('
+                if(peekExpressionStack(stackOperator) != NULL &&
+                    peekExpressionStack(stackOperator)->type == ELEMENT_TYPE_BRACKET_R_L
+                    ) // pop '('
                     popExpressionStack(stackOperator);
 
                 openBracket--;
@@ -81,14 +85,8 @@ Data* parseExpressions() {
     while (peekExpressionStack(stackOperator) != NULL)
         enqueueExpression(queueOutput, popExpressionStack(stackOperator));
 
-    // printf("%d", queueOutput->front);
-    // printf("%d", queueOutput->rear);
-    // for(int i=queueOutput->front; i<=queueOutput->rear; i++) {
-    //     printf(queueOutput->elements[i]->value);
-    // }
 
-
-    //evaluatePostfix(queueOutput);
+    evaluatePostfix(queueOutput);
 
     freeExpressionStack(stackOperator); // free the stack
     freeExpressionQueue(queueOutput);   // free the queue
@@ -243,4 +241,29 @@ Associativity getAssociativity(ExpressionElement* element) {
 
 Data* evaluatePostfix(ExpressionQueue* queue) {
 
+    ExpressionStack* evaluateStack = createExpressionStack();
+
+    for(int i=queue->front; i<=queue->rear; i++) {
+        //printf(queue->elements[i]->value);
+        ExpressionElement* element = queue->elements[i];
+
+        if(element->type == ELEMENT_TYPE_NUMBER ||
+            element->type == ELEMENT_TYPE_BOOL  ||
+            element->type == ELEMENT_TYPE_STRING
+            ) {
+            pushExpressionStack(evaluateStack, element);
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_BANG) {
+            ExpressionElement* lastElement = peekExpressionStack(evaluateStack);
+            if(lastElement->type == ELEMENT_TYPE_BOOL) {
+                char* value = boolToString(!stringToBool(lastElement->value));
+                pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
+                freeExpressionElement(element);
+                printf(value);
+            } else {
+                showError(ERROR_SYNTAX, "'!' operator can only be applied to boolean expressions");
+            }
+        }
+    }
+
+    freeExpressionStack(evaluateStack);
 }
