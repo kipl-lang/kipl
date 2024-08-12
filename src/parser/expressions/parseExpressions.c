@@ -328,9 +328,9 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
         }
     }
 
-    ExpressionElement* resultElement = popExpressionStack(evaluateStack);
+    ExpressionElement* resultElement = popExpressionStack(evaluateStack); // stack result element
 
-    freeExpressionStack(evaluateStack);
+    freeExpressionStack(evaluateStack); // free memory
 
     return expressionElementToData(resultElement);
 }
