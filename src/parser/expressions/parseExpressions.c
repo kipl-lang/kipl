@@ -88,12 +88,12 @@ Data* parseExpressions() {
     while (peekExpressionStack(stackOperator) != NULL)
         enqueueExpression(queueOutput, popExpressionStack(stackOperator));
 
-    evaluatePostfix(queueOutput);
+    Data* data = evaluatePostfix(queueOutput);
 
     freeExpressionStack(stackOperator); // free the stack
     freeExpressionQueue(queueOutput);   // free the queue
 
-    return NULL; // silinecek test içindi
+    return data;
 }
 
 ExpressionElement* dataToExpressionElement(Data* data) {
@@ -131,7 +131,7 @@ ExpressionElement* dataToExpressionElement(Data* data) {
 
 Data* expressionElementToData(ExpressionElement* element) {
     DataType type;
-    char* value = strdup(element->value)
+    char* value = strdup(element->value);
 
     switch(element->type) {
         case ELEMENT_TYPE_NUMBER:
@@ -153,7 +153,6 @@ Data* expressionElementToData(ExpressionElement* element) {
     }
 
     freeExpressionElement(element);
-
     return createData(type, value);
 }
 
@@ -329,5 +328,9 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
         }
     }
 
+    ExpressionElement* resultElement = popExpressionStack(evaluateStack);
+
     freeExpressionStack(evaluateStack);
+
+    return expressionElementToData(resultElement);
 }
