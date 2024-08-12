@@ -121,6 +121,14 @@ Token* scanToken() {
                 return makeToken(TOKEN_EQUAL_EQUAL, "==", lexer->currentLine, lexer->currentColumn);
             }
             return makeToken(TOKEN_EQUAL, "=", lexer->currentLine, lexer->currentColumn);
+        case '&':
+            if(isMatch('&'))
+                return makeToken(TOKEN_AND, "&&", lexer->currentLine, lexer->currentColumn);
+            return makeToken(TOKEN_ERROR, "Unexpected Token", lexer->currentLine, lexer->currentColumn);
+        case '|':
+            if(isMatch('|'))
+                return makeToken(TOKEN_OR, "||", lexer->currentLine, lexer->currentColumn);
+        return makeToken(TOKEN_ERROR, "Unexpected Token", lexer->currentLine, lexer->currentColumn);
         case '"':
             return stringLiteral();
         default:
