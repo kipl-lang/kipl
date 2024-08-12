@@ -23,7 +23,7 @@ int main(void) {
     Token* token =  scanner(string);
     parser(token);
 
-
+    system("pause");
     freeTokens(token); // free memory
 
     return 0;
