@@ -62,7 +62,9 @@ Data* parseExpressions() {
                     pushExpressionStack(stackOperator, element);
                 else {
                     if(getAssociativity(element) == ASSOCIATIVITY_LEFT) {
-                        while(precedence(peekExpressionStack(stackOperator)) >= precedence(element)) {
+                        while(peekExpressionStack(stackOperator) != NULL &&
+                            precedence(peekExpressionStack(stackOperator)) >= precedence(element)
+                            ) {
                             enqueueExpression(queueOutput, popExpressionStack(stackOperator));
                         }
                         pushExpressionStack(stackOperator, element);
@@ -87,7 +89,6 @@ Data* parseExpressions() {
     // After processing all tokens, pop any remaining operators from the stack and enqueue them
     while (peekExpressionStack(stackOperator) != NULL)
         enqueueExpression(queueOutput, popExpressionStack(stackOperator));
-
 
     evaluatePostfix(queueOutput);
 
@@ -263,7 +264,6 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 freeExpressionElement(lastElement);
                 freeExpressionElement(element);
                 pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
-                printf(value);
             } else {
                 showError(ERROR_SYNTAX, "'!' operator can only be applied to boolean expressions");
             }
@@ -276,7 +276,10 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 ) {
                 char* value =
                     boolToString(stringToBool(lastElement1->value) && stringToBool(lastElement2->value));
-                printf(value);
+                freeExpressionElement(lastElement1);
+                freeExpressionElement(lastElement2);
+                freeExpressionElement(element);
+                pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
             } else {
                 showError(ERROR_SYNTAX, "'&&' operator can only be applied to boolean expressions");
             }
@@ -289,10 +292,14 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 ) {
                 char* value =
                     boolToString(stringToBool(lastElement1->value) || stringToBool(lastElement2->value));
+                freeExpressionElement(lastElement1);
+                freeExpressionElement(lastElement2);
+                freeExpressionElement(element);
+                pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
                 printf(value);
-                } else {
-                    showError(ERROR_SYNTAX, "'||' operator can only be applied to boolean expressions");
-                }
+            } else {
+                showError(ERROR_SYNTAX, "'||' operator can only be applied to boolean expressions");
+            }
         }
     }
 
