@@ -273,7 +273,6 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
     ExpressionStack* evaluateStack = createExpressionStack();
 
     for(int i=queue->front; i<=queue->rear; i++) {
-        //printf(queue->elements[i]->value);
         ExpressionElement* element = queue->elements[i];
 
         if(element->type == ELEMENT_TYPE_NUMBER ||
@@ -321,7 +320,6 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 freeExpressionElement(lastElement2);
                 freeExpressionElement(element);
                 pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
-                printf(value);
             } else {
                 showError(ERROR_SYNTAX, "'||' operator can only be applied to boolean expressions");
             }
