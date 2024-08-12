@@ -25,7 +25,7 @@ void parser(Token* token) {
     createScope();          // Current Scope
 
     while(currentToken->type != TOKEN_EOF) {
-        if(token->type == TOKEN_ERROR)
+        if(currentToken->type == TOKEN_ERROR)
             showError(ERROR_SYNTAX, token->value);
 
         if(currentToken->type == TOKEN_VAR)
