@@ -78,6 +78,9 @@ Data* parseExpressions() {
         currentToken = currentToken->next;
     }
 
+    if(currentToken->type == TOKEN_ERROR)
+        showError(ERROR_SYNTAX, currentToken->value);
+
     if(openBracket != 0)
         showError(ERROR_SYNTAX, "Brackets are not balanced");
 
@@ -255,25 +258,41 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
         } else if(element->type == ELEMENT_TYPE_OPERATOR_BANG) {
             ExpressionElement* lastElement = popExpressionStack(evaluateStack);
 
-            if(lastElement != NULL && lastElement->type == ELEMENT_TYPE_BOOL) {
+            if(lastElement != NULL && lastElement->type == ELEMENT_TYPE_BOOL) { // !
                 char* value = boolToString(!stringToBool(lastElement->value));
                 freeExpressionElement(lastElement);
                 freeExpressionElement(element);
                 pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
+                printf(value);
             } else {
                 showError(ERROR_SYNTAX, "'!' operator can only be applied to boolean expressions");
             }
-        } else if(element->type == ELEMENT_TYPE_OPERATOR_AND) {
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_AND) { // &&
             ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
             ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
 
             if(lastElement1 != NULL && lastElement2 != NULL &&
                 lastElement1->type == ELEMENT_TYPE_BOOL && lastElement2->type == ELEMENT_TYPE_BOOL
                 ) {
-
+                char* value =
+                    boolToString(stringToBool(lastElement1->value) && stringToBool(lastElement2->value));
+                printf(value);
             } else {
                 showError(ERROR_SYNTAX, "'&&' operator can only be applied to boolean expressions");
             }
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_OR) { // &&
+            ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
+            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
+
+            if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_BOOL && lastElement2->type == ELEMENT_TYPE_BOOL
+                ) {
+                char* value =
+                    boolToString(stringToBool(lastElement1->value) || stringToBool(lastElement2->value));
+                printf(value);
+                } else {
+                    showError(ERROR_SYNTAX, "'||' operator can only be applied to boolean expressions");
+                }
         }
     }
 
