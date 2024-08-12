@@ -24,6 +24,8 @@ Data* parseExpressions();
  */
 ExpressionElement* dataToExpressionElement(Data* data);
 
+Data* expressionElementToData(ExpressionElement* element);
+
 /*
  * @function: tokenToExpressionElement
  * @description: Convert token to parse expression

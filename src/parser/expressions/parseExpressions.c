@@ -3,10 +3,8 @@
 //
 
 #include "parseExpressions.h"
-
 #include <stdio.h>
 #include <string.h>
-
 #include "expressionQueue.h"
 #include "expressionStack.h"
 #include "../global.h"
@@ -129,6 +127,34 @@ ExpressionElement* dataToExpressionElement(Data* data) {
 
     freeData(data);
     return createExpressionElement(type, value);
+}
+
+Data* expressionElementToData(ExpressionElement* element) {
+    DataType type;
+    char* value = strdup(element->value)
+
+    switch(element->type) {
+        case ELEMENT_TYPE_NUMBER:
+            if(strchr(element->value, '.') != NULL)
+                type = TYPE_F64;
+            else if(strchr(element->value, '-') != NULL)
+                type = TYPE_I128;
+            else
+                type = TYPE_U128;
+        case ELEMENT_TYPE_BOOL:
+            type = TYPE_BOOL;
+            break;
+        case ELEMENT_TYPE_STRING:
+            type = TYPE_STRING;
+            break;
+        default:
+            type = TYPE_VOID;
+            break;
+    }
+
+    freeExpressionElement(element);
+
+    return createData(type, value);
 }
 
 ExpressionElement* tokenToExpressionElement() {
