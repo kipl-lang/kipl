@@ -3,6 +3,8 @@
 //
 
 #include "parseExpressions.h"
+
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -186,7 +188,7 @@ ExpressionElement* tokenToExpressionElement() {
             type = ELEMENT_TYPE_OPERATOR_DIVIDE;
             break;
         case TOKEN_MODULUS:
-            type = ELEMENT_TYPE_OPERATOR_DIVIDE;
+            type = ELEMENT_TYPE_OPERATOR_MODULE;
             break;
         case TOKEN_POWER:
             type = ELEMENT_TYPE_OPERATOR_POWER;
@@ -380,7 +382,11 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             } else {
                 showError(ERROR_SYNTAX, "'-' operator was used incorrectly");
             }
-        } else if(element->type == ELEMENT_TYPE_OPERATOR_MULTIPLY) { // *
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_MULTIPLY ||
+            element->type == ELEMENT_TYPE_OPERATOR_DIVIDE         ||
+            element->type == ELEMENT_TYPE_OPERATOR_MODULE         ||
+            element->type == ELEMENT_TYPE_OPERATOR_POWER
+            ) { // *, /, %, **
             ExpressionElement* lastELement1 = popExpressionStack(evaluateStack);
             ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
 
@@ -391,21 +397,9 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                     performArithmeticOperation(lastElement2, lastELement1, element);
                 pushExpressionStack(evaluateStack, newElement);
             } else {
-                showError(ERROR_SYNTAX, "'*' operator was used incorrectly");
-            }
-
-        } else if(element->type == ELEMENT_TYPE_OPERATOR_DIVIDE) { // /
-            ExpressionElement* lastELement1 = popExpressionStack(evaluateStack);
-            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
-
-            if(lastELement1 != NULL && lastElement2 != NULL &&
-                lastELement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER
-                ) {
-                ExpressionElement* newElement =
-                    performArithmeticOperation(lastElement2, lastELement1, element);
-                pushExpressionStack(evaluateStack, newElement);
-            } else {
-                showError(ERROR_SYNTAX, "'/' operator was used incorrectly");
+                char errMsg[50];
+                sprintf(errMsg, "'%s' operator was used incorrectly", element->value);
+                showError(ERROR_SYNTAX, errMsg);
             }
 
         }
@@ -442,8 +436,11 @@ performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, Express
             break;
         case ELEMENT_TYPE_OPERATOR_MODULE:
             if(operand2 == 0)
-                showError(ERROR_SYNTAX, "Modulus by zero");
-            result = doubleToString((int) operand2 % (int) operand1);
+                showError(ERROR_RUNTIME, "Modulus by zero");
+            result = __uint128_tToString((int) operand1 % (int) operand2);
+            break;
+        case ELEMENT_TYPE_OPERATOR_POWER:
+            result = doubleToString(pow(operand1, operand2));
             break;
         default:
             return NULL;
