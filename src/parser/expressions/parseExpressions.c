@@ -275,7 +275,7 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
 
     for(int i=queue->front; i<=queue->rear; i++) {
         ExpressionElement* element = queue->elements[i];
-        printf(element->value);
+
         if(element->type == ELEMENT_TYPE_NUMBER ||
             element->type == ELEMENT_TYPE_BOOL  ||
             element->type == ELEMENT_TYPE_STRING
@@ -340,13 +340,15 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                     createExpressionElement(ELEMENT_TYPE_STRING, strdup(value)));
 
             } else if(lastElement1 != NULL && lastElement2 != NULL &&
-                lastElement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER) {
+                lastElement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER
+                ) {
                 ExpressionElement* newElement =
                     performArithmeticOperation(lastElement2, lastElement1, element);
                 pushExpressionStack(evaluateStack, newElement);
 
             } else if(lastElement1 != NULL && lastElement1->type == ELEMENT_TYPE_NUMBER) {
                 char* value = strdup(lastElement1->value);
+
                 freeExpressionElement(lastElement1);
                 freeExpressionElement(element);
                 pushExpressionStack(evaluateStack,
@@ -355,6 +357,29 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 showError(ERROR_SYNTAX, "'+' operator was used incorrectly");
             }
 
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_MINUS) {
+            ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
+            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
+
+            if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER
+                ) {
+                ExpressionElement* newElement =
+                    performArithmeticOperation(lastElement2, lastElement1, element);
+                pushExpressionStack(evaluateStack, newElement);
+
+            } else if(lastElement1 != NULL && lastElement1->type == ELEMENT_TYPE_NUMBER) {
+                char* value =  doubleToString(-1 * atof(lastElement1->value));
+
+                freeExpressionElement(lastElement1);
+                freeExpressionElement(element);
+                pushExpressionStack(evaluateStack,
+                    createExpressionElement(ELEMENT_TYPE_NUMBER, value));
+            } else {
+                showError(ERROR_SYNTAX, "'-' operator was used incorrectly");
+            }
+        } else {
+            showError(ERROR_RUNTIME, "Unkown error");
         }
     }
 
