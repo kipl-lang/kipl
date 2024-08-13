@@ -42,9 +42,11 @@ Data* parseExpressions() {
                 element->type == ELEMENT_TYPE_STRING) {
                 enqueueExpression(queueOutput, element);
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_L) {
-                enqueueExpression(queueOutput, element);
+                pushExpressionStack(stackOperator, element);
                 openBracket++;
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_R) {
+                freeExpressionElement(element);
+
                 while(peekExpressionStack(stackOperator) != NULL &&
                     peekExpressionStack(stackOperator)->type != ELEMENT_TYPE_BRACKET_R_L
                     )
@@ -53,7 +55,7 @@ Data* parseExpressions() {
                 if(peekExpressionStack(stackOperator) != NULL &&
                     peekExpressionStack(stackOperator)->type == ELEMENT_TYPE_BRACKET_R_L
                     ) // pop '('
-                    popExpressionStack(stackOperator);
+                    freeExpressionElement(popExpressionStack(stackOperator));
 
                 openBracket--;
             } else { // operator
@@ -275,7 +277,7 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
 
     for(int i=queue->front; i<=queue->rear; i++) {
         ExpressionElement* element = queue->elements[i];
-
+    printf("%s \n",element->value);
         if(element->type == ELEMENT_TYPE_NUMBER ||
             element->type == ELEMENT_TYPE_BOOL  ||
             element->type == ELEMENT_TYPE_STRING
@@ -378,8 +380,6 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             } else {
                 showError(ERROR_SYNTAX, "'-' operator was used incorrectly");
             }
-        } else {
-            showError(ERROR_RUNTIME, "Unkown error");
         }
     }
 
