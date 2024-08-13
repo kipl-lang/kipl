@@ -19,11 +19,11 @@
 #include "parser/parser.h"
 
 int main(void) {
-    char* string = "var x:i8 var y:i8 = \"kerem\"+  \" \" + \"mert\"";
+    char* string = "var x:i8 var y:i8 = +4";
     Token* token =  scanner(string);
     parser(token);
 
-    system("pause");
+    //system("pause");
     freeTokens(token); // free memory
 
     return 0;

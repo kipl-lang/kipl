@@ -46,4 +46,7 @@ Associativity getAssociativity(ExpressionElement* element);
 
 Data* evaluatePostfix(ExpressionQueue* queue);
 
+ExpressionElement*
+performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator);
+
 #endif //PARSEEXPRESSIONS_H

@@ -4,6 +4,7 @@
 
 #include "parseExpressions.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "expressionQueue.h"
 #include "expressionStack.h"
@@ -337,6 +338,15 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 freeExpressionElement(element);
                 pushExpressionStack(evaluateStack,
                     createExpressionElement(ELEMENT_TYPE_STRING, strdup(value)));
+
+            } else if(lastElement1 != NULL && lastElement1->type == ELEMENT_TYPE_NUMBER) {
+                char* value = strdup(lastElement1->value);
+                freeExpressionElement(lastElement1);
+                freeExpressionElement(element);
+                pushExpressionStack(evaluateStack,
+                    createExpressionElement(ELEMENT_TYPE_NUMBER, value));
+            } else {
+                showError(ERROR_SYNTAX, "'+' operator was used incorrectly");
             }
 
         }
@@ -347,4 +357,34 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
     freeExpressionStack(evaluateStack); // free memory
 
     return expressionElementToData(resultElement);
+}
+
+ExpressionElement*
+performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator) {
+
+    double operand1 = atof(o1->value);
+    double operand2 = atof(o2->value);
+    char* result;
+
+    switch(operator->type) {
+        case ELEMENT_TYPE_OPERATOR_PLUS:
+            result = doubleToString(operand1 + operand2);
+            break;
+        case ELEMENT_TYPE_OPERATOR_MINUS:
+            result = doubleToString(operand1 - operand2);
+            break;
+        case ELEMENT_TYPE_OPERATOR_MULTIPLY:
+            result = doubleToString(operand1 * operand2);
+            break;
+        case ELEMENT_TYPE_OPERATOR_DIVIDE:
+            result = doubleToString(operand1 / operand2);
+            break;
+        case ELEMENT_TYPE_OPERATOR_MODULE:
+            result = doubleToString((int) operand2 % (int) operand1);
+            break;
+        default:
+            return NULL;
+    }
+
+    return createExpressionElement(ELEMENT_TYPE_NUMBER, result);
 }
