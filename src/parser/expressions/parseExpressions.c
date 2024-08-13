@@ -380,7 +380,7 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             } else {
                 showError(ERROR_SYNTAX, "'-' operator was used incorrectly");
             }
-        } else if(element->type == ELEMENT_TYPE_OPERATOR_MULTIPLY) {
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_MULTIPLY) { // *
             ExpressionElement* lastELement1 = popExpressionStack(evaluateStack);
             ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
 
@@ -393,6 +393,21 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             } else {
                 showError(ERROR_SYNTAX, "'*' operator was used incorrectly");
             }
+
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_DIVIDE) { // /
+            ExpressionElement* lastELement1 = popExpressionStack(evaluateStack);
+            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
+
+            if(lastELement1 != NULL && lastElement2 != NULL &&
+                lastELement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER
+                ) {
+                ExpressionElement* newElement =
+                    performArithmeticOperation(lastElement2, lastELement1, element);
+                pushExpressionStack(evaluateStack, newElement);
+            } else {
+                showError(ERROR_SYNTAX, "'/' operator was used incorrectly");
+            }
+
         }
     }
 
@@ -422,7 +437,7 @@ performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, Express
             break;
         case ELEMENT_TYPE_OPERATOR_DIVIDE:
             if(operand2 == 0)
-                showError(ERROR_SYNTAX, "Division by zero");
+                showError(ERROR_RUNTIME, "Division by zero");
             result = doubleToString(operand1 / operand2);
             break;
         case ELEMENT_TYPE_OPERATOR_MODULE:
