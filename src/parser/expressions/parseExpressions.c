@@ -307,7 +307,7 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             } else {
                 showError(ERROR_SYNTAX, "'&&' operator can only be applied to boolean expressions");
             }
-        } else if(element->type == ELEMENT_TYPE_OPERATOR_OR) { // &&
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_OR) { // ||
             ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
             ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
 
@@ -323,6 +323,22 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
             } else {
                 showError(ERROR_SYNTAX, "'||' operator can only be applied to boolean expressions");
             }
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_PLUS) { // +
+            ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
+            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
+
+            if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_STRING && lastElement2->type == ELEMENT_TYPE_STRING
+                ) {
+                char value[strlen(lastElement1->value) + strlen(lastElement2->value) + 1];
+                sprintf(value, "%s%s", lastElement2->value, lastElement1->value);
+                freeExpressionElement(lastElement1);
+                freeExpressionElement(lastElement2);
+                freeExpressionElement(element);
+                pushExpressionStack(evaluateStack,
+                    createExpressionElement(ELEMENT_TYPE_STRING, strdup(value)));
+            }
+
         }
     }
 
