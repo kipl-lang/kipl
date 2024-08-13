@@ -275,7 +275,7 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
 
     for(int i=queue->front; i<=queue->rear; i++) {
         ExpressionElement* element = queue->elements[i];
-
+        printf(element->value);
         if(element->type == ELEMENT_TYPE_NUMBER ||
             element->type == ELEMENT_TYPE_BOOL  ||
             element->type == ELEMENT_TYPE_STRING
@@ -339,13 +339,19 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 pushExpressionStack(evaluateStack,
                     createExpressionElement(ELEMENT_TYPE_STRING, strdup(value)));
 
+            } else if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER) {
+                ExpressionElement* newElement =
+                    performArithmeticOperation(lastElement2, lastElement1, element);
+                pushExpressionStack(evaluateStack, newElement);
+
             } else if(lastElement1 != NULL && lastElement1->type == ELEMENT_TYPE_NUMBER) {
                 char* value = strdup(lastElement1->value);
                 freeExpressionElement(lastElement1);
                 freeExpressionElement(element);
                 pushExpressionStack(evaluateStack,
                     createExpressionElement(ELEMENT_TYPE_NUMBER, value));
-            } else {
+            }  else {
                 showError(ERROR_SYNTAX, "'+' operator was used incorrectly");
             }
 
@@ -385,6 +391,10 @@ performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, Express
         default:
             return NULL;
     }
+
+    freeExpressionElement(o1);
+    freeExpressionElement(o2);
+    freeExpressionElement(operator);
 
     return createExpressionElement(ELEMENT_TYPE_NUMBER, result);
 }
