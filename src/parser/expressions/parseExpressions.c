@@ -64,6 +64,9 @@ Data* parseExpressions() {
                     pushExpressionStack(stackOperator, element);
                 else {
                     if(getAssociativity(element) == ASSOCIATIVITY_LEFT) {
+
+                        AddZeroExpressionElement(element, stackOperator, queueOutput);
+
                         while(peekExpressionStack(stackOperator) != NULL &&
                             precedence(peekExpressionStack(stackOperator)) >= precedence(element)
                             ) {
@@ -272,6 +275,18 @@ Associativity getAssociativity(ExpressionElement* element) {
     }
 }
 
+void AddZeroExpressionElement(ExpressionElement* element, ExpressionStack* stack, ExpressionQueue* queue) {
+    if((element->type == ELEMENT_TYPE_OPERATOR_PLUS || element->type == ELEMENT_TYPE_OPERATOR_MINUS) &&
+    (peekExpressionQueue(queue) == NULL || peekExpressionStack(stack)->type == ELEMENT_TYPE_BRACKET_R_L )
+    ) {
+        ExpressionElementType type = ELEMENT_TYPE_NUMBER;
+        char* value = strdup("0");
+        ExpressionElement* zeroElement = createExpressionElement(type, value);
+
+        enqueueExpression(queue, zeroElement);
+    }
+}
+
 Data* evaluatePostfix(ExpressionQueue* queue) {
 
     ExpressionStack* evaluateStack = createExpressionStack();
@@ -351,41 +366,15 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                     performArithmeticOperation(lastElement2, lastElement1, element);
                 pushExpressionStack(evaluateStack, newElement);
 
-            } else if(lastElement1 != NULL && lastElement1->type == ELEMENT_TYPE_NUMBER) {
-                char* value = strdup(lastElement1->value);
-
-                freeExpressionElement(lastElement1);
-                freeExpressionElement(element);
-                pushExpressionStack(evaluateStack,
-                    createExpressionElement(ELEMENT_TYPE_NUMBER, value));
-            }  else {
+            } else {
                 showError(ERROR_SYNTAX, "'+' operator was used incorrectly");
             }
 
-        } else if(element->type == ELEMENT_TYPE_OPERATOR_MINUS) {
-            ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
-            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
-
-            if(lastElement1 != NULL && lastElement2 != NULL &&
-                lastElement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER
-                ) {
-                ExpressionElement* newElement =
-                    performArithmeticOperation(lastElement2, lastElement1, element);
-                pushExpressionStack(evaluateStack, newElement);
-
-            } else if(lastElement1 != NULL && lastElement1->type == ELEMENT_TYPE_NUMBER) {
-                char* value =  doubleToString(-1 * atof(lastElement1->value));
-
-                freeExpressionElement(lastElement1);
-                freeExpressionElement(element);
-                pushExpressionStack(evaluateStack,
-                    createExpressionElement(ELEMENT_TYPE_NUMBER, value));
-            } else {
-                showError(ERROR_SYNTAX, "'-' operator was used incorrectly");
-            }
-        } else if(element->type == ELEMENT_TYPE_OPERATOR_MULTIPLY ||
-            element->type == ELEMENT_TYPE_OPERATOR_DIVIDE         ||
-            element->type == ELEMENT_TYPE_OPERATOR_MODULE         ||
+        } else if(
+            element->type == ELEMENT_TYPE_OPERATOR_MINUS        ||
+            element->type == ELEMENT_TYPE_OPERATOR_MULTIPLY     ||
+            element->type == ELEMENT_TYPE_OPERATOR_DIVIDE       ||
+            element->type == ELEMENT_TYPE_OPERATOR_MODULE       ||
             element->type == ELEMENT_TYPE_OPERATOR_POWER
             ) { // *, /, %, **
             ExpressionElement* lastELement1 = popExpressionStack(evaluateStack);
@@ -480,6 +469,7 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
 
     freeExpressionStack(evaluateStack); // free memory
 
+    // elemnten dataya çevirldikten sonra  fonksiyonda bellekten siliniyor.
     return expressionElementToData(resultElement);
 }
 
