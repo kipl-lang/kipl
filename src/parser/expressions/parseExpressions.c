@@ -488,8 +488,14 @@ performComparisonOperation(ExpressionElement* o1, ExpressionElement* o2, Express
         case ELEMENT_TYPE_OPERATOR_LESS_EQUAL:
             result = boolToString(operand1 <= operand2 ? true : false);
             break;
-        case  ELEMENT_TYPE_OPERATOR_GREAT_EQUAL:
+        case ELEMENT_TYPE_OPERATOR_GREAT_EQUAL:
             result = boolToString(operand1 >= operand2 ? true : false);
+            break;
+        case ELEMENT_TYPE_OPERATOR_EQUAL_EQUAL:
+            result = boolToString(operand1 == operand2 ? true : false);
+            break;
+        case ELEMENT_TYPE_OPERATOR_BANG_EQUAL:
+            result = boolToString(operand1 != operand2 ? true : false);
             break;
         default:
             return NULL;
