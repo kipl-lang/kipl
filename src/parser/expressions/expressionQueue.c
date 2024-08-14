@@ -4,6 +4,7 @@
 
 #include "expressionQueue.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 ExpressionQueue* createExpressionQueue() {
@@ -18,7 +19,6 @@ ExpressionQueue* createExpressionQueue() {
 
 void enqueueExpression(ExpressionQueue* queue, ExpressionElement* element) {
     queue->elements = realloc(queue->elements, ++queue->capacity*sizeof(ExpressionElement*));
-
     if(queue->front == -1)
         queue->front++;
     queue->elements[++queue->rear] = element;
