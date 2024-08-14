@@ -18,12 +18,18 @@ Data* parseExpressions();
 
 /*
  * @function: dataToExpressionElement
- * @description: Convert data to parse expression
+ * @description: Convert data to parse expression element
  * @arguments: Data* data
  * @return: ExpressionElement*
  */
 ExpressionElement* dataToExpressionElement(Data* data);
 
+/*
+ * @function: expressionElementToData
+ * @description: Convert expression element to data
+ * @arguments: ExpressionElement* element
+ * @return: Data*
+ */
 Data* expressionElementToData(ExpressionElement* element);
 
 /*
