@@ -42,13 +42,37 @@ ExpressionElement* tokenToExpressionElement();
  */
 int precedence(ExpressionElement* element);
 
+/*
+ * @function: getAssociativity
+ * @description: operator is left ASSOCIATIVITY_LEFT or ASSOCIATIVITY_LEFT
+ * @arguments: ExpressionElement* element
+ * @return: Associativity
+ */
 Associativity getAssociativity(ExpressionElement* element);
 
+/*
+ * @function: evaluatePostfix
+ * @description: evaluate postfix expression and convert data
+ * @arguments: ExpressionQueue* queue
+ * @return: Data*
+ */
 Data* evaluatePostfix(ExpressionQueue* queue);
 
+/*
+ * @function: performArithmeticOperation
+ * @description: perform the arithmetic operation
+ * @arguments: ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator
+ * @return: ExpressionElement*
+ */
 ExpressionElement*
 performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator);
 
+/*
+ * @function: performComparisonOperation
+ * @description: perform the comparison operation
+ * @arguments: ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator
+ * @return: ExpressionElement*
+ */
 ExpressionElement*
 performComparisonOperation(ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator);
 #endif //PARSEEXPRESSIONS_H
