@@ -3,7 +3,6 @@
 //
 
 #include "parseExpressions.h"
-
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -402,6 +401,26 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 showError(ERROR_SYNTAX, errMsg);
             }
 
+        } else if(
+            element->type == ELEMENT_TYPE_OPERATOR_LESS         ||
+            element->type == ELEMENT_TYPE_OPERATOR_GREAT        ||
+            element->type == ELEMENT_TYPE_OPERATOR_LESS_EQUAL   ||
+            element->type == ELEMENT_TYPE_OPERATOR_GREAT_EQUAL
+            ) { // <, >, <=, >=
+            ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
+            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
+
+            if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER
+                ) {
+                ExpressionElement* newElement =
+                    performComparisonOperation(lastElement2, lastElement1, element);
+                pushExpressionStack(evaluateStack, newElement);
+            } else {
+                char errMsg[50];
+                sprintf(errMsg, "'%s' operator was used incorrectly", element->value);
+                showError(ERROR_SYNTAX, errMsg);
+            }
         }
     }
 
@@ -451,4 +470,34 @@ performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, Express
     freeExpressionElement(operator);
 
     return createExpressionElement(ELEMENT_TYPE_NUMBER, result);
+}
+
+ExpressionElement*
+performComparisonOperation(ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator) {
+    double operand1 = atof(o1->value);
+    double operand2 = atof(o2->value);
+    char* result;
+
+    switch(operator->type) {
+        case ELEMENT_TYPE_OPERATOR_LESS:
+            result = boolToString(operand1 < operand2 ? true : false);
+            break;
+        case ELEMENT_TYPE_OPERATOR_GREAT:
+            result = boolToString(operand1 > operand2 ? true : false);
+            break;
+        case ELEMENT_TYPE_OPERATOR_LESS_EQUAL:
+            result = boolToString(operand1 <= operand2 ? true : false);
+            break;
+        case  ELEMENT_TYPE_OPERATOR_GREAT_EQUAL:
+            result = boolToString(operand1 >= operand2 ? true : false);
+            break;
+        default:
+            return NULL;
+    }
+
+    freeExpressionElement(o1);
+    freeExpressionElement(o2);
+    freeExpressionElement(operator);
+
+    return createExpressionElement(ELEMENT_TYPE_BOOL, result);
 }
