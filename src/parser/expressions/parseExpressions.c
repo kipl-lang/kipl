@@ -336,9 +336,11 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 ) {
                 char value[strlen(lastElement1->value) + strlen(lastElement2->value) + 1];
                 sprintf(value, "%s%s", lastElement2->value, lastElement1->value);
+
                 freeExpressionElement(lastElement1);
                 freeExpressionElement(lastElement2);
                 freeExpressionElement(element);
+
                 pushExpressionStack(evaluateStack,
                     createExpressionElement(ELEMENT_TYPE_STRING, strdup(value)));
 
@@ -399,6 +401,37 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
                 char errMsg[50];
                 sprintf(errMsg, "'%s' operator was used incorrectly", element->value);
                 showError(ERROR_SYNTAX, errMsg);
+            }
+
+        } else if(element->type == ELEMENT_TYPE_OPERATOR_EQUAL_EQUAL ||
+            element->type == ELEMENT_TYPE_OPERATOR_BANG_EQUAL
+            ) { // ==, !=
+            ExpressionElement* lastElement1 = popExpressionStack(evaluateStack);
+            ExpressionElement* lastElement2 = popExpressionStack(evaluateStack);
+
+            if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_NUMBER && lastElement2->type == ELEMENT_TYPE_NUMBER
+                ) {
+                ExpressionElement* newElement =
+                    performComparisonOperation(lastElement2, lastElement1, element);
+                pushExpressionStack(evaluateStack, newElement);
+
+            } else if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_BOOL && lastElement2->type == ELEMENT_TYPE_BOOL
+                ) {
+                char* value = (element->type == ELEMENT_TYPE_OPERATOR_EQUAL_EQUAL) ?
+                    boolToString(stringToBool(lastElement2->value) == stringToBool(lastElement1->value))
+                    :
+                    boolToString(stringToBool(lastElement2->value) != stringToBool(lastElement1->value));
+
+                freeExpressionElement(lastElement1);
+                freeExpressionElement(lastElement2);
+                freeExpressionElement(element);
+
+                pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
+
+            } else {
+                showError(ERROR_SYNTAX, "'==' operator was used incorrectly");
             }
 
         } else if(
