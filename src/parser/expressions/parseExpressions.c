@@ -430,8 +430,27 @@ Data* evaluatePostfix(ExpressionQueue* queue) {
 
                 pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
 
+            }
+            else if(lastElement1 != NULL && lastElement2 != NULL &&
+                lastElement1->type == ELEMENT_TYPE_STRING && lastElement2->type == ELEMENT_TYPE_STRING
+                ) {
+                char* value = element->type == ELEMENT_TYPE_OPERATOR_EQUAL_EQUAL ?
+                    (!strcmp(lastElement2->value, lastElement1->value) ? boolToString(true) :
+                        boolToString(false))
+                    :
+                    (!strcmp(lastElement2->value, lastElement1->value) ? boolToString(false) :
+                        boolToString(true));
+
+                freeExpressionElement(lastElement1);
+                freeExpressionElement(lastElement2);
+                freeExpressionElement(element);
+
+                pushExpressionStack(evaluateStack, createExpressionElement(ELEMENT_TYPE_BOOL, value));
+
             } else {
-                showError(ERROR_SYNTAX, "'==' operator was used incorrectly");
+                char errMsg[50];
+                sprintf(errMsg, "'%s' operator was used incorrectly", element->value);
+                showError(ERROR_SYNTAX, errMsg);
             }
 
         } else if(
