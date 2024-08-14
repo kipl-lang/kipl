@@ -32,6 +32,12 @@ void dequeueExpression(ExpressionQueue* queue) {
     }
 }
 
+ExpressionElement* peekExpressionQueue(ExpressionQueue* queue) {
+    if(queue->rear == -1)
+        return NULL;
+    return queue->elements[queue->rear];
+}
+
 void freeExpressionQueue(ExpressionQueue* queue) {
     free(queue->elements);
     free(queue);
