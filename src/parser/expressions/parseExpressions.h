@@ -57,7 +57,8 @@ int precedence(ExpressionElement* element);
  */
 Associativity getAssociativity(ExpressionElement* element);
 
-void AddZeroExpressionElement(ExpressionElement* element, ExpressionStack* stack, ExpressionQueue* queue);
+void
+AddZeroExpressionElement(ExpressionElement* element, ExpressionElement* prevElement, ExpressionQueue* queue);
 
 /*
  * @function: evaluatePostfix

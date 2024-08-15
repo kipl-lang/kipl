@@ -61,7 +61,7 @@ Data* parseExpressions() {
                 openBracket--;
             } else { // operator
 
-                AddZeroExpressionElement(element, stackOperator, queueOutput);
+                AddZeroExpressionElement(element, prevElement, queueOutput);
 
                 if(peekExpressionStack(stackOperator) == NULL)
                     pushExpressionStack(stackOperator, element);
@@ -280,10 +280,10 @@ Associativity getAssociativity(ExpressionElement* element) {
     }
 }
 
-void AddZeroExpressionElement(ExpressionElement* element, ExpressionStack* stack, ExpressionQueue* queue) {
+void
+AddZeroExpressionElement(ExpressionElement* element, ExpressionElement* prevElement, ExpressionQueue* queue) {
     if((element->type == ELEMENT_TYPE_OPERATOR_PLUS || element->type == ELEMENT_TYPE_OPERATOR_MINUS) &&
-    (peekExpressionQueue(queue) == NULL ||
-    (peekExpressionStack(stack) != NULL  && peekExpressionStack(stack)->type == ELEMENT_TYPE_BRACKET_R_L))
+    (prevElement == NULL || prevElement->type == ELEMENT_TYPE_BRACKET_R_L)
     ) {
         ExpressionElementType type = ELEMENT_TYPE_NUMBER;
         char* value = strdup("0");
