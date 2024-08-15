@@ -16,6 +16,7 @@ The Kipl Programming Language
 #define SCOPE_H
 
 #include "../variable/variable.h"
+#include "../expressions/data.h"
 
 typedef struct _scope {
     // There are linked lists (var1 -> var2 -> var3 -> ... -> varn -> NULL)
@@ -42,6 +43,10 @@ void createScope();
 bool isVariableInCurrentScope(const char* name);
 
 bool isVariableInAllScope(const char* name);
+
+bool dataTypeIsNumber(DataType type);
+
+void assignToVariable(const char* varName, Data* data);
 
 void freeScope();
 

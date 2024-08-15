@@ -142,6 +142,7 @@ bool isVariableInCurrentScope(const char* name) {
 }
 
 
+//henüz kullanılmıyor belki ileride kullanrıım.
 bool isVariableInAllScope(const char* name) {
     Scope* tempScope = currentScope;
 
@@ -151,12 +152,46 @@ bool isVariableInAllScope(const char* name) {
 
         tempScope = tempScope->parentScope;
     }
-
     return false;
 }
 
+void assignToVariable(const char* varName, Data* data) {
+    Scope* tempScope = currentScope;
 
-//
+    while(tempScope != NULL) {
+
+        I8Variable* tempI8Var = currentScope->i8Variable;
+        while(tempI8Var != NULL) {
+            if(!strcmp(varName, tempI8Var->name))
+                if()
+            tempI8Var = tempI8Var->next;
+        }
+
+        tempScope = tempScope->parentScope;
+    }
+
+
+}
+
+bool dataTypeIsNumber(DataType type) {
+    switch(type) {
+        case TYPE_I8:
+        case TYPE_I16:
+        case TYPE_I32:
+        case TYPE_I64:
+        case TYPE_I128:
+        case TYPE_U8:
+        case TYPE_U16:
+        case TYPE_U32:
+        case TYPE_U64:
+        case TYPE_U128:
+        case TYPE_F32:
+        case TYPE_F64:
+            return true;
+        default:
+            return false;
+    }
+}
 
 void freeScope() {
     // free variable

@@ -50,8 +50,8 @@ void parseVariable() {
                     currentToken = currentToken->next;
                     Data* data = parseExpressions();
                     if(data != NULL) { // var name: type = value
-                        if(data->dataType == TYPE_F64)
-                            printf("merhaba");
+                        if(isVariableInAllScope(varName))
+                            printf("hello");
                     } else {
                         showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
                     }
