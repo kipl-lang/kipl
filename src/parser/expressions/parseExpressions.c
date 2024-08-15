@@ -16,11 +16,10 @@
 #include "../helpers/typeConversion/toString.h"
 
 Data* parseExpressions() {
-    if(currentToken->type == TOKEN_EOF)
-        return NULL;
 
     ExpressionStack* stackOperator = createExpressionStack();
     ExpressionQueue* queueOutput = createExpressionQueue();
+    ExpressionElement* prevElement = NULL;
     unsigned int openBracket = 0; // Open bracket number
 
     while(currentToken->type != TOKEN_EOF) {
@@ -28,6 +27,7 @@ Data* parseExpressions() {
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
                 ExpressionElement* element = dataToExpressionElement(data);
+                prevElement = element;
                 enqueueExpression(queueOutput, element);
             } else { // variable is not defined
                 char errMsg[256];
@@ -81,9 +81,14 @@ Data* parseExpressions() {
                     }
                 }
             }
+
+            prevElement = element;
         }
         currentToken = currentToken->next;
     }
+
+    if(queueOutput->rear == -1)
+        return NULL;
 
     if(currentToken->type == TOKEN_ERROR)
         showError(ERROR_SYNTAX, currentToken->value);
