@@ -158,12 +158,7 @@ Data* expressionElementToData(ExpressionElement* element) {
 
     switch(element->type) {
         case ELEMENT_TYPE_NUMBER:
-            if(strchr(element->value, '.') != NULL)
-                type = TYPE_F64;
-            else if(strchr(element->value, '-') != NULL)
-                type = TYPE_I128;
-            else
-                type = TYPE_U128;
+            type = TYPE_F64;
             break;
         case ELEMENT_TYPE_BOOL:
             type = TYPE_BOOL;
