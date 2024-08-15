@@ -43,6 +43,17 @@ Data* parseExpressions() {
                 element->type == ELEMENT_TYPE_STRING) {
                 enqueueExpression(queueOutput, element);
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_L) {
+                if(prevElement != NULL) {
+                    switch(prevElement->type) {
+                        case ELEMENT_TYPE_NUMBER:
+                        case ELEMENT_TYPE_BOOL:
+                        case ELEMENT_TYPE_STRING:
+                        case ELEMENT_TYPE_BRACKET_R_L:
+                            showError(ERROR_SYNTAX, "'(' was used incorrectly");
+                        default:
+                            break;
+                    }
+                }
                 pushExpressionStack(stackOperator, element);
                 openBracket++;
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_R) {
