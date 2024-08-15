@@ -141,6 +141,21 @@ bool isVariableInCurrentScope(const char* name) {
     return false;
 }
 
+
+bool isVariableInAllScope(const char* name) {
+    Scope* tempScope = currentScope;
+
+    while(tempScope != NULL) {
+        if(isVariableInCurrentScope(name))
+            return true;
+
+        tempScope = tempScope->parentScope;
+    }
+
+    return false;
+}
+
+
 //
 
 void freeScope() {

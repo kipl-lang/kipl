@@ -41,7 +41,7 @@ void createScope();
 
 bool isVariableInCurrentScope(const char* name);
 
-I8Variable* getLastVariable(DataType type);
+bool isVariableInAllScope(const char* name);
 
 void freeScope();
 
