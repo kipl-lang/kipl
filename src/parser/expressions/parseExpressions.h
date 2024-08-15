@@ -91,4 +91,5 @@ performArithmeticOperation(ExpressionElement* o1, ExpressionElement* o2, Express
  */
 ExpressionElement*
 performComparisonOperation(ExpressionElement* o1, ExpressionElement* o2, ExpressionElement* operator);
+
 #endif //PARSEEXPRESSIONS_H

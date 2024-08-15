@@ -19,7 +19,7 @@
 #include "parser/parser.h"
 
 int main(void) {
-    char* string = "var x:string var y:i8 = !(10 / 2 == 5) && (7 ** 0 > 0) || (1 + 1 == 2)";
+    char* string = "var x:string var y:i8 = true&true";
     Token* token =  scanner(string);
     parser(token);
 
