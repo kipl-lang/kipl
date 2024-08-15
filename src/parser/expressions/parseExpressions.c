@@ -164,6 +164,7 @@ Data* expressionElementToData(ExpressionElement* element) {
                 type = TYPE_I128;
             else
                 type = TYPE_U128;
+            break;
         case ELEMENT_TYPE_BOOL:
             type = TYPE_BOOL;
             break;

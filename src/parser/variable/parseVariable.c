@@ -50,7 +50,8 @@ void parseVariable() {
                     currentToken = currentToken->next;
                     Data* data = parseExpressions();
                     if(data != NULL) { // var name: type = value
-                        printf(data->value);
+                        if(data->dataType == TYPE_VOID)
+                            printf("merhaba");
                     } else {
                         showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
                     }
