@@ -57,6 +57,12 @@ int precedence(ExpressionElement* element);
  */
 Associativity getAssociativity(ExpressionElement* element);
 
+/*
+ * @function: AddZeroExpressionElement
+ * @description: if element is plus or minus and if previous element is NULL or '(' add zero element the queue
+ * @arguments: ExpressionElement* element, ExpressionElement* prevElement, ExpressionQueue* queue
+ * @return: void
+ */
 void
 AddZeroExpressionElement(ExpressionElement* element, ExpressionElement* prevElement, ExpressionQueue* queue);
 
