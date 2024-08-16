@@ -441,6 +441,23 @@ void assignToVariable(const char* varName, Data* data) {
         }
         tempBoolVar = tempBoolVar->next;
     }
+
+    StringVariable* tempStringVar = currentScope->stringVariable;
+    while(tempStringVar != NULL) {
+        if(!strcmp(varName, tempStringVar->name)) {
+            if(data->dataType == TYPE_STRING) {
+                free(tempStringVar->value);
+                tempStringVar->value = strdup(data->value);
+                freeData(data);
+                return;
+            }
+
+            char* errMsg[50];
+            sprintf(errMsg, "%s is not a boolean expression", data->value);
+            showError(ERROR_RUNTIME, errMsg);
+        }
+        tempStringVar = tempStringVar->next;
+    }
 }
 
 bool dataTypeIsNumber(DataType type) {
