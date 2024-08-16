@@ -385,6 +385,45 @@ void assignToVariable(const char* varName, Data* data) {
         tempScope = tempScope->parentScope;
     }
 
+    F32Variable* tempF32Var = currentScope->f32Variable;
+    while(tempF32Var != NULL) {
+        if(!strcmp(varName, tempF32Var->name)) {
+            if(dataTypeIsNumber(data->dataType)) {
+                float dataValue = atof(data->value);
+                if(atof(data->value) == dataValue) {
+                    tempF32Var->value = dataValue;
+                    freeData(data);
+                    return;
+                }
+                showError(ERROR_RUNTIME, "invalid value range");
+            }
+
+            char* errMsg[50];
+            sprintf(errMsg, "%s is not a number", data->value);
+            showError(ERROR_RUNTIME, errMsg);
+        }
+        tempF32Var = tempF32Var->next;
+    }
+
+    F64Variable* tempF64Var = currentScope->f64Variable;
+    while(tempF64Var != NULL) {
+        if(!strcmp(varName, tempF64Var->name)) {
+            if(dataTypeIsNumber(data->dataType)) {
+                double dataValue = atof(data->value);
+                if(atof(data->value) == dataValue) {
+                    tempF64Var->value = dataValue;
+                    freeData(data);
+                    return;
+                }
+                showError(ERROR_RUNTIME, "invalid value range");
+            }
+
+            char* errMsg[50];
+            sprintf(errMsg, "%s is not a number", data->value);
+            showError(ERROR_RUNTIME, errMsg);
+        }
+        tempF64Var = tempF64Var->next;
+    }
 
 }
 
