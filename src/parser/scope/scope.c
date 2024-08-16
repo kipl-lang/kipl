@@ -163,10 +163,7 @@ bool isVariableInAllScope(const char* name) {
 }
 
 /*
- * current scopedan başlayarak parentscopearda her bir tipi tutan değişken linked listlerini gez
- * değişken ismi bulunduğunda orada dur. bulunan değişkenin bir  type kontorlü maks min alabilecek mi kontroller
- * iniyap
- * en son freedata yapmayı unutma
+ * Sorun yok ama teste muhtaç
  */
 void assignToVariable(const char* varName, Data* data) {
     Scope* tempScope = currentScope;
@@ -453,7 +450,7 @@ void assignToVariable(const char* varName, Data* data) {
             }
 
             char* errMsg[50];
-            sprintf(errMsg, "%s is not a boolean expression", data->value);
+            sprintf(errMsg, "%s is not a string", data->value);
             showError(ERROR_RUNTIME, errMsg);
         }
         tempStringVar = tempStringVar->next;
