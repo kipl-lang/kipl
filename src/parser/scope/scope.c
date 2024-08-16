@@ -23,6 +23,7 @@
 #include <stdint.h>
 
 #include "../error/error.h"
+#include "../helpers/typeConversion/toBool.h"
 
 
 void createScope() {
@@ -425,6 +426,21 @@ void assignToVariable(const char* varName, Data* data) {
         tempF64Var = tempF64Var->next;
     }
 
+    BoolVariable* tempBoolVar = currentScope->boolVariable;
+    while(tempBoolVar != NULL) {
+        if(!strcmp(varName, tempBoolVar->name)) {
+            if(data->dataType == TYPE_BOOL) {
+                tempBoolVar->value = stringToBool(data->value);
+                freeData(data);
+                return;
+            }
+
+            char* errMsg[50];
+            sprintf(errMsg, "%s is not a boolean expression", data->value);
+            showError(ERROR_RUNTIME, errMsg);
+        }
+        tempBoolVar = tempBoolVar->next;
+    }
 }
 
 bool dataTypeIsNumber(DataType type) {
