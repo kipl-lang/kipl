@@ -24,6 +24,19 @@ Data* parseExpressions() {
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
+
+            if(prevElement != NULL) {
+                switch(prevElement->type) {
+                    case ELEMENT_TYPE_NUMBER:
+                    case ELEMENT_TYPE_BOOL:
+                    case ELEMENT_TYPE_STRING:
+                    case ELEMENT_TYPE_BRACKET_R_R:
+                        showError(ERROR_SYNTAX, "'identifier' was used incorrectly");
+                    default:
+                        break;
+                }
+            }
+
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
                 ExpressionElement* element = dataToExpressionElement(data);
@@ -41,6 +54,19 @@ Data* parseExpressions() {
 
             if(element->type == ELEMENT_TYPE_NUMBER || element->type == ELEMENT_TYPE_BOOL ||
                 element->type == ELEMENT_TYPE_STRING) {
+
+                if(prevElement != NULL) {
+                    switch(prevElement->type) {
+                        case ELEMENT_TYPE_NUMBER:
+                        case ELEMENT_TYPE_BOOL:
+                        case ELEMENT_TYPE_STRING:
+                        case ELEMENT_TYPE_BRACKET_R_R:
+                            showError(ERROR_SYNTAX, "'value' was used incorrectly");
+                        default:
+                            break;
+                    }
+                }
+
                 enqueueExpression(queueOutput, element);
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_L) {
                 if(prevElement != NULL) {
@@ -48,7 +74,7 @@ Data* parseExpressions() {
                         case ELEMENT_TYPE_NUMBER:
                         case ELEMENT_TYPE_BOOL:
                         case ELEMENT_TYPE_STRING:
-                        case ELEMENT_TYPE_BRACKET_R_L:
+                        case ELEMENT_TYPE_BRACKET_R_R:
                             showError(ERROR_SYNTAX, "'(' was used incorrectly");
                         default:
                             break;

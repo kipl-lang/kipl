@@ -14,9 +14,14 @@
 
 
 #include "scope.h"
+
+#include <stdio.h>
+
 #include "../global.h"
 #include <stdlib.h>
 #include <string.h>
+
+#include "../error/error.h"
 
 
 void createScope() {
@@ -155,6 +160,12 @@ bool isVariableInAllScope(const char* name) {
     return false;
 }
 
+/*
+ * current scopedan başlayarak parentscopearda her bir tipi tutan değişken linked listlerini gez
+ * değişken ismi bulunduğunda orada dur. bulunan değişkenin bir  type kontorlü maks min alabilecek mi kontroller
+ * iniyap
+ * en son freedata yapmayı unutma
+ */
 void assignToVariable(const char* varName, Data* data) {
     Scope* tempScope = currentScope;
 
@@ -162,8 +173,19 @@ void assignToVariable(const char* varName, Data* data) {
 
         I8Variable* tempI8Var = currentScope->i8Variable;
         while(tempI8Var != NULL) {
-            if(!strcmp(varName, tempI8Var->name))
-                if()
+            if(!strcmp(varName, tempI8Var->name)) {
+                if(dataTypeIsNumber(data->dataType)) {
+                    if(data->value)
+                    tempI8Var->value = (int8_t) atoi(data->value);
+                    printf("%d", tempI8Var->value);
+                    freeData(data);
+                    return;
+                }
+                // Status of error
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
             tempI8Var = tempI8Var->next;
         }
 
