@@ -24,7 +24,6 @@ Data* parseExpressions() {
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
-
             if(prevElement != NULL) {
                 switch(prevElement->type) {
                     case ELEMENT_TYPE_NUMBER:
@@ -66,8 +65,8 @@ Data* parseExpressions() {
                             break;
                     }
                 }
-
                 enqueueExpression(queueOutput, element);
+
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_L) {
                 if(prevElement != NULL) {
                     switch(prevElement->type) {

@@ -30,6 +30,8 @@ void parser(Token* token) {
 
         if(currentToken->type == TOKEN_VAR)
             parseVariable();
+        else
+            showError(ERROR_SYNTAX, "unkown syntax");
         //currentToken = currentToken->next;
     }
 

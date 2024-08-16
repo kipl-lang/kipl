@@ -51,9 +51,7 @@ void parseVariable() {
                     Data* data = parseExpressions();
                     if(data != NULL) { // var name: type = value
                         printf(data->value);
-                        if(data->dataType == TYPE_U128)
-                            printf("merhaba");
-                        //assignToVariable(varName, data);
+                        assignToVariable(varName, data);
                     } else {
                         showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
                     }

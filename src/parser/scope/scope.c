@@ -20,6 +20,7 @@
 #include "../global.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #include "../error/error.h"
 
@@ -175,16 +176,21 @@ void assignToVariable(const char* varName, Data* data) {
         while(tempI8Var != NULL) {
             if(!strcmp(varName, tempI8Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
-                    if(data->value)
-                    tempI8Var->value = (int8_t) atoi(data->value);
-                    printf("%d", tempI8Var->value);
-                    freeData(data);
-                    return;
+                    if(atof(data->value) == (int8_t) atof(data->value))
+
+
+                    // if(data->value = (int8_t) data->value)
+                    // tempI8Var->value = (int8_t) atoi(data->value);
+                    // printf("%d", tempI8Var->value);
+                    // freeData(data);
+                    // return;
+                } else {
+                    // Status of error
+                    char* errMsg[50];
+                    sprintf(errMsg, "%s is not a number", data->value);
+                    showError(ERROR_RUNTIME, errMsg);
                 }
-                // Status of error
-                char* errMsg[50];
-                sprintf(errMsg, "%s is not a number", data->value);
-                showError(ERROR_RUNTIME, errMsg);
+
             }
             tempI8Var = tempI8Var->next;
         }
