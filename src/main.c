@@ -12,6 +12,7 @@
 
 **/
 
+#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -19,7 +20,9 @@
 #include "parser/parser.h"
 
 int main(void) {
-    char* string = "var x:i8 = 2,5";
+    setlocale(LC_ALL, "en_US.UTF-8");
+
+    char* string = "var x:i8 = -5 var y:i16=9";
     Token* token =  scanner(string);
     parser(token);
 
