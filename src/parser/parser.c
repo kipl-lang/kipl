@@ -14,6 +14,8 @@
 
 #include "parser.h"
 
+#include <stdio.h>
+
 #include "global.h"
 
 #include "error/error.h"
@@ -27,9 +29,10 @@ void parser(Token* token) {
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_ERROR)
             showError(ERROR_SYNTAX, token->value);
-
-        if(currentToken->type == TOKEN_VAR)
+        else if(currentToken->type == TOKEN_VAR)
             parseVariable();
+        else if(currentToken->type == TOKEN_IF)
+            printf("kerem");
         else
             showError(ERROR_SYNTAX, "unkown syntax");
         //currentToken = currentToken->next;
