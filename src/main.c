@@ -22,7 +22,7 @@
 int main(void) {
     setlocale(LC_ALL, "en_US.UTF-8");
 
-    char* string = "if true";
+    char* string = "if true {";
     Token* token =  scanner(string);
     parser(token);
 

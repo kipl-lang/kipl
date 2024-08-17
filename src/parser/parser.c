@@ -32,12 +32,24 @@ void parser(Token* token) {
             showError(ERROR_SYNTAX, token->value);
         else if(currentToken->type == TOKEN_VAR)
             createScope();
+
         else if(currentToken->type == TOKEN_IF)
             parseIf();
+        else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+            if(openCurlyBracket == 0)
+                showError(ERROR_SYNTAX, "Curly brackets are not balanced");
+
+            openCurlyBracket--;
+            freeScope();
+            currentToken = currentToken->next;
+        }
         else
             showError(ERROR_SYNTAX, "unkown syntax");
         //currentToken = currentToken->next;
     }
+
+    if(openCurlyBracket != 0)
+        showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
     freeScope();
 }

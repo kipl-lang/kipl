@@ -20,5 +20,6 @@
 
 extern Token* currentToken;
 extern Scope* currentScope;
+extern unsigned int openCurlyBracket;
 
 #endif //GLOBAL_H

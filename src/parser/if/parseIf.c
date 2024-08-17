@@ -17,6 +17,7 @@ void parseIf() {
     if(data != NULL && data->dataType == TYPE_BOOL) {
         if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
             createScope();
+            openCurlyBracket++;
             currentToken = currentToken->next;
         } else {
             showError(ERROR_SYNTAX, " expected '{' after if clause");

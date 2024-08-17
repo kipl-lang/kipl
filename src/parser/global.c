@@ -16,3 +16,4 @@
 
 Token* currentToken = NULL;
 Scope* currentScope = NULL;
+unsigned int openCurlyBracket = 0;
