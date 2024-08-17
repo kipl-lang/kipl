@@ -40,4 +40,6 @@ add_executable(interpreter src/main.c
         src/parser/expressions/expressionQueue.h
         src/parser/helpers/typeConversion/toBool.c
         src/parser/helpers/typeConversion/toBool.h
+        src/parser/if/ifParser.c
+        src/parser/if/ifParser.h
 )
