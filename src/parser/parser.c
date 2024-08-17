@@ -19,6 +19,7 @@
 #include "global.h"
 
 #include "error/error.h"
+#include "if/parseIf.h"
 #include "variable/parseVariable.h"
 #include "scope/scope.h"
 
@@ -30,9 +31,9 @@ void parser(Token* token) {
         if(currentToken->type == TOKEN_ERROR)
             showError(ERROR_SYNTAX, token->value);
         else if(currentToken->type == TOKEN_VAR)
-            parseVariable();
+            createScope();
         else if(currentToken->type == TOKEN_IF)
-            printf("kerem");
+            parseIf();
         else
             showError(ERROR_SYNTAX, "unkown syntax");
         //currentToken = currentToken->next;

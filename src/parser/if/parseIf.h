@@ -5,4 +5,6 @@
 #ifndef IFPARSER_H
 #define IFPARSER_H
 
+void parseIf();
+
 #endif //IFPARSER_H
