@@ -30,11 +30,18 @@ void parser(Token* token) {
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_ERROR)
             showError(ERROR_SYNTAX, token->value);
+
         else if(currentToken->type == TOKEN_VAR)
-            createScope();
+            parseVariable();
 
         else if(currentToken->type == TOKEN_IF)
             parseIf();
+
+        else if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+            createScope();
+            openCurlyBracket++;
+            currentToken = currentToken->next;
+        }
         else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
             if(openCurlyBracket == 0)
                 showError(ERROR_SYNTAX, "Curly brackets are not balanced");
@@ -48,7 +55,7 @@ void parser(Token* token) {
         //currentToken = currentToken->next;
     }
 
-    if(openCurlyBracket != 0)
+    if(openCurlyBracket != 0) // açılan curly brackets kapanmadıysa
         showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
     freeScope();
