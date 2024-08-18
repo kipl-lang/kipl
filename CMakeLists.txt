@@ -42,4 +42,6 @@ add_executable(interpreter src/main.c
         src/parser/helpers/typeConversion/toBool.h
         src/parser/if/parseIf.c
         src/parser/if/parseIf.h
+        src/parser/for/parseFor.c
+        src/parser/for/parseFor.h
 )

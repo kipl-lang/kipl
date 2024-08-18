@@ -9,6 +9,7 @@
 #include "../global.h"
 #include "../error/error.h"
 #include "../expressions/parseExpressions.h"
+#include "../helpers/typeConversion/toBool.h"
 
 void parseIf() {
     currentToken = currentToken->next;
@@ -16,9 +17,17 @@ void parseIf() {
 
     if(data != NULL && data->dataType == TYPE_BOOL) {
         if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
-            createScope();
-            openCurlyBracket++;
-            currentToken = currentToken->next;
+            if(!stringToBool(data->value)) {
+                while(currentToken != NULL && currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+                    if(currentToken->type == TOKEN_EOF)
+                        break;
+                    currentToken = currentToken->next;
+                }
+            } else {
+                createScope();
+                openCurlyBracket++;
+                currentToken = currentToken->next;
+            }
         } else {
             showError(ERROR_SYNTAX, " expected '{' after if clause");
         }
