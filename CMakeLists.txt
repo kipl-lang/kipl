@@ -44,4 +44,6 @@ add_executable(interpreter src/main.c
         src/parser/if/parseIf.h
         src/parser/for/parseFor.c
         src/parser/for/parseFor.h
+        src/parser/for/for.c
+        src/parser/for/for.h
 )

@@ -5,4 +5,6 @@
 #ifndef PARSEFOR_H
 #define PARSEFOR_H
 
+void parseFor();
+
 #endif //PARSEFOR_H
