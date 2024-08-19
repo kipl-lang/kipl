@@ -17,9 +17,11 @@
 
 #include "../token/token.h"
 #include "../parser/scope/scope.h"
+#include "for/for.h"
 
 extern Token* currentToken;
 extern Scope* currentScope;
 extern unsigned int openCurlyBracket;
+extern For* currentFor;
 
 #endif //GLOBAL_H

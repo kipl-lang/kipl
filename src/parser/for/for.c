@@ -6,11 +6,15 @@
 
 #include <stdlib.h>
 
-For* createFor(Token* token, unsigned int bracketsNumber) {
+#include "../global.h"
+
+void createFor(Token* token, unsigned int bracketsNumber) {
+
     For* newFor = (For*) malloc(sizeof(For));
     newFor->forToken = token;
-    newFor->nextFor = NULL;
+    newFor->parentFor = NULL;
     newFor->lastBracketsNumber = bracketsNumber;
 
-    return newFor;
+    newFor->parentFor = currentFor;
+    currentFor = newFor;
 }

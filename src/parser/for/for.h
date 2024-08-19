@@ -9,10 +9,10 @@
 
 typedef struct _for {
     Token* forToken;
-    struct _for* nextFor;
+    struct _for* parentFor;
     unsigned int lastBracketsNumber;
 } For;
 
-For* createFor(Token* token, unsigned int bracketsNumber);
+void createFor(Token* token, unsigned int bracketsNumber);
 
 #endif //FOR_H
