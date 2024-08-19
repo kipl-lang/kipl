@@ -5,8 +5,14 @@
 #ifndef FOR_H
 #define FOR_H
 
-typedef struct _for {
+#include "../../token/token.h"
 
+typedef struct _for {
+    Token* forToken;
+    struct _for* nextFor;
+    unsigned int lastBracketsNumber;
 } For;
+
+For* createFor(Token* token, unsigned int bracketsNumber);
 
 #endif //FOR_H
