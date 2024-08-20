@@ -41,11 +41,16 @@ void parser(Token* token) {
         else if(currentToken->type == TOKEN_FOR)
             parseFor();
 
+        else if(currentToken->type == TOKEN_IDENTIFIER) {
+            parseIdentifier();
+        }
+
         else if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
             createScope();
             openCurlyBracket++;
             currentToken = currentToken->next;
         }
+
         else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
             if(openCurlyBracket == 0)
                 showError(ERROR_SYNTAX, "Curly brackets are not balanced");
