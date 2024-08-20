@@ -24,17 +24,23 @@ Data* parseExpressions() {
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
+
+            bool isExit = false;
             if(prevElement != NULL) {
                 switch(prevElement->type) {
                     case ELEMENT_TYPE_NUMBER:
                     case ELEMENT_TYPE_BOOL:
                     case ELEMENT_TYPE_STRING:
                     case ELEMENT_TYPE_BRACKET_R_R:
-                        showError(ERROR_SYNTAX, "'identifier' was used incorrectly");
+                        isExit = true;
+                        //showError(ERROR_SYNTAX, "'identifier' was used incorrectly");
                     default:
                         break;
                 }
             }
+
+            if(isExit)
+                break;
 
             Data* data = getDataFromVariable(currentToken->value);
             if(data != NULL) {
