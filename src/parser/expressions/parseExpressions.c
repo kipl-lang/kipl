@@ -24,7 +24,6 @@ Data* parseExpressions() {
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
-
             bool isExit = false;
             if(prevElement != NULL) {
                 switch(prevElement->type) {

@@ -40,7 +40,7 @@ typedef struct _scope {
 
 void createScope();
 
-bool isVariableInCurrentScope(const char* name);
+bool isVariableInCurrentScope(const char* name, Scope* scope);
 
 bool isVariableInAllScope(const char* name);
 

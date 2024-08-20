@@ -31,7 +31,7 @@ void parseVariable() {
         if(strlen(varName) > 64) // The maximum length of the variable name must be 64 characters
             showError(ERROR_SYNTAX, "The variable name is too long");
 
-        if(isVariableInCurrentScope(varName)) {
+        if(isVariableInCurrentScope(varName ,currentScope)) {
             char errMsg[256];
             sprintf(errMsg, "The variable '%s' is already declared in this scope.", varName);
             showError(ERROR_SYNTAX, errMsg);
