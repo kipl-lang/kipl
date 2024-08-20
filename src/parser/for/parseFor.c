@@ -11,26 +11,27 @@
 #include "../variable/parseVariable.h"
 
 void parseFor() {
-    createFor(currentToken, openCurlyBracket);
+    Token* forToken = currentToken;
+    unsigned int lastOpenCurlyBracket = openCurlyBracket;
     currentToken = currentToken->next;
     Data* data = parseExpressions();
 
     if(data != NULL && data->dataType == TYPE_BOOL) {
         if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
             if(!stringToBool(data->value)) {
-                while(currentToken->type != TOKEN_BRACKET_CURLY_RIGHT) {
+                while(currentToken != NULL && currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
                     if(currentToken->type == TOKEN_EOF)
                         break;
                     currentToken = currentToken->next;
                 }
-
-                if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
-                    openCurlyBracket--;
-                    For* tempFor = currentFor;
-                    currentFor = currentFor->parentFor;
-                    freeFor(tempFor);
+                if(currentToken != NULL && currentToken->type == TOKEN_BRACKET_CURLY_RIGHT)
                     currentToken = currentToken->next;
-                }
+
+            } else {
+                createFor(forToken, lastOpenCurlyBracket);
+                createScope();
+                openCurlyBracket++;
+                currentToken = currentToken->next;
             }
         } else {
             showError(ERROR_SYNTAX, " expected '{' after for clause");

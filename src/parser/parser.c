@@ -53,8 +53,9 @@ void parser(Token* token) {
             if(openCurlyBracket == currentFor->lastBracketsNumber+1) {
                 For* tempFor = currentFor;
                 currentToken = currentFor->forToken;
-                openCurlyBracket--;
+                currentFor = currentFor->parentFor;
                 freeFor(tempFor);
+                openCurlyBracket--;
                 freeScope();
             } else {
                 openCurlyBracket--;
