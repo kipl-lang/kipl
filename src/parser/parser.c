@@ -50,7 +50,7 @@ void parser(Token* token) {
             if(openCurlyBracket == 0)
                 showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
-            if(openCurlyBracket == currentFor->lastBracketsNumber+1) {
+            if(currentFor != NULL && openCurlyBracket == currentFor->lastBracketsNumber+1) {
                 For* tempFor = currentFor;
                 currentToken = currentFor->forToken;
                 currentFor = currentFor->parentFor;

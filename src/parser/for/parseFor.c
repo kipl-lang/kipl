@@ -4,6 +4,8 @@
 
 #include "parseFor.h"
 
+#include <stdio.h>
+
 #include "../global.h"
 #include "../error/error.h"
 #include "../expressions/parseExpressions.h"
@@ -18,20 +20,19 @@ void parseFor() {
 
     if(data != NULL && data->dataType == TYPE_BOOL) {
         if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
-            if(!stringToBool(data->value)) {
-                while(currentToken != NULL && currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+            if(stringToBool(data->value)) {
+                createFor(forToken, lastOpenCurlyBracket);
+                createScope();
+                openCurlyBracket++;
+                currentToken = currentToken->next;
+            } else {
+                while(currentToken != NULL && currentToken->type != TOKEN_BRACKET_CURLY_RIGHT) {
                     if(currentToken->type == TOKEN_EOF)
                         break;
                     currentToken = currentToken->next;
                 }
                 if(currentToken != NULL && currentToken->type == TOKEN_BRACKET_CURLY_RIGHT)
                     currentToken = currentToken->next;
-
-            } else {
-                createFor(forToken, lastOpenCurlyBracket);
-                createScope();
-                openCurlyBracket++;
-                currentToken = currentToken->next;
             }
         } else {
             showError(ERROR_SYNTAX, " expected '{' after for clause");
