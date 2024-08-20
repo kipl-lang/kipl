@@ -20,6 +20,7 @@
 
 #include "error/error.h"
 #include "for/parseFor.h"
+#include "identifier/parseIdentifier.h"
 #include "if/parseIf.h"
 #include "variable/parseVariable.h"
 #include "scope/scope.h"
@@ -41,9 +42,8 @@ void parser(Token* token) {
         else if(currentToken->type == TOKEN_FOR)
             parseFor();
 
-        else if(currentToken->type == TOKEN_IDENTIFIER) {
+        else if(currentToken->type == TOKEN_IDENTIFIER)
             parseIdentifier();
-        }
 
         else if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
             createScope();
@@ -68,6 +68,7 @@ void parser(Token* token) {
                 currentToken = currentToken->next;
             }
         }
+
         else
             showError(ERROR_SYNTAX, "unkown syntax");
         //currentToken = currentToken->next;
