@@ -7,16 +7,31 @@
 #include "../global.h"
 #include "../error/error.h"
 #include "../expressions/parseExpressions.h"
+#include "../helpers/typeConversion/toBool.h"
 #include "../variable/parseVariable.h"
 
 void parseFor() {
-    Token* forToken = currentToken;
+    createFor(currentToken, openCurlyBracket);
     currentToken = currentToken->next;
     Data* data = parseExpressions();
 
     if(data != NULL && data->dataType == TYPE_BOOL) {
         if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+            if(!stringToBool(data->value)) {
+                while(currentToken->type != TOKEN_BRACKET_CURLY_RIGHT) {
+                    if(currentToken->type == TOKEN_EOF)
+                        break;
+                    currentToken = currentToken->next;
+                }
 
+                if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+                    openCurlyBracket--;
+                    For* tempFor = currentFor;
+                    currentFor = currentFor->parentFor;
+                    freeFor(tempFor);
+                    currentToken = currentToken->next;
+                }
+            }
         } else {
             showError(ERROR_SYNTAX, " expected '{' after for clause");
         }

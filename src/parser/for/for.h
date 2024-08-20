@@ -15,4 +15,6 @@ typedef struct _for {
 
 void createFor(Token* token, unsigned int bracketsNumber);
 
+void freeFor(For* _for);
+
 #endif //FOR_H

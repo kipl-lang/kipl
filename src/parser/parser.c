@@ -19,6 +19,7 @@
 #include "global.h"
 
 #include "error/error.h"
+#include "for/parseFor.h"
 #include "if/parseIf.h"
 #include "variable/parseVariable.h"
 #include "scope/scope.h"
@@ -37,6 +38,9 @@ void parser(Token* token) {
         else if(currentToken->type == TOKEN_IF)
             parseIf();
 
+        else if(currentToken->type == TOKEN_FOR)
+            parseFor();
+
         else if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
             createScope();
             openCurlyBracket++;
@@ -46,9 +50,17 @@ void parser(Token* token) {
             if(openCurlyBracket == 0)
                 showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
-            openCurlyBracket--;
-            freeScope();
-            currentToken = currentToken->next;
+            if(openCurlyBracket == currentFor->lastBracketsNumber+1) {
+                For* tempFor = currentFor;
+                currentToken = currentFor->forToken;
+                openCurlyBracket--;
+                freeFor(tempFor);
+                freeScope();
+            } else {
+                openCurlyBracket--;
+                freeScope();
+                currentToken = currentToken->next;
+            }
         }
         else
             showError(ERROR_SYNTAX, "unkown syntax");

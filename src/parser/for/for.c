@@ -9,7 +9,6 @@
 #include "../global.h"
 
 void createFor(Token* token, unsigned int bracketsNumber) {
-
     For* newFor = (For*) malloc(sizeof(For));
     newFor->forToken = token;
     newFor->parentFor = NULL;
@@ -17,4 +16,8 @@ void createFor(Token* token, unsigned int bracketsNumber) {
 
     newFor->parentFor = currentFor;
     currentFor = newFor;
+}
+
+void freeFor(For* _for) {
+    free(_for);
 }
