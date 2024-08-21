@@ -35,7 +35,7 @@ void parseFor() {
                     currentToken = currentToken->next;
             }
         } else {
-            showError(ERROR_SYNTAX, " expected '{' after for clause");
+            showError(ERROR_SYNTAX, "expected '{' after for clause");
         }
     } else {
         showError(ERROR_SYNTAX, "non-boolean condition in for statement");
