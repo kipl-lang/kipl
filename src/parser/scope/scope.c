@@ -169,7 +169,7 @@ void assignToVariable(const char* varName, Data* data) {
 
     while(tempScope != NULL) {
 
-        I8Variable* tempI8Var = currentScope->i8Variable;
+        I8Variable* tempI8Var = tempScope->i8Variable;
         while(tempI8Var != NULL) {
             if(!strcmp(varName, tempI8Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -190,7 +190,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempI8Var = tempI8Var->next;
         }
 
-        I16Variable* tempI16Var = currentScope->i16Variable;
+        I16Variable* tempI16Var = tempScope->i16Variable;
         while(tempI16Var != NULL) {
             if(!strcmp(varName, tempI16Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -211,7 +211,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempI16Var = tempI16Var->next;
         }
 
-        I32Variable* tempI32Var = currentScope->i32Variable;
+        I32Variable* tempI32Var = tempScope->i32Variable;
         while(tempI32Var != NULL) {
             if(!strcmp(varName, tempI32Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -232,7 +232,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempI32Var = tempI32Var->next;
         }
 
-        I64Variable* tempI64Var = currentScope->i64Variable;
+        I64Variable* tempI64Var = tempScope->i64Variable;
         while(tempI64Var != NULL) {
             if(!strcmp(varName, tempI64Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -253,7 +253,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempI64Var = tempI64Var->next;
         }
 
-        I128Variable* tempI128Var = currentScope->i128Variable;
+        I128Variable* tempI128Var = tempScope->i128Variable;
         while(tempI128Var != NULL) {
             if(!strcmp(varName, tempI128Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -274,7 +274,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempI128Var = tempI128Var->next;
         }
 
-        U8Variable* tempU8Var = currentScope->u8Variable;
+        U8Variable* tempU8Var = tempScope->u8Variable;
         while(tempU8Var != NULL) {
             if(!strcmp(varName, tempU8Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -295,7 +295,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempU8Var = tempU8Var->next;
         }
 
-        U16Variable* tempU16Var = currentScope->u16Variable;
+        U16Variable* tempU16Var = tempScope->u16Variable;
         while(tempU16Var != NULL) {
             if(!strcmp(varName, tempU16Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -316,7 +316,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempU16Var = tempU16Var->next;
         }
 
-        U32Variable* tempU32Var = currentScope->u32Variable;
+        U32Variable* tempU32Var = tempScope->u32Variable;
         while(tempU32Var != NULL) {
             if(!strcmp(varName, tempU32Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -337,7 +337,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempU32Var = tempU32Var->next;
         }
 
-        U64Variable* tempU64Var = currentScope->u64Variable;
+        U64Variable* tempU64Var = tempScope->u64Variable;
         while(tempU64Var != NULL) {
             if(!strcmp(varName, tempU64Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -358,7 +358,7 @@ void assignToVariable(const char* varName, Data* data) {
             tempU64Var = tempU64Var->next;
         }
 
-        U128Variable* tempU128Var = currentScope->u128Variable;
+        U128Variable* tempU128Var = tempScope->u128Variable;
         while(tempU128Var != NULL) {
             if(!strcmp(varName, tempU128Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
@@ -382,7 +382,7 @@ void assignToVariable(const char* varName, Data* data) {
         tempScope = tempScope->parentScope;
     }
 
-    F32Variable* tempF32Var = currentScope->f32Variable;
+    F32Variable* tempF32Var = tempScope->f32Variable;
     while(tempF32Var != NULL) {
         if(!strcmp(varName, tempF32Var->name)) {
             if(dataTypeIsNumber(data->dataType)) {
@@ -402,7 +402,7 @@ void assignToVariable(const char* varName, Data* data) {
         tempF32Var = tempF32Var->next;
     }
 
-    F64Variable* tempF64Var = currentScope->f64Variable;
+    F64Variable* tempF64Var = tempScope->f64Variable;
     while(tempF64Var != NULL) {
         if(!strcmp(varName, tempF64Var->name)) {
             if(dataTypeIsNumber(data->dataType)) {
@@ -422,7 +422,7 @@ void assignToVariable(const char* varName, Data* data) {
         tempF64Var = tempF64Var->next;
     }
 
-    BoolVariable* tempBoolVar = currentScope->boolVariable;
+    BoolVariable* tempBoolVar = tempScope->boolVariable;
     while(tempBoolVar != NULL) {
         if(!strcmp(varName, tempBoolVar->name)) {
             if(data->dataType == TYPE_BOOL) {
@@ -438,7 +438,7 @@ void assignToVariable(const char* varName, Data* data) {
         tempBoolVar = tempBoolVar->next;
     }
 
-    StringVariable* tempStringVar = currentScope->stringVariable;
+    StringVariable* tempStringVar = tempScope->stringVariable;
     while(tempStringVar != NULL) {
         if(!strcmp(varName, tempStringVar->name)) {
             if(data->dataType == TYPE_STRING) {

@@ -3,9 +3,7 @@
 //
 
 #include "for.h"
-
 #include <stdlib.h>
-
 #include "../global.h"
 
 void createFor(Token* token, unsigned int bracketsNumber) {

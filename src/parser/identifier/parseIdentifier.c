@@ -18,7 +18,7 @@ void parseIdentifier() {
         showError(ERROR_RUNTIME, errMsg);
     }
 
-    char* value = currentToken->value;
+    char* varName = currentToken->value;
 
     currentToken = currentToken->next;
 
@@ -30,13 +30,13 @@ void parseIdentifier() {
         Data* data = parseExpressions();
         if(data != NULL) {
             printf(data->value);
-            assignToVariable(value, data);
+            assignToVariable(varName, data);
         } else {
             showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
         }
     } else {
         char errMsg[50];
-        sprintf(errMsg, "%s is not used", value);
+        sprintf(errMsg, "%s is not used", varName);
         showError(ERROR_SYNTAX, errMsg);
     }
 }
