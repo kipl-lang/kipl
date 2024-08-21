@@ -12,6 +12,8 @@
 #include "../helpers/typeConversion/toBool.h"
 #include "../variable/parseVariable.h"
 
+// Todo: if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) { bu ifadedden sonra openCurlyBracket++; koy
+// Todo: else içerisinde null olmadığı sürece gez ve eğer type curly right ise ve lastopen +1 == openCrlr ise
 void parseFor() {
     Token* forToken = currentToken;
     unsigned int lastOpenCurlyBracket = openCurlyBracket;
@@ -31,6 +33,7 @@ void parseFor() {
                         break;
                     currentToken = currentToken->next;
                 }
+
                 if(currentToken != NULL && currentToken->type == TOKEN_BRACKET_CURLY_RIGHT)
                     currentToken = currentToken->next;
             }
