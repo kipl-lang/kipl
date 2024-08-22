@@ -34,6 +34,15 @@ void parseIdentifier() {
         } else {
             showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
         }
+    } else if(currentToken->type == TOKEN_PLUS_EQUAL) {
+        currentToken = currentToken->next;
+        Data* data = parseExpressions();
+        if(data != NULL) {
+            printf(data->value);
+
+        } else {
+            showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
+        }
     } else {
         char errMsg[50];
         sprintf(errMsg, "%s is not used", varName);
