@@ -188,6 +188,8 @@ Token* identifierLiteral(char c)
         return makeToken(TOKEN_ELSE, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "for") == 0)
         return makeToken(TOKEN_FOR, lexeme, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "continue") == 0)
+        return makeToken(TOKEN_CONTINUE, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "var") == 0)
         return makeToken(TOKEN_VAR, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "func") == 0)

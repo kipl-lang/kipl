@@ -17,6 +17,7 @@
 #include <stdio.h>
 
 #include "global.h"
+#include "../continue/parseContinue.h"
 
 #include "error/error.h"
 #include "for/parseFor.h"
@@ -43,7 +44,7 @@ void parser(Token* token) {
             parseFor();
 
         else if(currentToken->type == TOKEN_CONTINUE)
-            continue
+            parseContinue();
 
         else if(currentToken->type == TOKEN_IDENTIFIER)
             parseIdentifier();

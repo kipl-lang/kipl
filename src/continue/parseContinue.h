@@ -5,4 +5,6 @@
 #ifndef PARSECONTINUE_H
 #define PARSECONTINUE_H
 
+void parseContinue();
+
 #endif //PARSECONTINUE_H
