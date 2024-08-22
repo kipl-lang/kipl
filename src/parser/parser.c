@@ -42,6 +42,9 @@ void parser(Token* token) {
         else if(currentToken->type == TOKEN_FOR)
             parseFor();
 
+        else if(currentToken->type == TOKEN_CONTINUE)
+            continue
+
         else if(currentToken->type == TOKEN_IDENTIFIER)
             parseIdentifier();
 

@@ -22,7 +22,7 @@
 int main(void) {
     setlocale(LC_ALL, "en_US.UTF-8");
 
-    char* string = " var x: i32 = 5  for x < 10 { for x < 10 { x = x+2}  } ";
+    char* string = "var x: i32 = 5  for x < 10 { for x < 10 { x = x+2 } } ";
     Token* token =  scanner(string);
     parser(token);
 
