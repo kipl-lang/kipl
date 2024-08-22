@@ -93,9 +93,9 @@ Token* scanToken() {
         case ')':
             return makeToken(TOKEN_BRACKET_ROUND_RIGHT, ")", lexer->currentLine, lexer->currentColumn);
         case '{':
-            return makeToken(TOKEN_BRACKET_CURLY_LEFT, "(", lexer->currentLine, lexer->currentColumn);
+            return makeToken(TOKEN_BRACKET_CURLY_LEFT, "{", lexer->currentLine, lexer->currentColumn);
         case '}':
-            return makeToken(TOKEN_BRACKET_CURLY_RIGHT, ")", lexer->currentLine, lexer->currentColumn);
+            return makeToken(TOKEN_BRACKET_CURLY_RIGHT, "}", lexer->currentLine, lexer->currentColumn);
         case '[':
             return makeToken(TOKEN_BRACKET_SQUARE_LEFT, "[", lexer->currentLine, lexer->currentColumn);
         case ']':
