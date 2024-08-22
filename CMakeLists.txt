@@ -50,10 +50,10 @@ add_executable(interpreter src/main.c
         src/parser/identifier/parseIdentifier.h
         src/parser/continue/parseContinue.c
         src/parser/continue/parseContinue.h
-        src/parser/break/break.c
-        src/parser/break/break.h
-        src/parser/break/break.c
-        src/parser/break/break.h
-        src/parser/break/break.c
-        src/parser/break/break.h
+        src/parser/break/parseBreak.c
+        src/parser/break/parseBreak.h
+        src/parser/break/parseBreak.c
+        src/parser/break/parseBreak.h
+        src/parser/break/parseBreak.c
+        src/parser/break/parseBreak.h
 )

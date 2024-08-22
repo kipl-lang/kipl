@@ -4,8 +4,8 @@
 
 #include "parseContinue.h"
 
-#include "../parser/global.h"
-#include "../parser/error/error.h"
+#include "../global.h"
+#include "../error/error.h"
 
 void parseContinue() {
     if(currentFor != NULL) {
