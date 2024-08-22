@@ -48,6 +48,12 @@ add_executable(interpreter src/main.c
         src/parser/for/for.h
         src/parser/identifier/parseIdentifier.c
         src/parser/identifier/parseIdentifier.h
-        src/continue/parseContinue.c
-        src/continue/parseContinue.h
+        src/parser/continue/parseContinue.c
+        src/parser/continue/parseContinue.h
+        src/parser/break/break.c
+        src/parser/break/break.h
+        src/parser/break/break.c
+        src/parser/break/break.h
+        src/parser/break/break.c
+        src/parser/break/break.h
 )
