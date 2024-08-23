@@ -38,11 +38,17 @@ void parseIdentifier() {
     } else if(currentToken->type == TOKEN_PLUS_EQUAL) {
         currentToken = currentToken->next;
         Data* data = parseExpressions();
+        Data* lastData = getDataFromVariable(varName);
+
         if(data != NULL) {
             printf(data->value);
-            assignToVariable(varName, data);
+            if(data->dataType == TYPE_STRING) {
+                char newValue[strlen(lastData->value) + strlen(data->value) + 1];
+                sprintf(newValue, "%s%s", lastData->value, data->value);
+                assignToVariable(varName, createData(TYPE_STRING, strdup(newValue)));
+            }
         } else {
-            showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
+            showError(ERROR_SYNTAX, "Expected <value> after <name>  = ");
         }
     } else {
         char errMsg[50];
