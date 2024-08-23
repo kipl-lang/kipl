@@ -379,80 +379,81 @@ void assignToVariable(const char* varName, Data* data) {
             tempU128Var = tempU128Var->next;
         }
 
+
+        F32Variable* tempF32Var = tempScope->f32Variable;
+        while(tempF32Var != NULL) {
+            if(!strcmp(varName, tempF32Var->name)) {
+                if(dataTypeIsNumber(data->dataType)) {
+                    float dataValue = atof(data->value);
+                    if(atof(data->value) == dataValue) {
+                        tempF32Var->value = dataValue;
+                        freeData(data);
+                        return;
+                    }
+                    showError(ERROR_RUNTIME, "invalid value range");
+                }
+
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            tempF32Var = tempF32Var->next;
+        }
+
+        F64Variable* tempF64Var = tempScope->f64Variable;
+        while(tempF64Var != NULL) {
+            if(!strcmp(varName, tempF64Var->name)) {
+                if(dataTypeIsNumber(data->dataType)) {
+                    double dataValue = atof(data->value);
+                    if(atof(data->value) == dataValue) {
+                        tempF64Var->value = dataValue;
+                        freeData(data);
+                        return;
+                    }
+                    showError(ERROR_RUNTIME, "invalid value range");
+                }
+
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            tempF64Var = tempF64Var->next;
+        }
+
+        BoolVariable* tempBoolVar = tempScope->boolVariable;
+        while(tempBoolVar != NULL) {
+            if(!strcmp(varName, tempBoolVar->name)) {
+                if(data->dataType == TYPE_BOOL) {
+                    tempBoolVar->value = stringToBool(data->value);
+                    freeData(data);
+                    return;
+                }
+
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a boolean expression", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            tempBoolVar = tempBoolVar->next;
+        }
+
+        StringVariable* tempStringVar = tempScope->stringVariable;
+        while(tempStringVar != NULL) {
+            if(!strcmp(varName, tempStringVar->name)) {
+                if(data->dataType == TYPE_STRING) {
+                    free(tempStringVar->value);
+                    tempStringVar->value = strdup(data->value);
+                    freeData(data);
+                    return;
+                }
+
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a string", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            tempStringVar = tempStringVar->next;
+        }
+
         tempScope = tempScope->parentScope;
-    }
-
-    F32Variable* tempF32Var = tempScope->f32Variable;
-    while(tempF32Var != NULL) {
-        if(!strcmp(varName, tempF32Var->name)) {
-            if(dataTypeIsNumber(data->dataType)) {
-                float dataValue = atof(data->value);
-                if(atof(data->value) == dataValue) {
-                    tempF32Var->value = dataValue;
-                    freeData(data);
-                    return;
-                }
-                showError(ERROR_RUNTIME, "invalid value range");
-            }
-
-            char* errMsg[50];
-            sprintf(errMsg, "%s is not a number", data->value);
-            showError(ERROR_RUNTIME, errMsg);
-        }
-        tempF32Var = tempF32Var->next;
-    }
-
-    F64Variable* tempF64Var = tempScope->f64Variable;
-    while(tempF64Var != NULL) {
-        if(!strcmp(varName, tempF64Var->name)) {
-            if(dataTypeIsNumber(data->dataType)) {
-                double dataValue = atof(data->value);
-                if(atof(data->value) == dataValue) {
-                    tempF64Var->value = dataValue;
-                    freeData(data);
-                    return;
-                }
-                showError(ERROR_RUNTIME, "invalid value range");
-            }
-
-            char* errMsg[50];
-            sprintf(errMsg, "%s is not a number", data->value);
-            showError(ERROR_RUNTIME, errMsg);
-        }
-        tempF64Var = tempF64Var->next;
-    }
-
-    BoolVariable* tempBoolVar = tempScope->boolVariable;
-    while(tempBoolVar != NULL) {
-        if(!strcmp(varName, tempBoolVar->name)) {
-            if(data->dataType == TYPE_BOOL) {
-                tempBoolVar->value = stringToBool(data->value);
-                freeData(data);
-                return;
-            }
-
-            char* errMsg[50];
-            sprintf(errMsg, "%s is not a boolean expression", data->value);
-            showError(ERROR_RUNTIME, errMsg);
-        }
-        tempBoolVar = tempBoolVar->next;
-    }
-
-    StringVariable* tempStringVar = tempScope->stringVariable;
-    while(tempStringVar != NULL) {
-        if(!strcmp(varName, tempStringVar->name)) {
-            if(data->dataType == TYPE_STRING) {
-                free(tempStringVar->value);
-                tempStringVar->value = strdup(data->value);
-                freeData(data);
-                return;
-            }
-
-            char* errMsg[50];
-            sprintf(errMsg, "%s is not a string", data->value);
-            showError(ERROR_RUNTIME, errMsg);
-        }
-        tempStringVar = tempStringVar->next;
     }
 }
 
