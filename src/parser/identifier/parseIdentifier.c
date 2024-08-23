@@ -32,7 +32,7 @@ void parseIdentifier() {
             printf(data->value);
             assignToVariable(varName, data);
         } else {
-            showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
+            showError(ERROR_SYNTAX, "Expected <value> after <name> = ");
         }
     } else if(currentToken->type == TOKEN_PLUS_EQUAL) {
         currentToken = currentToken->next;
