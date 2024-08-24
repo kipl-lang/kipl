@@ -124,7 +124,30 @@ void parseIdentifier() {
             showError(ERROR_SYNTAX, "Expected <value> after <name>  /= ");
         }
 
-    } else {
+    } else if(currentToken->type == TOKEN_MODULUS_EQUAL) {
+        currentToken = currentToken->next;
+        Data* data = parseExpressions();
+        Data* lastData = getDataFromVariable(varName);
+
+        if(data != NULL) {
+            if(dataTypeIsNumber(lastData->dataType) && dataTypeIsNumber(data->dataType)) {
+                double operand1 = atof(lastData->value);
+                double operand2 = atof(data->value);
+                if(operand2 == 0)
+                    showError(ERROR_RUNTIME, "Modulus by zero");
+                char* result = __uint128_tToString((int) operand1 % (int) operand2);
+
+                assignToVariable(varName, createData(TYPE_F64, result));
+                freeData(lastData);
+                freeData(data);
+            } else {
+                showError(ERROR_SYNTAX, "'%=' operator was used incorrectly");
+            }
+        } else {
+            showError(ERROR_SYNTAX, "Expected <value> after <name>  %= ");
+        }
+
+    }  else {
         char errMsg[50];
         sprintf(errMsg, "%s is not used", varName);
         showError(ERROR_SYNTAX, errMsg);
