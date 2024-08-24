@@ -216,7 +216,6 @@ void assignToVariable(const char* varName, Data* data) {
             if(!strcmp(varName, tempI32Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
                     int32_t dataValue = (int32_t) atof(data->value);
-                    printf("--%d--", dataValue);
                     if(atof(data->value) == dataValue) {
                         // is integer and is correct value range
                         tempI32Var->value = dataValue;
