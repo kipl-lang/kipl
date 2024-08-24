@@ -5,12 +5,14 @@
 #include "parseIdentifier.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "../global.h"
 #include "../error/error.h"
 #include "../expressions/data.h"
 #include "../expressions/parseExpressions.h"
+#include "../helpers/typeConversion/toString.h"
 
 void parseIdentifier() {
     if(!isVariableInAllScope(currentToken->value)) {
@@ -41,19 +43,22 @@ void parseIdentifier() {
         Data* lastData = getDataFromVariable(varName);
 
         if(data != NULL) {
-            printf(data->value);
             if(data->dataType == TYPE_STRING) {
                 char newValue[strlen(lastData->value) + strlen(data->value) + 1];
                 sprintf(newValue, "%s%s", lastData->value, data->value);
                 assignToVariable(varName, createData(TYPE_STRING, strdup(newValue)));
             } else if(dataTypeIsNumber(lastData->dataType) && dataTypeIsNumber(data->dataType)) {
-
+                double operand1 = atof(lastData->value);
+                double operand2 = atof(data->value);
+                char* result = doubleToString(operand1 + operand2);
+                assignToVariable(varName, createData(TYPE_F64, result));
             }
         } else {
             showError(ERROR_SYNTAX, "Expected <value> after <name>  = ");
         }
-        freeData(data);
+
         freeData(lastData);
+        freeData(data);
     } else {
         char errMsg[50];
         sprintf(errMsg, "%s is not used", varName);
