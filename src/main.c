@@ -22,7 +22,7 @@
 int main(void) {
     setlocale(LC_ALL, "en_US.UTF-8");
 
-    char* string = "var x: string = \"kerem\" x+= x";
+    char* string = "var x: string = \"kerem\" var y:string y+= x";
     Token* token =  scanner(string);
     parser(token);
 

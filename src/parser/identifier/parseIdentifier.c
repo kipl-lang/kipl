@@ -46,10 +46,14 @@ void parseIdentifier() {
                 char newValue[strlen(lastData->value) + strlen(data->value) + 1];
                 sprintf(newValue, "%s%s", lastData->value, data->value);
                 assignToVariable(varName, createData(TYPE_STRING, strdup(newValue)));
+            } else if(dataTypeIsNumber(lastData->dataType) && dataTypeIsNumber(data->dataType)) {
+
             }
         } else {
             showError(ERROR_SYNTAX, "Expected <value> after <name>  = ");
         }
+        freeData(data);
+        freeData(lastData);
     } else {
         char errMsg[50];
         sprintf(errMsg, "%s is not used", varName);
