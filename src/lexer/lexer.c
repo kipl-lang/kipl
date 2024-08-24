@@ -68,8 +68,8 @@ Token* scanToken() {
         case '-':
             if(isMatch('='))
                 return makeToken(TOKEN_MINUS_EQUAL, "-=", lexer->currentLine, lexer->currentColumn);
-            if(isMatch('-'))
-                return makeToken(TOKEN_MINUS_MINUS, "--", lexer->currentLine, lexer->currentColumn);
+            // if(isMatch('-'))
+            //     return makeToken(TOKEN_MINUS_MINUS, "--", lexer->currentLine, lexer->currentColumn);
             return makeToken(TOKEN_MINUS, "-", lexer->currentLine, lexer->currentColumn);
         case '*':
             if(isMatch('='))
