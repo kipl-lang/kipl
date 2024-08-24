@@ -52,6 +52,8 @@ void parseIdentifier() {
                 double operand2 = atof(data->value);
                 char* result = doubleToString(operand1 + operand2);
                 assignToVariable(varName, createData(TYPE_F64, result));
+            } else {
+                showError(ERROR_SYNTAX, "'+=' operator was used incorrectly");
             }
         } else {
             showError(ERROR_SYNTAX, "Expected <value> after <name>  = ");
