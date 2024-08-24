@@ -215,7 +215,9 @@ void assignToVariable(const char* varName, Data* data) {
         while(tempI32Var != NULL) {
             if(!strcmp(varName, tempI32Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
+                    printf(data->value);
                     int32_t dataValue = (int32_t) atof(data->value);
+                    printf("--%d--", dataValue);
                     if(atof(data->value) == dataValue) {
                         // is integer and is correct value range
                         tempI32Var->value = dataValue;
@@ -385,12 +387,9 @@ void assignToVariable(const char* varName, Data* data) {
             if(!strcmp(varName, tempF32Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
                     float dataValue = atof(data->value);
-                    if(atof(data->value) == dataValue) {
-                        tempF32Var->value = dataValue;
-                        freeData(data);
-                        return;
-                    }
-                    showError(ERROR_RUNTIME, "invalid value range");
+                    tempF32Var->value = dataValue;
+                    freeData(data);
+                    return;
                 }
 
                 char* errMsg[50];
@@ -405,12 +404,9 @@ void assignToVariable(const char* varName, Data* data) {
             if(!strcmp(varName, tempF64Var->name)) {
                 if(dataTypeIsNumber(data->dataType)) {
                     double dataValue = atof(data->value);
-                    if(atof(data->value) == dataValue) {
-                        tempF64Var->value = dataValue;
-                        freeData(data);
-                        return;
-                    }
-                    showError(ERROR_RUNTIME, "invalid value range");
+                    tempF64Var->value = dataValue;
+                    freeData(data);
+                    return;
                 }
 
                 char* errMsg[50];
