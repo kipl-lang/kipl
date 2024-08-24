@@ -80,6 +80,27 @@ void parseIdentifier() {
         } else {
             showError(ERROR_SYNTAX, "Expected <value> after <name>  -= ");
         }
+    } else if(currentToken->type == TOKEN_MULTIPLY_EQUAL) {
+        currentToken = currentToken->next;
+        Data* data = parseExpressions();
+        Data* lastData = getDataFromVariable(varName);
+
+        if(data != NULL) {
+            if(dataTypeIsNumber(lastData->dataType) && dataTypeIsNumber(data->dataType)) {
+                double operand1 = atof(lastData->value);
+                double operand2 = atof(data->value);
+                char* result = doubleToString(operand1 * operand2);
+
+                assignToVariable(varName, createData(TYPE_F64, result));
+                freeData(lastData);
+                freeData(data);
+            } else {
+                showError(ERROR_SYNTAX, "'-=' operator was used incorrectly");
+            }
+        } else {
+            showError(ERROR_SYNTAX, "Expected <value> after <name>  *= ");
+        }
+
     } else if(currentToken->type == TOKEN_DIVIDE_EQUAL) {
         currentToken = currentToken->next;
         Data* data = parseExpressions();
