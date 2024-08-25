@@ -1,0 +1,6 @@
+var x: i16
+
+for x < 200 {
+    x += 1
+    var y: i32 = x
+}
