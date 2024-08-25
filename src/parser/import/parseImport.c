@@ -3,3 +3,11 @@
 //
 
 #include "parseImport.h"
+
+#include "../global.h"
+
+void parseImport() {
+    currentToken = currentToken->next;
+
+
+}

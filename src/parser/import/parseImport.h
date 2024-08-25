@@ -5,4 +5,6 @@
 #ifndef PARSEIMPORT_H
 #define PARSEIMPORT_H
 
+void parseImport();
+
 #endif //PARSEIMPORT_H
