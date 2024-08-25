@@ -62,8 +62,8 @@ int main(int argc, const char* argv[]) {
     fclose(file);  // Close the file
 
     char* string = source;
-    Token* token =  scanner(string);
-    parser(token);
+    Token* token =  scanner(string);    // lexer
+    parser(token);                      // parser
 
     //system("pause");
     freeTokens(token); // free memory
