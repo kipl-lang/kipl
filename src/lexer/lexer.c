@@ -210,6 +210,16 @@ Token* identifierLiteral(char c)
         return makeToken(TOKEN_TYPE_I64, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "i128") == 0)
         return makeToken(TOKEN_TYPE_I128, lexeme, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "u8") == 0)
+        return makeToken(TOKEN_TYPE_U8, lexeme, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "u16") == 0)
+        return makeToken(TOKEN_TYPE_U16, lexeme, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "u32") == 0)
+        return makeToken(TOKEN_TYPE_U32, lexeme, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "u64") == 0)
+        return makeToken(TOKEN_TYPE_U64, lexeme, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "u128") == 0)
+        return makeToken(TOKEN_TYPE_U128, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "f32") == 0)
         return makeToken(TOKEN_TYPE_F32, lexeme, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "f64") == 0)
