@@ -4,4 +4,4 @@ var x: i16
     const x: i32 = 5
 }
 
-var t: string = "kerem" + " " + "mert"
+var t: strings = "kerem" + " " + "mert"
