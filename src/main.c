@@ -61,7 +61,7 @@ int main(int argc, const char* argv[]) {
 
     fclose(file);  // Close the file
 
-    char* string = source;
+    char* string = source;              // kipl source code
     Token* token =  scanner(string);    // lexer
     parser(token);                      // parser
 

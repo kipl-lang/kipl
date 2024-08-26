@@ -35,7 +35,7 @@ void parser(Token* token) {
         if(currentToken->type == TOKEN_ERROR)
             showError(ERROR_SYNTAX, token->value);
 
-        else if(currentToken->type == TOKEN_VAR)
+        else if(currentToken->type == TOKEN_VAR ||currentToken->type == TOKEN_CONST)
             parseVariable();
 
         else if(currentToken->type == TOKEN_IF)
