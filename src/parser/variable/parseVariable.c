@@ -24,6 +24,12 @@
 #include "../expressions/data.h"
 
 void parseVariable() {
+    VarType varType;
+    if(currentToken->type == TOKEN_CONST)
+        varType = VAR_TYPE_CONST;
+    else
+        varType = VAR_TYPE_VAR;
+
     currentToken = currentToken->next;
     if(currentToken->type == TOKEN_IDENTIFIER) { // var name
         char* varName = currentToken->value;
@@ -44,7 +50,7 @@ void parseVariable() {
             if(isDataType(currentToken->type)) { //var name: type
                 DataType dataType = getDataType(currentToken->type);
                 // create variable
-                createVariable(dataType, varName);
+                createVariable(dataType, varName, varType);
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_EQUAL) { // var name: type =
                     currentToken = currentToken->next;

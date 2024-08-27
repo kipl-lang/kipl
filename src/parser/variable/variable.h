@@ -150,35 +150,35 @@ typedef struct _string_variable {
     struct _string_variable* next;
 } StringVariable;
 
-void createVariable(DataType type, char* name);
+void createVariable(DataType type, char* name, VarType varType);
 
-void createI8Variable(char* name);
+void createI8Variable(char* name, VarType varType);
 
-void createI16Variable(char* name);
+void createI16Variable(char* name, VarType varType);
 
-void createI32Variable(char* name);
+void createI32Variable(char* name, VarType varType);
 
-void createI64Variable(char* name);
+void createI64Variable(char* name, VarType varType);
 
-void createI128Variable(char* name);
+void createI128Variable(char* name, VarType varType);
 
-void createU8Variable(char* name);
+void createU8Variable(char* name, VarType varType);
 
-void createU16Variable(char* name);
+void createU16Variable(char* name, VarType varType);
 
-void createU32Variable(char* name);
+void createU32Variable(char* name, VarType varType);
 
-void createU64Variable(char* name);
+void createU64Variable(char* name, VarType varType);
 
-void createU128Variable(char* name);
+void createU128Variable(char* name, VarType varType);
 
-void createF32Variable(char* name);
+void createF32Variable(char* name, VarType varType);
 
-void createF64Variable(char* name);
+void createF64Variable(char* name, VarType varType);
 
-void createBoolVariable(char* name);
+void createBoolVariable(char* name, VarType varType);
 
-void createStringVariable(char* name);
+void createStringVariable(char* name, VarType varType);
 
 
 #endif //VARIABLE_H
