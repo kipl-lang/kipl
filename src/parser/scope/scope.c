@@ -162,7 +162,7 @@ bool isVariableInAllScope(const char* name) {
 }
 
 /*
- * Sorun yok ama teste muhtaç
+ *
  */
 void assignToVariable(const char* varName, Data* data) {
     Scope* tempScope = currentScope;

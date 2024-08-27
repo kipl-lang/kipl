@@ -44,9 +44,9 @@ bool isVariableInCurrentScope(const char* name, Scope* scope);
 
 bool isVariableInAllScope(const char* name);
 
-bool dataTypeIsNumber(DataType type);
-
 void assignToVariable(const char* varName, Data* data);
+
+bool dataTypeIsNumber(DataType type);
 
 void freeScope();
 
