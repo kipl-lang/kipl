@@ -19,11 +19,17 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+typedef enum _var_type {
+    VAR_TYPE_VAR,
+    VAR_TYPE_CONST
+} VarType;
+
 typedef struct _i8_variable {
     char* name;
     int8_t value;
     int8_t* address;
     bool isMutable;
+    VarType type;
     struct _i8_variable* next;
 } I8Variable;
 
@@ -32,6 +38,7 @@ typedef struct _i16_variable {
     int16_t value;
     int16_t* address;
     bool isMutable;
+    VarType type;
     struct _i16_variable* next;
 } I16Variable;
 
@@ -40,6 +47,7 @@ typedef struct _i32_variable {
     int32_t value;
     int32_t* address;
     bool isMutable;
+    VarType type;
     struct _i32_variable* next;
 } I32Variable;
 
@@ -48,6 +56,7 @@ typedef struct _i64_variable {
     int64_t value;
     int64_t* address;
     bool isMutable;
+    VarType type;
     struct _i64_variable* next;
 } I64Variable;
 
@@ -56,6 +65,7 @@ typedef struct _i128_variable {
     __int128_t value;
     __int128_t* address;
     bool isMutable;
+    VarType type;
     struct _i128_variable* next;
 } I128Variable;
 
@@ -64,6 +74,7 @@ typedef struct _u8_variable {
     uint8_t value;
     uint8_t* address;
     bool isMutable;
+    VarType type;
     struct _u8_variable* next;
 } U8Variable;
 
@@ -72,6 +83,7 @@ typedef struct _u16_variable {
     uint16_t value;
     uint16_t* address;
     bool isMutable;
+    VarType type;
     struct _u16_variable* next;
 } U16Variable;
 
@@ -80,6 +92,7 @@ typedef struct _u32_variable {
     uint32_t value;
     uint32_t* address;
     bool isMutable;
+    VarType type;
     struct _u32_variable* next;
 } U32Variable;
 
@@ -88,6 +101,7 @@ typedef struct _u64_variable {
     uint64_t value;
     uint64_t* address;
     bool isMutable;
+    VarType type;
     struct _u64_variable* next;
 } U64Variable;
 
@@ -96,6 +110,7 @@ typedef struct _u128_variable {
     __uint128_t value;
     __uint128_t* address;
     bool isMutable;
+    VarType type;
     struct _u128_variable* next;
 } U128Variable;
 
@@ -104,6 +119,7 @@ typedef struct _f32_variable {
     float value;
     float* address;
     bool isMutable;
+    VarType type;
     struct _f32_variable* next;
 } F32Variable;
 
@@ -112,6 +128,7 @@ typedef struct _f64_variable {
     double value;
     double* address;
     bool isMutable;
+    VarType type;
     struct _f64_variable* next;
 } F64Variable;
 
@@ -120,6 +137,7 @@ typedef struct _bool_variable {
     bool value;
     bool* address;
     bool isMutable;
+    VarType type;
     struct _bool_variable* next;
 } BoolVariable;
 
@@ -128,6 +146,7 @@ typedef struct _string_variable {
     char* value;
     char** address;
     bool isMutable;
+    VarType type;
     struct _string_variable* next;
 } StringVariable;
 
