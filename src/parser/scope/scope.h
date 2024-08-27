@@ -48,6 +48,8 @@ void assignToVariable(const char* varName, Data* data);
 
 bool dataTypeIsNumber(DataType type);
 
+void mutableControl(bool isMutable);
+
 void freeScope();
 
 void freeI8Variables();
