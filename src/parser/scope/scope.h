@@ -48,7 +48,7 @@ void assignToVariable(const char* varName, Data* data);
 
 bool dataTypeIsNumber(DataType type);
 
-void mutableControl(bool isMutable);
+bool mutableControl(VarType varType, bool isMutable);
 
 void freeScope();
 

@@ -172,7 +172,7 @@ void assignToVariable(const char* varName, Data* data) {
         I8Variable* tempI8Var = tempScope->i8Variable;
         while(tempI8Var != NULL) {
             if(!strcmp(varName, tempI8Var->name)) {
-                mutableControl(tempI8Var->isMutable);
+                tempI8Var->isMutable = mutableControl(tempI8Var->type, tempI8Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     int8_t dataValue = (int8_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -194,7 +194,7 @@ void assignToVariable(const char* varName, Data* data) {
         I16Variable* tempI16Var = tempScope->i16Variable;
         while(tempI16Var != NULL) {
             if(!strcmp(varName, tempI16Var->name)) {
-                mutableControl(tempI16Var->isMutable);
+                tempI16Var->isMutable = mutableControl(tempI16Var->type, tempI16Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     int16_t dataValue = (int16_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -216,7 +216,7 @@ void assignToVariable(const char* varName, Data* data) {
         I32Variable* tempI32Var = tempScope->i32Variable;
         while(tempI32Var != NULL) {
             if(!strcmp(varName, tempI32Var->name)) {
-                mutableControl(tempI32Var->isMutable);
+                tempI32Var->isMutable = mutableControl(tempI32Var->type, tempI32Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     int32_t dataValue = (int32_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -238,7 +238,7 @@ void assignToVariable(const char* varName, Data* data) {
         I64Variable* tempI64Var = tempScope->i64Variable;
         while(tempI64Var != NULL) {
             if(!strcmp(varName, tempI64Var->name)) {
-                mutableControl(tempI64Var->isMutable);
+                tempI64Var->isMutable = mutableControl(tempI64Var->type, tempI64Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     int64_t dataValue = (int64_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -260,7 +260,7 @@ void assignToVariable(const char* varName, Data* data) {
         I128Variable* tempI128Var = tempScope->i128Variable;
         while(tempI128Var != NULL) {
             if(!strcmp(varName, tempI128Var->name)) {
-                mutableControl(tempI128Var->isMutable);
+                tempI128Var->isMutable = mutableControl(tempI128Var->type, tempI128Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     __int128_t dataValue = (__int128_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -282,7 +282,7 @@ void assignToVariable(const char* varName, Data* data) {
         U8Variable* tempU8Var = tempScope->u8Variable;
         while(tempU8Var != NULL) {
             if(!strcmp(varName, tempU8Var->name)) {
-                mutableControl(tempU8Var->isMutable);
+                tempU8Var->isMutable = mutableControl(tempU8Var->type, tempU8Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     uint8_t dataValue = (uint8_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -304,7 +304,7 @@ void assignToVariable(const char* varName, Data* data) {
         U16Variable* tempU16Var = tempScope->u16Variable;
         while(tempU16Var != NULL) {
             if(!strcmp(varName, tempU16Var->name)) {
-                mutableControl(tempU16Var->isMutable);
+                tempU16Var->isMutable = mutableControl(tempU16Var->type, tempU16Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     uint16_t dataValue = (uint16_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -326,7 +326,7 @@ void assignToVariable(const char* varName, Data* data) {
         U32Variable* tempU32Var = tempScope->u32Variable;
         while(tempU32Var != NULL) {
             if(!strcmp(varName, tempU32Var->name)) {
-                mutableControl(tempU32Var->isMutable);
+                tempU32Var->isMutable = mutableControl(tempU32Var->type, tempU32Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     uint32_t dataValue = (uint32_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -348,7 +348,7 @@ void assignToVariable(const char* varName, Data* data) {
         U64Variable* tempU64Var = tempScope->u64Variable;
         while(tempU64Var != NULL) {
             if(!strcmp(varName, tempU64Var->name)) {
-                mutableControl(tempU64Var->isMutable);
+                tempU64Var->isMutable = mutableControl(tempU64Var->type, tempU64Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     uint64_t dataValue = (uint64_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -370,7 +370,7 @@ void assignToVariable(const char* varName, Data* data) {
         U128Variable* tempU128Var = tempScope->u128Variable;
         while(tempU128Var != NULL) {
             if(!strcmp(varName, tempU128Var->name)) {
-                mutableControl(tempU128Var->isMutable);
+                tempU128Var->isMutable = mutableControl(tempU128Var->type, tempU128Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     __uint128_t dataValue = (__uint128_t) atof(data->value);
                     if(atof(data->value) == dataValue) {
@@ -393,7 +393,7 @@ void assignToVariable(const char* varName, Data* data) {
         F32Variable* tempF32Var = tempScope->f32Variable;
         while(tempF32Var != NULL) {
             if(!strcmp(varName, tempF32Var->name)) {
-                mutableControl(tempF32Var->isMutable);
+                tempF32Var->isMutable = mutableControl(tempF32Var->type, tempF32Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     float dataValue = atof(data->value);
                     tempF32Var->value = dataValue;
@@ -411,7 +411,7 @@ void assignToVariable(const char* varName, Data* data) {
         F64Variable* tempF64Var = tempScope->f64Variable;
         while(tempF64Var != NULL) {
             if(!strcmp(varName, tempF64Var->name)) {
-                mutableControl(tempF64Var->isMutable);
+                tempF64Var->isMutable = mutableControl(tempF64Var->type, tempF64Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
                     double dataValue = atof(data->value);
                     tempF64Var->value = dataValue;
@@ -429,7 +429,7 @@ void assignToVariable(const char* varName, Data* data) {
         BoolVariable* tempBoolVar = tempScope->boolVariable;
         while(tempBoolVar != NULL) {
             if(!strcmp(varName, tempBoolVar->name)) {
-                mutableControl(tempBoolVar->isMutable);
+                tempBoolVar->isMutable = mutableControl(tempBoolVar->type, tempBoolVar->isMutable);
                 if(data->dataType == TYPE_BOOL) {
                     tempBoolVar->value = stringToBool(data->value);
                     freeData(data);
@@ -446,7 +446,7 @@ void assignToVariable(const char* varName, Data* data) {
         StringVariable* tempStringVar = tempScope->stringVariable;
         while(tempStringVar != NULL) {
             if(!strcmp(varName, tempStringVar->name)) {
-                mutableControl(tempStringVar->isMutable);
+                tempStringVar->isMutable = mutableControl(tempStringVar->type, tempStringVar->isMutable);
                 if(data->dataType == TYPE_STRING) {
                     free(tempStringVar->value);
                     tempStringVar->value = strdup(data->value);
@@ -485,9 +485,16 @@ bool dataTypeIsNumber(DataType type) {
     }
 }
 
-void mutableControl(bool isMutable) {
-    if(!isMutable)
-        showError(ERROR_SYNTAX, "The variable is unmutable");
+bool mutableControl(VarType varType, bool isMutable) {
+    if(isMutable) {
+        if(varType == VAR_TYPE_VAR)
+            return true;
+        if(varType == VAR_TYPE_CONST)
+            return false;
+    }
+
+    showError(ERROR_SYNTAX, "The variable is unmutable");
+    return false; // oylesine
 }
 
 void freeScope() {

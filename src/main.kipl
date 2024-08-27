@@ -1,7 +1,4 @@
-var x: i16
 
-{
-    const x: i32 = 5
-}
+var x: i32 = 8
 
-var t: strings = "kerem" + " " + "mert"
+x = 5
