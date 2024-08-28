@@ -19,12 +19,14 @@ void parseImport() {
         sprintf(fileName, "%s.kipl", currentToken->value);
         currentToken = currentToken->next;
 
-        char* string = readFile(fileName);  //  kipl source code
-        Token* firstToken =  scanner(string);    //lexer
-        Token* lastToken = getLastToken(firstToken);
+        char* string = readFile(fileName);       // kipl source code
+        Token* firstToken =  scanner(string);    // lexer
+        Token* lastToken = getLastTokenWithOutEOF(firstToken);
 
-        lastToken->next = currentToken;
-        currentToken = lastToken;
+        if(lastToken != NULL) {
+            lastToken->next = currentToken;
+            currentToken = firstToken;
+        }
 
     } else {
         showError(ERROR_SYNTAX, "Expected \"<file>\" after import");

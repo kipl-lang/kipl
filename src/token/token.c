@@ -13,6 +13,9 @@
 **/
 
 #include "token.h"
+
+#include <stdio.h>
+
 #include "stdlib.h"
 
 Token* makeToken(TokenType type, char* value, unsigned int line, unsigned int column) {
@@ -40,7 +43,7 @@ Token* getLastTokenWithOutEOF(Token* token) {
     if(token->next->type == TOKEN_EOF)
         return token;
 
-    return getLastToken(token->next);
+    return getLastTokenWithOutEOF(token->next);
 }
 
 void freeTokens(Token* token) {
