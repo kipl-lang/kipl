@@ -182,6 +182,8 @@ Token* identifierLiteral(char c)
         advance();
     }
 
+    if(strcmp(lexeme, "import") == 0)
+        return makeToken(TOKEN_IMPORT, lexeme,  lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "if") == 0)
         return makeToken(TOKEN_IF, lexeme,  lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "else") == 0)
