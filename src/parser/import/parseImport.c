@@ -5,9 +5,14 @@
 #include "parseImport.h"
 
 #include "../global.h"
+#include "../error/error.h"
 
 void parseImport() {
     currentToken = currentToken->next;
 
+    if(currentToken->type == TOKEN_STRING_LITERAL) {
 
+    } else {
+        showError(ERROR_SYNTAX, "Expected \"<file>\" after import");
+    }
 }

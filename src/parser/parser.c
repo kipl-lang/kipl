@@ -24,6 +24,7 @@
 #include "for/parseFor.h"
 #include "identifier/parseIdentifier.h"
 #include "if/parseIf.h"
+#include "import/parseImport.h"
 #include "variable/parseVariable.h"
 #include "scope/scope.h"
 
@@ -34,6 +35,9 @@ void parser(Token* token) {
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_ERROR)
             showError(ERROR_SYNTAX, token->value);
+
+        else if(currentToken->type == TOKEN_IMPORT)
+            parseImport();
 
         else if(currentToken->type == TOKEN_VAR ||currentToken->type == TOKEN_CONST)
             parseVariable();
