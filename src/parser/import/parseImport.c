@@ -17,16 +17,17 @@ void parseImport() {
     if(currentToken->type == TOKEN_STRING_LITERAL) {
         char fileName[128];
         sprintf(fileName, "%s.kipl", currentToken->value);
-        currentToken = currentToken->next;
 
         char* string = readFile(fileName);       // kipl source code
         Token* firstToken =  scanner(string);    // lexer
         Token* lastToken = getLastTokenWithOutEOF(firstToken);
 
         if(lastToken != NULL) {
-            lastToken->next = currentToken;
-            currentToken = firstToken;
+            lastToken->next = currentToken->next;
+            currentToken->next = firstToken;
         }
+
+        currentToken = currentToken->next;
 
     } else {
         showError(ERROR_SYNTAX, "Expected \"<file>\" after import");
