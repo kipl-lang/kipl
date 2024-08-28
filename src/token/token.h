@@ -131,6 +131,14 @@ Token* makeToken(TokenType type, char* value, unsigned int line, unsigned int co
 Token* getLastToken(Token* token);
 
 /*
+ * @function: getLastTokenWithOutEOF
+ * @description: get last created token in loop without EOF_TOKEN. This is a recursive func.
+ * @arguments: Token* token
+ * @return: Token*
+ */
+Token* getLastTokenWithOutEOF(Token* token);
+
+/*
  * @function: freeTokens
  * @description: free allocated memories
  * @arguments: Token* token

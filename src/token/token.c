@@ -30,6 +30,15 @@ Token* getLastToken(Token* token) {
     if(token->next == NULL)
         return token;
 
+    return getLastToken(token->next);
+}
+
+Token* getLastTokenWithOutEOF(Token* token) {
+    if(token->type == TOKEN_EOF)
+        return NULL;
+
+    if(token->next->type == TOKEN_EOF)
+        return token;
 
     return getLastToken(token->next);
 }
