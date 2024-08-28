@@ -38,9 +38,8 @@ int main(int argc, const char* argv[]) {
         return 1;
     }
 
-
-    char* string = readFile(filename);  // kipl source code
-    Token* token =  scanner(string);    // lexer
+    char* string = readFile(filename);  //  kipl source code
+    Token* token =  scanner(string);    //lexer
     parser(token);                      // parser
 
     //system("pause");

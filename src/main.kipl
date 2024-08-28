@@ -1,1 +1,3 @@
-var x: u8 = 50
+import "../src/test"
+
+var t: i32 = x
