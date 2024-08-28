@@ -19,6 +19,8 @@
 
 #include "lexer/lexer.h"
 #include "parser/parser.h"
+#include "parser/error/error.h"
+#include "parser/helpers/file/readFile.h"
 
 int main(int argc, const char* argv[]) {
     setlocale(LC_ALL, "en_US.UTF-8");
@@ -36,32 +38,8 @@ int main(int argc, const char* argv[]) {
         return 1;
     }
 
-    FILE* file = fopen(filename, "r"); // Open the file
-    if(file == NULL) { // Check if the file could not be opened
-        printf("Could not open file %s\n", filename);
-        return 1;
-    }
 
-    fseek(file, 0, SEEK_END); // Seek to the end of the file
-    long fileSize = ftell(file); // Get the file size
-    fseek(file, 0, SEEK_SET); // Seek back to the beginning of the file
-
-    // Allocate memory for the file content
-    char* source = (char*)malloc(fileSize + 1); // +1 for null terminator
-    if(source == NULL) {
-        // Check if memory allocation failed
-        printf("Memory allocation failed\n");
-        fclose(file);
-        return 1;
-    }
-
-    // Read the file content into the source buffer
-    size_t readSize = fread(source, 1, fileSize, file);
-    source[readSize] = '\0'; // Null-terminate the string
-
-    fclose(file);  // Close the file
-
-    char* string = source;              // kipl source code
+    char* string = readFile(filename);  // kipl source code
     Token* token =  scanner(string);    // lexer
     parser(token);                      // parser
 

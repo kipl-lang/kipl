@@ -11,7 +11,7 @@ void parseImport() {
     currentToken = currentToken->next;
 
     if(currentToken->type == TOKEN_STRING_LITERAL) {
-
+        char* fileName = currentToken->value;
     } else {
         showError(ERROR_SYNTAX, "Expected \"<file>\" after import");
     }

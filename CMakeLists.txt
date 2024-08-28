@@ -58,4 +58,6 @@ add_executable(interpreter src/main.c
         src/parser/break/parseBreak.h
         src/parser/import/parseImport.c
         src/parser/import/parseImport.h
+        src/parser/helpers/file/readFile.c
+        src/parser/helpers/file/readFile.h
 )
