@@ -65,3 +65,15 @@ for <bool_value> {
     // codes
 }
 ```
+
+**Dosya Dahil Etme**
+- Kipl programlama dilinde birden fazla dosya ile tek bir proje üzerinde çalışılabilir.
+- Bir dosyadaki kodları diğer dosyaya dahil etmek için **import** anahtar kelimesi kullanılır.
+- Dosya dahil edilirken dosyanın uzantısı yani ".kipl" yazılmaz. Interpreter sadece dosyanın adına göre arama yapar.
+- .kipl uzantısına sahip olmayan bir dosya dahil edilemez.
+- Dosyanın dahil edilip edilmeme kontrolü tamamen programcıya aittir. Daha önce dahil edilen bir dosya tekrar dahil edilebilir. Ve bu istenmeyen bir durumdur.
+- Gelecekte dosya dahil etme kontrolleri interpreter'a devredilecektir.
+- Bir dosya dahil etme işlemi aşağıdaki format ile gerçekleştirilir.
+```kipl
+import "<file_name>"
+```
