@@ -18,10 +18,11 @@
 
 Lexer* lexer;
 
-Lexer* createLexer(char* source) {
+Lexer* createLexer(char* source, char* fileName) {
     Lexer* lexer = (Lexer*)malloc(sizeof(Lexer));
 
     lexer->source = source;
+    lexer->fileName = fileName;
     lexer->currentPosition = 0;
     lexer->currentLine = 1;
     lexer->currentColumn = 0;
@@ -29,8 +30,8 @@ Lexer* createLexer(char* source) {
     return lexer;
 }
 
-Token* scanner(char* source) {
-    lexer = createLexer(source);
+Token* scanner(char* source, char* fileName) {
+    lexer = createLexer(source, fileName);
 
     Token* firstToken = NULL;
 

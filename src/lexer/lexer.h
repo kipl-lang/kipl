@@ -20,6 +20,7 @@
 
 typedef struct _lexer {
     char* source;
+    char* fileName;
     unsigned int currentPosition;
     unsigned int currentLine;
     unsigned int currentColumn;
@@ -28,18 +29,18 @@ typedef struct _lexer {
 /*
  * @function: createLexer
  * @description: create a lexer
- * @arguments: char* source
+ * @arguments: char* source, char* fileName
  * @return: Lexer*
  */
-Lexer* createLexer(char* source);
+Lexer* createLexer(char* source, char* fileName);
 
 /*
  * @function: scanner
  * @description: main lexer func. Return first token
- * @arguments: char* source
+ * @arguments: char* source, char* fileName
  * @return: Token*
  */
-Token* scanner(char* source);
+Token* scanner(char* source, char* fileName);
 
 /*
  * @function: scanToken
