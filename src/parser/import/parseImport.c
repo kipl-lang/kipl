@@ -19,7 +19,7 @@ void parseImport() {
         sprintf(fileName, "%s.kipl", currentToken->value);
 
         char* string = readFile(fileName);       // kipl source code
-        Token* firstToken =  scanner(string, fileName);    // lexer
+        Token* firstToken = scanner(string, fileName);    // lexer
         Token* lastToken = getLastTokenWithOutEOF(firstToken);
 
         if(lastToken != NULL) {
