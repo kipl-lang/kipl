@@ -1,6 +1,6 @@
 
 
-var x: i32 = 5
+var x: i32 =
 
 for x < 10 {
     x = x+ 1

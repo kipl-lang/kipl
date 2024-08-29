@@ -32,7 +32,7 @@ typedef struct _lexer {
  * @arguments: char* source, char* fileName
  * @return: Lexer*
  */
-Lexer* createLexer(char* source, char* fileName);
+Lexer* createLexer(char* source, const char* fileName);
 
 /*
  * @function: scanner
