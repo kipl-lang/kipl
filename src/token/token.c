@@ -18,10 +18,11 @@
 
 #include "stdlib.h"
 
-Token* makeToken(TokenType type, char* value, unsigned int line, unsigned int column) {
+Token* makeToken(TokenType type, char* value, char* fileName, unsigned int line, unsigned int column) {
     Token* token = (Token*) malloc(sizeof(Token));
     token->type = type;
     token->value = value;
+    token->fileName = fileName;
     token->line = line;
     token->column = column;
     token->next = NULL;

@@ -108,6 +108,7 @@ typedef enum _token_type {
 typedef struct _token {
     TokenType type;
     char* value;
+    char* fileName;
     unsigned int line;
     unsigned int column;
     struct _token* next;
@@ -117,10 +118,10 @@ typedef struct _token {
 /*
  * @function: makeToken
  * @description: create a token and return the token
- * @arguments: TokenType type, char* value, unsigned int line, unsigned int column
+ * @arguments: TokenType type, char* value, char* fileName, unsigned int line, unsigned int column
  * @return: Token*
  */
-Token* makeToken(TokenType type, char* value, unsigned int line, unsigned int column);
+Token* makeToken(TokenType type, char* value, char* fileName, unsigned int line, unsigned int column);
 
 /*
  * @function: getLastToken
