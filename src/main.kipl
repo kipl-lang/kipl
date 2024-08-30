@@ -1,3 +1,5 @@
 import "../src/test"
 
-var t : u16 =
+var t : u16 = 6
+
+
