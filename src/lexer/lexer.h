@@ -20,7 +20,7 @@
 
 typedef struct _lexer {
     char* source;
-    char* fileName;
+    const char* fileName;
     unsigned int currentPosition;
     unsigned int currentLine;
     unsigned int currentColumn;

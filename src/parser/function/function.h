@@ -5,8 +5,14 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
-typedef struct _function {
+#include "../dataType.h"
+#include "../../token/token.h"
 
+typedef struct _function {
+    char* name;
+    DataType returnType;
+    //params düşün---
+    Token* firstToken;
 } Function;
 
 #endif //FUNCTION_H
