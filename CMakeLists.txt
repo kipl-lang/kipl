@@ -62,4 +62,6 @@ add_executable(interpreter src/main.c
         src/parser/helpers/file/readFile.h
         src/parser/function/function.c
         src/parser/function/function.h
+        src/builtin/out/out.c
+        src/builtin/out/out.h
 )

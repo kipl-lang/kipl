@@ -15,4 +15,6 @@ typedef struct _function {
     Token* firstToken;
 } Function;
 
+Function* createFunction(char* name, DataType returnType, Token* firstToken);
+
 #endif //FUNCTION_H
