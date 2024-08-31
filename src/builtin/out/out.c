@@ -3,3 +3,9 @@
 //
 
 #include "out.h"
+
+#include <stdio.h>
+
+void out(char* value) {
+    printf(value);
+}

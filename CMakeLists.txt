@@ -64,4 +64,6 @@ add_executable(interpreter src/main.c
         src/parser/function/function.h
         src/builtin/out/out.c
         src/builtin/out/out.h
+        src/parser/if/if.c
+        src/parser/if/if.h
 )
