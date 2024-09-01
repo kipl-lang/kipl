@@ -82,8 +82,14 @@ void parser(Token* token) {
                 openCurlyBracket--;
                 freeScope();
 
-                if(currentToken->type == TOKEN_ELSE) {
+                while(currentToken->type == TOKEN_ELSE) {
                     currentToken = currentToken->next;
+
+                    if(currentToken->type == TOKEN_IF) {
+                        currentToken = currentToken->next;
+                        while(currentToken->type != TOKEN_EOF && currentToken->type != TOKEN_BRACKET_CURLY_LEFT)
+                            currentToken = currentToken->next;
+                    }
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
                         unsigned int lastOpenCB = openCurlyBracket++;
                         currentToken = currentToken->next;

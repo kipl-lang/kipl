@@ -1,5 +1,14 @@
-if false {
+if true {
     var x: i32 = 65
+
+} else if true {
+    var p: i8 = 88
+} else if true {
+    var p: i8 = 88
+} else if true {
+    var p: i8 = 88
+} else if true {
+    var p: i8 = 88
 } else {
     var t: i16 = 96
 }
