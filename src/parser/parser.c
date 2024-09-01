@@ -82,16 +82,30 @@ void parser(Token* token) {
                 openCurlyBracket--;
                 freeScope();
 
-                while(currentToken->type == TOKEN_ELSE) {
+
+                unsigned int lastOpenCB = openCurlyBracket;
+
+                while(currentToken->type == TOKEN_ELSE && currentToken->next->type == TOKEN_IF) {
+                    currentToken = currentToken->next;
                     currentToken = currentToken->next;
 
-                    if(currentToken->type == TOKEN_IF) {
+                    while(currentToken->type != TOKEN_EOF && currentToken->type != TOKEN_BRACKET_CURLY_LEFT)
                         currentToken = currentToken->next;
-                        while(currentToken->type != TOKEN_EOF && currentToken->type != TOKEN_BRACKET_CURLY_LEFT)
-                            currentToken = currentToken->next;
-                    }
+
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
-                        unsigned int lastOpenCB = openCurlyBracket++;
+                        openCurlyBracket++;
+                        currentToken = currentToken->next;
+                        skipFalse(lastOpenCB);
+                    } else {
+                        showError(ERROR_SYNTAX, " expected '{' after else clause");
+                    }
+                }
+
+                if(currentToken->type == TOKEN_ELSE) {
+                    currentToken = currentToken->next;
+
+                    if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+                        openCurlyBracket++;
                         currentToken = currentToken->next;
                         skipFalse(lastOpenCB);
                     } else {
