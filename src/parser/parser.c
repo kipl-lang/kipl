@@ -114,7 +114,9 @@ void parser(Token* token) {
                         showError(ERROR_SYNTAX, " expected '{' after else clause");
                     }
                 }
-            } else {
+            }
+            // other brackets status
+            else {
                 openCurlyBracket--;
                 freeScope();
                 currentToken = currentToken->next;

@@ -25,6 +25,30 @@ void parseIf() {
                 createScope();
             } else {
                 skipFalse(lastOpenCurlyBracket);
+
+                while(currentToken->type == TOKEN_ELSE && currentToken->next->type == TOKEN_IF) {
+                    currentToken = currentToken->next;
+                    currentToken = currentToken->next;
+
+                    data = parseExpressions();
+                    if(data != NULL && data->dataType == TYPE_BOOL) {
+                        if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+                            openCurlyBracket++;
+                            currentToken = currentToken->next;
+                            if(stringToBool(data->value)) {
+                                createTrueBlock(lastOpenCurlyBracket);
+                                createScope();
+                                break;
+                            }
+                            skipFalse(lastOpenCurlyBracket);
+                            
+                        } else {
+                            showError(ERROR_SYNTAX, " expected '{' after else if clause");
+                        }
+                    } else {
+                        showError(ERROR_SYNTAX, "non-boolean condition in else if statement");
+                    }
+                }
             }
         } else {
             showError(ERROR_SYNTAX, " expected '{' after if clause");

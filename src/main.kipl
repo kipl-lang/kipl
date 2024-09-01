@@ -1,21 +1,15 @@
-if true {
+if false {
     var x: i32 = 65
-    if true {
-        var m: string = "kerem"
-    } else {
-        var n: string = "saf"
-    }
-
+} else if false {
+    var p: i8 = 69
+} else if false {
+    var p: i8 = 87
 } else if true {
-    var p: i8 = 88
-} else if true {
-    var p: i8 = 88
-} else if true {
-    var p: i8 = 88
-} else if true {
-    var p: i8 = 88
+    var p: i8 = 12
+} else if false {
+    var p: i8 = 45
 } else {
-    var t: i16 = 96
+    var t: i16 = 54
 }
 
 var t: i16 = 68
