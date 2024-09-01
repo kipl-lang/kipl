@@ -1,15 +1,8 @@
-if false {
-    var x: i32 = 65
-} else if false {
-    var p: i8 = 69
-} else if false {
-    var p: i8 = 87
-} else if false {
-    var p: i8 = 12
-} else if false {
-    var p: i8 = 45
-} else {
-    var t: i16 = 54
+if 5 > 4 {
+    if 3> 4 {
+        var x: u128 = 257
+    } else {
+        var x: u128 = 258
+    }
 }
-
 var t: i16 = 68
