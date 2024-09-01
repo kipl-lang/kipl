@@ -7,6 +7,6 @@
 
 void parseIf();
 
-void skipFalse();
+void skipFalse(unsigned int lastOpenCurlyBracket);
 
 #endif //IFPARSER_H

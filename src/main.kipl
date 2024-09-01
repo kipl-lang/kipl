@@ -1,4 +1,4 @@
-if false {
+if true {
     var x: i32 = 65
 }
 

@@ -24,7 +24,7 @@ void parseIf() {
                 createTrueBlock(lastOpenCurlyBracket);
                 createScope();
             } else {
-
+                skipFalse(lastOpenCurlyBracket);
             }
         } else {
             showError(ERROR_SYNTAX, " expected '{' after if clause");
@@ -34,6 +34,17 @@ void parseIf() {
     }
 }
 
-void skipFalse() {
-
+void skipFalse(unsigned int lastOpenCurlyBracket) {
+    while(currentToken->type != TOKEN_EOF) {
+        if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
+            openCurlyBracket++;
+        else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+            openCurlyBracket--;
+            if(openCurlyBracket == lastOpenCurlyBracket) {
+                currentToken = currentToken->next;
+                break;
+            }
+        }
+        currentToken = currentToken->next;
+    }
 }
