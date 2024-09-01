@@ -22,6 +22,7 @@ void parseFor() {
             openCurlyBracket++;
             currentToken = currentToken->next;
             if(stringToBool(data->value)) {
+                freeData(data);
                 createFor(forToken, lastOpenCurlyBracket);
                 createScope();
             } else {

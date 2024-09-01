@@ -21,6 +21,7 @@ void parseIf() {
             openCurlyBracket++;
             currentToken = currentToken->next;
             if(stringToBool(data->value)) {
+                freeData(data);
                 createTrueBlock(lastOpenCurlyBracket);
                 createScope();
             } else {
@@ -36,6 +37,7 @@ void parseIf() {
                             openCurlyBracket++;
                             currentToken = currentToken->next;
                             if(stringToBool(data->value)) {
+                                freeData(data);
                                 createTrueBlock(lastOpenCurlyBracket);
                                 createScope();
                                 break;
