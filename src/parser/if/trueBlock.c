@@ -7,13 +7,13 @@
 
 #include "../global.h"
 
-void createIf(unsigned int bracketsNumber) {
-    If* newIf = (If*) malloc(sizeof(If));
-    newIf->parentIf = currentIf;
-    newIf->lastBracketsNumber = bracketsNumber;
-    currentIf = newIf;
+void createTrueBlock(unsigned int bracketsNumber) {
+    TrueBlock* newTrueBlock = (TrueBlock*) malloc(sizeof(TrueBlock));
+    newTrueBlock->parentTrueBlock = currentTrueBlock;
+    newTrueBlock->lastBracketsNumber = bracketsNumber;
+    currentTrueBlock = newTrueBlock;
 }
 
-void freeIf(If* _if) {
+void freeTrueBlock(If* _if) {
     free(_if);
 }

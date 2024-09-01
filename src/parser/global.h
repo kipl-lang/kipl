@@ -24,6 +24,6 @@ extern Token* currentToken;
 extern Scope* currentScope;
 extern unsigned int openCurlyBracket;
 extern For* currentFor;
-extern If* currentIf;
+extern TrueBlock* currentTrueBlock;
 
 #endif //GLOBAL_H

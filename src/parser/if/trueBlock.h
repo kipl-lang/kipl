@@ -6,13 +6,13 @@
 #define IF_H
 
 
-typedef struct _if {
-    struct _if* parentIf;
+typedef struct _true_block {
+    struct _true_block* parentTrueBlock;
     unsigned int lastBracketsNumber;
-} If;
+} TrueBlock;
 
-void createIf(unsigned int bracketsNumber);
+void createTrueBlock(unsigned int bracketsNumber);
 
-void freeIf(If* _if);
+void freeIf(TrueBlock* trueBlock);
 
 #endif //IF_H
