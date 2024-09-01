@@ -4,7 +4,7 @@ if false {
     var p: i8 = 69
 } else if false {
     var p: i8 = 87
-} else if true {
+} else if false {
     var p: i8 = 12
 } else if false {
     var p: i8 = 45

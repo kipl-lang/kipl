@@ -41,12 +41,24 @@ void parseIf() {
                                 break;
                             }
                             skipFalse(lastOpenCurlyBracket);
-                            
+
                         } else {
                             showError(ERROR_SYNTAX, " expected '{' after else if clause");
                         }
                     } else {
                         showError(ERROR_SYNTAX, "non-boolean condition in else if statement");
+                    }
+                }
+
+                if(currentToken->type == TOKEN_ELSE) {
+                    currentToken = currentToken->next;
+                    if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+                        openCurlyBracket++;
+                        currentToken = currentToken->next;
+                        createTrueBlock(lastOpenCurlyBracket);
+                        createScope();
+                    } else {
+                        showError(ERROR_SYNTAX, " expected '{' after else clause");
                     }
                 }
             }
