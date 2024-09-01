@@ -1,5 +1,5 @@
-import "../src/test"
+if false {
+    var x: i32 = 65
+}
 
-var t : u16 = 6
-
-
+var t: i16 = 68

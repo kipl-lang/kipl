@@ -13,7 +13,7 @@
 
 void parseFor() {
     Token* forToken = currentToken;
-    unsigned int lastOpenCurlyBracket = openCurlyBracket;
+    "unsigned int lastOpenCurlyBracket = openCurlyBracket;"
     currentToken = currentToken->next;
     Data* data = parseExpressions();
 

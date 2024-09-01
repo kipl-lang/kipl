@@ -21,7 +21,8 @@ void parseIf() {
             openCurlyBracket++;
             currentToken = currentToken->next;
             if(stringToBool(data->value)) {
-                createIf(lastOpenCurlyBracket);
+                createTrueBlock(lastOpenCurlyBracket);
+                createScope();
             } else {
 
             }
@@ -31,4 +32,8 @@ void parseIf() {
     } else {
         showError(ERROR_SYNTAX, "non-boolean condition in if statement");
     }
+}
+
+void skipFalse() {
+
 }

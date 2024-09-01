@@ -13,6 +13,6 @@ typedef struct _true_block {
 
 void createTrueBlock(unsigned int bracketsNumber);
 
-void freeIf(TrueBlock* trueBlock);
+void freeTrueBlock(TrueBlock* trueBlock);
 
 #endif //IF_H

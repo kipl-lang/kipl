@@ -7,4 +7,6 @@
 
 void parseIf();
 
+void skipFalse();
+
 #endif //IFPARSER_H

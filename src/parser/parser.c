@@ -74,6 +74,14 @@ void parser(Token* token) {
                 freeFor(tempFor);
                 openCurlyBracket--;
                 freeScope();
+            } else if(currentTrueBlock != NULL && openCurlyBracket == currentTrueBlock->lastBracketsNumber+1) {
+                TrueBlock* tempTrueBlock = currentTrueBlock;
+                currentToken = currentToken->next;
+                currentTrueBlock = currentTrueBlock->parentTrueBlock;
+                freeTrueBlock(tempTrueBlock);
+                openCurlyBracket--;
+                freeScope();
+                
             } else {
                 openCurlyBracket--;
                 freeScope();

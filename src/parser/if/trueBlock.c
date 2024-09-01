@@ -14,6 +14,6 @@ void createTrueBlock(unsigned int bracketsNumber) {
     currentTrueBlock = newTrueBlock;
 }
 
-void freeTrueBlock(If* _if) {
-    free(_if);
+void freeTrueBlock(TrueBlock* trueBlock) {
+    free(trueBlock);
 }
