@@ -1,5 +1,7 @@
-if true {
+if false {
     var x: i32 = 65
+} else {
+    var t: i16 = 96
 }
 
 var t: i16 = 68

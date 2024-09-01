@@ -81,7 +81,17 @@ void parser(Token* token) {
                 freeTrueBlock(tempTrueBlock);
                 openCurlyBracket--;
                 freeScope();
-                
+
+                if(currentToken->type == TOKEN_ELSE) {
+                    currentToken = currentToken->next;
+                    if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+                        unsigned int lastOpenCB = openCurlyBracket++;
+                        currentToken = currentToken->next;
+                        skipFalse(lastOpenCB);
+                    } else {
+                        showError(ERROR_SYNTAX, " expected '{' after else clause");
+                    }
+                }
             } else {
                 openCurlyBracket--;
                 freeScope();
