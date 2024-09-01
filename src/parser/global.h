@@ -18,7 +18,7 @@
 #include "../token/token.h"
 #include "../parser/scope/scope.h"
 #include "for/for.h"
-#include "if/if.h"
+#include "if/trueBlock.h"
 
 extern Token* currentToken;
 extern Scope* currentScope;

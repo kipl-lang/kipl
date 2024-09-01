@@ -12,14 +12,16 @@
 #include "../helpers/typeConversion/toBool.h"
 
 void parseIf() {
+    unsigned int lastOpenCurlyBracket = openCurlyBracket;
     currentToken = currentToken->next;
     Data* data = parseExpressions();
 
     if(data != NULL && data->dataType == TYPE_BOOL) {
         if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
             openCurlyBracket++;
+            currentToken = currentToken->next;
             if(stringToBool(data->value)) {
-
+                createIf(lastOpenCurlyBracket);
             } else {
 
             }

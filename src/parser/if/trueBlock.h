@@ -5,7 +5,6 @@
 #ifndef IF_H
 #define IF_H
 
-#include "../../token/token.h"
 
 typedef struct _if {
     struct _if* parentIf;
