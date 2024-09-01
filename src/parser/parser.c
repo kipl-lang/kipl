@@ -67,6 +67,7 @@ void parser(Token* token) {
             if(openCurlyBracket == 0)
                 showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
+            // for colse control
             if(currentFor != NULL && openCurlyBracket == currentFor->lastBracketsNumber+1) {
                 For* tempFor = currentFor;
                 currentToken = currentFor->forToken;
@@ -74,14 +75,15 @@ void parser(Token* token) {
                 freeFor(tempFor);
                 openCurlyBracket--;
                 freeScope();
-            } else if(currentTrueBlock != NULL && openCurlyBracket == currentTrueBlock->lastBracketsNumber+1) {
+            }
+            // if close control
+            else if(currentTrueBlock != NULL && openCurlyBracket == currentTrueBlock->lastBracketsNumber+1) {
                 TrueBlock* tempTrueBlock = currentTrueBlock;
                 currentToken = currentToken->next;
                 currentTrueBlock = currentTrueBlock->parentTrueBlock;
                 freeTrueBlock(tempTrueBlock);
                 openCurlyBracket--;
                 freeScope();
-
 
                 unsigned int lastOpenCB = openCurlyBracket;
 

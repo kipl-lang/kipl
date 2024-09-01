@@ -1,5 +1,10 @@
 if true {
     var x: i32 = 65
+    if true {
+        var m: string = "kerem"
+    } else {
+        var n: string = "saf"
+    }
 
 } else if true {
     var p: i8 = 88
