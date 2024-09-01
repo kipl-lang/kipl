@@ -1,8 +1,10 @@
 if 5 > 4 {
     if 3> 4 {
         var x: u128 = 257
-    } else {
+    } else if true {
         var x: u128 = 258
+    } else {
+        var x: u128 = 0
     }
 }
 var t: i16 = 68
