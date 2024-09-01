@@ -5,4 +5,6 @@
 #ifndef PARSEOUT_H
 #define PARSEOUT_H
 
+void parseOut();
+
 #endif //PARSEOUT_H
