@@ -202,7 +202,7 @@ Token* identifierLiteral(char c)
     if(strcmp(lexeme, "func") == 0)
         return makeToken(TOKEN_FUNC, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "out") == 0)
-        return makeToken(TOKEN_TYPE_STRING, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
+        return makeToken(TOKEN_OUT, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "true") == 0)
         return makeToken(TOKEN_BOOL_TRUE, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "false") == 0)
