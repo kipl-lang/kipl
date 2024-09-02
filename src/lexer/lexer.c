@@ -18,7 +18,7 @@
 
 Lexer* lexer;
 
-Lexer* createLexer(char* source, const char* fileName) {
+Lexer* createLexer(char* source, char* fileName) {
     Lexer* lexer = (Lexer*)malloc(sizeof(Lexer));
 
     lexer->source = source;
