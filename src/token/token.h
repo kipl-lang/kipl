@@ -100,9 +100,8 @@ typedef enum _token_type {
     TOKEN_SWITCH,
     TOKEN_CASE,
     TOKEN_BREAK,
-    TOKEN_CONTINUE
-
-
+    TOKEN_CONTINUE,
+    TOKEN_OUT
 } TokenType;
 
 typedef struct _token {
