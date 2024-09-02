@@ -1,3 +1,9 @@
+/*
+
+file: isPrime.kipl
+
+*/
+
 const number: i32 = 8
 
 var i: i32 = 2
