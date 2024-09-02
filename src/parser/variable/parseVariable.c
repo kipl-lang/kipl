@@ -56,7 +56,6 @@ void parseVariable() {
                     currentToken = currentToken->next;
                     Data* data = parseExpressions();
                     if(data != NULL) { // var name: type = value
-                        printf(data->value);
                         assignToVariable(varName, data);
                     } else {
                         showError(ERROR_SYNTAX, "Expected <value> after var <name> : <type> = ");
