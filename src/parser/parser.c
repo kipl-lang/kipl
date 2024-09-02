@@ -18,6 +18,7 @@
 
 #include "global.h"
 #include "break/parseBreak.h"
+#include "commands/out/parseOut.h"
 #include "continue/parseContinue.h"
 
 #include "error/error.h"
@@ -53,6 +54,9 @@ void parser(Token* token) {
 
         else if(currentToken->type == TOKEN_BREAK)
             parseBreak();
+
+        else if(currentToken->type == TOKEN_OUT)
+            parseOut();
 
         else if(currentToken->type == TOKEN_IDENTIFIER)
             parseIdentifier();
