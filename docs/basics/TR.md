@@ -1,6 +1,6 @@
 # Kipl Teknik Döküman
 
-**Değişkenler**
+## Değişkenler
 
 - Değişkenler **var** anahtar sözcüğü ile tanımlanır.
 - Değişken tanımlanırken tip belirtmek zorunludur.
@@ -24,7 +24,7 @@ Değişkenler tanımlandığında varsayılan olarak değer atamaları gerçekle
 
 Bu durumda tanımlanmış ama manuel olarak değer atanmamış bir değişkeni çağrıldığında hata oluşmaz varsayılan değer döndürülür.
 
-**Varsayılan değerler**
+## Varsayılan değerler
 
 i8, i16, i32, i64, i128, u8, u16, u32, u64, u128 **\=>** 0
 
@@ -34,7 +34,7 @@ bool **\=>** false
 
 string **\=>** "" (boş string)
 
-**Sabitler (Constants)**
+## Sabitler (Constants)
 
 - Atanan değerin çalışma zamanı içerisinde değiştirilemediği değişkenlere sabit değişkenler denir.
 - Kipl programlama dilinde sabitler, **var** anahtar kelimesinin yerine **const** anahtar kelimesi yazılarak normal bir değişken oluşturur gibi oluşturulur.
@@ -46,7 +46,7 @@ string **\=>** "" (boş string)
 const <var_name> : <var_type> = <value>;
 ```
 
-**Kod Blokları (Scopes)**
+## Kod Blokları (Scopes)
 
 - Kipl programlama dilinde bir scope süslü parantez karakterleri “{, }” ile oluşturulur.
 - Scope “{“ ile açılır ve “}” ile kapanır.
@@ -66,7 +66,7 @@ for <bool_value> {
 }
 ```
 
-**Dosya Dahil Etme**
+## Dosya Dahil Etme
 - Kipl programlama dilinde birden fazla dosya ile tek bir proje üzerinde çalışılabilir.
 - Bir dosyadaki kodları diğer dosyaya dahil etmek için **import** anahtar kelimesi kullanılır.
 - Dosya dahil edilirken dosyanın uzantısı yani ".kipl" yazılmaz. Interpreter sadece dosyanın adına göre arama yapar.
