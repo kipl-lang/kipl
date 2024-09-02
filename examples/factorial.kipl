@@ -1,3 +1,9 @@
+/*
+
+file: factorial.kipl
+
+*/
+
 const number: i32 = 6
 
 var result: i64 = 1
