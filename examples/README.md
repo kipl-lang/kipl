@@ -1,4 +1,4 @@
 # KIPL Examples
 
-- [Prime Number]()
+- [Prime Number](isPrime.kipl)
 - [Factorial]()
