@@ -101,3 +101,22 @@ import "<file_name>"
 out "Hello World"
 out  5 + 9 // result 14
 ```
+    
+## Kaçış Karakterleri
+- Bir stringin içerisinde alt satıra geçme, çift tırnak kullanma, back slash(\) kullanma, 1 tab boşluk bırakma gibi işlemler için kaçış karakterleri kullanılır.
+- Alt satıra geçmek için "\n" kullanılır.
+```kipl
+out "Hello \nWorld!"
+```
+- 1 tab boşluk bırakmak için "\t" kullanılır.
+```kipl
+out "Hello \tWorld!"
+```
+- Çift tırnak kullanmak için \\" kullanılır.
+```kipl
+out "\"Hello World!\""
+```
+- Back Slash kullanmak için \\\ kullanılır.
+```kipl
+out "Hello \\ World!"
+```

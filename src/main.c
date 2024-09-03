@@ -42,8 +42,9 @@ int main(int argc, char* argv[]) {
     Token* token =  scanner(string, filename);    // lexer
     parser(token);                                      // parser
 
-    //system("pause");
     freeTokens(token); // free memory
+    printf("\n");
+    system("pause");
 
     return 0;
 }
