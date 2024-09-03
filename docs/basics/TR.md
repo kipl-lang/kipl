@@ -91,3 +91,13 @@ if 2 > 3 {
 ```kipl
 import "<file_name>"
 ```
+
+## Out Komutu
+- Out bir dil yapısıdır bir fonksiyon değildir.
+- Konsol ekranına bir ifade bastırılmak istenildiğinde kullanılır.
+- Ekrana bastırılmak istenilen ifade string beri tipinde olmak zorunda değildir. Her hangi bir veri türüne sahip ifade ekrana bastırılabilir.
+- Out ifadesi aşağıdaki gibi kullanılır.
+```kipl
+out "Hello World"
+out  5 + 9 // result 14
+```
