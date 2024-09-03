@@ -153,20 +153,44 @@ Token* stringLiteral()
 
     while(peek() != '"' && !isAtEnd())
     {
-        size_t len = strlen(str);
-        str = (char *)realloc(str, len + 2);
-        str[len] = peek();
-        str[len + 1] = '\0';
-        advance();
+        if (peek() == '\\')
+        {
+            advance();
+            char escapeChar = advance();
+
+            switch (escapeChar)
+            {
+                case 'n': escapeChar = '\n'; break;
+                case 't': escapeChar = '\t'; break;
+                case '\\': escapeChar = '\\'; break;
+                case '"': escapeChar = '"'; break;
+                default:
+                    return makeToken(TOKEN_ERROR, "Invalid escape sequence", lexer->fileName, lexer->currentLine, lexer->currentColumn);
+            }
+
+            size_t len = strlen(str);
+            str = (char *)realloc(str, len + 2);
+            str[len] = escapeChar;
+            str[len + 1] = '\0';
+        }
+        else
+        {
+            size_t len = strlen(str);
+            str = (char *)realloc(str, len + 2);
+            str[len] = peek();
+            str[len + 1] = '\0';
+            advance();
+        }
     }
 
     //ERROR
     if (isAtEnd())
         return makeToken(TOKEN_ERROR, "Unterminated string.", lexer->fileName, lexer->currentLine, lexer->currentColumn);
 
-    advance();
+    advance(); // Closing "
     return makeToken(TOKEN_STRING_LITERAL, str, lexer->fileName, lexer->currentLine, lexer->currentColumn);
 }
+
 
 Token* identifierLiteral(char c)
 {
