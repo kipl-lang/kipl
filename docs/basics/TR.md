@@ -47,22 +47,36 @@ const <var_name> : <var_type> = <value>;
 ```
 
 ## Kod Blokları (Scopes)
-
 - Kipl programlama dilinde bir scope süslü parantez karakterleri “{, }” ile oluşturulur.
-- Scope “{“ ile açılır ve “}” ile kapanır.
+- Scope "{" ile açılır ve "}" ile kapanır.
 - Açılan her scope’ un bir kapanışı olması gerekmektedir. Aksi takdirde programda _Curly brackets are not balanced_ açıklamasıyla _Syntax Error_ meydana gelecektir.
 - Bir alt scope içerisinde tanımlanan değişkenlere üst scope’lardan erişilemez Fakat üst scopelar’da tanımlanan değişkenlere alt scope’lardan erişilebilir.
 - Bir scope içerisinde aynı isimle birden fazla değişken tanımlanamaz fakat farklı scope’larda aynı isimle değişkenler tanımlanabilir.
 - Alt scope’da bir değişken çağrıldığında öncelikle bulunduğu scope içerisinde arama yapar eğer yoksa üst scope’ları gezilir Bu durumda alt ve üst scope’da aynı isimle iki farklı değişken tanımlandığında alt scope’daki değişken geçerli olur.
 
-**For Döngüsü**
-
+## For Döngüsü
 - Döngüler **for** anahtar kelimesi ile oluşturulur.
 - Bir for döngüsü aşağıdaki formatta oluşturulur. **(bool_value: true | false)**
 
 ```kipl
 for <bool_value> {
     // codes
+}
+```
+
+## Koşullu İfadeler - If - Else - Else If
+- Bir ifadenin doğruluğunun kontrolü içi Kipl programlama dilinde if else yapısı statemant'ları kullanılır.
+- Eğer ifade doğruysa if bloğuna girilir ve o bloktaki ifadeler çalışıtırlır. Fakat ifade yanlış ise else if ve else anahtar kelimeleri aranır. 
+- Else if, if bloğu yanlış olduğunda kontrol edilir. Eğer else if'deki ifade yanlış ise varsa diğer else ifler kontrol edilir.
+- Else ise if ve else if'deki ifadelerden doğru sonuç dönmemesi durumunda çalıştırılacak olan bloktur.
+- Aşağıda örnek bir if yapısı bulunmaktadır.
+```kipl
+if 2 > 3 {
+    out "this is the if block"
+} else if 4 > 3 {
+    out "this is the else if block"
+} else {
+    out "this is the else block"
 }
 ```
 

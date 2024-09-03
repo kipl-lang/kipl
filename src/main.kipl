@@ -1,12 +1,3 @@
-const number: i32 = 6
-
-var result: i64 = 1
-var i: i32 = 1
-
-for i <= number {
-    result *= i
-    i += 1
+if "mert" == "mert" {
+    out "kerem"
 }
-
-out "result: "
-out result
