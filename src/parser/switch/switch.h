@@ -5,4 +5,13 @@
 #ifndef SWITCH_H
 #define SWITCH_H
 
+typedef struct _switch {
+    struct _switch* parentSwitch;
+    unsigned int lastBracketsNumber;
+} Switch;
+
+void createSwitch(unsigned int bracketsNumber);
+
+void freeTrueBlock(Switch* _switch);
+
 #endif //SWITCH_H
