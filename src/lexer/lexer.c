@@ -225,6 +225,10 @@ Token* identifierLiteral(char c)
         return makeToken(TOKEN_CONST, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "func") == 0)
         return makeToken(TOKEN_FUNC, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "switch") == 0)
+        return makeToken(TOKEN_SWITCH, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "case") == 0)
+        return makeToken(TOKEN_CASE, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "out") == 0)
         return makeToken(TOKEN_OUT, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "true") == 0)
