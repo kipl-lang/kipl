@@ -5,4 +5,6 @@
 #ifndef PARSESWITCH_H
 #define PARSESWITCH_H
 
+void parseSwitch();
+
 #endif //PARSESWITCH_H
