@@ -68,4 +68,6 @@ add_executable(interpreter src/main.c
         src/parser/if/trueBlock.h
         src/parser/commands/out/parseOut.c
         src/parser/commands/out/parseOut.h
+        src/parser/switch/parseSwitch.c
+        src/parser/switch/parseSwitch.h
 )

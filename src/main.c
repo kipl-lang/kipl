@@ -19,7 +19,6 @@
 
 #include "lexer/lexer.h"
 #include "parser/parser.h"
-#include "parser/error/error.h"
 #include "parser/helpers/file/readFile.h"
 
 int main(int argc, char* argv[]) {
