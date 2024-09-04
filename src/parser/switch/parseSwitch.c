@@ -16,6 +16,7 @@ void parseSwitch() {
     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
         createSwitch(lastOpenCurlyBracket);
         openCurlyBracket++;
+        createScope();
         currentToken = currentToken->next;
     } else {
         showError(ERROR_SYNTAX, " expected '{' after switch clause");
