@@ -28,6 +28,7 @@
 #include "import/parseImport.h"
 #include "variable/parseVariable.h"
 #include "scope/scope.h"
+#include "switch/parseSwitch.h"
 
 void parser(Token* token) {
     currentToken = token;   // Current Token
@@ -54,6 +55,9 @@ void parser(Token* token) {
 
         else if(currentToken->type == TOKEN_BREAK)
             parseBreak();
+
+        else if(currentToken->type == TOKEN_SWITCH)
+            parseSwitch();
 
         else if(currentToken->type == TOKEN_OUT)
             parseOut();
