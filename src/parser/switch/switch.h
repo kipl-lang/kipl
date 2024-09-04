@@ -12,6 +12,6 @@ typedef struct _switch {
 
 void createSwitch(unsigned int bracketsNumber);
 
-void freeTrueBlock(Switch* _switch);
+void freeSwitch(Switch* _switch);
 
 #endif //SWITCH_H

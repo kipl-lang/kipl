@@ -71,7 +71,7 @@ void parser(Token* token) {
             if(openCurlyBracket == 0)
                 showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
-            // for colse control
+            // for close control
             if(currentFor != NULL && openCurlyBracket == currentFor->lastBracketsNumber+1) {
                 For* tempFor = currentFor;
                 currentToken = currentFor->forToken;
@@ -118,6 +118,15 @@ void parser(Token* token) {
                         showError(ERROR_SYNTAX, " expected '{' after else clause");
                     }
                 }
+            }
+            // switch close control
+            else if(currentSwitch != NULL && openCurlyBracket == currentSwitch->lastBracketsNumber+1) {
+                Switch* tempSwitch = currentSwitch;
+                currentToken = currentToken->next;
+                currentSwitch = currentSwitch->parentSwitch;
+                freeSwitch(tempSwitch);
+                openCurlyBracket--;
+                freeScope();
             }
             // other brackets status
             else {
