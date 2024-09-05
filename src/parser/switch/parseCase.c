@@ -9,16 +9,20 @@
 #include "../expressions/parseExpressions.h"
 
 void parseCase() {
-    currentToken = currentToken->next;
-    Data* data = parseExpressions();
+    if(currentSwitch != NULL) {
+        currentToken = currentToken->next;
+        Data* data = parseExpressions();
 
-    if(data != NULL) {
-        if(currentToken->type == TOKEN_COLON) {
-            currentToken = currentToken->next;
+        if(data != NULL) {
+            if(currentToken->type == TOKEN_COLON) {
+                currentToken = currentToken->next;
+            } else {
+                showError(ERROR_SYNTAX, "Exprected ':' after <value>");
+            }
         } else {
-            showError(ERROR_SYNTAX, "Exprected ':' after <value>");
+            showError(ERROR_SYNTAX, "Expected <value> after case");
         }
     } else {
-        showError(ERROR_SYNTAX, "Expected <value> after case");
+        showError(ERROR_SYNTAX, "Case is not in switch");
     }
 }
