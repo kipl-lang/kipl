@@ -13,12 +13,16 @@ void parseSwitch() {
     currentToken = currentToken->next;
     Data* data = parseExpressions();
 
-    if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
-        createSwitch(data, lastOpenCurlyBracket);
-        openCurlyBracket++;
-        createScope();
-        currentToken = currentToken->next;
+    if(data != NULL) {
+        if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+            createSwitch(data, lastOpenCurlyBracket);
+            openCurlyBracket++;
+            createScope();
+            currentToken = currentToken->next;
+        } else {
+            showError(ERROR_SYNTAX, " expected '{' after switch clause");
+        }
     } else {
-        showError(ERROR_SYNTAX, " expected '{' after switch clause");
+        showError(ERROR_SYNTAX, "Expected <value> after switch ");
     }
 }
