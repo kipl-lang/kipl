@@ -4,6 +4,9 @@
 
 #include "parseCase.h"
 
+#include <stdio.h>
+#include <string.h>
+
 #include "../global.h"
 #include "../error/error.h"
 #include "../expressions/parseExpressions.h"
@@ -18,7 +21,26 @@ void parseCase() {
                 (data->dataType == TYPE_BOOL && currentSwitch->data->dataType == TYPE_BOOL) ||
                 (data->dataType == TYPE_STRING && currentSwitch->data->dataType == TYPE_STRING)
                 ) {
-
+                if(currentToken->type == TOKEN_COLON) {
+                    currentToken = currentToken->next;
+                    if(!strcmp(data->value, currentSwitch->data->value)) {
+                        printf("hello");
+                    } else {
+                        while(currentToken->type != TOKEN_EOF && currentToken->type == TOKEN_CASE) {
+                            if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
+                                openCurlyBracket++;
+                            else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+                                openCurlyBracket--;
+                                if(openCurlyBracket == currentSwitch->lastBracketsNumber) {
+                                    currentToken = currentToken->next;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    showError(ERROR_SYNTAX, "Expected ':' after <value>");
+                }
             } else {
                 showError(ERROR_RUNTIME,
                     "The type of the switch expression does not match the type of the case value.");
