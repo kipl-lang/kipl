@@ -8,8 +8,9 @@
 
 #include "../global.h"
 
-void createSwitch(unsigned int bracketsNumber) {
+void createSwitch(Data* data, unsigned int bracketsNumber) {
     Switch* newSwitch = (Switch*) malloc(sizeof(Switch));
+    newSwitch->data = data;
     newSwitch->lastBracketsNumber = bracketsNumber;
     newSwitch->parentSwitch = currentSwitch;
     currentSwitch = newSwitch;
@@ -18,5 +19,6 @@ void createSwitch(unsigned int bracketsNumber) {
 
 
 void freeSwitch(Switch* _switch) {
+    free(_switch->data);
     free(_switch);
 }
