@@ -3,3 +3,9 @@
 //
 
 #include "parseCase.h"
+
+#include "../global.h"
+
+void parseCase() {
+    currentToken = currentToken->next;
+}

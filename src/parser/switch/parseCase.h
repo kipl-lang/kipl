@@ -5,4 +5,6 @@
 #ifndef PARSECASE_H
 #define PARSECASE_H
 
+void parseCase();
+
 #endif //PARSECASE_H
