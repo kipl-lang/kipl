@@ -14,10 +14,11 @@ void parseCase() {
         Data* data = parseExpressions();
 
         if(data != NULL) {
-            if(currentToken->type == TOKEN_COLON) {
-                currentToken = currentToken->next;
+            if(data->dataType == currentSwitch->data->dataType) {
+
             } else {
-                showError(ERROR_SYNTAX, "Exprected ':' after <value>");
+                showError(ERROR_RUNTIME,
+                    "The type of the switch expression does not match the type of the case value.");
             }
         } else {
             showError(ERROR_SYNTAX, "Expected <value> after case");
