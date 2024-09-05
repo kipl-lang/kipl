@@ -26,7 +26,7 @@ void parseCase() {
                     if(!strcmp(data->value, currentSwitch->data->value)) {
                         printf("hello");
                     } else {
-                        while(currentToken->type != TOKEN_EOF && currentToken->type == TOKEN_CASE) {
+                        while(currentToken->type != TOKEN_EOF && currentToken->type != TOKEN_CASE) {
                             if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
                                 openCurlyBracket++;
                             else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {

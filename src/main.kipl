@@ -1,3 +1,4 @@
 switch true {
+    case false:
     case true:
 }
