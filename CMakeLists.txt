@@ -72,4 +72,6 @@ add_executable(interpreter src/main.c
         src/parser/switch/parseSwitch.h
         src/parser/switch/switch.c
         src/parser/switch/switch.h
+        src/parser/switch/parseCase.c
+        src/parser/switch/parseCase.h
 )
