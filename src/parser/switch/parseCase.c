@@ -14,7 +14,10 @@ void parseCase() {
         Data* data = parseExpressions();
 
         if(data != NULL) {
-            if(data->dataType == currentSwitch->data->dataType) {
+            if((dataTypeIsNumber(data->dataType) && dataTypeIsNumber(currentSwitch->data->dataType) )||
+                (data->dataType == TYPE_BOOL && currentSwitch->data->dataType == TYPE_BOOL) ||
+                (data->dataType == TYPE_STRING && currentSwitch->data->dataType == TYPE_STRING)
+                ) {
 
             } else {
                 showError(ERROR_RUNTIME,
