@@ -14,7 +14,7 @@ void parseSwitch() {
     Data* data = parseExpressions();
 
     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
-        createSwitch(lastOpenCurlyBracket);
+        createSwitch(data, lastOpenCurlyBracket);
         openCurlyBracket++;
         createScope();
         currentToken = currentToken->next;
