@@ -13,7 +13,11 @@ void parseCase() {
     Data* data = parseExpressions();
 
     if(data != NULL) {
-
+        if(currentToken->type == TOKEN_COLON) {
+            currentToken = currentToken->next;
+        } else {
+            showError(ERROR_SYNTAX, "Exprected ':' after <value>");
+        }
     } else {
         showError(ERROR_SYNTAX, "Expected <value> after case");
     }
