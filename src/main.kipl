@@ -1,4 +1,6 @@
 switch true {
     case true:
         out "kerem"
+    case "mal"
+
 }

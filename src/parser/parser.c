@@ -66,10 +66,12 @@ void parser(Token* token) {
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
                         openCurlyBracket++;
                     else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
-                        if( currentSwitch->lastBracketsNumber == openCurlyBracket+1)
+                        if(openCurlyBracket == currentSwitch->lastBracketsNumber+1)
                             break;
                         openCurlyBracket--;
                     }
+
+                    currentToken = currentToken->next;
                 }
             } else {
                 parseCase();
@@ -142,6 +144,7 @@ void parser(Token* token) {
             }
             // switch close control
             else if(currentSwitch != NULL && openCurlyBracket == currentSwitch->lastBracketsNumber+1) {
+                caseStatus = false;
                 Switch* tempSwitch = currentSwitch;
                 currentToken = currentToken->next;
                 currentSwitch = currentSwitch->parentSwitch;
