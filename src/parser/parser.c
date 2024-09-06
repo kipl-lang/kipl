@@ -29,6 +29,7 @@
 #include "variable/parseVariable.h"
 #include "scope/scope.h"
 #include "switch/parseCase.h"
+#include "switch/parseDefault.h"
 #include "switch/parseSwitch.h"
 
 void parser(Token* token) {
@@ -75,6 +76,24 @@ void parser(Token* token) {
                 }
             } else {
                 parseCase();
+            }
+        }
+
+        if(currentToken->type == TOKEN_DEFAULT) {
+            if(caseStatus) {
+                while(currentToken->type != TOKEN_EOF) {
+                    if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
+                        openCurlyBracket++;
+                    else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+                        if(openCurlyBracket == currentSwitch->lastBracketsNumber+1)
+                            break;
+                        openCurlyBracket--;
+                    }
+
+                    currentToken = currentToken->next;
+                }
+            } else {
+                parseDefault();
             }
         }
 
