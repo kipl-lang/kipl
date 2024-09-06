@@ -99,6 +99,7 @@ typedef enum _token_type {
     TOKEN_PACKAGE,
     TOKEN_SWITCH,
     TOKEN_CASE,
+    TOKEN_DEFAULT,
     TOKEN_BREAK,
     TOKEN_CONTINUE,
     TOKEN_OUT
