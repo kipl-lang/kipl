@@ -79,7 +79,7 @@ void parser(Token* token) {
             }
         }
 
-        if(currentToken->type == TOKEN_DEFAULT) {
+        else if(currentToken->type == TOKEN_DEFAULT) {
             if(caseStatus) {
                 while(currentToken->type != TOKEN_EOF) {
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
