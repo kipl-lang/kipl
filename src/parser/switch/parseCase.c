@@ -32,12 +32,12 @@ void parseCase() {
                             if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
                                 openCurlyBracket++;
                             else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
-                                openCurlyBracket--;
-                                if(openCurlyBracket == currentSwitch->lastBracketsNumber) {
-                                    currentToken = currentToken->next;
+                                if(openCurlyBracket == currentSwitch->lastBracketsNumber+1)
                                     break;
-                                }
+                                openCurlyBracket--;
                             }
+
+                            currentToken = currentToken->next;
                         }
                     }
                 } else {

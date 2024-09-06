@@ -1,5 +1,8 @@
-switch true {
-    case true:
+switch 5 {
+    case 4:
+        out true
+    case 5:
+        out "it is"
+    default:
         out "kerem"
-    case "mal"
 }
