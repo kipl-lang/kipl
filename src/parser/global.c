@@ -20,3 +20,4 @@ unsigned int openCurlyBracket = 0;
 For* currentFor = NULL;
 TrueBlock* currentTrueBlock = NULL;
 Switch* currentSwitch = NULL;
+bool caseStatus = false;

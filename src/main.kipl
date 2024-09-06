@@ -1,4 +1,4 @@
 switch true {
-    case false:
     case true:
+        out "kerem"
 }

@@ -27,6 +27,7 @@ extern unsigned int openCurlyBracket;
 extern For* currentFor;
 extern TrueBlock* currentTrueBlock;
 extern Switch* currentSwitch;
+extern bool caseStatus;
 
 #endif //GLOBAL_H
 
