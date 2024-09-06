@@ -24,7 +24,7 @@ void parseCase() {
                 if(currentToken->type == TOKEN_COLON) {
                     currentToken = currentToken->next;
                     if(!strcmp(data->value, currentSwitch->data->value)) {
-                        printf("hello");
+                        caseStatus = true;
                     } else {
                         while(currentToken->type != TOKEN_EOF && currentToken->type != TOKEN_CASE &&
                             currentToken->type != TOKEN_DEFAULT

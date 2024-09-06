@@ -60,8 +60,21 @@ void parser(Token* token) {
         else if(currentToken->type == TOKEN_SWITCH)
             parseSwitch();
 
-        else if(currentToken->type == TOKEN_CASE)
-            parseCase();
+        else if(currentToken->type == TOKEN_CASE) {
+            if(caseStatus) {
+                while(currentToken->type != TOKEN_EOF) {
+                    if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
+                        openCurlyBracket++;
+                    else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+                        if( currentSwitch->lastBracketsNumber == openCurlyBracket+1)
+                            break;
+                        openCurlyBracket--;
+                    }
+                }
+            } else {
+                parseCase();
+            }
+        }
 
         else if(currentToken->type == TOKEN_OUT)
             parseOut();
