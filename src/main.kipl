@@ -1,14 +1,10 @@
-switch 5 {
-    case 4:
-        out true
+switch 4 {
+    case 5.6:
+        out "5.6"
     case 5:
-        switch true {
-            case false:
-                out "f"
-            case true:
-                out "t"
-        }
-        out "it is"
+        out "5"
     default:
-        out "kerem"
+        if true {
+            out "kerem"
+        }
 }
