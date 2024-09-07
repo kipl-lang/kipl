@@ -13,7 +13,7 @@ void parseDefault() {
 
         if(currentToken->type == TOKEN_COLON) {
             currentToken = currentToken->next;
-            caseStatus = true;
+            currentSwitch->caseStatus = true;
         } else {
             showError(ERROR_SYNTAX, "Expected ':' after default");
         }

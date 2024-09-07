@@ -62,7 +62,7 @@ void parser(Token* token) {
             parseSwitch();
 
         else if(currentToken->type == TOKEN_CASE) {
-            if(caseStatus) {
+            if(currentSwitch->caseStatus) {
                 while(currentToken->type != TOKEN_EOF) {
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
                         openCurlyBracket++;
@@ -80,7 +80,7 @@ void parser(Token* token) {
         }
 
         else if(currentToken->type == TOKEN_DEFAULT) {
-            if(caseStatus) {
+            if(currentSwitch->caseStatus) {
                 while(currentToken->type != TOKEN_EOF) {
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
                         openCurlyBracket++;
@@ -163,7 +163,7 @@ void parser(Token* token) {
             }
             // switch close control
             else if(currentSwitch != NULL && openCurlyBracket == currentSwitch->lastBracketsNumber+1) {
-                caseStatus = false;
+                currentSwitch->caseStatus = false;
                 Switch* tempSwitch = currentSwitch;
                 currentToken = currentToken->next;
                 currentSwitch = currentSwitch->parentSwitch;

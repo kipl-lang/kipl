@@ -2,6 +2,12 @@ switch 5 {
     case 4:
         out true
     case 5:
+        switch true {
+            case false:
+                out "f"
+            case true:
+                out "t"
+        }
         out "it is"
     default:
         out "kerem"

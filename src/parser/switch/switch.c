@@ -13,6 +13,7 @@ void createSwitch(Data* data, unsigned int bracketsNumber) {
     newSwitch->data = data;
     newSwitch->lastBracketsNumber = bracketsNumber;
     newSwitch->parentSwitch = currentSwitch;
+    newSwitch->caseStatus = false;
     currentSwitch = newSwitch;
 }
 
