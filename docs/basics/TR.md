@@ -65,7 +65,7 @@ for <bool_value> {
 ```
 
 ## Koşullu İfadeler - If - Else - Else If
-- Bir ifadenin doğruluğunun kontrolü içi Kipl programlama dilinde if else yapısı statemant'ları kullanılır.
+- Bir ifadenin doğruluğunun kontrolü için Kipl programlama dilinde if else yapısı statemant'ları kullanılır.
 - Eğer ifade doğruysa if bloğuna girilir ve o bloktaki ifadeler çalışıtırlır. Fakat ifade yanlış ise else if ve else anahtar kelimeleri aranır. 
 - Else if, if bloğu yanlış olduğunda kontrol edilir. Eğer else if'deki ifade yanlış ise varsa diğer else ifler kontrol edilir.
 - Else ise if ve else if'deki ifadelerden doğru sonuç dönmemesi durumunda çalıştırılacak olan bloktur.
@@ -90,6 +90,27 @@ if 2 > 3 {
 - Bir dosya dahil etme işlemi aşağıdaki format ile gerçekleştirilir.
 ```kipl
 import "<file_name>"
+```
+
+## Switch-Case Koşullu İfadesi
+- Bir ifadenin değer kontrolü için if-else yapısı kullanılabileceği gibi daha efektif bir yöntem olan switch-case yapısı da tercih edilebilir.
+- Switch case'de case'ler tek tek kontrol edilir. Case'in değeri ile kontrol edilen değer eşit olduğunda o casedeki kodlar çalıştırılır ve diğer case'ler incelenmez.
+- Eğer hiçbir case'de eşitlik sağlanmazsa varsa default durumunun içerisindeki kodlar çalıştırılır. Eğer yoksa switch case içerisinde hiçbir işlem yapılmadan sonlandırılır.
+- Switch case'de kotrol edilen değer ile case'lerdeki değerlerin tipleri aynı olmak zorundadır. (Numerik, metinsel, mantıksal). Aksi takdirde çalışma zamanı hatası meydana gelecektir.
+- Kipl'de bir switch case aşağıdaki formatta oluşturulur.
+```kipl
+var number: i32 = 12:
+
+switch number {
+    case 11:
+        out "Number is 11"
+    case 12:
+        out "Number is 12"
+    case 13:
+        out "Number is 13"
+    default:
+        out "Number is unkown"
+}
 ```
 
 ## Out Komutu
