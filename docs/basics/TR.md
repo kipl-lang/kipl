@@ -17,7 +17,7 @@ var <var_name> : <var_type>
 - Eğer değer atanarak tanımlanmak istenirse:
 
 ```kipl
-var <var_name> : <var_type> = <value>;
+var <var_name> : <var_type> = <value>
 ```
 
 Değişkenler tanımlandığında varsayılan olarak değer atamaları gerçekleştirilir.
@@ -43,7 +43,7 @@ string **\=>** "" (boş string)
 - Bir constant aşağıdaki formatta tanımlanır.
 
 ```kipl
-const <var_name> : <var_type> = <value>
+const <var_name> : <var_type> = <value>"
 ```
 
 ## Kod Blokları (Scopes)
