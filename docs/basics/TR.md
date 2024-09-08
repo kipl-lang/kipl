@@ -11,7 +11,7 @@
 - Bir değişken aşağıdaki formatta tanımlanır.
 
 ```kipl
-var <var_name> : <var_type>;
+var <var_name> : <var_type>
 ```
 
 - Eğer değer atanarak tanımlanmak istenirse:
@@ -43,7 +43,7 @@ string **\=>** "" (boş string)
 - Bir constant aşağıdaki formatta tanımlanır.
 
 ```kipl
-const <var_name> : <var_type> = <value>;
+const <var_name> : <var_type> = <value>
 ```
 
 ## Kod Blokları (Scopes)
