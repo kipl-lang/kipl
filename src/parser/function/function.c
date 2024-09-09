@@ -4,6 +4,8 @@
 
 #include "function.h"
 #include <stdlib.h>
+#include <string.h>
+
 #include "../global.h"
 #include "../error/error.h"
 
@@ -18,11 +20,15 @@ void createFunction(char* name, DataType returnType, Token* firstToken) {
         functions = newFunction;
     else {
         Function* tempFunc = functions;
-        while(tempFunc->next != NULL) {
+        while(strcmp(newFunction->name, tempFunc->name) == 0) {
             if(newFunction->name == tempFunc->name)
-                showError(ERROR_RUNTIME, "Function with this name is alread");
+                showError(ERROR_RUNTIME, "Function with this name is already.");
             tempFunc = tempFunc->next;
         }
+
+        if(strcmp(newFunction->name, tempFunc->name) == 0)
+            showError(ERROR_RUNTIME, "Function with this name is already.");
+
         tempFunc->next = newFunction;
     }
 }
