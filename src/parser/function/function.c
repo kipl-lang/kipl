@@ -3,6 +3,8 @@
 //
 
 #include "function.h"
+
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -20,9 +22,12 @@ void createFunction(char* name, DataType returnType, Token* firstToken) {
         functions = newFunction;
     else {
         Function* tempFunc = functions;
-        while(strcmp(newFunction->name, tempFunc->name) == 0) {
-            if(newFunction->name == tempFunc->name)
-                showError(ERROR_RUNTIME, "Function with this name is already.");
+        while(functions->next != NULL) {
+            if(strcmp(newFunction->name, tempFunc->name) == 0) {
+                char errMsg[256];
+                sprintf(errMsg, "The function '%s' is already declared", newFunction->name);
+                showError(ERROR_SYNTAX, errMsg);
+            }
             tempFunc = tempFunc->next;
         }
 

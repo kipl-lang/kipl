@@ -1,6 +1,3 @@
-var i: i32 = 1
+var x: i32 = 5
 
-for i < 555 {
-    out "Ayse\n"
-    i+=1
-}
+var x: i16 = 4
