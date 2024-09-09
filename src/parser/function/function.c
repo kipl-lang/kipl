@@ -34,10 +34,18 @@ void createFunction(char* name, DataType returnType, Token* firstToken) {
 }
 
 
-void funcDeclaredControl(Function* func1, Function* func2) {
+void funcDeclaredControl(const Function* func1, const Function* func2) {
     if(strcmp(func1->name, func2->name) == 0) {
         char errMsg[256];
         sprintf(errMsg, "The function '%s' is already declared", func1->name);
         showError(ERROR_SYNTAX, errMsg);
+    }
+}
+
+void freeFunctions() {
+    while(functions != NULL) {
+        Function* tempFunc = functions;
+        functions = functions->next;
+        free(tempFunc);
     }
 }

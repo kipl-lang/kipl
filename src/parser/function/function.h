@@ -17,6 +17,8 @@ typedef struct _function {
 
 void createFunction(char* name, DataType returnType, Token* firstToken);
 
-void funcDeclaredControl(Function* func1, Function* func2);
+void funcDeclaredControl(const Function* func1, const Function* func2);
+
+void freeFunctions();
 
 #endif //FUNCTION_H
