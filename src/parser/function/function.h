@@ -11,7 +11,6 @@
 typedef struct _function {
     char* name;
     DataType returnType;
-    //params düşün---
     Token* firstToken;
 } Function;
 

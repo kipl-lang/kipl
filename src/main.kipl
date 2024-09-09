@@ -1,0 +1,6 @@
+var i: i32 = 1
+
+for i < 555 {
+    out "Ayse\n"
+    i+=1
+}
