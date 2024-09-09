@@ -3,15 +3,26 @@
 //
 
 #include "function.h"
-
 #include <stdlib.h>
+#include "../global.h"
+#include "../error/error.h"
 
 void createFunction(char* name, DataType returnType, Token* firstToken) {
-    Function* function = (Function*) malloc(sizeof(Function));
-    function->name = name;
-    function->returnType = returnType;
-    function->firstToken = firstToken;
-    function->nextFunc = NULL;
+    Function* newFunction = (Function*) malloc(sizeof(Function));
+    newFunction->name = name;
+    newFunction->returnType = returnType;
+    newFunction->firstToken = firstToken;
+    newFunction->next = NULL;
 
-    Function* tempFunc =
+    if(functions == NULL)
+        functions = newFunction;
+    else {
+        Function* tempFunc = functions;
+        while(tempFunc->next != NULL) {
+            if(newFunction->name == tempFunc->name)
+                showError(ERROR_RUNTIME, "Function with this name is alread");
+            tempFunc = tempFunc->next;
+        }
+        tempFunc->next = newFunction;
+    }
 }
