@@ -18,6 +18,7 @@
 #include "../token/token.h"
 #include "../parser/scope/scope.h"
 #include "for/for.h"
+#include "function/function.h"
 #include "if/trueBlock.h"
 #include "switch/switch.h"
 
@@ -27,6 +28,6 @@ extern unsigned int openCurlyBracket;
 extern For* currentFor;
 extern TrueBlock* currentTrueBlock;
 extern Switch* currentSwitch;
-
+extern Function* functions;
 #endif //GLOBAL_H
 

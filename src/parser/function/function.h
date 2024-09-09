@@ -12,8 +12,9 @@ typedef struct _function {
     char* name;
     DataType returnType;
     Token* firstToken;
+    struct _function* nextFunc;
 } Function;
 
-Function* createFunction(char* name, DataType returnType, Token* firstToken);
+void createFunction(char* name, DataType returnType, Token* firstToken);
 
 #endif //FUNCTION_H
