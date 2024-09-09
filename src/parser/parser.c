@@ -188,4 +188,5 @@ void parser(Token* token) {
         showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
     freeScope();
+    freeFunctions();
 }
