@@ -6,6 +6,8 @@
 
 #include <stdio.h>
 
+#include "../../parser/function/function.h"
+
 void out(char* value) {
-    printf(value);
+    createFunction("out", TYPE_VOID, );
 }

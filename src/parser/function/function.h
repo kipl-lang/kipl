@@ -7,6 +7,12 @@
 
 #include "../dataType.h"
 #include "../../token/token.h"
+#include "../expressions/data.h";
+
+typedef struct _params {
+    Data* data;
+    struct _params* next;
+} Params;
 
 typedef struct _function {
     char* name;
