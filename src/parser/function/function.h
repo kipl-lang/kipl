@@ -22,7 +22,7 @@ typedef struct _function {
     struct _function* next;
 } Function;
 
-void createFunction(char* name, DataType returnType, Token* firstToken);
+void createFunction(char* name, DataType returnType, Params* params, Token* firstToken);
 
 void funcDeclaredControl(const Function* func1, const Function* func2);
 

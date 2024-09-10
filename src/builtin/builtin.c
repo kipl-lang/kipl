@@ -3,7 +3,9 @@
 //
 
 #include "builtin.h"
+#include "stdlib.h"
+#include "../parser/function/function.h"
 
 void builtin() {
-
+    createFunction("out", TYPE_VOID, NULL);
 }

@@ -11,10 +11,11 @@
 #include "../global.h"
 #include "../error/error.h"
 
-void createFunction(char* name, DataType returnType, Token* firstToken) {
+void createFunction(char* name, DataType returnType, Params* params, Token* firstToken) {
     Function* newFunction = (Function*) malloc(sizeof(Function));
     newFunction->name = name;
     newFunction->returnType = returnType;
+    newFunction->params = params;
     newFunction->firstToken = firstToken;
     newFunction->next = NULL;
 
