@@ -9,5 +9,5 @@
 #include "../../parser/function/function.h"
 
 void out(char* value) {
-
+    
 }
