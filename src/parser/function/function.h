@@ -17,6 +17,7 @@ typedef struct _params {
 typedef struct _function {
     char* name;
     DataType returnType;
+    Params* params;
     Token* firstToken;
     struct _function* next;
 } Function;

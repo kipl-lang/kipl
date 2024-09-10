@@ -46,6 +46,12 @@ void freeFunctions() {
     while(functions != NULL) {
         Function* tempFunc = functions;
         functions = functions->next;
+        while(tempFunc->params != NULL) {
+            Params* tempParam = tempFunc->params;
+            tempFunc->params = tempFunc->params->next;
+            free(tempFunc->params->data);
+            free(tempFunc->params);
+        }
         free(tempFunc);
     }
 }
