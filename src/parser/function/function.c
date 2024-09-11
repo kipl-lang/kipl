@@ -50,7 +50,6 @@ void freeFunctions() {
         while(tempFunc->params != NULL) {
             Params* tempParam = tempFunc->params;
             tempFunc->params = tempFunc->params->next;
-            free(tempParam->data);
             free(tempParam);
         }
         free(tempFunc);
