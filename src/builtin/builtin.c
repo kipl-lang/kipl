@@ -7,5 +7,5 @@
 #include "../parser/function/function.h"
 
 void builtin() {
-    createFunction("out", TYPE_VOID, NULL);
+
 }
