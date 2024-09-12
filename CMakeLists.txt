@@ -78,4 +78,6 @@ add_executable(interpreter src/main.c
         src/parser/switch/parseDefault.h
         src/builtin/builtin.c
         src/builtin/builtin.h
+        src/parser/function/parseFunction.c
+        src/parser/function/parseFunction.h
 )

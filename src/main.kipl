@@ -1,1 +1,7 @@
-var x: i32 = 5
+func x: i32, y: i32 <i32> {
+
+}
+
+
+func x
+}
