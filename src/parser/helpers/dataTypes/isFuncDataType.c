@@ -3,8 +3,6 @@
 //
 
 #include "isFuncDataType.h"
-#include "../../../token/token.h"
-#include <stdbool.h>
 
 bool isDataType(TokenType type) {
     switch(type) {
@@ -22,7 +20,7 @@ bool isDataType(TokenType type) {
         case TOKEN_TYPE_F64:
         case TOKEN_TYPE_STRING:
         case TOKEN_TYPE_BOOL:
-        case
+        case TOKEN_VOID:
             return true;
         default:
             return false;

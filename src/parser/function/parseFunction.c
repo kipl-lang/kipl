@@ -28,7 +28,7 @@ void parseFunciton() {
         currentToken = currentToken->next;
         if(currentToken->type == TOKEN_COLON) {
             currentToken = currentToken->next;
-            if(isDataType(currentToken->type)) {
+            if(isFUnc(currentToken->type)) {
 
             } else {
                 showError(ERROR_RUNTIME, );
