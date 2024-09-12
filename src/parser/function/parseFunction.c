@@ -10,10 +10,11 @@
 #include "../global.h"
 #include "../error/error.h"
 #include "../helpers/dataTypes/isFuncDataType.h"
+#include "../helpers/dataTypes/getDataType.h"
 
 void parseFunciton() {
     currentToken = currentToken->next;
-    if(currentToken->type == TOKEN_IDENTIFIER) {
+    if(currentToken->type == TOKEN_IDENTIFIER) { // func <func_name>
         char* funcName = currentToken->value;
 
         if(strlen(funcName) > 64) // The maximum length of the function name must be 64 characters
@@ -26,12 +27,19 @@ void parseFunciton() {
         }
 
         currentToken = currentToken->next;
-        if(currentToken->type == TOKEN_COLON) {
+        if(currentToken->type == TOKEN_COLON) { // func <func_name>:
             currentToken = currentToken->next;
-            if(isFuncDataType(currentToken->type)) {
-
+            if(isFuncDataType(currentToken->type)) { // func <func_name>: <return_type>
+                DataType dataType = getDataType(currentToken->type);
+                currentToken = currentToken->next;
+                if(currentToken->type == TOKEN_ARROW) {
+                    currentToken = currentToken->next;
+                    //PARAMS PARSER YAIZLACAK
+                } else {
+                    showError(ERROR_SYNTAX, "Expected '=>' after func <func_name>: <return_type>");
+                }
             } else {
-                showError(ERROR_RUNTIME, "Expected <type> after func <func_name> :");
+                showError(ERROR_RUNTIME, "Expected <return_type> after func <func_name> :");
             }
         } else {
             showError(ERROR_SYNTAX, "Expected ':' after <func_name>");
