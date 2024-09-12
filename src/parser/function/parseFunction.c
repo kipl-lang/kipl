@@ -9,6 +9,7 @@
 
 #include "../global.h"
 #include "../error/error.h"
+#include "../helpers/dataTypes/isDataType.h"
 
 void parseFunciton() {
     currentToken = currentToken->next;
@@ -20,9 +21,21 @@ void parseFunciton() {
 
         if(isFuncDeclared(funcName)) {
             char errMsg[256];
-            sprintf(errMsg, "The variable '%s' is already declared in this scope.", funcName);
+            sprintf(errMsg, "The function '%s' is already declared.", funcName);
             showError(ERROR_SYNTAX, errMsg);
         }
+
+        currentToken = currentToken->next;
+        if(currentToken->type == TOKEN_COLON) {
+            currentToken = currentToken->next;
+            if(isDataType(currentToken->type)) {
+
+            }
+        } else {
+            showError(ERROR_SYNTAX, "Expected ':' after <func_name>");
+        }
+
+        printf("hello");
 
     } else {
         showError(ERROR_SYNTAX, "Expected <func_name> after func");
