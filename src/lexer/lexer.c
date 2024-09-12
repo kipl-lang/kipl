@@ -265,7 +265,8 @@ Token* identifierLiteral(char c)
         return makeToken(TOKEN_TYPE_BOOL, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "string") == 0)
         return makeToken(TOKEN_TYPE_STRING, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
-
+    if(strcmp(lexeme, "void") == 0)
+        return makeToken(TOKEN_VOID, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     return makeToken(TOKEN_IDENTIFIER, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
 }
 
