@@ -4,6 +4,9 @@
 
 #include "parseFunction.h"
 
+#include <stdio.h>
+#include <string.h>
+
 #include "../global.h"
 #include "../error/error.h"
 
@@ -11,6 +14,16 @@ void parseFunciton() {
     currentToken = currentToken->next;
     if(currentToken->type == TOKEN_IDENTIFIER) {
         char* funcName = currentToken->value;
+
+        if(strlen(funcName) > 64) // The maximum length of the function name must be 64 characters
+            showError(ERROR_SYNTAX, "The function name is too long");
+
+        if(isFuncDeclared(funcName)) {
+            char errMsg[256];
+            sprintf(errMsg, "The variable '%s' is already declared in this scope.", funcName);
+            showError(ERROR_SYNTAX, errMsg);
+        }
+
     } else {
         showError(ERROR_SYNTAX, "Expected <func_name> after func");
     }

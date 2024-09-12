@@ -43,6 +43,18 @@ void funcDeclaredControl(const Function* func1, const Function* func2) {
     }
 }
 
+bool isFuncDeclared(char* funcName) {
+    Function* tempFunc = functions;
+
+    while(tempFunc != NULL) {
+        if(!strcmp(funcName, tempFunc->name))
+            return true;
+        tempFunc = tempFunc->next;
+    }
+
+    return false;
+}
+
 void freeFunctions() {
     while(functions != NULL) {
         Function* tempFunc = functions;

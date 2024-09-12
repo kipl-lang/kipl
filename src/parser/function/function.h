@@ -5,6 +5,8 @@
 #ifndef FUNCTION_H
 #define FUNCTION_H
 
+#include <stdbool.h>
+
 #include "../dataType.h"
 #include "../../token/token.h"
 
@@ -23,6 +25,8 @@ typedef struct _function {
 } Function;
 
 void createFunction(char* name, DataType returnType, Params* params, Token* firstToken);
+
+bool isFuncDeclared(char* funcName);
 
 void funcDeclaredControl(const Function* func1, const Function* func2);
 
