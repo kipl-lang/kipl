@@ -85,6 +85,7 @@ typedef enum _token_type {
     TOKEN_COLONCOLON,                   // ::
     TOKEN_AND,                          // &&
     TOKEN_OR,                           // ||
+    TOKEN_ARROW,                        // =>
 
     // three char
     TOKEN_EQUAL_EQUAL_EQUAL,            // **

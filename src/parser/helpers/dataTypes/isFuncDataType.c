@@ -4,7 +4,7 @@
 
 #include "isFuncDataType.h"
 
-bool isDataType(TokenType type) {
+bool isFuncDataType(TokenType type) {
     switch(type) {
         case TOKEN_TYPE_I8:
         case TOKEN_TYPE_I16:

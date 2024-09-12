@@ -8,6 +8,6 @@
 #include <stdbool.h>
 #include "../../../token/token.h"
 
-bool isDataType(TokenType type);
+bool isFuncDataType(TokenType type);
 
 #endif //ISFUNCDATATYPE_H

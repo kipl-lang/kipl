@@ -9,7 +9,7 @@
 
 #include "../global.h"
 #include "../error/error.h"
-#include "../helpers/dataTypes/isDataType.h"
+#include "../helpers/dataTypes/isFuncDataType.h"
 
 void parseFunciton() {
     currentToken = currentToken->next;
@@ -28,10 +28,10 @@ void parseFunciton() {
         currentToken = currentToken->next;
         if(currentToken->type == TOKEN_COLON) {
             currentToken = currentToken->next;
-            if(isFUnc(currentToken->type)) {
+            if(isFuncDataType(currentToken->type)) {
 
             } else {
-                showError(ERROR_RUNTIME, );
+                showError(ERROR_RUNTIME, "Expected <type> after func <func_name> :");
             }
         } else {
             showError(ERROR_SYNTAX, "Expected ':' after <func_name>");
