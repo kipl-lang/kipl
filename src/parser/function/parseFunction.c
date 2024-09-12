@@ -30,6 +30,8 @@ void parseFunciton() {
             currentToken = currentToken->next;
             if(isDataType(currentToken->type)) {
 
+            } else {
+                showError(ERROR_RUNTIME, );
             }
         } else {
             showError(ERROR_SYNTAX, "Expected ':' after <func_name>");
