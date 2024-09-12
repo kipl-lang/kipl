@@ -120,6 +120,8 @@ Token* scanToken() {
                 return makeToken(TOKEN_BANG_EQUAL, "!=", lexer->fileName, lexer->currentLine, lexer->currentColumn);
             return makeToken(TOKEN_BANG, "!", lexer->fileName, lexer->currentLine, lexer->currentColumn);
         case '=':
+            if(isMatch('>'))
+                return makeToken(TOKEN_ARROW, "=>", lexer->fileName, lexer->currentLine, lexer->currentColumn);
             if(isMatch('=')) {
                 if(isMatch('='))
                     return makeToken(TOKEN_EQUAL_EQUAL, "===", lexer->fileName, lexer->currentLine, lexer->currentColumn);
