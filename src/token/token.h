@@ -47,6 +47,8 @@ typedef enum _token_type {
     TOKEN_BOOL_TRUE,
     TOKEN_BOOL_FALSE,
 
+    TOKEN_VOID,
+
     // one char
     TOKEN_PLUS,                         // +
     TOKEN_MINUS,                        // -
