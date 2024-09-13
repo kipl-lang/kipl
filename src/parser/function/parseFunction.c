@@ -11,6 +11,7 @@
 #include "../error/error.h"
 #include "../helpers/dataTypes/isFuncDataType.h"
 #include "../helpers/dataTypes/getDataType.h"
+#include "../helpers/dataTypes/isDataType.h"
 
 void parseFunction() {
     currentToken = currentToken->next;
@@ -37,6 +38,16 @@ void parseFunction() {
                     while(currentToken->type == TOKEN_IDENTIFIER) {
                         char* paramName = currentToken->value;
                         currentToken = currentToken->next;
+                        if(currentToken->type == TOKEN_COLON) {
+                            currentToken = currentToken->next;
+                            if(isDataType(currentToken->type)) {
+                                DataType paramDataType = getDataType(currentToken->type);
+                            } else {
+                                showError(ERROR_RUNTIME, "Expected <type> after <param_name>: ");
+                            }
+                        } else {
+                            showError(ERROR_SYNTAX, "Expected ':' after <param_name>");
+                        }
                     }
                 } else {
                     showError(ERROR_SYNTAX, "Expected '=>' after func <func_name>: <return_type>");
