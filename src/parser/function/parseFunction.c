@@ -34,7 +34,10 @@ void parseFunction() {
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_ARROW) {
                     currentToken = currentToken->next;
-                    //PARAMS PARSER YAIZLACAK
+                    while(currentToken->type == TOKEN_IDENTIFIER) {
+                        char* paramName = currentToken->value;
+                        currentToken = currentToken->next;
+                    }
                 } else {
                     showError(ERROR_SYNTAX, "Expected '=>' after func <func_name>: <return_type>");
                 }
