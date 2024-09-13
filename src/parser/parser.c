@@ -23,6 +23,7 @@
 
 #include "error/error.h"
 #include "for/parseFor.h"
+#include "function/parseFunction.h"
 #include "identifier/parseIdentifier.h"
 #include "if/parseIf.h"
 #include "import/parseImport.h"
@@ -96,6 +97,9 @@ void parser(Token* token) {
                 parseDefault();
             }
         }
+
+        else if(currentToken->type == TOKEN_FUNC)
+            parseFunction();
 
         else if(currentToken->type == TOKEN_OUT)
             parseOut();

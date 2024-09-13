@@ -12,7 +12,7 @@
 #include "../helpers/dataTypes/isFuncDataType.h"
 #include "../helpers/dataTypes/getDataType.h"
 
-void parseFunciton() {
+void parseFunction() {
     currentToken = currentToken->next;
     if(currentToken->type == TOKEN_IDENTIFIER) { // func <func_name>
         char* funcName = currentToken->value;
@@ -44,9 +44,6 @@ void parseFunciton() {
         } else {
             showError(ERROR_SYNTAX, "Expected ':' after <func_name>");
         }
-
-        printf("hello");
-
     } else {
         showError(ERROR_SYNTAX, "Expected <func_name> after func");
     }
