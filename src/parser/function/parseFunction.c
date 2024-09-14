@@ -45,8 +45,9 @@ void parseFunction() {
                                 // create param
                                 //BURASI YAZILACAK
                                 currentToken = currentToken->next;
-                                if(currentToken->type == TOKEN_COMMA)
-                                    continue;
+                                if(currentToken->type == TOKEN_COMMA) {
+                                    
+                                }
                             } else {
                                 showError(ERROR_RUNTIME, "Expected <type> after <param_name>: ");
                             }
