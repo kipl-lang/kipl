@@ -35,6 +35,8 @@ void parseFunction() {
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_ARROW) {
                     currentToken = currentToken->next;
+                    // Fonksiyonun paramsına öncellikle NULL aata sonrasında prams varsa güncelle
+                    Params* params = NULL;
                     while(currentToken->type == TOKEN_IDENTIFIER) {
                         char* paramName = currentToken->value;
                         currentToken = currentToken->next;
@@ -46,7 +48,7 @@ void parseFunction() {
                                 //BURASI YAZILACAK
                                 currentToken = currentToken->next;
                                 if(currentToken->type == TOKEN_COMMA) {
-                                    
+
                                 }
                             } else {
                                 showError(ERROR_RUNTIME, "Expected <type> after <param_name>: ");
