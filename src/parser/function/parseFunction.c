@@ -5,6 +5,7 @@
 #include "parseFunction.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #include "../global.h"
@@ -44,6 +45,10 @@ void parseFunction() {
                             currentToken = currentToken->next;
                             if(isDataType(currentToken->type)) {
                                 DataType paramDataType = getDataType(currentToken->type);
+                                Params* newParam = (Params*) malloc(sizeof(Params));
+                                newParam->name = paramName;
+                                newParam->dataType = paramDataType;
+                                newParam->next = NULL;
                                 // create param
                                 //BURASI YAZILACAK
                                 currentToken = currentToken->next;
