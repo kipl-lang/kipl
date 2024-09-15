@@ -50,16 +50,16 @@ void parseFunction() {
                                     params = newParam;
                                 } else {
                                     Params* tempParam = params;
-                                    while(tempParam->next != NULL)
+                                    while(tempParam->next != NULL) {
+                                        if(!strcmp(tempParam->name, newParam->name))
+                                            showError(ERROR_RUNTIME, "Already declared argument");
                                         tempParam = tempParam->next;
+                                    }
+                                    if(!strcmp(tempParam->name, newParam->name))
+                                        showError(ERROR_RUNTIME, "Already declared argument");
                                     tempParam->next = newParam;
                                 }
-                                // create param
-                                //BURASI YAZILACAK
                                 currentToken = currentToken->next;
-                                if(currentToken->type == TOKEN_COMMA) {
-
-                                }
                             } else {
                                 showError(ERROR_RUNTIME, "Expected <type> after <param_name>: ");
                             }
