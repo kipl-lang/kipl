@@ -11,8 +11,13 @@
 #include "../global.h"
 #include "../error/error.h"
 
-void createParam(char* name, DataType dataType) {
+Params* createParam(char* name, DataType dataType) {
+    Params* param = (Params*) malloc(sizeof(Params));
+    param->name = name;
+    param->dataType = dataType;
+    param->next = NULL;
 
+    return param;
 }
 
 void createFunction(char* name, DataType returnType, Params* params, Token* firstToken) {
