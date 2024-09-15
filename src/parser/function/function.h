@@ -24,6 +24,8 @@ typedef struct _function {
     struct _function* next;
 } Function;
 
+void createParam(char* name, DataType dataType);
+
 void createFunction(char* name, DataType returnType, Params* params, Token* firstToken);
 
 bool isFuncDeclared(char* funcName);

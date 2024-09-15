@@ -49,6 +49,14 @@ void parseFunction() {
                                 newParam->name = paramName;
                                 newParam->dataType = paramDataType;
                                 newParam->next = NULL;
+                                if(params == NULL) {
+                                    params = newParam;
+                                } else {
+                                    Params* tempParam = params;
+                                    while(tempParam->next != NULL)
+                                        tempParam = tempParam->next;
+                                    tempParam->next = newParam;
+                                }
                                 // create param
                                 //BURASI YAZILACAK
                                 currentToken = currentToken->next;
