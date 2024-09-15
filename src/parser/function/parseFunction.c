@@ -45,10 +45,7 @@ void parseFunction() {
                             currentToken = currentToken->next;
                             if(isDataType(currentToken->type)) {
                                 DataType paramDataType = getDataType(currentToken->type);
-                                Params* newParam = (Params*) malloc(sizeof(Params));
-                                newParam->name = paramName;
-                                newParam->dataType = paramDataType;
-                                newParam->next = NULL;
+                                Params* newParam = createParam(paramName, paramDataType);
                                 if(params == NULL) {
                                     params = newParam;
                                 } else {
