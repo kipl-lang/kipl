@@ -76,6 +76,14 @@ void parseFunction() {
                             showError(ERROR_SYNTAX, "Expected ':' after <param_name>");
                         }
                     }
+
+                    // PArametreler tamamlandı. paramerlerden sonra parantezleri kontrol etmek gerekecek
+                    if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+
+                    } else {
+                        showError(ERROR_SYNTAX, "Expected '{' after func clause");
+                    }
+
                 } else {
                     showError(ERROR_SYNTAX, "Expected '=>' after func <func_name>: <return_type>");
                 }
