@@ -55,8 +55,11 @@ void parseFunction() {
                                             showError(ERROR_RUNTIME, "Already declared argument");
                                         tempParam = tempParam->next;
                                     }
-                                    if(!strcmp(tempParam->name, newParam->name))
-                                        showError(ERROR_RUNTIME, "Already declared argument");
+                                    if(!strcmp(tempParam->name, newParam->name)) {
+                                        char errMsg[256];
+                                        sprintf(errMsg, "The argument '%s' is already declared.", paramName);
+                                        showError(ERROR_SYNTAX, errMsg);;
+                                    }
                                     tempParam->next = newParam;
                                 }
                                 currentToken = currentToken->next;

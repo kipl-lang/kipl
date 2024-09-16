@@ -1,1 +1,1 @@
-func sum: i32 => x:i32, x:
+func sum: i32 => x:i32, x: i16
