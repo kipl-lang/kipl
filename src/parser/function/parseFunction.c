@@ -62,11 +62,11 @@ void parseFunction() {
                                 currentToken = currentToken->next;
                                 if(currentToken->type == TOKEN_COMMA) {
                                     currentToken = currentToken->next;
-
                                     if(currentToken->type != TOKEN_IDENTIFIER)
                                         showError(ERROR_SYNTAX, "Expected <param_name> after ','");
                                     currentToken = currentToken->next;
-                                }
+                                } else
+                                    break;
                             } else {
                                 showError(ERROR_RUNTIME, "Expected <type> after <param_name>: ");
                             }
