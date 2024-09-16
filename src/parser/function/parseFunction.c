@@ -60,12 +60,13 @@ void parseFunction() {
                                     tempParam->next = newParam;
                                 }
                                 currentToken = currentToken->next;
-                                if(currentToken->type != TOKEN_COMMA) {
-                                    if(currentToken->next->type != TOKEN_IDENTIFIER)
+                                if(currentToken->type == TOKEN_COMMA) {
+                                    currentToken = currentToken->next;
+
+                                    if(currentToken->type != TOKEN_IDENTIFIER)
                                         showError(ERROR_SYNTAX, "Expected <param_name> after ','");
-                                    break;
+                                    currentToken = currentToken->next;
                                 }
-                                currentToken = currentToken->next;
                             } else {
                                 showError(ERROR_RUNTIME, "Expected <type> after <param_name>: ");
                             }
