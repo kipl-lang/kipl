@@ -1,3 +1,7 @@
 func sum: i32 => x:i32, y: i16 {
-    out "kerem" 
+    out "kerem"
+}
+out "kerem"
+func sum: i16 => {
+    out 2 + 5
 }

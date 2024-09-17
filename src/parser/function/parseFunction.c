@@ -80,7 +80,7 @@ void parseFunction() {
                     // PArametreler tamamlandı. paramerlerden sonra parantezleri kontrol etmek gerekecek
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
                         Token* firstToken = currentToken;
-                        unsigned int lastOpenCurlBracket = ++openCurlyBracket;
+                        unsigned int lastOpenCurlBracket = openCurlyBracket++;
                         currentToken = currentToken->next;
                         while(currentToken->type != TOKEN_EOF) {
                             if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)

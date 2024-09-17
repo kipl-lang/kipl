@@ -28,19 +28,20 @@ void createFunction(char* name, DataType returnType, Params* params, Token* firs
     newFunction->firstToken = firstToken;
     newFunction->next = NULL;
 
-    if(functions == NULL)
-        functions = newFunction;
-    else {
-        Function* tempFunc = functions;
-        while(functions->next != NULL) {
-            funcDeclaredControl(newFunction, tempFunc);
-            tempFunc = tempFunc->next;
-        }
-
-        funcDeclaredControl(newFunction, tempFunc);
-
-        tempFunc->next = newFunction;
-    }
+    functions = newFunction;
+    // if(functions == NULL)
+    //     functions = newFunction;
+    // else {
+    //     Function* tempFunc = functions;
+    //     while(functions->next != NULL) {
+    //         funcDeclaredControl(newFunction, tempFunc);
+    //         tempFunc = tempFunc->next;
+    //     }
+    //
+    //     funcDeclaredControl(newFunction, tempFunc);
+    //
+    //     tempFunc->next = newFunction;
+    // }
 }
 
 
