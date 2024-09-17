@@ -79,7 +79,7 @@ void parseFunction() {
 
                     // PArametreler tamamlandı. paramerlerden sonra parantezleri kontrol etmek gerekecek
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
-
+                        Token* firstToken = currentToken;
                     } else {
                         showError(ERROR_SYNTAX, "Expected '{' after func clause");
                     }
