@@ -32,7 +32,7 @@ void parseFunction() {
         if(currentToken->type == TOKEN_COLON) { // func <func_name>:
             currentToken = currentToken->next;
             if(isFuncDataType(currentToken->type)) { // func <func_name>: <return_type>
-                DataType dataType = getDataType(currentToken->type);
+                DataType returnDataType = getDataType(currentToken->type);
                 currentToken = currentToken->next;
                 if(currentToken->type == TOKEN_ARROW) {
                     currentToken = currentToken->next;
@@ -94,6 +94,9 @@ void parseFunction() {
                             }
                             currentToken = currentToken->next;
                         }
+
+                        //Fonksiyon oluşturuldu ve GLOBALDE functions'a atanıyor.
+                        createFunction(funcName, returnDataType, params, firstToken);
                     } else {
                         showError(ERROR_SYNTAX, "Expected '{' after func clause");
                     }
