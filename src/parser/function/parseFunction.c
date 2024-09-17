@@ -80,6 +80,20 @@ void parseFunction() {
                     // PArametreler tamamlandı. paramerlerden sonra parantezleri kontrol etmek gerekecek
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
                         Token* firstToken = currentToken;
+                        unsigned int lastOpenCurlBracket = ++openCurlyBracket;
+                        currentToken = currentToken->next;
+                        while(currentToken->type != TOKEN_EOF) {
+                            if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
+                                openCurlyBracket++;
+                            else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+                                openCurlyBracket--;
+                                if(lastOpenCurlBracket == openCurlyBracket) {
+                                    currentToken = currentToken->next;
+                                    break;
+                                }
+                            }
+                            currentToken = currentToken->next;
+                        }
                     } else {
                         showError(ERROR_SYNTAX, "Expected '{' after func clause");
                     }
