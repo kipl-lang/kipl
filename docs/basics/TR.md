@@ -151,6 +151,6 @@ out "Hello \\ World!"
 - Bir fonksiyon aşağıdaki formatta tanımlanır.
 ```kipl
 func sum: i16 => num1: i8, num2: i8 {
-    out num1 + num2
+    return num1 + num2
 }
 ```
