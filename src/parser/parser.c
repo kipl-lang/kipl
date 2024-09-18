@@ -191,6 +191,9 @@ void parser(Token* token) {
     if(openCurlyBracket != 0) // açılan curly brackets kapanmadıysa
         showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
+    if(openRoundBracket != 0) // açılan rounded brackets kapanmadıysa
+        showError(ERROR_SYNTAX, "Round brackets are not balanced");
+
     freeScope();
     freeFunctions();
 }
