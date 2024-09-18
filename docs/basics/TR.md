@@ -142,4 +142,15 @@ out "\"Hello World!\""
 out "Hello \\ World!"
 ```
 
-## Fonksyonlar
+## Fonksiyonlar
+- Kipl programlam dilinde bir fonksiyon **func** anahtar kelimesi ile oluşturulur.
+- Func anahtar kelimesinin ardından ':' operatörü aracılığıyla fonksiyonun geriye dönüş tipi belirtilir.
+- Eğer fonskiyon geriye bir değer döndürmeyecekse dönüş tipi **void** olarak belirtilir.
+- Bir fonskiyon teorik olarak sınırsız sayıda parametre alabilir.
+- Fonksiyonda parametrelerin veri tipleri ayrı ayrı belirtilmelidir.
+- Bir fonksiyon aşağıdaki formatta tanımlanır.
+```kipl
+func sum: i16 => num1: i8, num2: i8 {
+    out num1 + num2
+}
+```

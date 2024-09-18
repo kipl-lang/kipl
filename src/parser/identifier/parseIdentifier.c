@@ -18,7 +18,7 @@
 void parseIdentifier() {
     // FUNCTION
     if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
-        
+
     }
     // VARIABLE
     else {
