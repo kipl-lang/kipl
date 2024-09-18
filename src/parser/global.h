@@ -36,4 +36,3 @@ typedef struct _func_call_status {
 } FuncCallStatus;
 extern FuncCallStatus funcCallStatus;
 #endif //GLOBAL_H
-
