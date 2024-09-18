@@ -20,7 +20,6 @@ Data* parseExpressions() {
     ExpressionStack* stackOperator = createExpressionStack();
     ExpressionQueue* queueOutput = createExpressionQueue();
     ExpressionElement* prevElement = NULL;
-    unsigned int openBracket = 0; // Open bracket number
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
@@ -85,7 +84,7 @@ Data* parseExpressions() {
                     }
                 }
                 pushExpressionStack(stackOperator, element);
-                openBracket++;
+                openRoundBracket++;
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_R) {
                 freeExpressionElement(element);
 
@@ -99,7 +98,7 @@ Data* parseExpressions() {
                     ) // pop '('
                     freeExpressionElement(popExpressionStack(stackOperator));
 
-                openBracket--;
+                openRoundBracket--;
             } else { // operator
 
                 AddZeroExpressionElement(element, prevElement, queueOutput);
@@ -134,7 +133,7 @@ Data* parseExpressions() {
     if(currentToken->type == TOKEN_ERROR)
         showError(ERROR_SYNTAX, currentToken->value);
 
-    if(openBracket != 0)
+    if(openRoundBracket != 0)
         showError(ERROR_SYNTAX, "Brackets are not balanced");
 
     // After processing all tokens, pop any remaining operators from the stack and enqueue them
