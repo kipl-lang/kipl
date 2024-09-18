@@ -141,3 +141,5 @@ out "\"Hello World!\""
 ```kipl
 out "Hello \\ World!"
 ```
+
+## Fonksyonlar
