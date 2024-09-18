@@ -188,7 +188,7 @@ void parser(Token* token) {
         //currentToken = currentToken->next;
     }
 
-    if(openCurlyBracket != 0) // açılan curly brackets kapanmadıysa
+    if(openCurlyBracket != 0) // açılan curly brackets kapanmadıysat
         showError(ERROR_SYNTAX, "Curly brackets are not balanced");
 
     if(openRoundBracket != 0) // açılan rounded brackets kapanmadıysa
