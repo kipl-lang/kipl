@@ -16,9 +16,12 @@
 #include "../helpers/typeConversion/toString.h"
 
 void parseIdentifier() {
-    if(currentToken->next->type == TOKEN_BRACKET_CURLY_LEFT) {
-
-    } else {
+    // FUNCTION
+    if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
+        
+    }
+    // VARIABLE
+    else {
         if(!isVariableInAllScope(currentToken->value)) {
             char errMsg[256];
             sprintf(errMsg, "%s undefined", currentToken->value);

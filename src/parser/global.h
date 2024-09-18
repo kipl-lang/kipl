@@ -25,6 +25,7 @@
 extern Token* currentToken;
 extern Scope* currentScope;
 extern unsigned int openCurlyBracket;
+extern unsigned int openRoundBracket;
 extern For* currentFor;
 extern TrueBlock* currentTrueBlock;
 extern Switch* currentSwitch;

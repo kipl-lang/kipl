@@ -8,6 +8,8 @@ func sum2: i16 => {
 
 var x: i8 = 58
 
+sum()
+
 x += 1
 
 out x
