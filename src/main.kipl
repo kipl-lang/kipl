@@ -2,14 +2,12 @@ func sum: i32 => x:i32, y: i16 {
     out "kerem"
 }
 
-func sum2: i16 => {
+func sum: i16 => {
     out 2 + 5
 }
 
 var x: i8 = 58
 
-sum()
-
 x += 1
 
-out x
+out 7* (2-9)
