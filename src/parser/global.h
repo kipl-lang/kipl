@@ -30,9 +30,10 @@ extern For* currentFor;
 extern TrueBlock* currentTrueBlock;
 extern Switch* currentSwitch;
 extern Function* functions;
-extern typedef struct _func_call_status {
+typedef struct _func_call_status {
     bool isFunc;
     unsigned int lastOpenRoundBrackets;
 } FuncCallStatus;
+extern FuncCallStatus funcCallStatus;
 #endif //GLOBAL_H
 
