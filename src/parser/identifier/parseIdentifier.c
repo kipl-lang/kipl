@@ -18,7 +18,10 @@
 void parseIdentifier() {
     // FUNCTION
     if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
-
+        char* funcName = currentToken->value;
+        currentToken = currentToken->next;
+        openRoundBracket++;
+        currentToken = currentToken->next;
     }
     // VARIABLE
     else {
