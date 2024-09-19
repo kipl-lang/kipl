@@ -19,7 +19,14 @@ void parseIdentifier() {
     // FUNCTION
     if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
         char* funcName = currentToken->value;
-        if()
+        Function* func = getFunc(funcName);
+        if(func != NULL) {
+            printf(func->name);
+        } else {
+            char errMsg[256];
+            sprintf(errMsg, "%s undefined", currentToken->value);
+            showError(ERROR_RUNTIME, errMsg);
+        }
 
         funcCallStatus.isFunc = true;
         funcCallStatus.lastOpenRoundBrackets = openRoundBracket++;
