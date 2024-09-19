@@ -20,25 +20,26 @@ void parseIdentifier() {
     if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
         char* funcName = currentToken->value;
         Function* func = getFunc(funcName);
-        if(func == NULL) {
+        if(func != NULL) {
+            funcCallStatus.isFunc = true;
+            funcCallStatus.lastOpenRoundBrackets = openRoundBracket++;
+
+            currentToken = currentToken->next;
+            currentToken = currentToken->next;
+
+            if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
+                openRoundBracket--;
+                funcCallStatus.isFunc = false;
+                funcCallStatus.lastOpenRoundBrackets = 0;
+                currentToken = currentToken->next;
+            } else {
+                showError(ERROR_SYNTAX, "Expectected ')'");
+            }
+        } else {
             char errMsg[256];
             sprintf(errMsg, "%s undefined", currentToken->value);
             showError(ERROR_RUNTIME, errMsg);
         }
-
-        funcCallStatus.isFunc = true;
-        funcCallStatus.lastOpenRoundBrackets = openRoundBracket++;
-
-        currentToken = currentToken->next;
-        currentToken = currentToken->next;
-
-        if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
-            openRoundBracket--;
-            funcCallStatus.isFunc = false;
-            funcCallStatus.lastOpenRoundBrackets = 0;
-            currentToken = currentToken->next;
-        }
-
     }
     // VARIABLE
     else {
