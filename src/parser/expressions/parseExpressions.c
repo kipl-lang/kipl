@@ -88,6 +88,9 @@ Data* parseExpressions() {
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_R) {
                 freeExpressionElement(element);
 
+                if(funcCallStatus.isFunc && openRoundBracket == funcCallStatus.lastOpenRoundBrackets)
+                    break;
+
                 while(peekExpressionStack(stackOperator) != NULL &&
                     peekExpressionStack(stackOperator)->type != ELEMENT_TYPE_BRACKET_R_L
                     )
