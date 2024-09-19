@@ -80,6 +80,7 @@ Token* getLastTokenFromFunc(Function* func) {
     Token* tempToken = func->firstToken;
 
     while(tempToken->next != NULL) {
+        printf(tempToken->value);
         tempToken = tempToken->next;
     }
     return tempToken;
@@ -93,6 +94,11 @@ void freeFunctions() {
             Params* tempParam = tempFunc->params;
             tempFunc->params = tempFunc->params->next;
             free(tempParam);
+        }
+        while(tempFunc->firstToken != NULL) {
+            Token* tempToken = tempFunc->firstToken;
+            tempFunc->firstToken = tempFunc->firstToken->next;
+            free(tempToken);
         }
         free(tempFunc->name);
         free(tempFunc);

@@ -30,9 +30,9 @@ void parseIdentifier() {
             if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
                 openRoundBracket--;
 
-                createScope();
-
+                // BURADA HATA VAR INCELENMESI GEREKIYOR!!!!!!!!!! sonsuz döngünün kaynağı
                 Token* funcLastToken = getLastTokenFromFunc(func);
+                //
                 funcLastToken->next = currentToken->next;
                 currentToken = func->firstToken;
 
