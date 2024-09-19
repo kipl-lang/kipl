@@ -75,6 +75,12 @@ Function* getFunc(const char* name) {
     return NULL;
 }
 
+Token* Token* getLastTokenFromFunc() () {
+    Function* tempFunc = functions;
+
+
+}
+
 void freeFunctions() {
     while(functions != NULL) {
         Function* tempFunc = functions;

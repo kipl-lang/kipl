@@ -10,4 +10,4 @@ var x: i8 = 58
 
 x += 1
 
-sum( )out "kerem"
+sum()out "kerem"

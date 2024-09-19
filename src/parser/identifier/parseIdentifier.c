@@ -29,9 +29,11 @@ void parseIdentifier() {
 
             if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
                 openRoundBracket--;
+
+                currentToken = currentToken->next;
+
                 funcCallStatus.isFunc = false;
                 funcCallStatus.lastOpenRoundBrackets = 0;
-                currentToken = currentToken->next;
             } else {
                 showError(ERROR_SYNTAX, "Expectected ')'");
             }

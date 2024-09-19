@@ -34,6 +34,8 @@ void funcDeclaredControl(const Function* func1, const Function* func2);
 
 Function* getFunc(const char* name);
 
+Token* getLastTokenFromFunc();
+
 void freeFunctions();
 
 #endif //FUNCTION_H
