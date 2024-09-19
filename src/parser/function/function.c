@@ -64,7 +64,7 @@ bool isFuncDeclared(char* funcName) {
     return false;
 }
 
-void getFunc(char* name) {
+Function* getFunc(char* name) {
 
 }
 

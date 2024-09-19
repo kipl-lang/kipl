@@ -32,7 +32,7 @@ bool isFuncDeclared(char* funcName);
 
 void funcDeclaredControl(const Function* func1, const Function* func2);
 
-void getFunc(char* name);
+Function* getFunc(char* name);
 
 void freeFunctions();
 
