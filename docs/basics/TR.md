@@ -148,6 +148,7 @@ out "Hello \\ World!"
 - Eğer fonskiyon geriye bir değer döndürmeyecekse dönüş tipi **void** olarak belirtilir.
 - Bir fonskiyon teorik olarak sınırsız sayıda parametre alabilir.
 - Fonksiyonda parametrelerin veri tipleri ayrı ayrı belirtilmelidir.
+- Fonksiyon ismi maksimum 64 karakter uzunluğunda olabilir.
 - Bir fonksiyon aşağıdaki formatta tanımlanır.
 ```kipl
 func sum: i16 => num1: i8, num2: i8 {

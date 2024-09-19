@@ -1,7 +1,13 @@
+
 func sum: i32 => x:i32, y: i16 {
+    out 2+2
 }
 
 func sum2: i16 => {
+    out 2 + 5
+}
+
+func sum3: i16 => {
     out 2 + 5
 }
 
@@ -9,4 +15,4 @@ var x: i8 = 58
 
 x += 1
 
-sum()
+

@@ -30,8 +30,9 @@ void parseIdentifier() {
             if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
                 openRoundBracket--;
 
+                createScope();
+
                 Token* funcLastToken = getLastTokenFromFunc(func);
-                printf(funcLastToken->value);
                 funcLastToken->next = currentToken->next;
                 currentToken = func->firstToken;
 

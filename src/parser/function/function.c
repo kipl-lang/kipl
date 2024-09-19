@@ -22,17 +22,18 @@ Params* createParam(char* name, DataType dataType) {
 
 void createFunction(char* name, DataType returnType, Params* params, Token* firstToken) {
     Function* newFunction = (Function*) malloc(sizeof(Function));
-    newFunction->name = name;
+    newFunction->name = strdup(name);
     newFunction->returnType = returnType;
     newFunction->params = params;
     newFunction->firstToken = firstToken;
     newFunction->next = NULL;
 
-    if(functions == NULL)
+    if(functions == NULL) {
         functions = newFunction;
+    }
     else {
         Function* tempFunc = functions;
-        while(functions->next != NULL) {
+        while(tempFunc->next != NULL) {
             funcDeclaredControl(newFunction, tempFunc);
             tempFunc = tempFunc->next;
         }
@@ -93,6 +94,7 @@ void freeFunctions() {
             tempFunc->params = tempFunc->params->next;
             free(tempParam);
         }
+        free(tempFunc->name);
         free(tempFunc);
     }
 }
