@@ -64,8 +64,15 @@ bool isFuncDeclared(char* funcName) {
     return false;
 }
 
-Function* getFunc(char* name) {
+Function* getFunc(const char* name) {
+    Function* tempFunc = functions;
 
+    while(tempFunc != NULL) {
+        if(!strcmp(name, tempFunc->name))
+            return tempFunc;
+        tempFunc = tempFunc->next;
+    }
+    return NULL;
 }
 
 void freeFunctions() {
