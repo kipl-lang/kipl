@@ -87,6 +87,7 @@ Data* parseExpressions() {
                 openRoundBracket++;
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_R) {
                 freeExpressionElement(element);
+                openRoundBracket--;
 
                 if(funcCallStatus.isFunc && openRoundBracket == funcCallStatus.lastOpenRoundBrackets)
                     break;
@@ -101,7 +102,6 @@ Data* parseExpressions() {
                     ) // pop '('
                     freeExpressionElement(popExpressionStack(stackOperator));
 
-                openRoundBracket--;
             } else { // operator
 
                 AddZeroExpressionElement(element, prevElement, queueOutput);
