@@ -19,8 +19,7 @@ void parseIdentifier() {
     // FUNCTION
     if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
         char* funcName = currentToken->value;
-        currentToken = currentToken->next;
-        currentToken = currentToken->next;
+        if()
 
         funcCallStatus.isFunc = true;
         funcCallStatus.lastOpenRoundBrackets = openRoundBracket++;

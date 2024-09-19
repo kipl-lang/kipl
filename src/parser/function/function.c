@@ -64,6 +64,10 @@ bool isFuncDeclared(char* funcName) {
     return false;
 }
 
+void getFunc(char* name) {
+
+}
+
 void freeFunctions() {
     while(functions != NULL) {
         Function* tempFunc = functions;

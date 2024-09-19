@@ -32,6 +32,8 @@ bool isFuncDeclared(char* funcName);
 
 void funcDeclaredControl(const Function* func1, const Function* func2);
 
+void getFunc(char* name);
+
 void freeFunctions();
 
 #endif //FUNCTION_H
