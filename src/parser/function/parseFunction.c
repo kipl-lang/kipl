@@ -88,7 +88,9 @@ void parseFunction() {
                             else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
                                 openCurlyBracket--;
                                 if(lastOpenCurlBracket == openCurlyBracket) {
+                                    Token* tempToken = currentToken;
                                     currentToken = currentToken->next;
+                                    tempToken->next = NULL;
                                     break;
                                 }
                             }
