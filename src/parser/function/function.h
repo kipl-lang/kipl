@@ -26,7 +26,7 @@ typedef struct _function {
 
 typedef struct _func_call_status {
     unsigned int lastOpenRoundBrackets;
-    struct _func_call_status* parenFuncCall;
+    struct _func_call_status* parentFuncCall;
 } FuncCallStatus;
 
 Params* createParam(char* name, DataType dataType);

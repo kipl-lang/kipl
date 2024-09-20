@@ -47,13 +47,13 @@ void createFunction(char* name, DataType returnType, Params* params, Token* firs
 void createFuncCallStatus(unsigned int lastOpenRoundBrackets) {
     FuncCallStatus* newFuncCallStatus = (FuncCallStatus*) malloc(sizeof(FuncCallStatus));
     newFuncCallStatus->lastOpenRoundBrackets = lastOpenRoundBrackets;
-    newFuncCallStatus->parenFuncCall = currentFuncCallStatus;
+    newFuncCallStatus->parentFuncCall = currentFuncCallStatus;
     currentFuncCallStatus = newFuncCallStatus;
 }
 
 void freeFuncCallStatus() {
     FuncCallStatus* tempFCS = currentFuncCallStatus;
-    currentFuncCallStatus = currentFuncCallStatus->parenFuncCall;
+    currentFuncCallStatus = currentFuncCallStatus->parentFuncCall;
     free(tempFCS);
 }
 
