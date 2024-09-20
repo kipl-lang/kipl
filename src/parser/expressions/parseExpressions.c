@@ -89,7 +89,8 @@ Data* parseExpressions() {
                 freeExpressionElement(element);
                 openRoundBracket--;
 
-                if(funcCallStatus.isFunc && openRoundBracket == funcCallStatus.lastOpenRoundBrackets)
+                if(currentFuncCallStatus != NULL &&
+                    openRoundBracket == currentFuncCallStatus->lastOpenRoundBrackets)
                     break;
 
                 while(peekExpressionStack(stackOperator) != NULL &&
