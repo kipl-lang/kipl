@@ -51,6 +51,12 @@ void createFuncCallStatus(unsigned int lastOpenRoundBrackets) {
     currentFuncCallStatus = newFuncCallStatus;
 }
 
+void freeFuncCallStatus() {
+    FuncCallStatus* tempFCS = currentFuncCallStatus;
+    currentFuncCallStatus = currentFuncCallStatus->parenFuncCall;
+    free(tempFCS);
+}
+
 void funcDeclaredControl(const Function* func1, const Function* func2) {
     if(strcmp(func1->name, func2->name) == 0) {
         char errMsg[256];

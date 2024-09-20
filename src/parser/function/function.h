@@ -35,6 +35,8 @@ void createFunction(char* name, DataType returnType, Params* params, Token* firs
 
 void createFuncCallStatus(unsigned int lastOpenRoundBrackets);
 
+void freeFuncCallStatus();
+
 bool isFuncDeclared(char* funcName);
 
 void funcDeclaredControl(const Function* func1, const Function* func2);
