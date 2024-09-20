@@ -22,4 +22,4 @@ For* currentFor = NULL;
 TrueBlock* currentTrueBlock = NULL;
 Switch* currentSwitch = NULL;
 Function* functions = NULL;
-FuncCallStatus funcCallStatus = {false, 0};
+FuncCallStatus* funcCallStatus = NULL;

@@ -24,6 +24,11 @@ typedef struct _function {
     struct _function* next;
 } Function;
 
+typedef struct _func_call_status {
+    bool isFunc;
+    unsigned int lastOpenRoundBrackets;
+} FuncCallStatus;
+
 Params* createParam(char* name, DataType dataType);
 
 void createFunction(char* name, DataType returnType, Params* params, Token* firstToken);
