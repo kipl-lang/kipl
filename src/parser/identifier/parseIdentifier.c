@@ -21,8 +21,8 @@ void parseIdentifier() {
         char* funcName = currentToken->value;
         Function* func = getFunc(funcName);
         if(func != NULL) {
-            funcCallStatus.isFunc = true;
-            funcCallStatus.lastOpenRoundBrackets = openRoundBracket++;
+            createFuncCallStatus(openRoundBracket);
+            openRoundBracket++;
 
             currentToken = currentToken->next;
             currentToken = currentToken->next;
@@ -37,8 +37,8 @@ void parseIdentifier() {
                 currentToken->next = func->firstToken;
                 currentToken = currentToken->next;
 
-                funcCallStatus.isFunc = false;
-                funcCallStatus.lastOpenRoundBrackets = 0;
+                // funcCallStatus.isFunc = false;
+                // funcCallStatus.lastOpenRoundBrackets = 0;
             } else {
                 showError(ERROR_SYNTAX, "Expectected ')'");
             }
