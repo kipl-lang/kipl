@@ -25,13 +25,15 @@ typedef struct _function {
 } Function;
 
 typedef struct _func_call_status {
-    bool isFunc;
     unsigned int lastOpenRoundBrackets;
+    struct _func_call_status* parenFuncCall;
 } FuncCallStatus;
 
 Params* createParam(char* name, DataType dataType);
 
 void createFunction(char* name, DataType returnType, Params* params, Token* firstToken);
+
+void createFuncCallStatus(unsigned int lastOpenRoundBrackets);
 
 bool isFuncDeclared(char* funcName);
 

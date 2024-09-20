@@ -30,5 +30,5 @@ extern For* currentFor;
 extern TrueBlock* currentTrueBlock;
 extern Switch* currentSwitch;
 extern Function* functions;
-extern FuncCallStatus* funcCallStatus;
+extern FuncCallStatus* currentFuncCallStatus;
 #endif //GLOBAL_H
