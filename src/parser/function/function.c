@@ -10,6 +10,7 @@
 
 #include "../global.h"
 #include "../error/error.h"
+#include "../../token/token.h"
 
 Params* createParam(char* name, DataType dataType) {
     Params* param = (Params*) malloc(sizeof(Params));
@@ -86,6 +87,22 @@ Token* getLastTokenFromFunc(Function* func) {
     return tempToken;
 }
 
+Token* copyTokensFromFunc(Function* func) {
+    Token* tempToken = func->firstToken;
+    Token* newFirstToken = NULL;
+
+    while(tempToken != NULL) {
+        Token* newToken =
+        makeToken(tempToken->type, tempToken->value, tempToken->fileName, tempToken->line, tempToken->column);
+        if(newFirstToken == NULL)
+            newFirstToken = newToken;
+        else
+            getLastToken(newFirstToken)->next = newToken;
+    }
+
+    return newFirstToken;
+}
+
 void freeFunctions() {
     while(functions != NULL) {
         Function* tempFunc = functions;
@@ -95,11 +112,12 @@ void freeFunctions() {
             tempFunc->params = tempFunc->params->next;
             free(tempParam);
         }
-        while(tempFunc->firstToken != NULL) {
-            Token* tempToken = tempFunc->firstToken;
-            tempFunc->firstToken = tempFunc->firstToken->next;
-            free(tempToken);
-        }
+        // İNCelenecek
+        // while(tempFunc->firstToken != NULL) {
+        //     Token* tempToken = tempFunc->firstToken;
+        //     tempFunc->firstToken = tempFunc->firstToken->next;
+        //     free(tempToken);
+        // }
         free(tempFunc->name);
         free(tempFunc);
     }

@@ -33,8 +33,9 @@ void parseIdentifier() {
                 // BURADA HATA VAR INCELENMESI GEREKIYOR!!!!!!!!!! sonsuz döngünün kaynağı
                 Token* funcLastToken = getLastTokenFromFunc(func);
                 //
-                funcLastToken->next = currentToken->next;
-                currentToken = func->firstToken;
+                funcLastToken->next = currentToken->next; // incelenecek ikinciden itibaren asla null olmuyor
+                currentToken->next = func->firstToken;
+                currentToken = currentToken->next;
 
                 funcCallStatus.isFunc = false;
                 funcCallStatus.lastOpenRoundBrackets = 0;
