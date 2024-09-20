@@ -36,8 +36,6 @@ Function* getFunc(const char* name);
 
 Token* getLastTokenFromFunc(Function* func);
 
-Token* copyTokensFromFunc(Function* func)
-
 void freeFunctions();
 
 #endif //FUNCTION_H
