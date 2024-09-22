@@ -44,9 +44,10 @@ void createFunction(char* name, DataType returnType, Params* params, Token* firs
     }
 }
 
-void createFuncCallStatus(unsigned int lastOpenRoundBrackets, unsigned int lastOpenCurlyBracket) {
+void createFuncCallStatus(unsigned int lastOpenRoundBracket, unsigned int lastOpenCurlyBracket) {
     FuncCallStatus* newFuncCallStatus = (FuncCallStatus*) malloc(sizeof(FuncCallStatus));
-    newFuncCallStatus->lastOpenRoundBrackets = lastOpenRoundBrackets;
+    newFuncCallStatus->lastOpenRoundBracket = lastOpenRoundBracket;
+    newFuncCallStatus->lastOpenCurlyBracket = lastOpenCurlyBracket;
     newFuncCallStatus->parentFuncCall = currentFuncCallStatus;
     currentFuncCallStatus = newFuncCallStatus;
 }
