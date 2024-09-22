@@ -20,12 +20,13 @@ Params* createParam(char* name, DataType dataType) {
     return param;
 }
 
-void createFunction(char* name, DataType returnType, Params* params, Token* firstToken) {
+void createFunction(char* name, DataType returnType, Params* params, Token* firstToken, Token* lastToken) {
     Function* newFunction = (Function*) malloc(sizeof(Function));
     newFunction->name = strdup(name);
     newFunction->returnType = returnType;
     newFunction->params = params;
     newFunction->firstToken = firstToken;
+    newFunction->lastToken = lastToken;
     newFunction->next = NULL;
 
     if(functions == NULL) {

@@ -21,6 +21,7 @@ typedef struct _function {
     DataType returnType;
     Params* params;
     Token* firstToken;
+    Token* lastToken;
     struct _function* next;
 } Function;
 
@@ -32,7 +33,7 @@ typedef struct _func_call_status {
 
 Params* createParam(char* name, DataType dataType);
 
-void createFunction(char* name, DataType returnType, Params* params, Token* firstToken);
+void createFunction(char* name, DataType returnType, Params* params, Token* firstToken, Token* lastToken);
 
 void createFuncCallStatus(unsigned int lastOpenRoundBracket, unsigned int lastOpenCurlyBracket);
 
