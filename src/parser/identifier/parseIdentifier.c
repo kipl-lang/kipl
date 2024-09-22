@@ -21,7 +21,7 @@ void parseIdentifier() {
         char* funcName = currentToken->value;
         Function* func = getFunc(funcName);
         if(func != NULL) {
-            createFuncCallStatus(openRoundBracket);
+            createFuncCallStatus(openRoundBracket, openCurlyBracket);
             openRoundBracket++;
 
             currentToken = currentToken->next;
