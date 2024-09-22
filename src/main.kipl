@@ -8,7 +8,6 @@ func sum2: i16 => {
     out 2 + 5
 }
 
-
 func sum3: void => {
     out 2 + 5
 }
