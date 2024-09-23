@@ -90,7 +90,7 @@ Data* parseExpressions() {
                 openRoundBracket--;
 
                 if(currentFuncCallStatus != NULL &&
-                    openRoundBracket == currentFuncCallStatus->lastOpenRoundBrackets)
+                    openRoundBracket == currentFuncCallStatus->lastOpenRoundBracket)
                     break;
 
                 while(peekExpressionStack(stackOperator) != NULL &&

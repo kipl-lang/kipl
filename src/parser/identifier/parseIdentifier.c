@@ -40,7 +40,7 @@ void parseIdentifier() {
                 // funcCallStatus.isFunc = false;
                 // funcCallStatus.lastOpenRoundBrackets = 0;
             } else {
-                showError(ERROR_SYNTAX, "Expectected ')'");
+                showError(ERROR_SYNTAX, "Expected ')'");
             }
         } else {
             char errMsg[256];
