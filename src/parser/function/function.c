@@ -112,6 +112,8 @@ Token* copyTokensFromFunc(Function* func) {
             newFirstToken = newToken;
         else
             getLastToken(newFirstToken)->next = newToken;
+
+        tempToken = tempToken->next;
     }
 
     getLastToken(newFirstToken)->next =
