@@ -80,6 +80,7 @@ void parseFunction() {
                     // Parametreler tamamlandı. paramerlerden sonra parantezleri kontrol etmek gerekecek
                     if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
                         Token* firstToken = currentToken;
+                        Token* lastToken = NULL;
                         unsigned int lastOpenCurlBracket = openCurlyBracket++;
                         currentToken = currentToken->next;
                         while(currentToken->type != TOKEN_EOF) {
@@ -88,9 +89,8 @@ void parseFunction() {
                             else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
                                 openCurlyBracket--;
                                 if(lastOpenCurlBracket == openCurlyBracket) {
-                                    Token* tempToken = currentToken;
+                                    lastToken = currentToken;
                                     currentToken = currentToken->next;
-                                    tempToken->next = NULL;
                                     break;
                                 }
                             }
@@ -98,7 +98,7 @@ void parseFunction() {
                         }
 
                         //Fonksiyon oluşturuldu ve GLOBALDE functions'a atanıyor.
-                        createFunction(funcName, returnDataType, params, firstToken);
+                        createFunction(funcName, returnDataType, params, firstToken, lastToken);
                     } else {
                         showError(ERROR_SYNTAX, "Expected '{' after func clause");
                     }
