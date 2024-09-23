@@ -91,13 +91,7 @@ Function* getFunc(const char* name) {
 }
 
 Token* getLastTokenFromFunc(Function* func) {
-    Token* tempToken = func->firstToken;
-
-    while(tempToken->next != NULL) {
-        printf(tempToken->value);
-        tempToken = tempToken->next;
-    }
-    return tempToken;
+    return func->lastToken;
 }
 
 Token* copyTokensFromFunc(Function* func) {

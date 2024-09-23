@@ -16,6 +16,7 @@ var x: i8 = 58
 
 x += 1
 
-
-sum2()
-out x
+sum()
+sum()
+sum()
+sum()
