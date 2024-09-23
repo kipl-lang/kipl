@@ -100,6 +100,26 @@ Token* getLastTokenFromFunc(Function* func) {
     return tempToken;
 }
 
+Token* copyTokensFromFunc(Function* func) {
+    Token* newFirstToken = NULL;
+    Token* tempToken = func->firstToken;
+
+    while(tempToken != func->lastToken) {
+        Token* newToken =
+            makeToken(tempToken->type, tempToken->value, tempToken->fileName, tempToken->line, tempToken->column);
+
+        if(newFirstToken == NULL)
+            newFirstToken = newToken;
+        else
+            getLastToken(newFirstToken)->next = newToken;
+    }
+
+    getLastToken(newFirstToken)->next =
+        makeToken(tempToken->type, tempToken->value, tempToken->fileName, tempToken->line, tempToken->column);
+
+    return newFirstToken;
+}
+
 void freeFunctions() {
     while(functions != NULL) {
         Function* tempFunc = functions;

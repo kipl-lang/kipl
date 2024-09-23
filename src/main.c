@@ -42,6 +42,7 @@ int main(int argc, char* argv[]) {
     parser(token);                                      // parser
 
     freeTokens(token); // free memory
+
     // printf("\n");
     // system("pause");
 
