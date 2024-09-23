@@ -31,10 +31,8 @@ void parseIdentifier() {
                 openRoundBracket--;
 
                 Token* copyTokens = copyTokensFromFunc(func);
-                // BURADA HATA VAR INCELENMESI GEREKIYOR!!!!!!!!!! sonsuz döngünün kaynağı
                 Token* funcLastToken = getLastToken(copyTokens);
-                //
-                funcLastToken->next = currentToken->next; // incelenecek ikinciden itibaren asla null olmuyor
+                funcLastToken->next = currentToken->next;
                 currentToken->next = copyTokens;
                 currentToken = currentToken->next;
 
