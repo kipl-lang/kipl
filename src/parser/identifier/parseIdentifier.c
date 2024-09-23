@@ -27,6 +27,9 @@ void parseIdentifier() {
             currentToken = currentToken->next;
             currentToken = currentToken->next;
 
+            // PARAMETRE DURUMLARI KONTROL EDILECEK
+            // SONRASINDA ROUND-RIGHT TOKENDAN SONRA CURLY LEFT E GİDİLECEK VE PAREMTERLEER SCOPEA İŞLENECEK.
+
             if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
                 openRoundBracket--;
 
