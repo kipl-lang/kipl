@@ -16,7 +16,7 @@ var x: i8 = 58
 
 x += 1
 
-sum(2, 4, 6)
+sum()
 sum()
 sum()
 sum()

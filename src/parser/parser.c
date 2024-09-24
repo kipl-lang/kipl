@@ -175,6 +175,15 @@ void parser(Token* token) {
                 openCurlyBracket--;
                 freeScope();
             }
+            // function close control
+            else if(currentFuncCallStatus != NULL &&
+                openCurlyBracket == currentFuncCallStatus->lastOpenCurlyBracket+1
+                ) {
+                freeFuncCallStatus();
+                openCurlyBracket--;
+                freeScope();
+                currentToken = currentToken->next;
+            }
             // other brackets status
             else {
                 openCurlyBracket--;
