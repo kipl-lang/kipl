@@ -13,6 +13,7 @@
 #include "../error/error.h"
 #include "../expressions/data.h"
 #include "../expressions/parseExpressions.h"
+#include "../helpers/dataLinkedList/dataLinkedList.h"
 #include "../helpers/typeConversion/toString.h"
 
 void parseIdentifier() {
@@ -32,7 +33,7 @@ void parseIdentifier() {
 
 
             // gelen parametreler
-            
+            DataLinkedList* dataList = NULL;
 
             while(currentToken->type != TOKEN_EOF) {
                 if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT)
@@ -41,7 +42,23 @@ void parseIdentifier() {
                 Data* getData = parseExpressions();
 
                 if(getData != NULL) {
+                    DataLinkedList* newListItem = (DataLinkedList*) malloc(sizeof(DataLinkedList));
+                    newListItem->data = getData;
+                    newListItem->next = NULL;
 
+                    if(dataList == NULL) {
+                        dataList = newListItem;
+                    } else {
+                        DataLinkedList* tempDL = dataList;
+                        while(tempDL->next != NULL)
+                            tempDL = tempDL->next;
+                        tempDL->next = newListItem;
+                    }
+
+                    if(currentToken->type == TOKEN_COMMA)
+                        currentToken = currentToken->next;
+                    else
+                        break;
                 } else {
                     showError(ERROR_SYNTAX, "Expected argument");
                 }
