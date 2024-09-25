@@ -55,9 +55,11 @@ void parseIdentifier() {
                         tempDL->next = newListItem;
                     }
 
-                    if(currentToken->type == TOKEN_COMMA)
+                    if(currentToken->type == TOKEN_COMMA) {
                         currentToken = currentToken->next;
-                    else
+                        if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT)
+                            showError(ERROR_SYNTAX, "Expected argument after ','");
+                    } else
                         break;
                 } else {
                     showError(ERROR_SYNTAX, "Expected argument");
