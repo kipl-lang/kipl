@@ -12,7 +12,6 @@ typedef struct _data {
     char* value;
 } Data;
 
-
 Data* createData(DataType dataType, char* value);
 
 Data* getDataFromVariable(char* name);

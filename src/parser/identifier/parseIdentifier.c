@@ -30,6 +30,23 @@ void parseIdentifier() {
             // PARAMETRE DURUMLARI KONTROL EDILECEK
             // SONRASINDA ROUND-RIGHT TOKENDAN SONRA CURLY LEFT E GİDİLECEK VE PAREMTERLEER SCOPEA İŞLENECEK.
 
+
+            // gelen parametreler
+            
+
+            while(currentToken->type != TOKEN_EOF) {
+                if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT)
+                    break;
+
+                Data* getData = parseExpressions();
+
+                if(getData != NULL) {
+
+                } else {
+                    showError(ERROR_SYNTAX, "Expected argument");
+                }
+            }
+
             if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
                 openRoundBracket--;
 
@@ -39,8 +56,6 @@ void parseIdentifier() {
                 currentToken->next = copyTokens;
                 currentToken = currentToken->next;
 
-                // funcCallStatus.isFunc = false;
-                // funcCallStatus.lastOpenRoundBrackets = 0;
             } else {
                 showError(ERROR_SYNTAX, "Expected ')'");
             }
