@@ -39,6 +39,9 @@ void parseIdentifier() {
                 if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT)
                     break;
 
+                // Buradan aşağısı incelenecek. "Brackets are not balanced" hatası veriyor.
+                // Çözüm üret veya burayaı tekrar yaz.
+                // ParseExpressiondaki bracket close durumlarına da bak
                 Data* getData = parseExpressions();
 
                 if(getData != NULL) {
