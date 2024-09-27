@@ -1,24 +1,5 @@
-
-func sum: i32 => x:i32, y: i16 {
-    var x: i32 = 55
-    out x
+func sum: void => {
+   out 5
 }
 
-func sum2: i16 => {
-    out 2 + 5
-}
-
-func sum3: void => {
-    out 2 + 5
-}
-
-var x: i8 = 58
-
-x += 1
-
-sum(1)
-sum()
-sum()
-sum()
-sum2()
-sum3()
+sum((2)+5)
