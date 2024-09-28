@@ -2,4 +2,4 @@ func sum: void => {
    out 5
 }
 
-sum(1, 2)
+sum(1, 2, "kerem", (2+5))

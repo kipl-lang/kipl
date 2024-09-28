@@ -79,6 +79,14 @@ void parseIdentifier() {
                 currentToken->next = copyTokens;
                 currentToken = currentToken->next;
 
+                if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT) {
+                    createScope();
+                    openCurlyBracket++;
+                    currentToken = currentToken->next;
+
+                    // YAZILACAK parametere atamaları vs.
+                }
+
             } else {
                 showError(ERROR_SYNTAX, "Expected ')'");
             }
