@@ -20,6 +20,7 @@ Data* parseExpressions() {
     ExpressionStack* stackOperator = createExpressionStack();
     ExpressionQueue* queueOutput = createExpressionQueue();
     ExpressionElement* prevElement = NULL;
+    unsigned int lastOpenRB = openRoundBracket;
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_IDENTIFIER) {
@@ -87,11 +88,12 @@ Data* parseExpressions() {
                 openRoundBracket++;
             } else if(element->type == ELEMENT_TYPE_BRACKET_R_R) {
                 freeExpressionElement(element);
-                openRoundBracket--;
 
                 if(currentFuncCallStatus != NULL &&
-                    openRoundBracket == currentFuncCallStatus->lastOpenRoundBracket)
+                    openRoundBracket == currentFuncCallStatus->lastOpenRoundBracket+1)
                     break;
+
+                openRoundBracket--;
 
                 while(peekExpressionStack(stackOperator) != NULL &&
                     peekExpressionStack(stackOperator)->type != ELEMENT_TYPE_BRACKET_R_L
@@ -137,7 +139,8 @@ Data* parseExpressions() {
     if(currentToken->type == TOKEN_ERROR)
         showError(ERROR_SYNTAX, currentToken->value);
 
-    if(openRoundBracket != 0)
+    printf("-%d-",openRoundBracket);
+    if(openRoundBracket != lastOpenRB)
         showError(ERROR_SYNTAX, "Brackets are not balanced");
 
     // After processing all tokens, pop any remaining operators from the stack and enqueue them

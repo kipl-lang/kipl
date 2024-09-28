@@ -72,6 +72,7 @@ void parseIdentifier() {
             }
 
             if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT) {
+                openRoundBracket--;
                 Token* copyTokens = copyTokensFromFunc(func);
                 Token* funcLastToken = getLastToken(copyTokens);
                 funcLastToken->next = currentToken->next;
