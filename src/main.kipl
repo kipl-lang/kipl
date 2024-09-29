@@ -1,4 +1,4 @@
-func sum: void => {
+func sum: void => num1: i32, num2:i16 {
    out 5
 }
 

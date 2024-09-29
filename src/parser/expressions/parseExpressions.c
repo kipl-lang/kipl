@@ -139,7 +139,6 @@ Data* parseExpressions() {
     if(currentToken->type == TOKEN_ERROR)
         showError(ERROR_SYNTAX, currentToken->value);
 
-    printf("-%d-",openRoundBracket);
     if(openRoundBracket != lastOpenRB)
         showError(ERROR_SYNTAX, "Brackets are not balanced");
 

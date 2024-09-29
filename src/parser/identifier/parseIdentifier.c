@@ -39,12 +39,11 @@ void parseIdentifier() {
                 if(currentToken->type == TOKEN_BRACKET_ROUND_RIGHT)
                     break;
 
+                /* [DUZELTILDI] */
                 // Buradan aşağısı incelenecek. "Brackets are not balanced" hatası veriyor.
                 // Çözüm üret veya burayaı tekrar yaz.
                 // ParseExpressiondaki bracket close durumlarına da bak
-                printf("%d", openRoundBracket);
                 Data* getData = parseExpressions();
-                printf("%d", openRoundBracket);
 
                 if(getData != NULL) {
                     DataLinkedList* newListItem = (DataLinkedList*) malloc(sizeof(DataLinkedList));
@@ -84,7 +83,13 @@ void parseIdentifier() {
                     openCurlyBracket++;
                     currentToken = currentToken->next;
 
-                    // YAZILACAK parametere atamaları vs.
+                    Params* tempParam = func->params;
+
+                    while(tempParam != NULL) {
+                        printf(tempParam->name);
+                        tempParam = tempParam->next;
+                    }
+
                 }
 
             } else {
