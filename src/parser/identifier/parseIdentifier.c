@@ -86,7 +86,7 @@ void parseIdentifier() {
                     Params* tempParam = func->params;
 
                     while(tempParam != NULL) {
-                        printf(tempParam->name);
+                        createVariable(tempParam->dataType, tempParam->name, VAR_TYPE_VAR);
                         tempParam = tempParam->next;
                     }
 
