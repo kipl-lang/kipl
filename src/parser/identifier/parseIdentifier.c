@@ -83,14 +83,20 @@ void parseIdentifier() {
                     openCurlyBracket++;
                     currentToken = currentToken->next;
 
+                    // Create the parameters in the scope
                     Params* tempParam = func->params;
-
                     while(tempParam != NULL) {
                         createVariable(tempParam->dataType, tempParam->name, VAR_TYPE_VAR);
                         tempParam = tempParam->next;
                     }
 
-                }
+                    // yazılacak
+
+                //     DataLinkedList* tempDLItem = dataList;
+                //     while(tempDLItem != NULL) {
+                //
+                //     }
+                // }
 
             } else {
                 showError(ERROR_SYNTAX, "Expected ')'");
