@@ -39,7 +39,7 @@ void parser(Token* token) {
 
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_ERROR)
-            showError(ERROR_SYNTAX, token->value);
+            showError(ERROR_SYNTAX, currentToken->value);
 
         else if(currentToken->type == TOKEN_IMPORT)
             parseImport();
