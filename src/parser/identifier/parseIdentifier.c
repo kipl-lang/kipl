@@ -92,11 +92,12 @@ void parseIdentifier() {
 
                     // yazılacak
 
-                //     DataLinkedList* tempDLItem = dataList;
-                //     while(tempDLItem != NULL) {
-                //
-                //     }
-                // }
+                    //     DataLinkedList* tempDLItem = dataList;
+                    //     while(tempDLItem != NULL) {
+                    //
+                    //     }
+                    //
+                }
 
             } else {
                 showError(ERROR_SYNTAX, "Expected ')'");

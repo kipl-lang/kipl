@@ -3,3 +3,9 @@ func sum: void => num1: i32, num2:i16 {
 }
 
 sum(1, 2, "kerem", (2+5))
+
+const a: i32
+
+a = 5
+
+out a
