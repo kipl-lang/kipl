@@ -227,6 +227,8 @@ Token* identifierLiteral(char c)
         return makeToken(TOKEN_CONST, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "func") == 0)
         return makeToken(TOKEN_FUNC, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
+    if(strcmp(lexeme, "return") == 0)
+        return makeToken(TOKEN_RETURN, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "switch") == 0)
         return makeToken(TOKEN_SWITCH, lexeme, lexer->fileName, lexer->currentLine, lexer->currentColumn);
     if(strcmp(lexeme, "case") == 0)

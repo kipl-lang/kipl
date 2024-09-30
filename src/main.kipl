@@ -2,9 +2,12 @@ func sum: void => num1: i32, num2:f32 {
     out num1 + num2
 }
 
+func writeName: void => name: string {
+    out "\n" + name
+}
+
 func run: void => {
-    sum(5, 6)
-    run()
+    out "RUN"
 }
 
 run()

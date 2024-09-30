@@ -98,14 +98,6 @@ void parseIdentifier() {
 
                     if(tempDL != NULL)
                         showError(ERROR_RUNTIME, "wrong parameter usage");
-
-                    // yazılacak
-
-                    //     DataLinkedList* tempDLItem = dataList;
-                    //     while(tempDLItem != NULL) {
-                    //
-                    //     }
-                    //
                 }
 
             } else {
