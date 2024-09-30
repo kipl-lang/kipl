@@ -1,11 +1,5 @@
-func sum: void => num1: i32, num2:i16 {
+func sum: void => num1: i32, num2:f32 {
    out num1 + num2
 }
 
-sum(1, 2, "kerem", (2+5))
-
-const a: i32
-
-a = 5
-
-out a
+sum(5, 54.7)

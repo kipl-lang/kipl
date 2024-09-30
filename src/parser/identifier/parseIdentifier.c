@@ -85,10 +85,19 @@ void parseIdentifier() {
 
                     // Create the parameters in the scope
                     Params* tempParam = func->params;
+                    DataLinkedList* tempDL = dataList;
+
                     while(tempParam != NULL) {
+                        if(tempDL == NULL)
+                            showError(ERROR_RUNTIME, "wrong parameter usage");
                         createVariable(tempParam->dataType, tempParam->name, VAR_TYPE_VAR);
+                        assignToVariable(tempParam->name, tempDL->data);
+                        tempDL = tempDL->next;
                         tempParam = tempParam->next;
                     }
+
+                    if(tempDL != NULL)
+                        showError(ERROR_RUNTIME, "wrong parameter usage");
 
                     // yazılacak
 
