@@ -84,4 +84,6 @@ add_executable(interpreter src/main.c
         src/parser/function/parseFunction.h
         src/parser/helpers/dataLinkedList/dataLinkedList.c
         src/parser/helpers/dataLinkedList/dataLinkedList.h
+        src/parser/function/parseReturn.c
+        src/parser/function/parseReturn.h
 )
