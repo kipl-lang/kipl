@@ -102,6 +102,7 @@ void parser(Token* token) {
             parseFunction();
 
         else if(currentToken->type == TOKEN_RETURN)
+            parseReturn();
 
         else if(currentToken->type == TOKEN_OUT)
             parseOut();
