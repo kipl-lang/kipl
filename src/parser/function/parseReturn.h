@@ -5,4 +5,6 @@
 #ifndef PARSERETURN_H
 #define PARSERETURN_H
 
+void parseReturn();
+
 #endif //PARSERETURN_H

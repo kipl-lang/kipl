@@ -3,3 +3,9 @@
 //
 
 #include "parseReturn.h"
+
+#include "../global.h"
+
+void parseReturn() {
+    currentToken = currentToken->next;
+}
