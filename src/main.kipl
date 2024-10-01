@@ -8,6 +8,7 @@ func writeName: void => name: string {
 
 func run: void => {
     out "RUN"
+    return
 }
 
 run()
