@@ -11,4 +11,7 @@ func run: void => {
     return
 }
 
-run()
+func test: void => name: string, age: i8 {
+    out name + "\n"
+    out age
+}

@@ -3,6 +3,8 @@
 //
 
 #include "dataLinkedList.h"
+
+#include <stdio.h>
 #include <stdlib.h>
 
 void freeDataLinkedList(DataLinkedList* list) {
