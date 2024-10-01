@@ -5,7 +5,12 @@
 #include "parseReturn.h"
 
 #include "../global.h"
+#include "../error/error.h"
 
 void parseReturn() {
-    currentToken = currentToken->next;
+    if(currentFuncCallStatus != NULL) {
+        currentToken = currentToken->next;
+    } else {
+        showError(ERROR_RUNTIME, "return is not in a function");
+    }
 }

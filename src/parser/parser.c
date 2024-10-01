@@ -24,6 +24,7 @@
 #include "error/error.h"
 #include "for/parseFor.h"
 #include "function/parseFunction.h"
+#include "function/parseReturn.h"
 #include "identifier/parseIdentifier.h"
 #include "if/parseIf.h"
 #include "import/parseImport.h"
