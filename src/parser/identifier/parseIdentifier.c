@@ -98,6 +98,8 @@ void parseIdentifier() {
 
                     if(tempDL != NULL)
                         showError(ERROR_RUNTIME, "wrong parameter usage");
+
+                    freeDataLinkedList(dataList);
                 }
 
             } else {

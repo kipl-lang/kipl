@@ -3,3 +3,12 @@
 //
 
 #include "dataLinkedList.h"
+#include <stdlib.h>
+
+void freeDataLinkedList(DataLinkedList* list) {
+    while(list != NULL) {
+        DataLinkedList* tempList = list;
+        list = list->next;
+        free(tempList);
+    }
+}

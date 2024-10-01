@@ -12,4 +12,6 @@ typedef struct _data_linked_list {
     struct _data_linked_list* next;
 } DataLinkedList;
 
+void freeDataLinkedList(DataLinkedList* list);
+
 #endif //DATALINKEDLIST_H
