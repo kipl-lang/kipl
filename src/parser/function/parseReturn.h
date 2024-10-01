@@ -7,4 +7,6 @@
 
 void parseReturn();
 
+void funcOut();
+
 #endif //PARSERETURN_H

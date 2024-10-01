@@ -15,11 +15,25 @@ void parseReturn() {
         currentToken = currentToken->next;
         Data* getData = parseExpressions();
         if(getData == NULL) { // Void status
-            // yazılacak
+            funcOut();
         } else {
             // yazılacak
         }
     } else {
         showError(ERROR_RUNTIME, "return is not in a function");
+    }
+}
+
+void funcOut() {
+    while(currentToken->type != TOKEN_EOF) {
+        if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
+            openCurlyBracket++;
+        else if(currentToken->type == TOKEN_BRACKET_CURLY_RIGHT) {
+            if(openCurlyBracket == currentFuncCallStatus->lastOpenCurlyBracket+1)
+                break;
+            openCurlyBracket--;
+        }
+
+        currentToken = currentToken->next;
     }
 }
