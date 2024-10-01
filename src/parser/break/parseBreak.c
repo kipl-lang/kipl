@@ -29,6 +29,6 @@ void parseBreak() {
             currentToken = currentToken->next;
         }
     } else {
-        showError(ERROR_RUNTIME, "continue is not in a loop");
+        showError(ERROR_RUNTIME, "Break is not in a loop");
     }
 }
