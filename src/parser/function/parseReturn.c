@@ -24,7 +24,7 @@ void parseReturn() {
     }
 }
 
-void funcOut() {
+void funcOut() { // fonksiyonun kapanış süslü paranteznine götür
     while(currentToken->type != TOKEN_EOF) {
         if(currentToken->type == TOKEN_BRACKET_CURLY_LEFT)
             openCurlyBracket++;
