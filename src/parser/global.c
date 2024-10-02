@@ -23,3 +23,4 @@ TrueBlock* currentTrueBlock = NULL;
 Switch* currentSwitch = NULL;
 Function* functions = NULL;
 FuncCallStatus* currentFuncCallStatus = NULL;
+Data* funcReturnData = NULL;
