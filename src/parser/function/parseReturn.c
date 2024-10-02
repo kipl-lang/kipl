@@ -5,6 +5,7 @@
 #include "parseReturn.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "../global.h"
 #include "../error/error.h"
@@ -14,6 +15,8 @@ void parseReturn() {
     if(currentFuncCallStatus != NULL) {
         currentToken = currentToken->next;
         Data* getData = parseExpressions();
+        if(funcReturnData != NULL)
+            free(funcReturnData);
         funcReturnData = getData;
         funcOut();
     } else {
