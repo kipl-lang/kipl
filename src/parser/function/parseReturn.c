@@ -14,11 +14,8 @@ void parseReturn() {
     if(currentFuncCallStatus != NULL) {
         currentToken = currentToken->next;
         Data* getData = parseExpressions();
-        if(getData == NULL) { // Void status
-            funcOut();
-        } else {
-            // yazılacak
-        }
+        funcReturnData = getData;
+        funcOut();
     } else {
         showError(ERROR_RUNTIME, "return is not in a function");
     }
