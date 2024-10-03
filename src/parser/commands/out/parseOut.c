@@ -19,6 +19,6 @@ void parseOut() {
         printf(data->value);
         free(data);
     } else {
-        showError(ERROR_SYNTAX, "Expected <value> print ");
+        showError(ERROR_SYNTAX, "Expected <value> after out ");
     }
 }
