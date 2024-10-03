@@ -1,19 +1,10 @@
-func sum: void => num1: i32, num2:f32 {
-    out num1 + num2
+func getName: string => {
+    const name: string = "Kerem"
+    return name
 }
 
-func writeName: void => name: string {
-    out "\n" + name
+func run: void => name: string {
+    out name
 }
 
-func run: void => {
-    out "RUN"
-    return
-}
-
-func test: void => name: string, age: i8 {
-    out name + "\n"
-    out age
-}
-
-run()
+out ((9*8) + 8) /10

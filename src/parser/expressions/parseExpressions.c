@@ -10,6 +10,7 @@
 #include "expressionQueue.h"
 #include "expressionStack.h"
 #include "../global.h"
+#include "../parser.h"
 #include "../../token/token.h"
 #include "../error/error.h"
 #include "../helpers/typeConversion/toBool.h"

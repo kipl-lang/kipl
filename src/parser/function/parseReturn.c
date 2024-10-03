@@ -15,10 +15,12 @@ void parseReturn() {
     if(currentFuncCallStatus != NULL) {
         currentToken = currentToken->next;
         Data* getData = parseExpressions();
-        if(funcReturnData != NULL)
-            free(funcReturnData);
+
+        // if(funcReturnData != NULL)
+        //    freeData(funcReturnData);
         funcReturnData = getData;
         funcOut();
+
     } else {
         showError(ERROR_RUNTIME, "return is not in a function");
     }
