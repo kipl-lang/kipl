@@ -32,6 +32,10 @@ typedef struct _func_call_status {
     struct _func_call_status* parentFuncCall;
 } FuncCallStatus;
 
+typedef struct _is_expression_func {
+    struct _is_expression_func* parent;
+} IsExpressionFunc;
+
 Params* createParam(char* name, DataType dataType);
 
 void createFunction(char* name, DataType returnType, Params* params, Token* firstToken, Token* lastToken);
@@ -39,6 +43,10 @@ void createFunction(char* name, DataType returnType, Params* params, Token* firs
 void createFuncCallStatus(unsigned int lastOpenRoundBracket, unsigned int lastOpenCurlyBracket, DataType returnType);
 
 void freeFuncCallStatus();
+
+void createIsExpressionFunc();
+
+void freeIsExpressionFunc();
 
 bool isFuncDeclared(char* funcName);
 

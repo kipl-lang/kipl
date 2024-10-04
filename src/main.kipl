@@ -1,4 +1,9 @@
-func getName: string => n: string {
+func getName: string => {
+    const name: string = "Kerem"
+    return name
+}
+
+func getName2: string => n: string {
     const name: string = "Kerem"
     return n
 }
@@ -8,7 +13,6 @@ func run: void => name: string {
 }
 
 
-run(getName("kerme"))
+var name: string = getName2(getName2(getName2("kerem") + getName2(" Mert")))
 
-run(getName("kerem"))
-
+out getName2(name)

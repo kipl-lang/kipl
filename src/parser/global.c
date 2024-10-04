@@ -24,4 +24,4 @@ Switch* currentSwitch = NULL;
 Function* functions = NULL;
 FuncCallStatus* currentFuncCallStatus = NULL;
 Data* funcReturnData = NULL;
-bool isExpressionFunc = false;
+IsExpressionFunc* currentIEF = NULL;

@@ -44,9 +44,8 @@ Data* parseExpressions() {
 
             // func status
             if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
-                isExpressionFunc = true;
+                createIsExpressionFunc();
                 parser(currentToken);
-                isExpressionFunc = false;
 
                 Data* data = funcReturnData;
                 ExpressionElement* element = dataToExpressionElement(data);

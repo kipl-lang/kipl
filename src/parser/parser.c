@@ -35,6 +35,7 @@
 #include "switch/parseSwitch.h"
 
 void parser(Token* token) {
+
     currentToken = token;   // Current Token
     createScope();          // Current Scope
 
@@ -188,7 +189,8 @@ void parser(Token* token) {
                 openCurlyBracket--;
                 freeScope();
 
-                if(isExpressionFunc) {
+                if(currentIEF != NULL) {
+                    freeIsExpressionFunc();
                     return;
                 }
 
@@ -202,8 +204,11 @@ void parser(Token* token) {
             }
         }
 
-        else
+        else {
+            printf(funcReturnData->value);
             showError(ERROR_SYNTAX, "unkown syntax");
+        }
+
         //currentToken = currentToken->next;
     }
 
