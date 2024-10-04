@@ -1,16 +1,14 @@
 func calculate: f64 => num1: f32, num2: f32, operator: string {
-    switch (operator) {
-        case "+":
-            return num1 + num2
-        case "-":
-            return num1 - num2
-        case "*":
-            return num1 * num2
-        case "/":
-            return num / num2
-        default:
-            return 0
+    if (4) {
+        out true
     }
+    else {
+        out false
+    }
+
 }
 
 out calculate(5, 8, "+")
+
+
+// fonksiyoun içeirisnde brackets yer aldığında brackets are not balanced hatasına düşüyor. bunu düzelt

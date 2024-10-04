@@ -4,6 +4,8 @@
 
 #include "parseSwitch.h"
 
+#include <stdio.h>
+
 #include "../global.h"
 #include "../error/error.h"
 #include "../expressions/parseExpressions.h"
@@ -20,7 +22,7 @@ void parseSwitch() {
             createScope();
             currentToken = currentToken->next;
         } else {
-            showError(ERROR_SYNTAX, " expected '{' after switch clause");
+            showError(ERROR_SYNTAX, "Expected '{' after switch clause");
         }
     } else {
         showError(ERROR_SYNTAX, "Expected <value> after switch ");
