@@ -1,20 +1,16 @@
-func getName: string => {
-    const name: string = "Kerem"
-    return name
+func calculate: f64 => num1: f32, num2: f32, operator: string {
+    switch (operator) {
+        case "+":
+            return num1 + num2
+        case "-":
+            return num1 - num2
+        case "*":
+            return num1 * num2
+        case "/":
+            return num / num2
+        default:
+            return 0
+    }
 }
 
-func getName2: string => n: string {
-    const name: string = "Kerem"
-    return n
-}
-
-func run: void => name: string {
-    out name
-}
-
-
-var name: string = getName2(getName2(getName2("kerem") + getName2(" Mert")))
-
-out getName2(name)
-
-out run("kerem")
+out calculate(5, 8, "+")

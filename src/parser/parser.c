@@ -204,10 +204,9 @@ void parser(Token* token) {
             }
         }
 
-        else {
-            printf(funcReturnData->value);
+        else
             showError(ERROR_SYNTAX, "unkown syntax");
-        }
+
 
         //currentToken = currentToken->next;
     }
