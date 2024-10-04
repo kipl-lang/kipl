@@ -155,3 +155,9 @@ func sum: i16 => num1: i8, num2: i8 {
     return num1 + num2
 }
 ```
+- Bir fonksiyon, fonksiyonun ismi, ardından açma kapama parantezleri kullanılarak çağırılır.
+- Eğer fonksiyona parametre veya parametreler gönderilmesi gerekiyorsa parantezler içerisine gerekli parametreler  ',' ayıracı kullanılarak yerleştirilir.
+- Aşağıda daha önce oluşturulmuş sum fonksiyonun çağırılma işlemi yer almaktadır.
+```kipl
+out sum(2, 8)
+```
