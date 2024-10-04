@@ -187,6 +187,11 @@ void parser(Token* token) {
                 freeFuncCallStatus();
                 openCurlyBracket--;
                 freeScope();
+
+                if(isExpressionFunc) {
+                    return;
+                }
+
                 currentToken = currentToken->next;
             }
             // other brackets status

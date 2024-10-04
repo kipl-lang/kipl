@@ -32,5 +32,6 @@ extern Switch* currentSwitch;
 extern Function* functions;
 extern FuncCallStatus* currentFuncCallStatus;
 extern Data* funcReturnData;
+extern bool isExpressionFunc;
 
 #endif //GLOBAL_H

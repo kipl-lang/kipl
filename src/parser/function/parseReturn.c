@@ -16,8 +16,8 @@ void parseReturn() {
         currentToken = currentToken->next;
         Data* getData = parseExpressions();
 
-        // if(funcReturnData != NULL)
-        //    freeData(funcReturnData);
+        if(funcReturnData != NULL)
+             freeData(funcReturnData);
         funcReturnData = getData;
         funcOut();
 

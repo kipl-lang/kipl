@@ -42,15 +42,31 @@ Data* parseExpressions() {
             if(isExit)
                 break;
 
-            Data* data = getDataFromVariable(currentToken->value);
-            if(data != NULL) {
+            // func status
+            if(currentToken->next->type == TOKEN_BRACKET_ROUND_LEFT) {
+                isExpressionFunc = true;
+                parser(currentToken);
+                isExpressionFunc = false;
+
+                Data* data = funcReturnData;
                 ExpressionElement* element = dataToExpressionElement(data);
+                funcReturnData = NULL;
                 prevElement = element;
                 enqueueExpression(queueOutput, element);
-            } else { // variable is not defined
-                char errMsg[256];
-                sprintf(errMsg, "%s undefined", currentToken->value);
-                showError(ERROR_RUNTIME, errMsg);
+                // current token ile ilgili sıkıntılar var sanırım bunları incele
+            }
+            // variable status
+            else {
+                Data* data = getDataFromVariable(currentToken->value);
+                if(data != NULL) {
+                    ExpressionElement* element = dataToExpressionElement(data);
+                    prevElement = element;
+                    enqueueExpression(queueOutput, element);
+                } else { // variable is not defined
+                    char errMsg[256];
+                    sprintf(errMsg, "%s undefined", currentToken->value);
+                    showError(ERROR_RUNTIME, errMsg);
+                }
             }
         } else {
             ExpressionElement* element = tokenToExpressionElement();

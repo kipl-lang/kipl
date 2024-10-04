@@ -1,10 +1,14 @@
-func getName: string => {
+func getName: string => n: string {
     const name: string = "Kerem"
-    return name
+    return n
 }
 
 func run: void => name: string {
     out name
 }
 
-out ((9*8) + 8) /10
+
+run(getName("kerme"))
+
+run(getName("kerem"))
+
