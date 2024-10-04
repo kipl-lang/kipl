@@ -16,3 +16,5 @@ func run: void => name: string {
 var name: string = getName2(getName2(getName2("kerem") + getName2(" Mert")))
 
 out getName2(name)
+
+out run("kerem")

@@ -48,6 +48,14 @@ Data* parseExpressions() {
                 parser(currentToken);
 
                 Data* data = funcReturnData;
+                if(data == NULL) {
+                    char errMsg[256];
+                    sprintf(errMsg,
+                        "The function returning void was attempted to be used within parseExpression");
+                    showError(ERROR_RUNTIME, errMsg);
+                }
+
+
                 ExpressionElement* element = dataToExpressionElement(data);
                 funcReturnData = NULL;
                 prevElement = element;
