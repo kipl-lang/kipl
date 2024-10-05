@@ -1,6 +1,6 @@
-func calculate: void => num1: f32, num2: f32, operator: string {
+func calculate: i8 => num1: f32, num2: f32, operator: string {
     if(5>4) {
-        return 50
+        return 5055
     }
 }
 

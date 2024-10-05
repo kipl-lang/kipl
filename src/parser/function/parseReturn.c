@@ -15,7 +15,7 @@ void parseReturn() {
     if(currentFuncCallStatus != NULL) {
         currentToken = currentToken->next;
         Data* getData = parseExpressions();
-
+        returnTypeControl(getData);
 
         if(funcReturnData != NULL)
              freeData(funcReturnData);
@@ -28,6 +28,49 @@ void parseReturn() {
 }
 
 void returnTypeControl(Data* data) {
+
+    DataType returnType = currentFuncCallStatus->returnType;
+    bool isError = false;
+
+    if(data != NULL) {
+        switch(data->dataType) {
+            case TYPE_F64:
+                switch (returnType) {
+                    case TYPE_I8:
+                    case TYPE_I16:
+                    case TYPE_I32:
+                    case TYPE_I64:
+                    case TYPE_I128:
+                    case TYPE_U8:
+                    case TYPE_U16:
+                    case TYPE_U32:
+                    case TYPE_U64:
+                    case TYPE_U128:
+                    case TYPE_F32:
+                    case TYPE_F64:
+                        return;
+                    default:
+                        isError = true;
+                }
+            break;
+            case TYPE_BOOL:
+                if(returnType == TYPE_BOOL)
+                    return;
+            isError = true;
+            break;
+            case TYPE_STRING:
+                if(returnType == TYPE_STRING)
+                    return;
+            isError = true;
+            break;
+        }
+    } else {
+        if(returnType != TYPE_VOID)
+            isError = true;
+    }
+
+    if(isError)
+        showError(ERROR_RUNTIME, "Hatalı return");
 
 }
 
