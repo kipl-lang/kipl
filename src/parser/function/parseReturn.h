@@ -5,7 +5,11 @@
 #ifndef PARSERETURN_H
 #define PARSERETURN_H
 
+#include "../expressions/data.h"
+
 void parseReturn();
+
+void returnTypeControl(Data* data);
 
 void funcOut();
 

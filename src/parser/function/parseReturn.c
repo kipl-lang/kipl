@@ -16,6 +16,7 @@ void parseReturn() {
         currentToken = currentToken->next;
         Data* getData = parseExpressions();
 
+
         if(funcReturnData != NULL)
              freeData(funcReturnData);
         funcReturnData = getData;
@@ -24,6 +25,10 @@ void parseReturn() {
     } else {
         showError(ERROR_RUNTIME, "return is not in a function");
     }
+}
+
+void returnTypeControl(Data* data) {
+
 }
 
 void funcOut() { // fonksiyonun kapanış süslü paranteznine götür
