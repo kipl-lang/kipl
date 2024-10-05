@@ -32,45 +32,168 @@ void returnTypeControl(Data* data) {
     DataType returnType = currentFuncCallStatus->returnType;
     bool isError = false;
 
-    if(data != NULL) {
-        switch(data->dataType) {
-            case TYPE_F64:
-                switch (returnType) {
-                    case TYPE_I8:
-                    case TYPE_I16:
-                    case TYPE_I32:
-                    case TYPE_I64:
-                    case TYPE_I128:
-                    case TYPE_U8:
-                    case TYPE_U16:
-                    case TYPE_U32:
-                    case TYPE_U64:
-                    case TYPE_U128:
-                    case TYPE_F32:
-                    case TYPE_F64:
-                        return;
-                    default:
-                        isError = true;
-                }
-            break;
-            case TYPE_BOOL:
-                if(returnType == TYPE_BOOL)
+    switch(returnType) {
+        case TYPE_I8:
+            if(dataTypeIsNumber(data->dataType)) {
+                int8_t dataValue = (int8_t) atof(data->value);
+                if(atof(data->value) == dataValue)
                     return;
-            isError = true;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
             break;
-            case TYPE_STRING:
-                if(returnType == TYPE_STRING)
+        case TYPE_I16:
+            if(dataTypeIsNumber(data->dataType)) {
+                int16_t dataValue = (int16_t) atof(data->value);
+                if(atof(data->value) == dataValue)
                     return;
-            isError = true;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
             break;
-        }
-    } else {
-        if(returnType != TYPE_VOID)
-            isError = true;
+        case TYPE_I32:
+            if(dataTypeIsNumber(data->dataType)) {
+                int32_t dataValue = (int32_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_I64:
+            if(dataTypeIsNumber(data->dataType)) {
+                int64_t dataValue = (int64_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_I128:
+            if(dataTypeIsNumber(data->dataType)) {
+                __int128_t dataValue = (__int128_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_U8:
+            if(dataTypeIsNumber(data->dataType)) {
+                uint8_t dataValue = (uint8_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_U16:
+            if(dataTypeIsNumber(data->dataType)) {
+                uint16_t dataValue = (uint16_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_U32:
+            if(dataTypeIsNumber(data->dataType)) {
+                uint32_t dataValue = (uint32_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_U64:
+            if(dataTypeIsNumber(data->dataType)) {
+                uint64_t dataValue = (uint64_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_U128:
+            if(dataTypeIsNumber(data->dataType)) {
+                __uint128_t dataValue = (__uint128_t) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_F32:
+            if(dataTypeIsNumber(data->dataType)) {
+                float dataValue = (float) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_F64:
+            if(dataTypeIsNumber(data->dataType)) {
+                double dataValue = (double) atof(data->value);
+                if(atof(data->value) == dataValue)
+                    return;
+                showError(ERROR_RUNTIME, "invalid value range");
+            } else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a number", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+            }
+            break;
+        case TYPE_BOOL:
+            if(data->dataType == TYPE_BOOL)
+                return;
+            else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a boolean expression", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+                break;
+            }
+        case TYPE_STRING:
+            if(data->dataType == TYPE_STRING)
+                return;
+            char* errMsg[50];
+            sprintf(errMsg, "%s is not a string", data->value);
+            showError(ERROR_RUNTIME, errMsg);
+            break;
     }
-
-    if(isError)
-        showError(ERROR_RUNTIME, "Hatalı return");
 
 }
 

@@ -395,10 +395,13 @@ void assignToVariable(const char* varName, Data* data) {
             if(!strcmp(varName, tempF32Var->name)) {
                 tempF32Var->isMutable = mutableControl(tempF32Var->type, tempF32Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
-                    float dataValue = atof(data->value);
-                    tempF32Var->value = dataValue;
-                    freeData(data);
-                    return;
+                    float dataValue = (float) atof(data->value);
+                    if(atof(data->value) == dataValue) {
+                        tempF32Var->value = dataValue;
+                        freeData(data);
+                        return;
+                    }
+                    showError(ERROR_RUNTIME, "invalid value range");
                 }
 
                 char* errMsg[50];
@@ -413,10 +416,13 @@ void assignToVariable(const char* varName, Data* data) {
             if(!strcmp(varName, tempF64Var->name)) {
                 tempF64Var->isMutable = mutableControl(tempF64Var->type, tempF64Var->isMutable);
                 if(dataTypeIsNumber(data->dataType)) {
-                    double dataValue = atof(data->value);
-                    tempF64Var->value = dataValue;
-                    freeData(data);
-                    return;
+                    double dataValue = (double) atof(data->value);
+                    if(atof(data->value) == dataValue) {
+                        tempF64Var->value = dataValue;
+                        freeData(data);
+                        return;
+                    }
+                    showError(ERROR_RUNTIME, "invalid value range");
                 }
 
                 char* errMsg[50];
