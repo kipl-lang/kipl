@@ -9,3 +9,4 @@ func factorial: i32 => number: i32 {
 var result: i32 = factorial(5)
 
 out result
+
