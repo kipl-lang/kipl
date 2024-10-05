@@ -30,7 +30,6 @@ void parseReturn() {
 void returnTypeControl(Data* data) {
 
     DataType returnType = currentFuncCallStatus->returnType;
-    bool isError = false;
 
     switch(returnType) {
         case TYPE_I8:

@@ -146,6 +146,7 @@ out "Hello \\ World!"
 - Kipl programlam dilinde bir fonksiyon **func** anahtar kelimesi ile oluşturulur.
 - Func anahtar kelimesinin ardından ':' operatörü aracılığıyla fonksiyonun geriye dönüş tipi belirtilir.
 - Eğer fonskiyon geriye bir değer döndürmeyecekse dönüş tipi **void** olarak belirtilir.
+- Fonksiyonun geriye dönüş tipi geriye döndürülen değer ile örtüşmelidir.
 - Bir fonskiyon teorik olarak sınırsız sayıda parametre alabilir.
 - Fonksiyonda parametrelerin veri tipleri ayrı ayrı belirtilmelidir.
 - Fonksiyon ismi maksimum 64 karakter uzunluğunda olabilir.
