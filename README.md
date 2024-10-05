@@ -6,4 +6,4 @@
 # The Kipl Programming Language
 </div>
 
-### [Visit official website](https://kipl-lang.org)
+### [Visit the official website](https://kipl-lang.org)
