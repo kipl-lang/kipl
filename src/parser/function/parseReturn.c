@@ -189,8 +189,17 @@ void returnTypeControl(Data* data) {
         case TYPE_STRING:
             if(data->dataType == TYPE_STRING)
                 return;
+            else {
+                char* errMsg[50];
+                sprintf(errMsg, "%s is not a string", data->value);
+                showError(ERROR_RUNTIME, errMsg);
+                break;
+            }
+        case TYPE_VOID:
+            if(data == NULL)
+                return;
             char* errMsg[50];
-            sprintf(errMsg, "%s is not a string", data->value);
+            sprintf(errMsg, "%s is not a void", data->value);
             showError(ERROR_RUNTIME, errMsg);
             break;
     }

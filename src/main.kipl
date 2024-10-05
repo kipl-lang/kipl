@@ -1,11 +1,11 @@
-func calculate: string => num1: f32, num2: f32, operator: string {
-    if(5>4) {
-        return "true"
+func factorial: void => number: i32 {
+    if number == 1 {
+        return 1
+    } else {
+        return number * factorial(number-1)
     }
 }
 
-out calculate(5, 8, "+")
+var result: i32 = factorial(5)
 
-
-// fonksiyoun içeirisnde brackets yer aldığında brackets are not balanced hatasına düşüyor. bunu düzelt
-// hata currentFuncCallStatus ile ilgili bunun için çözüm üret
+out result
