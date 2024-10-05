@@ -114,7 +114,9 @@ Data* parseExpressions() {
                 freeExpressionElement(element);
 
                 if(currentFuncCallStatus != NULL &&
-                    openRoundBracket == currentFuncCallStatus->lastOpenRoundBracket+1)
+                    openRoundBracket == currentFuncCallStatus->lastOpenRoundBracket+1 &&
+                    !currentFuncCallStatus->rBIsClose
+                    )
                     break;
 
                 openRoundBracket--;

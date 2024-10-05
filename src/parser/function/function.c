@@ -50,6 +50,7 @@ void createFuncCallStatus(unsigned int lastOpenRoundBracket, unsigned int lastOp
     newFuncCallStatus->lastOpenRoundBracket = lastOpenRoundBracket;
     newFuncCallStatus->lastOpenCurlyBracket = lastOpenCurlyBracket;
     newFuncCallStatus->returnType = returnType;
+    newFuncCallStatus->rBIsClose = false;
     newFuncCallStatus->parentFuncCall = currentFuncCallStatus;
     currentFuncCallStatus = newFuncCallStatus;
 }

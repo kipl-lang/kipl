@@ -1,14 +1,11 @@
 func calculate: f64 => num1: f32, num2: f32, operator: string {
-    if (4) {
-        out true
+    if(5>4) {
+        return 50
     }
-    else {
-        out false
-    }
-
 }
 
 out calculate(5, 8, "+")
 
 
 // fonksiyoun içeirisnde brackets yer aldığında brackets are not balanced hatasına düşüyor. bunu düzelt
+// hata currentFuncCallStatus ile ilgili bunun için çözüm üret

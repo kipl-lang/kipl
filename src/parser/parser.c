@@ -207,7 +207,6 @@ void parser(Token* token) {
         else
             showError(ERROR_SYNTAX, "unkown syntax");
 
-
         //currentToken = currentToken->next;
     }
 

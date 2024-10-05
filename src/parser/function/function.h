@@ -29,6 +29,7 @@ typedef struct _func_call_status {
     unsigned int lastOpenRoundBracket;
     unsigned int lastOpenCurlyBracket;
     DataType returnType;
+    bool rBIsClose;
     struct _func_call_status* parentFuncCall;
 } FuncCallStatus;
 
