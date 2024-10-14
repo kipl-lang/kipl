@@ -11,8 +11,8 @@ add_executable(interpreter src/main.c
         src/parser/parser.c
         src/parser/parser.h
         src/parser/global.h
-        src/parser/Scope/scope.c
-        src/parser/Scope/scope.h
+        src/parser/scope/scope.c
+        src/parser/scope/scope.h
         src/parser/global.c
         src/parser/variable/variable.c
         src/parser/variable/variable.h
@@ -28,8 +28,8 @@ add_executable(interpreter src/main.c
         src/parser/expressions/parseExpressions.c
         src/parser/expressions/parseExpressions.h
         src/parser/dataType.h
-        src/parser/expressions/Data.h
-        src/parser/expressions/Data.c
+        src/parser/expressions/data.h
+        src/parser/expressions/data.c
         src/parser/helpers/typeConversion/toString.c
         src/parser/helpers/typeConversion/toString.h
         src/parser/expressions/expressionElement.c
@@ -64,7 +64,7 @@ add_executable(interpreter src/main.c
         src/parser/function/function.h
         src/builtin/out/out.c
         src/builtin/out/out.h
-        src/parser/if/TrueBlock.c
+        src/parser/if/trueBlock.c
         src/parser/if/trueBlock.h
         src/parser/commands/out/parseOut.c
         src/parser/commands/out/parseOut.h
