@@ -88,4 +88,6 @@ add_executable(interpreter src/main.c
         src/parser/function/parseReturn.h
         src/builtin/outln/outln.c
         src/builtin/outln/outln.h
+        src/builtin/kipl/kipl.c
+        src/builtin/kipl/kipl.h
 )
