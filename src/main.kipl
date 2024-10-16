@@ -3,6 +3,9 @@ func test: string => n: string  {
 }
 
 kipl()
+kipl()
+kipl()
+kipl()
 
 out test("kerem")
 

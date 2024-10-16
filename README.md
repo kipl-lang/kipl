@@ -7,3 +7,5 @@
 </div>
 
 ### [Visit the official website](https://kipl-lang.org)
+### [Docs](docs/basic)
+### [Examples](examples/README.md)
