@@ -3,11 +3,16 @@
 //
 
 #include "kipl.h"
+
+#include <stdio.h>
+
 #include "stdlib.h"
 #include "../../parser/function/function.h"
-
+#include "../../parser/global.h"
 
 void kipl() {
+    // Belki ileridde dosya isimlerini ve line column değerlerini çağrılma yerine göre güncellerim
+    // ama şu anlık bu çok önemli değil
     Token* tempToken;
     Token* tempToken2;
 
