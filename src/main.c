@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "builtin/builtin.h"
 #include "lexer/lexer.h"
 #include "parser/parser.h"
 #include "parser/helpers/file/readFile.h"
@@ -39,6 +40,7 @@ int main(int argc, char* argv[]) {
 
     char* string = readFile(filename);                  // kipl source code
     Token* token =  scanner(string, filename);    // lexer
+    builtin();                                          // builtin
     parser(token);                                      // parser
 
     freeTokens(token); // free memory

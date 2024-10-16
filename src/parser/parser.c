@@ -33,6 +33,7 @@
 #include "switch/parseCase.h"
 #include "switch/parseDefault.h"
 #include "switch/parseSwitch.h"
+#include "../builtin/builtin.h";
 
 void parser(Token* token) {
 

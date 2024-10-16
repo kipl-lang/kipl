@@ -34,6 +34,7 @@ void createFunction(char* name, DataType returnType, Params* params, Token* firs
     }
     else {
         Function* tempFunc = functions;
+
         while(tempFunc->next != NULL) {
             funcDeclaredControl(newFunction, tempFunc);
             tempFunc = tempFunc->next;
