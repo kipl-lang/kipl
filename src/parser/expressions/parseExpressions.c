@@ -60,7 +60,6 @@ Data* parseExpressions() {
                 funcReturnData = NULL;
                 prevElement = element;
                 enqueueExpression(queueOutput, element);
-                // current token ile ilgili sıkıntılar var sanırım bunları incele
             }
             // variable status
             else {
