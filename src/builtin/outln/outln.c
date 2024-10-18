@@ -3,8 +3,17 @@
 //
 
 #include "outln.h"
-#include <stdio.h>
+#include "../../parser/function/function.h"
 
 void outln() {
-    printf("merhaba\n");
+    Token* firstToken;
+    Token* tempToken;
+    Token* tempToken2;
+
+    firstToken = makeToken(TOKEN_BRACKET_CURLY_LEFT, "{", "stdin", 0, 0);
+
+    tempToken = makeToken(TOKEN_OUT, "out", "stdin", 0, 0);
+    firstToken->next = tempToken;
+
+
 }

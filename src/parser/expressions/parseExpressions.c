@@ -175,8 +175,8 @@ Data* parseExpressions() {
 
     freeExpressionStack(stackOperator); // free the stack
     freeExpressionQueue(queueOutput);   // free the queue
-
-    return data;
+    
+    return  data;
 }
 
 ExpressionElement* dataToExpressionElement(Data* data) {

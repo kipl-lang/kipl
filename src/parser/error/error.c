@@ -38,6 +38,12 @@ void showError(ErrorType type, char* desc) {
             errorTitle = "Unkown Error";
     }
 
-    printf(RED "\n%s: %s\nFile: %s\nLine: %d - Column: %d \n" RESET, errorTitle, desc, currentToken->fileName, currentToken->line, currentToken->column);
+    if (currentToken == NULL) {
+        printf(RED "\n%s: %s\n" RESET, errorTitle, desc);
+    } else {
+        printf(RED "\n%s: %s\nFile: %s\nLine: %d - Column: %d\n" RESET,
+               errorTitle, desc, currentToken->fileName, currentToken->line, currentToken->column);
+    }
+
     exit(EXIT_FAILURE);
 }

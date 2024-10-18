@@ -12,6 +12,7 @@ char* readFile(const char* filePath) {
     if(file == NULL) { // Check if the file could not be opened
         char errMsg[128];
         sprintf(errMsg, "Could not open file %s\n", filePath);
+        printf(errMsg);
         showError(ERROR_RUNTIME, errMsg);
     }
 

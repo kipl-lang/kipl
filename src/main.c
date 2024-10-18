@@ -45,8 +45,8 @@ int main(int argc, char* argv[]) {
 
     freeTokens(token); // free memory
 
-    // printf("\n");
-    // system("pause");
+    printf("\n");
+    system("pause");
 
     return 0;
 }

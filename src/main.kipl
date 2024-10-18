@@ -1,3 +1,5 @@
+import "../src/test"
+
 func test: string => n: string  {
     return  "hello" + n
 }
@@ -8,5 +10,3 @@ kipl()
 kipl()
 
 out test("kerem")
-
-

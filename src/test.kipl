@@ -1,5 +1,6 @@
 var x: i32 = 5
 
 for x < 10 {
+    out x
     x = x+ 1
 }
