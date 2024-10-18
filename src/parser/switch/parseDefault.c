@@ -6,6 +6,7 @@
 
 #include "../global.h"
 #include "../error/error.h"
+#include "stdlib.h"
 
 void parseDefault() {
     if(currentSwitch != NULL) {

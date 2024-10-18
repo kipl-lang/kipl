@@ -91,3 +91,4 @@ add_executable(interpreter src/main.c
         src/builtin/kipl/kipl.c
         src/builtin/kipl/kipl.h
 )
+target_link_libraries(interpreter m)

@@ -13,6 +13,7 @@
 **/
 
 #include "global.h"
+#include "stdlib.h"
 
 Token* currentToken = NULL;
 Scope* currentScope = NULL;
