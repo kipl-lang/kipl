@@ -1,12 +1,16 @@
-import "../src/test"
-
-func test: string => n: string  {
-    return  "hello" + n
+func fibo: i32 => step: i32 {
+out step
+    if step == 1 {
+        return 1
+    } else if step == 0 {
+        return 0
+    } else {
+        return fibo(step-1) + fibo(step-2)
+    }
 }
 
-kipl()
-kipl()
-kipl()
-kipl()
-kipl()
-out test("kerem")
+out fibo(2)
+
+// TODO: Recursive fonksiyonları iki tane aynı yerde kullanınca sonsuz döngü durumyu oluyorr.
+// TODO: parseIDentifier ve parser'da fonksiyonları incele gerekli testleri yap
+// TODO: Fibonacci harici varyasyonlar dene
