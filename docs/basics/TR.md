@@ -1,4 +1,4 @@
-# Kipl Teknik Döküman
+# Kipl Temelleri
 
 ## Değişkenler
 
